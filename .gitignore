@@ -61,6 +61,16 @@ processed_data/
 cache/
 .scrapy/
 
+# Data files (restaurant data)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+*.csv
+*.xlsx
+*.parquet
+!data/sample/
+
 # Database files
 *.db
 *.sqlite
