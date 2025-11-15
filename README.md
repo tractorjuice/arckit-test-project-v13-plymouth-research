@@ -1,76 +1,45 @@
-# ArcKit Test Project: Plymouth Research - Restaurant Menu Scraping & Analytics
+# ArcKit Test Project: Plymouth Research – Restaurant Menu Scraping & Analytics
 
-This is a test project for ArcKit v0.9.1, demonstrating enterprise architecture governance workflows for a web scraping and analytics platform.
+## Overview
+This repository demonstrates ArcKit v0.9.1 workflows for Plymouth Research’s restaurant menu scraping and analytics initiative. Use it to draft architecture principles, run governance commands, and capture research artifacts before implementation work begins. For the full business and technical brief, see `PROJECT-README.md`.
 
-## Project Details
+## Repository Layout
+- `.arckit/templates/` – 37 Markdown templates used by ArcKit commands (ADR, backlog, DPIA, Wardley map, etc.).
+- `.arckit/scripts/bash/` – helper scripts (`check-prerequisites.sh`, `create-project.sh`, `list-projects.sh`, etc.) all sourcing `common.sh`.
+- `.claude/commands/`, `.codex/prompts/`, `.gemini/commands/` – slash-command definitions for Claude Code, Codex CLI, and Gemini CLI respectively; stems stay aligned (`arckit.<topic>.md`).
+- `PROJECT-README.md` – deep dive on context, architecture, and success metrics.
+- `AGENTS.md` – contributor guide that explains structure, style, and testing expectations.
+- `projects/` – created automatically when you scaffold work with the helper script; holds numbered project directories.
 
-See [PROJECT-README.md](PROJECT-README.md) for full project context, technical architecture, and requirements.
+## Workflow Essentials
+1. Run `direnv allow` (or manually export `CODEX_HOME=.codex`) so the Codex CLI picks up repo prompts.
+2. Execute `bash ./.arckit/scripts/bash/check-prerequisites.sh` to ensure architecture principles exist before generating documents.
+3. Create delivery space via `bash ./.arckit/scripts/bash/create-project.sh --name "Menu Intelligence"`; it provisions `projects/<id>-<slug>/README.md` with the recommended command order.
+4. Use your AI assistant to trigger slash commands such as `/arckit.principles`, `/arckit.stakeholders`, and `/arckit.requirements`, saving outputs inside the new project folder.
 
-## ArcKit Commands
+## ArcKit Slash Commands
+ArcKit exposes 35 commands for architecture governance. Core ones for this project include:
+- `/arckit.principles` – define web scraping ethics, data quality, and performance rules.
+- `/arckit.stakeholders` – capture consumer, restaurant, researcher, and platform-owner outcomes.
+- `/arckit.requirements` – document scraping, ETL, dashboard, and API requirements.
+- `/arckit.data-model` – design GDPR-aware schemas for Restaurants, MenuItems, Categories.
+- `/arckit.research` – compare build/buy options (Scrapy vs BeautifulSoup, Streamlit vs Dash).
+- `/arckit.wardley` – map strategic components to guide sourcing decisions.
+- `/arckit.diagram` – output Mermaid diagrams of the data ingestion and analytics flow.
+- `/arckit.backlog` – generate the prioritized delivery backlog.
+Run `/help` inside your AI interface to see the full catalog.
 
-This project includes 35 slash commands for enterprise architecture governance:
+## Development Tips & Resources
+- Follow `AGENTS.md` for coding style, testing steps (`bash -n`, `shellcheck`), and Conventional Commit conventions (`docs: update readme`).
+- Use `rg "<term>" projects/ -g'*.md'` to update research artifacts quickly.
+- Git LFS is enforced via `.git/hooks/pre-push`; install `git-lfs` locally before contributing.
+- Keep sensitive details outside the repo—`.envrc` only exports `CODEX_HOME`.
 
-- `/arckit.principles` - Create/update architecture principles
-- `/arckit.stakeholders` - Analyze stakeholders and outcomes
-- `/arckit.requirements` - Generate comprehensive requirements
-- `/arckit.data-model` - Create data models with GDPR compliance
-- `/arckit.research` - Research technology options (build vs buy)
-- `/arckit.wardley` - Create Wardley maps for strategic decisions
-- `/arckit.diagram` - Generate Mermaid architecture diagrams
-- `/arckit.dpia` - Data Protection Impact Assessment
-- `/arckit.backlog` - Generate prioritized product backlog
-- Plus 26 more commands for governance, procurement, and compliance
-
-Run `/help` in your AI assistant to see all available commands.
-
-## Directory Structure
-
-```
-.
-├── .arckit/
-│   ├── memory/               # Global architecture principles
-│   ├── templates/            # Document templates (37 templates)
-│   └── scripts/bash/         # Helper scripts (5 scripts)
-├── .claude/commands/         # Claude Code slash commands (35 commands)
-├── .codex/prompts/           # Codex CLI prompts
-├── .gemini/commands/         # Gemini CLI commands
-└── projects/                 # Individual architecture projects
-```
-
-## Getting Started
-
-1. **Set architecture principles**:
-   ```
-   /arckit.principles Define web scraping ethics, data quality, and performance principles
-   ```
-
-2. **Analyze stakeholders**:
-   ```
-   /arckit.stakeholders Identify consumers, restaurants, researchers, platform owners
-   ```
-
-3. **Create requirements**:
-   ```
-   /arckit.requirements Document scraping, ETL, dashboard, and API requirements
-   ```
-
-4. **Design data model**:
-   ```
-   /arckit.data-model Create schema for Restaurants, MenuItems, Categories
-   ```
-
-5. **Research technology**:
-   ```
-   /arckit.research Compare Scrapy vs BeautifulSoup, Streamlit vs Dash
-   ```
-
-## ArcKit Version
-
+## ArcKit Assets
 - **Version**: v0.9.1
 - **Commands**: 35
 - **Templates**: 37
 - **Bash Scripts**: 5 (with latest path fixes)
 
 ## License
-
 This is a test repository for ArcKit demonstration purposes.
