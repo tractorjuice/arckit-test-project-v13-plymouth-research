@@ -4,11 +4,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Document ID** | ARC-001-RSCH-v1.0 |
+| **Document ID** | ARC-001-RSCH-v1.1 |
 | **Project** | Plymouth Research Restaurant Menu Analytics (Project 001) |
 | **Document Type** | Technology Research Findings |
 | **Classification** | OFFICIAL |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | DRAFT |
 | **Date** | 2025-11-15 |
 | **Owner** | Research Director, Plymouth Research |
@@ -18,6 +18,7 @@
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2025-11-15 | ArcKit AI | Initial creation from `/arckit.research` command |
+| 1.1 | 2025-11-15 | ArcKit AI | Added Firecrawl API evaluation (Option 1D) - rejected due to budget constraints and unclear ethical compliance |
 
 ---
 
@@ -35,7 +36,8 @@ This document presents research findings for data source technologies and servic
 
 ### Key Findings
 
-- **Web Scraping**: Scrapy (open source) recommended - mature, free, handles 150 restaurants efficiently
+- **Web Scraping**: Scrapy (open source) recommended over Firecrawl API - mature, free, handles 150 restaurants efficiently, explicit robots.txt compliance
+- **Firecrawl Evaluated**: £83/month API service rejected - exceeds budget, unclear ethical compliance, overkill for static HTML menus
 - **Database**: DigitalOcean Managed PostgreSQL at £15/month - best balance of cost and features
 - **Dashboard**: Streamlit Community Cloud (free hosting) - zero cost, perfect for analytics dashboards
 - **Hosting**: Render free tier for scraper service - £0/month for background jobs
@@ -186,13 +188,117 @@ Research categories dynamically identified from requirements analysis:
 
 ---
 
+### Option 1D: Buy - Firecrawl API
+
+**Description**: Web scraping API service designed for AI applications that converts websites into LLM-ready Markdown or structured JSON data.
+
+**Vendor**: Firecrawl (Mendable AI)
+- **Founded**: April 2024
+- **GitHub**: 67.8k stars, 5.3k forks, AGPL-3.0 license
+- **Customers**: 5,000+ companies
+- **Maturity**: Emerging (launched 2024, but rapid adoption)
+
+**Pricing Model**: Credit-based system (1 credit = 1 page scraped)
+
+**Cost Breakdown**:
+| Cost Item | Year 1 | Year 2 | Year 3 | Notes |
+|-----------|--------|--------|--------|-------|
+| Subscription (Standard) | £996 | £996 | £996 | £83/month for 100k credits |
+| Integration | £750 | £0 | £0 | 1 week @ £750/week |
+| Monthly Usage | £0 | £0 | £0 | Included in subscription |
+| **Total** | **£1,746** | **£996** | **£996** | |
+| **3-Year TCO** | | | **£3,738** | |
+
+**Estimated Usage**: 150 restaurants × 52 weeks = 7,800 pages/year (well within 100k credits)
+
+**Pricing Tiers**:
+- **Free**: 500 credits (testing only)
+- **Hobby**: £16/month - 3,000 credits
+- **Standard**: £83/month - 100,000 credits + 50 concurrent browsers
+- **Growth**: £333/month - 500,000 credits + 100 concurrent browsers
+- **Enterprise**: Custom pricing
+
+**Key Features**:
+- AI-powered extraction using natural language prompts
+- Handles JavaScript-heavy sites automatically
+- Returns Markdown or structured JSON (LLM-ready)
+- Built-in proxy rotation and CAPTCHA solving
+- No manual CSS selectors needed (AI understands page structure)
+- PDF and DOCX document parsing
+- Interactive scraping (click, scroll, wait)
+- Sub-1 second response times
+- 96% web coverage claim
+
+**Pros**:
+- ✅ Zero maintenance (no brittle CSS selectors to update)
+- ✅ AI adapts to website layout changes automatically
+- ✅ Handles JavaScript-rendered content out-of-box
+- ✅ Fast setup (API calls, no spider development)
+- ✅ Includes proxies, CAPTCHA solving (no extra services)
+- ✅ LLM-ready output format
+
+**Cons**:
+- ❌ **CRITICAL: £83/month exceeds £100 total budget** (violates Goal G-5)
+- ❌ Vendor lock-in (proprietary API)
+- ❌ AGPL-3.0 license (if self-hosting open source version)
+- ❌ Young product (launched April 2024, limited track record)
+- ❌ Unclear robots.txt compliance documentation
+- ❌ No explicit rate limiting control per Principle 3
+
+**Compliance & Security**:
+- ⚠️ Robots.txt compliance not explicitly documented
+- ⚠️ Rate limiting handled by vendor (no user control)
+- ✅ UK/EU data residency unclear
+- ❌ Does not align with Principle 3 (Ethical Web Scraping) - insufficient transparency
+
+**Integration**:
+- REST API with Python SDK
+- Documentation: Good (comprehensive API docs)
+- Authentication: API keys
+
+**When to Consider**:
+- Budget >£100/month
+- JavaScript-heavy dynamic websites (not the case here - static menus)
+- AI/LLM data pipelines requiring Markdown output
+- Team lacks Python scraping expertise
+
+**Why Not Recommended for This Project**:
+
+1. **Budget Violation**: £83/month subscription alone consumes 83% of £100/month total budget (Goal G-5), leaving only £17 for database, hosting, email, monitoring combined. Total solution cost would be ~£100/month operational + £750 integration = £5,550 over 3 years vs Scrapy's £3,600.
+
+2. **Ethical Compliance Unclear**: Firecrawl documentation does not explicitly confirm robots.txt compliance or provide rate limiting controls required by Principle 3 (Ethical Web Scraping - NON-NEGOTIABLE). Cannot verify "stealth mode" respects robots.txt.
+
+3. **Overkill for Static Content**: Plymouth restaurant menus are mostly static HTML (not JavaScript-heavy SPAs). Firecrawl's AI-powered extraction and JavaScript rendering add cost without benefit.
+
+4. **Principle 2 Violation**: Not open source in practical terms (AGPL-3.0 with paid API service). Scrapy's BSD license aligns better with Principle 2 (Open Source Preferred).
+
+**TCO Comparison**:
+- **Scrapy**: £3,600 (3-year)
+- **Firecrawl**: £3,738 (3-year) + vendor lock-in risk
+- **Firecrawl monthly**: £83 vs Scrapy £17 average
+
+---
+
 ### Build vs Buy Recommendation: Web Scraping
 
 **Recommended Approach**: **ADOPT: Scrapy (Open Source)**
 
 **Rationale**:
 
-Scrapy is the only option that provides built-in robots.txt compliance and per-domain rate limiting, both mandatory per Principle 3 (Ethical Web Scraping). Manual implementation with BeautifulSoup adds development risk and ongoing maintenance burden. Selenium/Playwright unnecessary for static menu HTML.
+Scrapy is the best option providing built-in robots.txt compliance (ROBOTSTXT_OBEY=True) and per-domain rate limiting (DOWNLOAD_DELAY), both mandatory per Principle 3 (Ethical Web Scraping).
+
+**Comparison Summary**:
+- **Scrapy (Recommended)**: £3,600 3-year TCO, explicit ethical compliance, fits budget
+- **BeautifulSoup**: Manual compliance implementation adds risk
+- **Selenium/Playwright**: Higher cost (£5,080), overkill for static HTML
+- **Firecrawl**: £3,738 3-year TCO BUT £83/month violates £100 budget constraint (Goal G-5), unclear robots.txt compliance, unnecessary AI features for static content
+
+While Firecrawl offers innovative AI-powered extraction, it fails on three critical requirements:
+1. **Budget**: £83/month alone exceeds 83% of £100 total budget
+2. **Ethical Transparency**: No explicit robots.txt compliance controls (Principle 3 NON-NEGOTIABLE)
+3. **Principle 2 Alignment**: Paid API service vs open source preference
+
+Scrapy's transparent ethical controls and zero subscription cost make it the only viable choice.
 
 **Key Decision Factors**:
 - ✅ **Principle 3 Compliance**: Scrapy has ROBOTSTXT_OBEY=True setting (one line config)
