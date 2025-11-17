@@ -66,7 +66,9 @@ def load_restaurants() -> pd.DataFrame:
             address,
             website_url,
             scraped_at,
-            last_updated
+            last_updated,
+            data_source,
+            scraping_method
         FROM restaurants
         WHERE is_active = 1
         ORDER BY name
@@ -259,22 +261,26 @@ def main():
     # ========================================================================
     # Key Metrics
     # ========================================================================
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
         st.metric("🍽️ Restaurants", len(restaurants_df))
 
     with col2:
-        st.metric("📋 Menu Items", len(filtered_menu))
+        real_count = (restaurants_df['data_source'] == 'real_scraped').sum()
+        st.metric("✓ Real Data", real_count, help="Restaurants with actual scraped menus")
 
     with col3:
+        st.metric("📋 Menu Items", len(filtered_menu))
+
+    with col4:
         if not filtered_menu['price_gbp'].isna().all():
             avg_price = filtered_menu['price_gbp'].mean()
             st.metric("💰 Avg Price", f"£{avg_price:.2f}")
         else:
             st.metric("💰 Avg Price", "N/A")
 
-    with col4:
+    with col5:
         unique_categories = filtered_menu['category'].nunique()
         st.metric("🏷️ Categories", unique_categories)
 
@@ -306,6 +312,21 @@ def main():
                 with st.expander(f"**{restaurant}** ({len(restaurant_items)} items)", expanded=False):
                     # Restaurant info
                     restaurant_info = restaurants_df[restaurants_df['name'] == restaurant].iloc[0]
+
+                    # Data source badge
+                    data_source = restaurant_info.get('data_source', 'synthetic')
+                    if data_source == 'real_scraped':
+                        badge_color = "#4CAF50"  # Green
+                        badge_text = "✓ REAL DATA"
+                        badge_title = f"Scraped Method: {restaurant_info.get('scraping_method', 'unknown')}"
+                    else:
+                        badge_color = "#FF9800"  # Orange
+                        badge_text = "⚠ SYNTHETIC DATA"
+                        badge_title = "This is test/demonstration data, not real menu information"
+
+                    st.markdown(f"<span style='background: {badge_color}; color: white; padding: 3px 10px; border-radius: 3px; font-size: 0.85em; font-weight: bold;' title='{badge_title}'>{badge_text}</span>", unsafe_allow_html=True)
+                    st.markdown("")  # Spacer
+
                     col_a, col_b, col_c = st.columns(3)
                     with col_a:
                         st.markdown(f"**Cuisine:** {restaurant_info['cuisine_type']}")
@@ -466,11 +487,35 @@ def main():
                 st.metric("Average Price", f"£{menu_df['price_gbp'].mean():.2f}")
 
         with col2:
+            st.subheader("🔍 Data Source Summary")
+
+            # Count real vs synthetic data
+            real_count = (restaurants_df['data_source'] == 'real_scraped').sum()
+            synthetic_count = (restaurants_df['data_source'] == 'synthetic').sum()
+
+            col_real, col_synth = st.columns(2)
+            with col_real:
+                st.metric("✓ Real Data", real_count, help="Restaurants with actual scraped menu data")
+            with col_synth:
+                st.metric("⚠ Synthetic Data", synthetic_count, help="Restaurants with test/demonstration data")
+
+            # Show real data restaurants
+            if real_count > 0:
+                st.markdown("**Restaurants with Real Data:**")
+                real_restaurants = restaurants_df[restaurants_df['data_source'] == 'real_scraped'][['name', 'scraping_method']].copy()
+                real_restaurants.columns = ['Restaurant Name', 'Scraping Method']
+                st.dataframe(
+                    real_restaurants,
+                    hide_index=True,
+                    use_container_width=True
+                )
+
             st.subheader("🏪 Restaurant Details")
             # Create display dataframe with formatted dates
-            display_df = restaurants_df[['name', 'cuisine_type', 'price_range', 'scraped_at']].copy()
+            display_df = restaurants_df[['name', 'cuisine_type', 'price_range', 'scraped_at', 'data_source']].copy()
             display_df['scraped_at'] = pd.to_datetime(display_df['scraped_at'], format='ISO8601').dt.strftime('%Y-%m-%d')
-            display_df.columns = ['Restaurant', 'Cuisine', 'Price Range', 'Data Collected']
+            display_df['data_source'] = display_df['data_source'].apply(lambda x: '✓ Real' if x == 'real_scraped' else '⚠ Synthetic')
+            display_df.columns = ['Restaurant', 'Cuisine', 'Price Range', 'Data Collected', 'Data Type']
             st.dataframe(
                 display_df,
                 hide_index=True,

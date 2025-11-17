@@ -116,6 +116,7 @@ class Database:
                     UPDATE restaurants
                     SET name = ?, address = ?, cuisine_type = ?,
                         price_range = ?, last_updated = ?,
+                        data_source = ?, scraping_method = ?,
                         updated_at = CURRENT_TIMESTAMP
                     WHERE restaurant_id = ?
                 """, (
@@ -124,6 +125,8 @@ class Database:
                     restaurant_data.get('cuisine_type'),
                     restaurant_data.get('price_range'),
                     datetime.now().isoformat(),
+                    restaurant_data.get('data_source', 'synthetic'),
+                    restaurant_data.get('scraping_method', 'synthetic_generation'),
                     restaurant_id
                 ))
                 logger.info(f"Updated restaurant: {restaurant_data['name']} (ID: {restaurant_id})")
@@ -132,8 +135,9 @@ class Database:
                 cursor.execute("""
                     INSERT INTO restaurants (
                         name, address, website_url, cuisine_type,
-                        price_range, scraped_at, last_updated
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                        price_range, scraped_at, last_updated,
+                        data_source, scraping_method
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, (
                     restaurant_data['name'],
                     restaurant_data.get('address'),
@@ -141,7 +145,9 @@ class Database:
                     restaurant_data.get('cuisine_type'),
                     restaurant_data.get('price_range'),
                     datetime.now().isoformat(),
-                    datetime.now().isoformat()
+                    datetime.now().isoformat(),
+                    restaurant_data.get('data_source', 'synthetic'),
+                    restaurant_data.get('scraping_method', 'synthetic_generation')
                 ))
                 restaurant_id = cursor.lastrowid
                 logger.info(f"✅ Inserted restaurant: {restaurant_data['name']} (ID: {restaurant_id})")
