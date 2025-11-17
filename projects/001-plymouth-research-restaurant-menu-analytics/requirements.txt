@@ -36,6 +36,12 @@ pytest>=7.4.3           # Test framework
 pytest-cov>=4.1.0       # Coverage reports
 responses>=0.24.1       # Mock HTTP responses
 
+# Dashboard & Visualization (Sprint 3)
+streamlit>=1.29.0       # Interactive dashboard framework
+plotly>=5.18.0          # Interactive charts
+pandas>=2.1.4           # Data manipulation
+altair>=5.2.0           # Alternative visualization library
+
 # Development
 black>=23.12.0          # Code formatting
 flake8>=6.1.0           # Linting
