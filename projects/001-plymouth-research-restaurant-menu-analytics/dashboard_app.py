@@ -175,7 +175,6 @@ def main():
 
     # Header
     st.title("🍽️ Plymouth Restaurant Menu Analytics")
-    st.markdown("**Discover and compare menus from 3+ Plymouth restaurants**")
 
     # Load data
     try:
@@ -185,6 +184,10 @@ def main():
     except Exception as e:
         st.error(f"❌ Failed to load data: {e}")
         st.stop()
+
+    # Dynamic subtitle with restaurant count
+    restaurant_count = len(restaurants_df)
+    st.markdown(f"**Discover and compare menus from {restaurant_count} Plymouth restaurants**")
 
     # Sidebar - Filters
     st.sidebar.header("🔍 Search & Filter")
@@ -300,14 +303,25 @@ def main():
             for restaurant in filtered_menu['restaurant_name'].unique():
                 restaurant_items = filtered_menu[filtered_menu['restaurant_name'] == restaurant]
 
-                with st.expander(f"**{restaurant}** ({len(restaurant_items)} items)", expanded=True):
+                with st.expander(f"**{restaurant}** ({len(restaurant_items)} items)", expanded=False):
                     # Restaurant info
                     restaurant_info = restaurants_df[restaurants_df['name'] == restaurant].iloc[0]
-                    col_a, col_b = st.columns(2)
+                    col_a, col_b, col_c = st.columns(3)
                     with col_a:
                         st.markdown(f"**Cuisine:** {restaurant_info['cuisine_type']}")
                     with col_b:
                         st.markdown(f"**Price Range:** {restaurant_info['price_range']}")
+                    with col_c:
+                        # Parse timestamp and format nicely
+                        import datetime
+                        try:
+                            scraped_date = datetime.datetime.fromisoformat(restaurant_info['scraped_at']).strftime('%Y-%m-%d')
+                            st.markdown(f"**Scraped:** {scraped_date}")
+                        except:
+                            st.markdown(f"**Scraped:** {restaurant_info['scraped_at'][:10]}")
+
+                    # Data source information
+                    st.markdown(f"<small>📍 Source: <a href='{restaurant_info['website_url']}' target='_blank'>{restaurant_info['website_url']}</a></small>", unsafe_allow_html=True)
 
                     # Group items by category
                     for category in restaurant_items['category'].unique():
@@ -453,8 +467,12 @@ def main():
 
         with col2:
             st.subheader("🏪 Restaurant Details")
+            # Create display dataframe with formatted dates
+            display_df = restaurants_df[['name', 'cuisine_type', 'price_range', 'scraped_at']].copy()
+            display_df['scraped_at'] = pd.to_datetime(display_df['scraped_at'], format='ISO8601').dt.strftime('%Y-%m-%d')
+            display_df.columns = ['Restaurant', 'Cuisine', 'Price Range', 'Data Collected']
             st.dataframe(
-                restaurants_df[['name', 'cuisine_type', 'price_range']],
+                display_df,
                 hide_index=True,
                 use_container_width=True
             )
@@ -475,9 +493,36 @@ def main():
         else:
             st.info("No dietary tag data available")
 
-        # Data freshness
-        st.subheader("🕐 Data Freshness")
-        st.info(f"Last scraped: {restaurants_df['last_updated'].max()}")
+        # Data freshness and sources
+        st.subheader("🕐 Data Provenance & Freshness")
+
+        # Create source details table
+        source_df = restaurants_df[['name', 'website_url', 'scraped_at']].copy()
+        source_df['scraped_at'] = pd.to_datetime(source_df['scraped_at']).dt.strftime('%Y-%m-%d %H:%M')
+        source_df.columns = ['Restaurant', 'Data Source', 'Last Updated']
+
+        st.dataframe(
+            source_df,
+            hide_index=True,
+            use_container_width=True,
+            column_config={
+                "Data Source": st.column_config.LinkColumn(
+                    "Data Source",
+                    help="Original source website",
+                    max_chars=50
+                )
+            }
+        )
+
+        # Summary info
+        latest_update = pd.to_datetime(restaurants_df['last_updated'], format='ISO8601').max()
+        oldest_update = pd.to_datetime(restaurants_df['last_updated'], format='ISO8601').min()
+
+        col_x, col_y = st.columns(2)
+        with col_x:
+            st.info(f"📅 Most recent update: {latest_update.strftime('%Y-%m-%d %H:%M')}")
+        with col_y:
+            st.info(f"📆 Oldest data: {oldest_update.strftime('%Y-%m-%d %H:%M')}")
 
 
 # ============================================================================
