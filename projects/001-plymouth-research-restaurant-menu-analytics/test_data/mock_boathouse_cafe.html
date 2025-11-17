@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Boathouse Cafe - Plymouth Menu</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+        .dish-name { font-weight: bold; }
+        .dish-price { color: #2c5f2d; font-weight: bold; }
+        .dietary-badge { background: #4CAF50; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.8em; margin-left: 5px; }
+        .vegan { background: #388E3C; }
+        .vegetarian { background: #66BB6A; }
+        .gluten-free { background: #FFA726; }
+    </style>
+</head>
+<body>
+    <h1>The Boathouse Cafe</h1>
+    <p>Waterfront dining with locally sourced ingredients</p>
+
+    <h2>Our Menu</h2>
+
+    <!-- Breakfast Section -->
+    <h3>Breakfast (Served until 11:30am)</h3>
+    <table class="menu-table">
+        <thead>
+            <tr>
+                <th>Dish</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="dish-name">Full English Breakfast</td>
+                <td class="dish-description">Bacon, sausages, eggs, beans, mushrooms, tomato, toast</td>
+                <td class="dish-price">£9.95</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Smoked Salmon & Scrambled Eggs</td>
+                <td class="dish-description">Scottish smoked salmon with free-range scrambled eggs on sourdough</td>
+                <td class="dish-price">£11.50</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Vegetarian Breakfast <span class="dietary-badge vegetarian">V</span></td>
+                <td class="dish-description">Veggie sausages, eggs, beans, mushrooms, tomato, toast</td>
+                <td class="dish-price">£8.95</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Vegan Breakfast <span class="dietary-badge vegan">VG</span></td>
+                <td class="dish-description">Vegan sausages, beans, mushrooms, tomato, avocado, toast</td>
+                <td class="dish-price">£9.50</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Pancakes with Maple Syrup <span class="dietary-badge vegetarian">V</span></td>
+                <td class="dish-description">Fluffy American-style pancakes with fresh berries</td>
+                <td class="dish-price">£7.95</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Lunch Section -->
+    <h3>Lunch (Served 12pm-3pm)</h3>
+    <table class="menu-table">
+        <thead>
+            <tr>
+                <th>Dish</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="dish-name">Fish & Chips</td>
+                <td class="dish-description">Fresh haddock in crispy batter with hand-cut chips</td>
+                <td class="dish-price">£13.50</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Crab Sandwich</td>
+                <td class="dish-description">Freshly picked Devon crab with lemon mayo on white bread</td>
+                <td class="dish-price">£10.95</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Boathouse Burger</td>
+                <td class="dish-description">6oz beef patty, bacon, cheese, lettuce, tomato, chips</td>
+                <td class="dish-price">£12.95</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Halloumi Burger <span class="dietary-badge vegetarian">V</span></td>
+                <td class="dish-description">Grilled halloumi, roasted peppers, hummus, salad, chips</td>
+                <td class="dish-price">£11.50</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Caesar Salad <span class="dietary-badge gluten-free">GF*</span></td>
+                <td class="dish-description">Romaine lettuce, parmesan, croutons, Caesar dressing (add chicken £3)</td>
+                <td class="dish-price">£8.95</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Soup of the Day <span class="dietary-badge vegan">VG</span></td>
+                <td class="dish-description">Chef's daily soup with crusty bread</td>
+                <td class="dish-price">£6.50</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Sides Section -->
+    <h3>Sides</h3>
+    <table class="menu-table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="dish-name">Hand-Cut Chips <span class="dietary-badge vegan">VG</span></td>
+                <td class="dish-description">Cooked in vegetable oil</td>
+                <td class="dish-price">£3.50</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Sweet Potato Fries <span class="dietary-badge vegan">VG</span></td>
+                <td class="dish-description">Crispy sweet potato fries</td>
+                <td class="dish-price">£4.00</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Side Salad <span class="dietary-badge vegan">VG</span> <span class="dietary-badge gluten-free">GF</span></td>
+                <td class="dish-description">Mixed leaves with house dressing</td>
+                <td class="dish-price">£3.00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Desserts Section -->
+    <h3>Desserts</h3>
+    <table class="menu-table">
+        <thead>
+            <tr>
+                <th>Dessert</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="dish-name">Chocolate Fudge Cake <span class="dietary-badge vegetarian">V</span></td>
+                <td class="dish-description">Rich chocolate cake with vanilla ice cream</td>
+                <td class="dish-price">£6.95</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Lemon Tart <span class="dietary-badge vegetarian">V</span></td>
+                <td class="dish-description">Tangy lemon tart with raspberry coulis</td>
+                <td class="dish-price">£6.50</td>
+            </tr>
+            <tr>
+                <td class="dish-name">Ice Cream Selection <span class="dietary-badge vegetarian">V</span> <span class="dietary-badge gluten-free">GF</span></td>
+                <td class="dish-description">Choose 3 scoops: vanilla, chocolate, strawberry, mint</td>
+                <td class="dish-price">£5.50</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <footer>
+        <p><small>* GF = Gluten-Free option available. Please inform staff of allergies.</small></p>
+        <p><small>V = Vegetarian | VG = Vegan | GF = Gluten-Free</small></p>
+    </footer>
+</body>
+</html>
