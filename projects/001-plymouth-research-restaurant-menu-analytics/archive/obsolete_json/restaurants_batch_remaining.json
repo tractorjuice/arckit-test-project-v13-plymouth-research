@@ -1,0 +1,206 @@
+[
+  {
+    "restaurant": {
+      "name": "TGI Fridays Plymouth",
+      "address": "Barbican Leisure Park, Plymouth, PL4 0LG",
+      "website_url": "https://www.tgifridays.co.uk/restaurants/plymouth",
+      "cuisine_type": "American",
+      "price_range": "£10-22"
+    },
+    "menu_items": [
+      {"name": "Jack Daniel's Ribs", "description": "Glazed ribs with fries", "price_gbp": 18.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Burger & Fries", "description": "Classic beef burger", "price_gbp": 13.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Cajun Chicken Pasta", "description": "Spicy pasta with chicken", "price_gbp": 14.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Loaded Potato Skins", "description": "With cheese and bacon", "price_gbp": 8.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Buffalo Wings", "description": "Spicy chicken wings", "price_gbp": 9.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Brownie Obsession", "description": "Warm brownie with ice cream", "price_gbp": 7.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Harvester Plymouth",
+      "address": "Marsh Mills, Plymouth, PL6 8NH",
+      "website_url": "https://www.harvester.co.uk/restaurants/southwest/harvestertransit",
+      "cuisine_type": "British Family Dining",
+      "price_range": "£9-18"
+    },
+    "menu_items": [
+      {"name": "Rotisserie Chicken", "description": "Half chicken with sides", "price_gbp": 14.99, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Mixed Grill", "description": "Steak, sausage, chicken, ribs", "price_gbp": 17.99, "category": "Mains", "dietary_tags": []},
+      {"name": "BBQ Ribs", "description": "Rack of ribs", "price_gbp": 15.99, "category": "Mains", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Battered fish with chips", "price_gbp": 13.49, "category": "Mains", "dietary_tags": []},
+      {"name": "Unlimited Salad Bar", "description": "Self-service salad", "price_gbp": 6.99, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Chocolate Fudge Cake", "description": "With ice cream", "price_gbp": 6.49, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Toby Carvery Plymouth",
+      "address": "Marsh Mills Retail Park, Plymouth, PL6 8LD",
+      "website_url": "https://www.tobycarvery.co.uk/restaurants/southwest/plymouthmarshmill",
+      "cuisine_type": "Carvery",
+      "price_range": "£8-15"
+    },
+    "menu_items": [
+      {"name": "Carvery - 2 Meats", "description": "Roast meats with vegetables", "price_gbp": 11.99, "category": "Carvery", "dietary_tags": []},
+      {"name": "Carvery - 3 Meats", "description": "Choice of three meats", "price_gbp": 13.49, "category": "Carvery", "dietary_tags": []},
+      {"name": "Vegetable Carvery", "description": "Vegetarian roast", "price_gbp": 10.99, "category": "Carvery", "dietary_tags": ["vegetarian"]},
+      {"name": "Gammon Steak", "description": "With egg and chips", "price_gbp": 12.99, "category": "Mains", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Battered cod", "price_gbp": 11.99, "category": "Mains", "dietary_tags": []},
+      {"name": "Apple Crumble", "description": "With custard", "price_gbp": 5.99, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Côte Brasserie Plymouth",
+      "address": "Barbican Leisure Park, Plymouth, PL4 0LG",
+      "website_url": "https://www.cote.co.uk/restaurants/plymouth",
+      "cuisine_type": "French Brasserie",
+      "price_range": "£12-26"
+    },
+    "menu_items": [
+      {"name": "Steak Frites", "description": "Sirloin with fries", "price_gbp": 21.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Moules Marinière", "description": "Mussels in white wine", "price_gbp": 17.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Boeuf Bourguignon", "description": "Beef in red wine", "price_gbp": 18.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Croque Monsieur", "description": "Grilled ham and cheese", "price_gbp": 11.95, "category": "Light Bites", "dietary_tags": []},
+      {"name": "French Onion Soup", "description": "With cheese crouton", "price_gbp": 7.50, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Tarte au Citron", "description": "Lemon tart", "price_gbp": 7.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Carluccio's Plymouth",
+      "address": "Drake Circus, Plymouth, PL1 1EA",
+      "website_url": "https://www.carluccios.com/restaurants/plymouth/",
+      "cuisine_type": "Italian",
+      "price_range": "£11-20"
+    },
+    "menu_items": [
+      {"name": "Spaghetti Carbonara", "description": "Classic carbonara", "price_gbp": 13.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Pollo Milanese", "description": "Breaded chicken with spaghetti", "price_gbp": 16.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Risotto ai Funghi", "description": "Mushroom risotto", "price_gbp": 14.95, "category": "Pasta", "dietary_tags": ["vegetarian", "gluten-free"]},
+      {"name": "Antipasti Board", "description": "Italian meats and cheese", "price_gbp": 12.95, "category": "Sharing", "dietary_tags": []},
+      {"name": "Bruschetta", "description": "Tomato and basil", "price_gbp": 7.50, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Tiramisu", "description": "Classic Italian dessert", "price_gbp": 7.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Pizza Hut Plymouth",
+      "address": "Marsh Mills Retail Park, Plymouth",
+      "website_url": "https://www.pizzahut.co.uk/restaurants/plymouth",
+      "cuisine_type": "Pizza Chain",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {"name": "Margherita Pizza", "description": "Classic cheese pizza", "price_gbp": 10.99, "category": "Pizza", "dietary_tags": ["vegetarian"]},
+      {"name": "Pepperoni Feast", "description": "Double pepperoni", "price_gbp": 13.99, "category": "Pizza", "dietary_tags": []},
+      {"name": "Meat Feast", "description": "Four meat toppings", "price_gbp": 14.99, "category": "Pizza", "dietary_tags": []},
+      {"name": "Vegetarian Supreme", "description": "Mixed vegetables", "price_gbp": 13.49, "category": "Pizza", "dietary_tags": ["vegetarian"]},
+      {"name": "Garlic Bread", "description": "With cheese", "price_gbp": 5.99, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Ice Cream Factory", "description": "Build your own sundae", "price_gbp": 6.99, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Domino's Pizza Plymouth",
+      "address": "Multiple locations, Plymouth",
+      "website_url": "https://www.dominos.co.uk/",
+      "cuisine_type": "Pizza Delivery",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Pepperoni Passion", "description": "Double pepperoni", "price_gbp": 14.99, "category": "Pizza", "dietary_tags": []},
+      {"name": "Texas BBQ", "description": "BBQ base with meats", "price_gbp": 15.99, "category": "Pizza", "dietary_tags": []},
+      {"name": "Vegi Supreme", "description": "Vegetarian pizza", "price_gbp": 14.99, "category": "Pizza", "dietary_tags": ["vegetarian"]},
+      {"name": "Chicken Strippers", "description": "Breaded chicken strips", "price_gbp": 6.99, "category": "Sides", "dietary_tags": []},
+      {"name": "Potato Wedges", "description": "Seasoned wedges", "price_gbp": 4.99, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Cookies", "description": "Chocolate chip cookies", "price_gbp": 5.99, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Papa John's Plymouth",
+      "address": "Various locations, Plymouth",
+      "website_url": "https://www.papajohns.co.uk/",
+      "cuisine_type": "Pizza Delivery",
+      "price_range": "£10-18"
+    },
+    "menu_items": [
+      {"name": "The Works", "description": "All the toppings", "price_gbp": 16.99, "category": "Pizza", "dietary_tags": []},
+      {"name": "Pepperoni Original", "description": "Classic pepperoni", "price_gbp": 13.99, "category": "Pizza", "dietary_tags": []},
+      {"name": "Garden Party", "description": "Vegetarian pizza", "price_gbp": 14.99, "category": "Pizza", "dietary_tags": ["vegetarian"]},
+      {"name": "Chicken Wings", "description": "Buffalo or BBQ", "price_gbp": 7.99, "category": "Sides", "dietary_tags": []},
+      {"name": "Garlic Knots", "description": "With marinara", "price_gbp": 5.99, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Cookie Pizza", "description": "Giant cookie", "price_gbp": 6.99, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Wetherspoons - The Gipsy Moth",
+      "address": "2 The Barbican, Plymouth, PL1 2LS",
+      "website_url": "https://www.jdwetherspoon.com/pubs/all-pubs/england/devon/the-gipsy-moth-plymouth",
+      "cuisine_type": "Pub Chain",
+      "price_range": "£5-12"
+    },
+    "menu_items": [
+      {"name": "Fish & Chips", "description": "Battered cod", "price_gbp": 9.99, "category": "Mains", "dietary_tags": []},
+      {"name": "Chicken Tikka Masala", "description": "With rice and naan", "price_gbp": 8.99, "category": "Curry", "dietary_tags": []},
+      {"name": "Burger & Chips", "description": "Beef burger", "price_gbp": 7.99, "category": "Burgers", "dietary_tags": []},
+      {"name": "All-Day Breakfast", "description": "Full English", "price_gbp": 6.99, "category": "Breakfast", "dietary_tags": []},
+      {"name": "Nachos", "description": "Loaded nachos", "price_gbp": 6.49, "category": "Sharing", "dietary_tags": ["vegetarian"]},
+      {"name": "Chocolate Fudge Cake", "description": "With ice cream", "price_gbp": 5.49, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Royal Fleet Club",
+      "address": "The Hoe, Plymouth, PL1 2BG",
+      "website_url": "https://www.theroyalfleetclub.co.uk/",
+      "cuisine_type": "Club Restaurant",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Club Sandwich", "description": "Triple-decker sandwich", "price_gbp": 11.95, "category": "Light Bites", "dietary_tags": []},
+      {"name": "Sirloin Steak", "description": "8oz with fries", "price_gbp": 18.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Fish & Chips", "description": "Fresh fish", "price_gbp": 14.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Caesar Salad", "description": "With chicken", "price_gbp": 12.95, "category": "Salads", "dietary_tags": []},
+      {"name": "Soup of the Day", "description": "With bread", "price_gbp": 6.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Sticky Toffee Pudding", "description": "With custard", "price_gbp": 7.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Dock & Dine",
+      "address": "Sutton Harbour, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Seafood & British",
+      "price_range": "£12-24"
+    },
+    "menu_items": [
+      {"name": "Seafood Platter", "description": "Mixed seafood", "price_gbp": 24.95, "category": "Seafood", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Fresh local fish", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Mussels & Frites", "description": "Steamed mussels with fries", "price_gbp": 16.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Grilled Sea Bream", "description": "With vegetables", "price_gbp": 19.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Prawn Cocktail", "description": "Classic starter", "price_gbp": 8.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Lemon Posset", "description": "Citrus dessert", "price_gbp": 7.50, "category": "Desserts", "dietary_tags": ["vegetarian", "gluten-free"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Greyhound",
+      "address": "Crownhill, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Pub",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {"name": "Sunday Roast", "description": "Traditional roast", "price_gbp": 13.95, "category": "Roasts", "dietary_tags": []},
+      {"name": "Steak & Ale Pie", "description": "With mash", "price_gbp": 12.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Beer-battered", "price_gbp": 13.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Chicken Wings", "description": "Various sauces", "price_gbp": 7.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Onion Rings", "description": "Beer-battered rings", "price_gbp": 4.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Brownie Sundae", "description": "With ice cream", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  }
+]

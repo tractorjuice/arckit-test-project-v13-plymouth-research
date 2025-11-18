@@ -1,0 +1,172 @@
+[
+  {
+    "restaurant": {
+      "name": "Wagamama Plymouth",
+      "address": "Drake Circus, Plymouth, PL1 1EA",
+      "website_url": "https://www.wagamama.com/restaurants/plymouth",
+      "cuisine_type": "Japanese/Pan-Asian",
+      "price_range": "£10-18"
+    },
+    "menu_items": [
+      {"name": "Chicken Katsu Curry", "description": "Breaded chicken with curry sauce", "price_gbp": 13.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Yasai Katsu Curry", "description": "Vegetable curry", "price_gbp": 12.95, "category": "Mains", "dietary_tags": ["vegan"]},
+      {"name": "Chicken Ramen", "description": "Noodle soup with chicken", "price_gbp": 13.50, "category": "Ramen", "dietary_tags": []},
+      {"name": "Edamame", "description": "Steamed soybeans", "price_gbp": 4.95, "category": "Sides", "dietary_tags": ["vegan", "gluten-free"]},
+      {"name": "Gyoza", "description": "Fried dumplings", "price_gbp": 6.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Chocolate Layer Cake", "description": "With ice cream", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Zizzi Plymouth",
+      "address": "Barbican Leisure Park, Plymouth, PL4 0LG",
+      "website_url": "https://www.zizzi.co.uk/restaurants/plymouth",
+      "cuisine_type": "Italian",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Rustica Piccante", "description": "Spicy pepperoni pizza", "price_gbp": 13.95, "category": "Pizza", "dietary_tags": []},
+      {"name": "Spaghetti Carbonara", "description": "Bacon, egg, parmesan", "price_gbp": 12.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Casareccia Pollo Piccante", "description": "Spicy chicken pasta", "price_gbp": 14.25, "category": "Pasta", "dietary_tags": []},
+      {"name": "Vegan Margherita", "description": "Dairy-free cheese pizza", "price_gbp": 11.95, "category": "Pizza", "dietary_tags": ["vegan"]},
+      {"name": "Garlic Bread with Cheese", "description": "Stone-baked bread", "price_gbp": 6.50, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Salted Caramel Bomba", "description": "Ice cream dessert", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "ASK Italian Plymouth",
+      "address": "Barbican Leisure Park, Plymouth, PL4 0LG",
+      "website_url": "https://www.askitalian.co.uk/restaurants/plymouth",
+      "cuisine_type": "Italian",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Prima Pizza", "description": "Ham and mushroom pizza", "price_gbp": 12.95, "category": "Pizza", "dietary_tags": []},
+      {"name": "Lasagne", "description": "Classic beef lasagne", "price_gbp": 13.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Penne Arrabiata", "description": "Spicy tomato pasta", "price_gbp": 11.95, "category": "Pasta", "dietary_tags": ["vegan"]},
+      {"name": "Bruschetta", "description": "Tomato on garlic bread", "price_gbp": 6.95, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Dough Balls", "description": "With garlic butter", "price_gbp": 5.95, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Tiramisu", "description": "Italian coffee dessert", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Turtle Bay Plymouth",
+      "address": "Barbican Leisure Park, Plymouth, PL4 0LG",
+      "website_url": "https://www.turtlebay.co.uk/restaurants/plymouth",
+      "cuisine_type": "Caribbean",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Jerk Chicken", "description": "Spicy Caribbean chicken", "price_gbp": 14.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Curry Goat", "description": "Slow-cooked goat curry", "price_gbp": 15.95, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Roti Wrap", "description": "Flatbread with fillings", "price_gbp": 12.95, "category": "Wraps", "dietary_tags": []},
+      {"name": "Plantain", "description": "Fried plantain", "price_gbp": 4.50, "category": "Sides", "dietary_tags": ["vegan", "gluten-free"]},
+      {"name": "Sweetcorn Fritters", "description": "With sweet chili", "price_gbp": 6.95, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Rum Cake", "description": "Caribbean dessert", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Chiquito Plymouth",
+      "address": "Barbican Leisure Park, Plymouth, PL4 0LG",
+      "website_url": "https://www.chiquito.co.uk/restaurants/plymouth",
+      "cuisine_type": "Tex-Mex",
+      "price_range": "£10-18"
+    },
+    "menu_items": [
+      {"name": "Sizzling Fajitas", "description": "Chicken or beef with tortillas", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Burrito", "description": "Rice, beans, protein", "price_gbp": 13.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Enchiladas", "description": "Rolled tortillas with sauce", "price_gbp": 14.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Nachos Grande", "description": "Loaded nachos", "price_gbp": 9.95, "category": "Sharing", "dietary_tags": ["vegetarian"]},
+      {"name": "Quesadilla", "description": "Cheese-filled tortilla", "price_gbp": 7.95, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Churros", "description": "With chocolate sauce", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Frankie & Benny's Plymouth",
+      "address": "Barbican Leisure Park, Plymouth, PL4 0LG",
+      "website_url": "https://www.frankieandbennys.com/restaurants/plymouth",
+      "cuisine_type": "American-Italian",
+      "price_range": "£9-18"
+    },
+    "menu_items": [
+      {"name": "Classic Burger", "description": "Beef burger with fries", "price_gbp": 12.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Pepperoni Pizza", "description": "Classic pizza", "price_gbp": 11.95, "category": "Pizza", "dietary_tags": []},
+      {"name": "Spaghetti Meatballs", "description": "Pasta with meatballs", "price_gbp": 13.50, "category": "Pasta", "dietary_tags": []},
+      {"name": "Loaded Fries", "description": "Cheese and bacon", "price_gbp": 6.95, "category": "Sides", "dietary_tags": []},
+      {"name": "Mozzarella Sticks", "description": "Breaded cheese", "price_gbp": 6.50, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Cookie Dough", "description": "With ice cream", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Bill's Plymouth",
+      "address": "Drake Circus, Plymouth, PL1 1EA",
+      "website_url": "https://bills-website.co.uk/restaurants/plymouth",
+      "cuisine_type": "British Brasserie",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Bill's Breakfast", "description": "Eggs, bacon, sausage", "price_gbp": 11.95, "category": "Breakfast", "dietary_tags": []},
+      {"name": "Chicken & Bacon Caesar", "description": "Classic salad", "price_gbp": 13.50, "category": "Salads", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Beer-battered cod", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Halloumi Burger", "description": "Vegetarian burger", "price_gbp": 13.95, "category": "Burgers", "dietary_tags": ["vegetarian"]},
+      {"name": "Pancakes", "description": "With toppings", "price_gbp": 8.95, "category": "Breakfast", "dietary_tags": ["vegetarian"]},
+      {"name": "Sticky Toffee Pudding", "description": "With custard", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Gourmet Burger Kitchen Plymouth",
+      "address": "Drake Circus, Plymouth, PL1 1EA",
+      "website_url": "https://www.gbk.co.uk/restaurants/plymouth",
+      "cuisine_type": "Burger Restaurant",
+      "price_range": "£10-18"
+    },
+    "menu_items": [
+      {"name": "Classic Burger", "description": "Beef, lettuce, tomato", "price_gbp": 11.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Chicken Burger", "description": "Buttermilk chicken", "price_gbp": 12.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Vegan Burger", "description": "Plant-based patty", "price_gbp": 12.50, "category": "Burgers", "dietary_tags": ["vegan"]},
+      {"name": "Sweet Potato Fries", "description": "With dip", "price_gbp": 4.95, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Onion Rings", "description": "Beer-battered", "price_gbp": 4.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Milkshake", "description": "Various flavors", "price_gbp": 5.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Five Guys Plymouth",
+      "address": "Drake Circus, Plymouth, PL1 1EA",
+      "website_url": "https://www.fiveguys.co.uk/locations/plymouth",
+      "cuisine_type": "American Burgers",
+      "price_range": "£10-18"
+    },
+    "menu_items": [
+      {"name": "Hamburger", "description": "Fresh beef patty", "price_gbp": 8.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Cheeseburger", "description": "With cheese", "price_gbp": 9.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Bacon Cheeseburger", "description": "With bacon", "price_gbp": 11.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Cajun Fries", "description": "Spicy fries", "price_gbp": 5.95, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Regular Fries", "description": "Fresh-cut fries", "price_gbp": 4.95, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Milkshake", "description": "Customizable flavors", "price_gbp": 5.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Byron Burgers Plymouth",
+      "address": "Drake Circus, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Burger Restaurant",
+      "price_range": "£10-16"
+    },
+    "menu_items": [
+      {"name": "Classic Burger", "description": "Beef with Byron sauce", "price_gbp": 11.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Cheese Burger", "description": "With mature cheddar", "price_gbp": 12.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Chicken Burger", "description": "Grilled chicken breast", "price_gbp": 12.50, "category": "Burgers", "dietary_tags": []},
+      {"name": "Courgette Fries", "description": "Lightly fried", "price_gbp": 4.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Onion Rings", "description": "Beer-battered", "price_gbp": 4.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Oreo Cheesecake", "description": "With ice cream", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  }
+]

@@ -1,0 +1,172 @@
+[
+  {
+    "restaurant": {
+      "name": "McDonald's Plymouth City Centre",
+      "address": "58-60 New George Street, Plymouth, PL1 1RR",
+      "website_url": "https://www.mcdonalds.com/gb/en-gb.html",
+      "cuisine_type": "Fast Food",
+      "price_range": "£3-8"
+    },
+    "menu_items": [
+      {"name": "Big Mac", "description": "Two beef patties, special sauce, lettuce, cheese", "price_gbp": 4.39, "category": "Burgers", "dietary_tags": []},
+      {"name": "Quarter Pounder with Cheese", "description": "Quarter pound beef patty with cheese", "price_gbp": 4.69, "category": "Burgers", "dietary_tags": []},
+      {"name": "McChicken Sandwich", "description": "Breaded chicken fillet", "price_gbp": 3.79, "category": "Burgers", "dietary_tags": []},
+      {"name": "Chicken McNuggets (6 pieces)", "description": "Breaded chicken pieces", "price_gbp": 3.89, "category": "Sides", "dietary_tags": []},
+      {"name": "Medium Fries", "description": "French fries", "price_gbp": 1.99, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "McFlurry", "description": "Soft serve with mix-ins", "price_gbp": 2.19, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "KFC Plymouth Drake Circus",
+      "address": "Drake Circus Shopping Centre, Plymouth, PL1 1EA",
+      "website_url": "https://www.kfc.co.uk/",
+      "cuisine_type": "Fast Food",
+      "price_range": "£4-10"
+    },
+    "menu_items": [
+      {"name": "Original Recipe Chicken (3 pieces)", "description": "Classic fried chicken", "price_gbp": 6.99, "category": "Chicken", "dietary_tags": []},
+      {"name": "Zinger Burger", "description": "Spicy chicken breast fillet", "price_gbp": 5.49, "category": "Burgers", "dietary_tags": []},
+      {"name": "Popcorn Chicken (Regular)", "description": "Bite-sized chicken pieces", "price_gbp": 3.99, "category": "Sides", "dietary_tags": []},
+      {"name": "Fries (Regular)", "description": "Seasoned fries", "price_gbp": 2.49, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Coleslaw", "description": "Creamy coleslaw", "price_gbp": 1.99, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Vegan Burger", "description": "Plant-based burger", "price_gbp": 4.99, "category": "Burgers", "dietary_tags": ["vegan"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Subway Plymouth",
+      "address": "Various locations, Plymouth City Centre",
+      "website_url": "https://www.subway.com/en-GB",
+      "cuisine_type": "Fast Food/Sandwiches",
+      "price_range": "£4-8"
+    },
+    "menu_items": [
+      {"name": "Subway Club", "description": "Turkey, ham, roast beef", "price_gbp": 5.99, "category": "Subs", "dietary_tags": []},
+      {"name": "Chicken Teriyaki", "description": "Chicken strips with teriyaki sauce", "price_gbp": 5.49, "category": "Subs", "dietary_tags": []},
+      {"name": "Veggie Delite", "description": "Fresh vegetables", "price_gbp": 4.49, "category": "Subs", "dietary_tags": ["vegan"]},
+      {"name": "Meatball Marinara", "description": "Meatballs with marinara sauce", "price_gbp": 4.99, "category": "Subs", "dietary_tags": []},
+      {"name": "Cookies (3)", "description": "Chocolate chip or double chocolate", "price_gbp": 2.49, "category": "Desserts", "dietary_tags": ["vegetarian"]},
+      {"name": "Crisps", "description": "Various flavors", "price_gbp": 1.29, "category": "Sides", "dietary_tags": []}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Greggs Plymouth",
+      "address": "Multiple locations, Plymouth",
+      "website_url": "https://www.greggs.co.uk/",
+      "cuisine_type": "Bakery/Fast Food",
+      "price_range": "£1-5"
+    },
+    "menu_items": [
+      {"name": "Sausage Roll", "description": "Puff pastry with sausage filling", "price_gbp": 1.20, "category": "Savoury", "dietary_tags": []},
+      {"name": "Vegan Sausage Roll", "description": "Plant-based sausage roll", "price_gbp": 1.20, "category": "Savoury", "dietary_tags": ["vegan"]},
+      {"name": "Steak Bake", "description": "Puff pastry with steak filling", "price_gbp": 1.85, "category": "Savoury", "dietary_tags": []},
+      {"name": "Chicken Bake", "description": "Puff pastry with chicken filling", "price_gbp": 1.85, "category": "Savoury", "dietary_tags": []},
+      {"name": "Yum Yum", "description": "Sweet glazed pastry", "price_gbp": 0.95, "category": "Sweet", "dietary_tags": ["vegetarian"]},
+      {"name": "Latte", "description": "Coffee with steamed milk", "price_gbp": 2.35, "category": "Drinks", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Barbican Steakhouse",
+      "address": "The Barbican, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Steakhouse",
+      "price_range": "£15-40"
+    },
+    "menu_items": [
+      {"name": "Ribeye Steak (12oz)", "description": "Aged ribeye with chips", "price_gbp": 28.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Sirloin Steak (10oz)", "description": "Prime sirloin", "price_gbp": 24.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Fillet Steak (8oz)", "description": "Premium fillet", "price_gbp": 32.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Mixed Grill", "description": "Steak, sausage, chicken, lamb chop", "price_gbp": 22.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Prawn Cocktail", "description": "Classic starter", "price_gbp": 7.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Chocolate Fudge Cake", "description": "Rich chocolate dessert", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Thai House",
+      "address": "New George Street, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Thai",
+      "price_range": "£9-16"
+    },
+    "menu_items": [
+      {"name": "Pad Thai (Chicken)", "description": "Rice noodles, egg, peanuts", "price_gbp": 11.95, "category": "Noodles", "dietary_tags": []},
+      {"name": "Green Curry", "description": "Thai green curry with rice", "price_gbp": 12.50, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Red Curry", "description": "Thai red curry with rice", "price_gbp": 12.50, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Tom Yum Soup", "description": "Spicy and sour soup", "price_gbp": 8.95, "category": "Soups", "dietary_tags": ["gluten-free"]},
+      {"name": "Satay Chicken", "description": "Grilled chicken skewers with peanut sauce", "price_gbp": 7.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Mango Sticky Rice", "description": "Thai dessert", "price_gbp": 5.95, "category": "Desserts", "dietary_tags": ["vegan"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Stable Plymouth",
+      "address": "61 Southside Street, The Barbican, Plymouth, PL1 2LA",
+      "website_url": "https://stablepizza.com/restaurants/plymouth/",
+      "cuisine_type": "Pizza & Cider",
+      "price_range": "£10-16"
+    },
+    "menu_items": [
+      {"name": "The Duke of Pork", "description": "Pulled pork, apple, cider sauce", "price_gbp": 13.95, "category": "Pizza", "dietary_tags": []},
+      {"name": "Goat's Cheese & Caramelised Onion", "description": "Vegetarian pizza", "price_gbp": 12.95, "category": "Pizza", "dietary_tags": ["vegetarian"]},
+      {"name": "Pepperoni", "description": "Classic pepperoni pizza", "price_gbp": 12.95, "category": "Pizza", "dietary_tags": []},
+      {"name": "Vegan Sausage Pizza", "description": "Plant-based sausage", "price_gbp": 13.95, "category": "Pizza", "dietary_tags": ["vegan"]},
+      {"name": "Garlic Bread", "description": "Stone-baked garlic bread", "price_gbp": 5.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Brownie", "description": "Chocolate brownie with ice cream", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Cosy Club Plymouth",
+      "address": "Dingles Building, Royal Parade, Plymouth, PL1 1DS",
+      "website_url": "https://www.cosyclub.co.uk/locations/plymouth",
+      "cuisine_type": "British Brasserie",
+      "price_range": "£10-22"
+    },
+    "menu_items": [
+      {"name": "Cosy Club Burger", "description": "Beef burger with cheese and bacon", "price_gbp": 14.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Beer-battered fish with chips", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Chicken Tikka Masala", "description": "Creamy curry with rice", "price_gbp": 13.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Vegan Buddha Bowl", "description": "Mixed grains and vegetables", "price_gbp": 12.95, "category": "Vegetarian", "dietary_tags": ["vegan"]},
+      {"name": "Halloumi Fries", "description": "Breaded halloumi sticks", "price_gbp": 6.95, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Sticky Toffee Pudding", "description": "With vanilla ice cream", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Positano Restaurant",
+      "address": "60 Mayflower Street, Plymouth, PL1 1SD",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Italian",
+      "price_range": "£12-25"
+    },
+    "menu_items": [
+      {"name": "Spaghetti alle Vongole", "description": "Clams, garlic, white wine", "price_gbp": 16.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Risotto ai Funghi", "description": "Mushroom risotto", "price_gbp": 14.95, "category": "Pasta", "dietary_tags": ["vegetarian", "gluten-free"]},
+      {"name": "Pizza Quattro Formaggi", "description": "Four cheese pizza", "price_gbp": 13.95, "category": "Pizza", "dietary_tags": ["vegetarian"]},
+      {"name": "Osso Buco", "description": "Braised veal shanks", "price_gbp": 22.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Caprese Salad", "description": "Mozzarella, tomato, basil", "price_gbp": 8.95, "category": "Starters", "dietary_tags": ["vegetarian", "gluten-free"]},
+      {"name": "Panna Cotta", "description": "Italian cream dessert", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian", "gluten-free"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Copper & Crane",
+      "address": "14-16 Mayflower Street, Plymouth, PL1 1QD",
+      "website_url": "https://www.copperandcrane.co.uk/",
+      "cuisine_type": "Tapas & Cocktails",
+      "price_range": "£6-15"
+    },
+    "menu_items": [
+      {"name": "Patatas Bravas", "description": "Crispy potatoes with spicy sauce", "price_gbp": 6.50, "category": "Tapas", "dietary_tags": ["vegan"]},
+      {"name": "Albondigas", "description": "Spanish meatballs", "price_gbp": 7.95, "category": "Tapas", "dietary_tags": []},
+      {"name": "Gambas al Ajillo", "description": "Garlic prawns", "price_gbp": 9.50, "category": "Tapas", "dietary_tags": ["gluten-free"]},
+      {"name": "Chorizo in Red Wine", "description": "Spanish sausage", "price_gbp": 7.50, "category": "Tapas", "dietary_tags": ["gluten-free"]},
+      {"name": "Manchego Cheese", "description": "With quince paste", "price_gbp": 6.95, "category": "Tapas", "dietary_tags": ["vegetarian"]},
+      {"name": "Churros", "description": "With chocolate sauce", "price_gbp": 5.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  }
+]

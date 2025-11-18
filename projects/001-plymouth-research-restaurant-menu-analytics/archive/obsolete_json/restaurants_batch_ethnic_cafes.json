@@ -1,0 +1,364 @@
+[
+  {
+    "restaurant": {
+      "name": "Royal Bengal",
+      "address": "8 The Barbican, Plymouth, PL1 2LR",
+      "website_url": "https://www.royalbengalplymouth.co.uk/",
+      "cuisine_type": "Indian",
+      "price_range": "\u00a39-20"
+    },
+    "menu_items": [
+      {
+        "name": "Chicken Tikka Masala",
+        "description": "Tikka chicken in creamy tomato sauce",
+        "price_gbp": 11.95,
+        "category": "Curry",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Lamb Rogan Josh",
+        "description": "Lamb in aromatic spiced sauce",
+        "price_gbp": 12.95,
+        "category": "Curry",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Onion Bhaji",
+        "description": "Fried onion fritters",
+        "price_gbp": 4.5,
+        "category": "Starters",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Chicken Biryani",
+        "description": "Spiced rice with chicken",
+        "price_gbp": 11.5,
+        "category": "Rice Dishes",
+        "dietary_tags": []
+      },
+      {
+        "name": "Naan Bread",
+        "description": "Traditional Indian bread",
+        "price_gbp": 2.95,
+        "category": "Sides",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Saag Paneer",
+        "description": "Spinach with Indian cheese",
+        "price_gbp": 9.95,
+        "category": "Vegetarian",
+        "dietary_tags": [
+          "vegetarian",
+          "gluten-free"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Eastern Eye",
+      "address": "Plymouth City Centre",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Indian",
+      "price_range": "\u00a38-18"
+    },
+    "menu_items": [
+      {
+        "name": "Chicken Korma",
+        "description": "Mild creamy curry",
+        "price_gbp": 10.95,
+        "category": "Curry",
+        "dietary_tags": []
+      },
+      {
+        "name": "Beef Madras",
+        "description": "Spicy beef curry",
+        "price_gbp": 11.95,
+        "category": "Curry",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Tandoori Chicken",
+        "description": "Clay oven roasted chicken",
+        "price_gbp": 9.95,
+        "category": "Tandoori",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Vegetable Samosas",
+        "description": "Crispy pastry with spiced vegetables",
+        "price_gbp": 4.25,
+        "category": "Starters",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Pilau Rice",
+        "description": "Basmati rice",
+        "price_gbp": 3.5,
+        "category": "Sides",
+        "dietary_tags": [
+          "vegan",
+          "gluten-free"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Everest Spice",
+      "address": "Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Indian & Nepalese",
+      "price_range": "\u00a39-19"
+    },
+    "menu_items": [
+      {
+        "name": "Chicken Jalfrezi",
+        "description": "Spicy chicken with peppers",
+        "price_gbp": 11.5,
+        "category": "Curry",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Lamb Dhansak",
+        "description": "Lamb with lentils, sweet & sour",
+        "price_gbp": 12.5,
+        "category": "Curry",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Prawn Pathia",
+        "description": "Sweet, sour & spicy prawns",
+        "price_gbp": 13.95,
+        "category": "Seafood Curry",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Garlic Naan",
+        "description": "Naan bread with garlic",
+        "price_gbp": 3.25,
+        "category": "Sides",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Poppadoms",
+        "description": "Crispy Indian crackers",
+        "price_gbp": 1.5,
+        "category": "Sides",
+        "dietary_tags": [
+          "vegan",
+          "gluten-free"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "China Palace",
+      "address": "19 Frankfort Gate, Plymouth, PL1 1QA",
+      "website_url": "https://www.chinapalaceplymouth.co.uk/",
+      "cuisine_type": "Chinese",
+      "price_range": "\u00a38-18"
+    },
+    "menu_items": [
+      {
+        "name": "Sweet & Sour Chicken",
+        "description": "Crispy chicken in sweet & sour sauce",
+        "price_gbp": 10.5,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Beef in Black Bean Sauce",
+        "description": "Stir-fried beef with black beans",
+        "price_gbp": 11.5,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Chicken Chow Mein",
+        "description": "Stir-fried noodles with chicken",
+        "price_gbp": 9.95,
+        "category": "Noodles",
+        "dietary_tags": []
+      },
+      {
+        "name": "Spring Rolls",
+        "description": "Crispy vegetable rolls",
+        "price_gbp": 4.5,
+        "category": "Starters",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Egg Fried Rice",
+        "description": "Wok-fried rice with egg",
+        "price_gbp": 3.95,
+        "category": "Rice",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Silver Bird",
+      "address": "Exeter Street, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Chinese & Asian",
+      "price_range": "\u00a37-16"
+    },
+    "menu_items": [
+      {
+        "name": "Crispy Aromatic Duck",
+        "description": "Shredded duck with pancakes",
+        "price_gbp": 14.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Kung Po Chicken",
+        "description": "Spicy Sichuan chicken",
+        "price_gbp": 10.5,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegetable Stir Fry",
+        "description": "Mixed vegetables in sauce",
+        "price_gbp": 8.95,
+        "category": "Vegetarian",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Prawn Crackers",
+        "description": "Crispy prawn crackers",
+        "price_gbp": 2.5,
+        "category": "Sides",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Boston Tea Party Plymouth",
+      "address": "Jamaica House, Sutton Harbour, Plymouth",
+      "website_url": "https://www.bostonteaparty.co.uk/",
+      "cuisine_type": "Caf\u00e9",
+      "price_range": "\u00a35-12"
+    },
+    "menu_items": [
+      {
+        "name": "Full English Breakfast",
+        "description": "Eggs, bacon, sausage, beans, mushrooms, toast",
+        "price_gbp": 10.95,
+        "category": "Breakfast",
+        "dietary_tags": []
+      },
+      {
+        "name": "Eggs Royale",
+        "description": "Poached eggs, smoked salmon, hollandaise",
+        "price_gbp": 9.95,
+        "category": "Breakfast",
+        "dietary_tags": []
+      },
+      {
+        "name": "Avocado Toast",
+        "description": "Smashed avocado on sourdough",
+        "price_gbp": 7.95,
+        "category": "Brunch",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Flat White",
+        "description": "Espresso with steamed milk",
+        "price_gbp": 3.4,
+        "category": "Coffee",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Smoothie Bowl",
+        "description": "Acai bowl with fruits",
+        "price_gbp": 6.95,
+        "category": "Healthy",
+        "dietary_tags": [
+          "vegan"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Caf\u00e9 Plus",
+      "address": "Mutley Plain, Plymouth, PL4 6JH",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Caf\u00e9",
+      "price_range": "\u00a34-10"
+    },
+    "menu_items": [
+      {
+        "name": "Full Breakfast",
+        "description": "Eggs, bacon, sausage, toast",
+        "price_gbp": 7.5,
+        "category": "Breakfast",
+        "dietary_tags": []
+      },
+      {
+        "name": "Burger & Chips",
+        "description": "Beef burger with fries",
+        "price_gbp": 8.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Coffee",
+        "description": "Freshly brewed coffee",
+        "price_gbp": 2.5,
+        "category": "Drinks",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Cake Slice",
+        "description": "Daily selection",
+        "price_gbp": 3.5,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      }
+    ]
+  }
+]

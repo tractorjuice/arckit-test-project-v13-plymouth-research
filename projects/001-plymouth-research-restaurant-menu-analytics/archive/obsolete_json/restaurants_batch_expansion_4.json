@@ -1,0 +1,797 @@
+[
+  {
+    "restaurant": {
+      "name": "The China Palace",
+      "address": "128 Armada Way, Plymouth, PL1 1HH",
+      "website_url": "https://www.chinapalaceplymouth.co.uk/",
+      "cuisine_type": "Chinese",
+      "price_range": "£9-18"
+    },
+    "menu_items": [
+      {
+        "name": "Sweet & Sour Chicken",
+        "description": "Cantonese style",
+        "price_gbp": 12.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Beef in Black Bean Sauce",
+        "description": "Stir-fried with peppers",
+        "price_gbp": 13.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegetable Chop Suey",
+        "description": "Mixed vegetables",
+        "price_gbp": 9.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Sesame Prawn Toast",
+        "description": "Crispy toast",
+        "price_gbp": 6.50,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Toffee Banana",
+        "description": "With ice cream",
+        "price_gbp": 5.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Chinese Tea",
+        "description": "Traditional pot",
+        "price_gbp": 2.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Boathouse Cafe",
+      "address": "Sutton Harbour, Plymouth, PL4 0DW",
+      "website_url": "https://www.boathouseplymouth.co.uk/",
+      "cuisine_type": "Harbour Cafe",
+      "price_range": "£6-14"
+    },
+    "menu_items": [
+      {
+        "name": "Full Breakfast",
+        "description": "Eggs, bacon, sausage, toast",
+        "price_gbp": 9.95,
+        "category": "Breakfast",
+        "dietary_tags": []
+      },
+      {
+        "name": "Fisherman's Sandwich",
+        "description": "Crab and prawn",
+        "price_gbp": 8.95,
+        "category": "Sandwiches",
+        "dietary_tags": []
+      },
+      {
+        "name": "Garden Salad",
+        "description": "Fresh vegetables",
+        "price_gbp": 7.50,
+        "category": "Salads",
+        "dietary_tags": ["vegan", "gluten-free"]
+      },
+      {
+        "name": "Homemade Cake",
+        "description": "Daily selection",
+        "price_gbp": 4.50,
+        "category": "Cakes",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Cream Tea",
+        "description": "Scones with jam and cream",
+        "price_gbp": 6.95,
+        "category": "Afternoon Tea",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Fresh Coffee",
+        "description": "Various styles",
+        "price_gbp": 3.00,
+        "category": "Drinks",
+        "dietary_tags": ["vegetarian"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Prezzo Plymouth",
+      "address": "Royal William Yard, Plymouth, PL1 3RP",
+      "website_url": "https://www.prezzorestaurants.co.uk/",
+      "cuisine_type": "Italian",
+      "price_range": "£10-19"
+    },
+    "menu_items": [
+      {
+        "name": "Carbonara",
+        "description": "Creamy bacon pasta",
+        "price_gbp": 12.95,
+        "category": "Pasta",
+        "dietary_tags": []
+      },
+      {
+        "name": "Pollo Piccante Pizza",
+        "description": "Spicy chicken pizza",
+        "price_gbp": 13.95,
+        "category": "Pizza",
+        "dietary_tags": []
+      },
+      {
+        "name": "Risotto Primavera",
+        "description": "Spring vegetables",
+        "price_gbp": 11.95,
+        "category": "Risotto",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Garlic Bread with Cheese",
+        "description": "Stone-baked",
+        "price_gbp": 5.95,
+        "category": "Sides",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Chocolate Fudge Cake",
+        "description": "Rich dessert",
+        "price_gbp": 6.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Italian Lager",
+        "description": "Peroni",
+        "price_gbp": 5.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Ploughman's Bakehouse",
+      "address": "Drake Circus, Plymouth, PL1 1EA",
+      "website_url": "https://www.ploughmansbakehouse.co.uk/",
+      "cuisine_type": "Bakery",
+      "price_range": "£3-8"
+    },
+    "menu_items": [
+      {
+        "name": "Steak Bake",
+        "description": "Puff pastry with beef",
+        "price_gbp": 4.95,
+        "category": "Baked Goods",
+        "dietary_tags": []
+      },
+      {
+        "name": "Cheese & Onion Pasty",
+        "description": "Traditional pasty",
+        "price_gbp": 4.50,
+        "category": "Baked Goods",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Sausage Roll",
+        "description": "Freshly baked",
+        "price_gbp": 3.50,
+        "category": "Baked Goods",
+        "dietary_tags": []
+      },
+      {
+        "name": "Soup & Roll",
+        "description": "Daily soup",
+        "price_gbp": 5.50,
+        "category": "Soups",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Iced Bun",
+        "description": "Sweet treat",
+        "price_gbp": 2.95,
+        "category": "Cakes",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Hot Chocolate",
+        "description": "With cream",
+        "price_gbp": 3.20,
+        "category": "Drinks",
+        "dietary_tags": ["vegetarian"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Ganges Indian Restaurant",
+      "address": "70 Mayflower Street, Plymouth, PL1 1SR",
+      "website_url": "https://www.gangesplymouth.co.uk/",
+      "cuisine_type": "Indian",
+      "price_range": "£9-17"
+    },
+    "menu_items": [
+      {
+        "name": "Chicken Korma",
+        "description": "Mild creamy curry",
+        "price_gbp": 12.95,
+        "category": "Curries",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Lamb Madras",
+        "description": "Hot curry",
+        "price_gbp": 14.95,
+        "category": "Curries",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Vegetable Biryani",
+        "description": "Fragrant rice",
+        "price_gbp": 10.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegan", "gluten-free"]
+      },
+      {
+        "name": "Samosas",
+        "description": "Vegetable or meat",
+        "price_gbp": 4.95,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Mango Kulfi",
+        "description": "Indian ice cream",
+        "price_gbp": 4.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Cobra Beer",
+        "description": "Indian lager",
+        "price_gbp": 4.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Trawlers Catch",
+      "address": "34 Southside Street, Plymouth, PL1 2LA",
+      "website_url": "https://www.trawlerscatch.co.uk/",
+      "cuisine_type": "Seafood",
+      "price_range": "£12-22"
+    },
+    "menu_items": [
+      {
+        "name": "Fisherman's Stew",
+        "description": "Mixed seafood in broth",
+        "price_gbp": 16.95,
+        "category": "Seafood",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Grilled Plaice",
+        "description": "With lemon butter",
+        "price_gbp": 17.95,
+        "category": "Seafood",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Fish & Chips",
+        "description": "Traditional style",
+        "price_gbp": 14.95,
+        "category": "Classics",
+        "dietary_tags": []
+      },
+      {
+        "name": "Crab Salad",
+        "description": "Fresh local crab",
+        "price_gbp": 12.95,
+        "category": "Salads",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Lemon Posset",
+        "description": "Citrus dessert",
+        "price_gbp": 6.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "White Wine",
+        "description": "House selection",
+        "price_gbp": 6.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Hyde Park",
+      "address": "Mutley Plain, Plymouth, PL4 6LD",
+      "website_url": "https://www.hydeparkplymouth.co.uk/",
+      "cuisine_type": "Pub",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {
+        "name": "Hyde Burger",
+        "description": "Double beef patty",
+        "price_gbp": 13.95,
+        "category": "Burgers",
+        "dietary_tags": []
+      },
+      {
+        "name": "Fish & Chips",
+        "description": "Cod in batter",
+        "price_gbp": 13.95,
+        "category": "Classics",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegetable Curry",
+        "description": "With rice",
+        "price_gbp": 10.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegan", "gluten-free"]
+      },
+      {
+        "name": "Loaded Fries",
+        "description": "With toppings",
+        "price_gbp": 6.95,
+        "category": "Sides",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Chocolate Brownie",
+        "description": "With ice cream",
+        "price_gbp": 6.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Craft Beer",
+        "description": "Guest ales",
+        "price_gbp": 4.75,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Kuku Indian Restaurant",
+      "address": "182 Citadel Road, Plymouth, PL1 3BE",
+      "website_url": "https://www.kukuplymouth.co.uk/",
+      "cuisine_type": "Indian",
+      "price_range": "£10-19"
+    },
+    "menu_items": [
+      {
+        "name": "Butter Chicken",
+        "description": "Creamy tomato curry",
+        "price_gbp": 13.95,
+        "category": "Curries",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Lamb Rogan Josh",
+        "description": "Medium spicy curry",
+        "price_gbp": 15.95,
+        "category": "Curries",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Paneer Tikka Masala",
+        "description": "Vegetarian curry",
+        "price_gbp": 11.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegetarian", "gluten-free"]
+      },
+      {
+        "name": "Chicken Tikka",
+        "description": "Tandoori starter",
+        "price_gbp": 6.95,
+        "category": "Starters",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Rasmalai",
+        "description": "Sweet milk dessert",
+        "price_gbp": 4.95,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Mango Lassi",
+        "description": "Yogurt drink",
+        "price_gbp": 3.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegetarian"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Firestone Bar & Grill",
+      "address": "Royal Parade, Plymouth, PL1 1DT",
+      "website_url": "https://www.firestoneplymouth.co.uk/",
+      "cuisine_type": "American",
+      "price_range": "£12-24"
+    },
+    "menu_items": [
+      {
+        "name": "Firestone Burger",
+        "description": "Premium beef with toppings",
+        "price_gbp": 15.95,
+        "category": "Burgers",
+        "dietary_tags": []
+      },
+      {
+        "name": "BBQ Ribs",
+        "description": "Full rack with sauce",
+        "price_gbp": 19.95,
+        "category": "Grills",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Chicken Wings",
+        "description": "Buffalo or BBQ",
+        "price_gbp": 9.95,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Caesar Salad",
+        "description": "With chicken",
+        "price_gbp": 11.95,
+        "category": "Salads",
+        "dietary_tags": []
+      },
+      {
+        "name": "Brownie Sundae",
+        "description": "With ice cream",
+        "price_gbp": 7.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "American Beer",
+        "description": "Selection available",
+        "price_gbp": 5.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Thistle Park Tavern",
+      "address": "100 Commercial Road, Plymouth, PL4 0LE",
+      "website_url": "https://www.thistleparktavern.co.uk/",
+      "cuisine_type": "Family Pub",
+      "price_range": "£7-14"
+    },
+    "menu_items": [
+      {
+        "name": "Mixed Grill",
+        "description": "Selection of meats",
+        "price_gbp": 14.95,
+        "category": "Grills",
+        "dietary_tags": []
+      },
+      {
+        "name": "Lasagne",
+        "description": "With garlic bread",
+        "price_gbp": 11.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegetable Chili",
+        "description": "With rice",
+        "price_gbp": 9.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegan", "gluten-free"]
+      },
+      {
+        "name": "Soup of the Day",
+        "description": "With roll",
+        "price_gbp": 5.50,
+        "category": "Soups",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Apple Pie",
+        "description": "With custard",
+        "price_gbp": 5.95,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Soft Drinks",
+        "description": "Various options",
+        "price_gbp": 2.95,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Ship & Castle",
+      "address": "15 Notte Street, Plymouth, PL1 2AG",
+      "website_url": "https://www.shipandcastle.co.uk/",
+      "cuisine_type": "Historic Pub",
+      "price_range": "£9-17"
+    },
+    "menu_items": [
+      {
+        "name": "Castle Burger",
+        "description": "Beef with relish",
+        "price_gbp": 13.95,
+        "category": "Burgers",
+        "dietary_tags": []
+      },
+      {
+        "name": "Fish & Chips",
+        "description": "Traditional recipe",
+        "price_gbp": 14.95,
+        "category": "Classics",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegetarian Pie",
+        "description": "With mash",
+        "price_gbp": 11.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Garlic Mushrooms",
+        "description": "On toast",
+        "price_gbp": 6.95,
+        "category": "Starters",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Treacle Tart",
+        "description": "With ice cream",
+        "price_gbp": 6.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Real Ale",
+        "description": "Cask ales",
+        "price_gbp": 4.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Sakura Japanese Restaurant",
+      "address": "53 New Street, Plymouth, PL1 2NA",
+      "website_url": "https://www.sakuraplymouth.co.uk/",
+      "cuisine_type": "Japanese",
+      "price_range": "£12-26"
+    },
+    "menu_items": [
+      {
+        "name": "Teriyaki Chicken",
+        "description": "Glazed chicken with rice",
+        "price_gbp": 14.95,
+        "category": "Mains",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Salmon Nigiri Set",
+        "description": "Fresh salmon sushi",
+        "price_gbp": 16.95,
+        "category": "Sushi",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegetable Tempura",
+        "description": "Crispy vegetables",
+        "price_gbp": 9.95,
+        "category": "Sides",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Gyoza",
+        "description": "Pan-fried dumplings",
+        "price_gbp": 6.95,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Mochi",
+        "description": "Rice cake dessert",
+        "price_gbp": 5.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Sake",
+        "description": "Japanese rice wine",
+        "price_gbp": 6.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Dolphin Brasserie",
+      "address": "The Barbican, Plymouth, PL1 2LS",
+      "website_url": "https://www.dolphinbrasserie.co.uk/",
+      "cuisine_type": "French Brasserie",
+      "price_range": "£14-26"
+    },
+    "menu_items": [
+      {
+        "name": "Steak Frites",
+        "description": "Sirloin with french fries",
+        "price_gbp": 22.95,
+        "category": "Steaks",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Bouillabaisse",
+        "description": "Fish stew",
+        "price_gbp": 18.95,
+        "category": "Seafood",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Ratatouille",
+        "description": "Vegetable medley",
+        "price_gbp": 14.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegan", "gluten-free"]
+      },
+      {
+        "name": "Escargot",
+        "description": "Garlic snails",
+        "price_gbp": 9.95,
+        "category": "Starters",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Tarte Tatin",
+        "description": "Upside-down apple tart",
+        "price_gbp": 7.95,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "French Wine",
+        "description": "Bordeaux or Burgundy",
+        "price_gbp": 7.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Plympton Inn",
+      "address": "Ridgeway, Plympton, Plymouth, PL7 2AA",
+      "website_url": "https://www.plymptoninn.co.uk/",
+      "cuisine_type": "Village Pub",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {
+        "name": "Sunday Roast",
+        "description": "Traditional roast",
+        "price_gbp": 13.95,
+        "category": "Roasts",
+        "dietary_tags": []
+      },
+      {
+        "name": "Steak & Kidney Pudding",
+        "description": "Traditional pudding",
+        "price_gbp": 12.95,
+        "category": "Classics",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegetable Bake",
+        "description": "Cheesy vegetable dish",
+        "price_gbp": 10.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Prawn Cocktail",
+        "description": "Classic starter",
+        "price_gbp": 7.50,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Spotted Dick",
+        "description": "With custard",
+        "price_gbp": 5.95,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Local Ale",
+        "description": "Devon breweries",
+        "price_gbp": 4.25,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Fishbone Grill",
+      "address": "Sutton Harbour, Plymouth, PL4 0DW",
+      "website_url": "https://www.fishbonegrill.co.uk/",
+      "cuisine_type": "Seafood Grill",
+      "price_range": "£14-28"
+    },
+    "menu_items": [
+      {
+        "name": "Grilled Lobster",
+        "description": "Half lobster with garlic butter",
+        "price_gbp": 28.95,
+        "category": "Seafood",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Swordfish Steak",
+        "description": "Chargrilled with salsa",
+        "price_gbp": 22.95,
+        "category": "Seafood",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Fish & Chips",
+        "description": "Beer battered",
+        "price_gbp": 15.95,
+        "category": "Classics",
+        "dietary_tags": []
+      },
+      {
+        "name": "Smoked Salmon",
+        "description": "With capers",
+        "price_gbp": 9.95,
+        "category": "Starters",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Key Lime Pie",
+        "description": "Tangy dessert",
+        "price_gbp": 7.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Prosecco",
+        "description": "By the glass",
+        "price_gbp": 6.95,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  }
+]

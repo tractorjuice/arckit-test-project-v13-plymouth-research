@@ -1,0 +1,37 @@
+[
+  {
+    "restaurant": {
+      "name": "Miller & Carter Plymouth",
+      "address": "Sutton Wharf, Plymouth, PL4 0DW",
+      "website_url": "https://www.millerandcarter.co.uk/restaurants/south-west/millerandcarterplymouth",
+      "cuisine_type": "Steakhouse",
+      "price_range": "£18-45"
+    },
+    "menu_items": [
+      {"name": "30-Day Aged Sirloin (10oz)", "description": "Prime aged sirloin steak", "price_gbp": 32.00, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "30-Day Aged Fillet (8oz)", "description": "Premium aged fillet", "price_gbp": 38.00, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Ribeye (10oz)", "description": "Marbled ribeye steak", "price_gbp": 35.00, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Miller's Dirty Burger", "description": "30-day aged beef burger", "price_gbp": 16.50, "category": "Burgers", "dietary_tags": []},
+      {"name": "Atlantic Prawn Cocktail", "description": "Classic prawn starter", "price_gbp": 8.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Triple Cooked Chips", "description": "Hand-cut chips", "price_gbp": 4.50, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Sticky Toffee Pudding", "description": "With vanilla ice cream", "price_gbp": 7.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Jolly Jacks",
+      "address": "Mayflower Marina, Plymouth",
+      "website_url": "http://eatoutdevon.com/restaurants/plymouth/jolly-jacks.html",
+      "cuisine_type": "Waterside Dining",
+      "price_range": "£9-22"
+    },
+    "menu_items": [
+      {"name": "Fish & Chips", "description": "Fresh battered fish with hand-cut chips", "price_gbp": 14.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Jolly Burger", "description": "Local beef burger", "price_gbp": 13.50, "category": "Burgers", "dietary_tags": []},
+      {"name": "Sea Bass Fillet", "description": "Pan-fried sea bass with vegetables", "price_gbp": 18.00, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Scampi & Chips", "description": "Wholetail scampi", "price_gbp": 13.00, "category": "Seafood", "dietary_tags": []},
+      {"name": "Sunday Roast", "description": "Roast beef or chicken", "price_gbp": 15.00, "category": "Roasts", "dietary_tags": []},
+      {"name": "Garlic Mushrooms", "description": "On toasted ciabatta", "price_gbp": 7.00, "category": "Starters", "dietary_tags": ["vegetarian"]}
+    ]
+  }
+]

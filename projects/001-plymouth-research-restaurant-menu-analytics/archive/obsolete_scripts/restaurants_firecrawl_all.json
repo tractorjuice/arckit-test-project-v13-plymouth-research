@@ -1,0 +1,1627 @@
+[
+  {
+    "restaurant": {
+      "name": "ASK Italian Plymouth",
+      "address": "",
+      "website_url": "https://www.askitalian.co.uk/restaurant/plymouth/",
+      "cuisine_type": "Italian",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "ASK Italian Plymouth",
+      "address": "",
+      "website_url": "https://www.askitalian.co.uk/restaurants/plymouth",
+      "cuisine_type": "Italian",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "All Bar One Plymouth",
+      "address": "",
+      "website_url": "https://www.allbarone.co.uk/national-search/south-west/all-bar-one-plymouth",
+      "cuisine_type": "Bar & Grill",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Armado Lounge",
+      "address": "Units A-D, Part of 20 The Barbican Plymouth PL1 2LS",
+      "website_url": "https://thelounges.co.uk/armado/",
+      "cuisine_type": "All-Day Cafe Bar",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Brisket Birria Toastie",
+        "description": "Spicy brisket, mature cheddar, mozzarella, chipotle mayo and jalapeños, served with a spicy birria gravy for dipping!",
+        "price_gbp": 0,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Biscoff Banoffee Choux",
+        "description": "Tuck into a giant profiterole filled with whipped cream, caramel and banana, topped with Lotus Biscoff sauce.",
+        "price_gbp": 0,
+        "category": "Desserts",
+        "dietary_tags": []
+      },
+      {
+        "name": "Milkshakes",
+        "description": "All of our milkshakes are finished with whipped cream and a mini biccie! Choose from Double Chocolate Oreo, Strawberries & Cream or Cookie Dough.",
+        "price_gbp": 0,
+        "category": "Drinks",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Arribas Mexican Restaurant",
+      "address": "58 Notte Street, Plymouth, PL1 2AG",
+      "website_url": "https://www.arribasmexican.co.uk/",
+      "cuisine_type": "Mexican",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Tacos",
+        "description": "Soft corn tortillas filled with your choice of meat, topped with fresh cilantro and onions.",
+        "price_gbp": 10.5,
+        "category": "Mains",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Quesadilla",
+        "description": "Grilled tortilla filled with cheese and your choice of meat, served with salsa.",
+        "price_gbp": 8,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Nachos",
+        "description": "Crispy tortilla chips topped with cheese, jalapeños, and guacamole.",
+        "price_gbp": 7.5,
+        "category": "Starters",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Churros",
+        "description": "Fried dough pastries rolled in cinnamon sugar, served with chocolate sauce.",
+        "price_gbp": 5,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Margarita",
+        "description": "Classic cocktail made with tequila, lime juice, and triple sec.",
+        "price_gbp": 6.5,
+        "category": "Drinks",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Barbican Kitchen (Original)",
+      "address": "60 Southside Street Plymouth PL1 2LQ",
+      "website_url": "https://barbicankitchen.com/",
+      "cuisine_type": "Modern British",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Kentish Hare",
+        "description": "A delicious dish featuring local hare, prepared with seasonal vegetables.",
+        "price_gbp": 18.5,
+        "category": "Mains",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Plymouth Gin & Tonic",
+        "description": "A refreshing gin and tonic made with local Plymouth Gin.",
+        "price_gbp": 10,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Chocolate Fondant",
+        "description": "A rich chocolate dessert with a gooey center, served with vanilla ice cream.",
+        "price_gbp": 7.5,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Caesar Salad",
+        "description": "Crisp romaine lettuce with Caesar dressing, croutons, and parmesan cheese.",
+        "price_gbp": 9,
+        "category": "Starters",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Fish and Chips",
+        "description": "Crispy battered fish served with chips and tartar sauce.",
+        "price_gbp": 14,
+        "category": "Mains",
+        "dietary_tags": [
+          "dairy-free"
+        ]
+      },
+      {
+        "name": "Margherita Pizza",
+        "description": "Classic pizza topped with fresh mozzarella and basil.",
+        "price_gbp": 12,
+        "category": "Pizza",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Spaghetti Carbonara",
+        "description": "Traditional Italian pasta dish with pancetta and parmesan.",
+        "price_gbp": 13,
+        "category": "Pasta",
+        "dietary_tags": []
+      },
+      {
+        "name": "Beef Burger",
+        "description": "Juicy beef burger served with lettuce, tomato, and fries.",
+        "price_gbp": 11.5,
+        "category": "Burgers",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Barbican Kitchen Bar",
+      "address": "60 Southside Street Plymouth PL1 2LQ",
+      "website_url": "https://www.barbicankitchen.com/",
+      "cuisine_type": "Contemporary",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Kentish Hare",
+        "description": "A stunning local meat dish.",
+        "price_gbp": 12.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Plymouth Gin",
+        "description": "A refreshing drink made from local ingredients.",
+        "price_gbp": 8.5,
+        "category": "Drinks",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Seasonal Vegetables",
+        "description": "Fresh vegetables sourced from local farms.",
+        "price_gbp": 4,
+        "category": "Sides",
+        "dietary_tags": [
+          "vegan",
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Chocolate Fondant",
+        "description": "A rich chocolate dessert with a gooey center.",
+        "price_gbp": 6.5,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Barburrito Plymouth",
+      "address": "",
+      "website_url": "https://www.barburrito.co.uk/",
+      "cuisine_type": "Mexican Fast Food",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Beefeater Plymouth",
+      "address": "",
+      "website_url": "https://www.beefeater.co.uk/en-gb/locations/devon/plymstock",
+      "cuisine_type": "British Grill",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Bella Italia Plymouth",
+      "address": "",
+      "website_url": "https://www.bellaitalia.co.uk/",
+      "cuisine_type": "Italian",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Margherita Pizza",
+        "description": "Classic pizza with tomato sauce and mozzarella cheese",
+        "price_gbp": 8.5,
+        "category": "Pizza",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Spaghetti Carbonara",
+        "description": "Pasta with creamy sauce, pancetta, and parmesan",
+        "price_gbp": 12,
+        "category": "Pasta",
+        "dietary_tags": []
+      },
+      {
+        "name": "Caesar Salad",
+        "description": "Romaine lettuce, croutons, and Caesar dressing",
+        "price_gbp": 7.5,
+        "category": "Salads",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Tiramisu",
+        "description": "Coffee-flavored Italian dessert",
+        "price_gbp": 5,
+        "category": "Desserts",
+        "dietary_tags": []
+      },
+      {
+        "name": "Garlic Bread",
+        "description": "Bread topped with garlic and butter",
+        "price_gbp": 3.5,
+        "category": "Sides",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Coke",
+        "description": "",
+        "price_gbp": 1.5,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Lasagna",
+        "description": "Layers of pasta with meat and cheese",
+        "price_gbp": 11,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegetable Stir Fry",
+        "description": "Mixed vegetables stir-fried with soy sauce",
+        "price_gbp": 9,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegan",
+          "gluten-free"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Bella Italia Plymouth",
+      "address": "",
+      "website_url": "https://www.bellaitalia.co.uk/italian-restaurant/plymouth",
+      "cuisine_type": "Italian",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Margherita Pizza",
+        "description": "Classic pizza with tomato sauce and mozzarella cheese",
+        "price_gbp": 9.99,
+        "category": "Pizza",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Spaghetti Carbonara",
+        "description": "Pasta with creamy sauce, pancetta, and parmesan",
+        "price_gbp": 12.5,
+        "category": "Pasta",
+        "dietary_tags": []
+      },
+      {
+        "name": "Caesar Salad",
+        "description": "Romaine lettuce, croutons, and Caesar dressing",
+        "price_gbp": 7.5,
+        "category": "Salads",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Tiramisu",
+        "description": "Coffee-flavored Italian dessert",
+        "price_gbp": 5.95,
+        "category": "Desserts",
+        "dietary_tags": []
+      },
+      {
+        "name": "Garlic Bread",
+        "description": "Bread topped with garlic and herbs",
+        "price_gbp": 4.5,
+        "category": "Sides",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Coke",
+        "description": "Classic cola drink",
+        "price_gbp": 1.99,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Lasagna",
+        "description": "Layered pasta with meat and cheese",
+        "price_gbp": 11,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegetable Stir Fry",
+        "description": "Mixed vegetables stir-fried with soy sauce",
+        "price_gbp": 10,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegan",
+          "gluten-free"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Bill's Plymouth",
+      "address": "",
+      "website_url": "https://bills-website.co.uk/restaurants/plymouth",
+      "cuisine_type": "British Brasserie",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Choccy Orange Pancakes",
+        "description": "",
+        "price_gbp": 5,
+        "category": "Desserts",
+        "dietary_tags": []
+      },
+      {
+        "name": "Xmas Bundle",
+        "description": "All 3 for just £10",
+        "price_gbp": 10,
+        "category": "Specials",
+        "dietary_tags": []
+      },
+      {
+        "name": "3 Courses from £35.95",
+        "description": "Enjoy our Christmas Set Menu",
+        "price_gbp": 35.95,
+        "category": "Specials",
+        "dietary_tags": []
+      },
+      {
+        "name": "Naughty, Nice & On The Rocks",
+        "description": "New Seasonal Sips",
+        "price_gbp": 0,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "All Day Festive Menu",
+        "description": "New Winter Menu",
+        "price_gbp": 0,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Festive Cocktails",
+        "description": "Crafted with winter berries, warm citrus & a touch of sparkle",
+        "price_gbp": 0,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bottomless Pancakes",
+        "description": "Every Friday until 28th November",
+        "price_gbp": 5,
+        "category": "Desserts",
+        "dietary_tags": []
+      },
+      {
+        "name": "Christmas Dog Menu",
+        "description": "Denzel's Soft-Baked Treats",
+        "price_gbp": 0,
+        "category": "Dog Menu",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bill’s Kids & Family Menu",
+        "description": "Designed to fuel little explorers",
+        "price_gbp": 0,
+        "category": "Kids Menu",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bill’s Cocktails & Drinks Menu",
+        "description": "Designed to raise your spirits",
+        "price_gbp": 0,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bill’s Brunch Menu",
+        "description": "Mastered the art of brunch",
+        "price_gbp": 0,
+        "category": "Brunch",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bill’s Breakfast Menu",
+        "description": "Egg-citing and toast-ally delicious",
+        "price_gbp": 0,
+        "category": "Breakfast",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bill’s Dinner Menu",
+        "description": "Culinary rollercoaster",
+        "price_gbp": 0,
+        "category": "Dinner",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bill’s Lunch Menu",
+        "description": "Lunch that’s sure to make your taste buds dance",
+        "price_gbp": 0,
+        "category": "Lunch",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Bill's Plymouth",
+      "address": "",
+      "website_url": "https://bills-website.co.uk/restaurants/plymouth/",
+      "cuisine_type": "British Brasserie",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Choccy Orange Pancakes",
+        "description": "Delicious pancakes topped with chocolate and orange flavors.",
+        "price_gbp": 5,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Mulled Wine",
+        "description": "Warm spiced wine perfect for the festive season.",
+        "price_gbp": 10,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Pigs in Blankets",
+        "description": "Sausages wrapped in bacon, a festive favorite.",
+        "price_gbp": 10,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Mince Pie",
+        "description": "Traditional sweet pie filled with spiced fruits.",
+        "price_gbp": 3,
+        "category": "Desserts",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bottomless Pancakes",
+        "description": "Enjoy unlimited pancakes for a set price.",
+        "price_gbp": 5,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Christmas Set Menu",
+        "description": "Three courses for a festive celebration.",
+        "price_gbp": 35.95,
+        "category": "Specials",
+        "dietary_tags": []
+      },
+      {
+        "name": "Festive Cocktails",
+        "description": "Seasonal cocktails crafted with winter berries.",
+        "price_gbp": 8,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "New Year’s Eve Set Menu",
+        "description": "Celebrate with a special two-course menu.",
+        "price_gbp": 50,
+        "category": "Specials",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bill’s Breakfast",
+        "description": "A hearty breakfast to start your day.",
+        "price_gbp": 12,
+        "category": "Breakfast",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Bill’s Lunch Menu",
+        "description": "A selection of delicious lunch options.",
+        "price_gbp": 15,
+        "category": "Lunch",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Bistrot Pierre Plymouth",
+      "address": "",
+      "website_url": "https://www.bistrotpierre.co.uk/",
+      "cuisine_type": "French Bistro",
+      "price_range": "£14.95",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "2 Courses",
+        "description": "",
+        "price_gbp": 20.95,
+        "category": "Menu Pierre",
+        "dietary_tags": []
+      },
+      {
+        "name": "3 Courses",
+        "description": "",
+        "price_gbp": 24.95,
+        "category": "Menu Pierre",
+        "dietary_tags": []
+      },
+      {
+        "name": "Prix Fixe Menu",
+        "description": "2 Courses for Under £15",
+        "price_gbp": 14.95,
+        "category": "Prix Fixe",
+        "dietary_tags": []
+      },
+      {
+        "name": "Soirée Gastronomique",
+        "description": "6 courses for just £27.95",
+        "price_gbp": 27.95,
+        "category": "Special Event",
+        "dietary_tags": []
+      },
+      {
+        "name": "Kids Eat For Just £1",
+        "description": "Kids eat for £1 when you join Club Bistrot Pierre",
+        "price_gbp": 1,
+        "category": "Children’s Menu",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Boston Tea Party Plymouth",
+      "address": "",
+      "website_url": "https://www.bostonteaparty.co.uk/",
+      "cuisine_type": "Cafe",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "The Full Monty",
+        "description": "A full-on feast of two Old English sausages, streaky bacon, fried eggs, homemade hash browns, roasted mushroom and slow-roasted tomato stacked on a cheddar cheese and baked bean sourdough toastie.",
+        "price_gbp": 12.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Spiced Turkish Eggs",
+        "description": "Poached eggs, cool garlicky yoghurt, a kick of chilli, warm flatbread.",
+        "price_gbp": 10.5,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Cheeseburger",
+        "description": "Grass-fed West Country beef cheeseburger.",
+        "price_gbp": 11.5,
+        "category": "Burgers",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bacon Cheeseburger",
+        "description": "Grass-fed West Country beef bacon cheeseburger.",
+        "price_gbp": 12.5,
+        "category": "Burgers",
+        "dietary_tags": []
+      },
+      {
+        "name": "Aussie Veg Burger",
+        "description": "Sweetcorn Fritters, handheld and vegan.",
+        "price_gbp": 10,
+        "category": "Burgers",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Homemade Hash Browns",
+        "description": "Crispy homemade hash browns.",
+        "price_gbp": 3.5,
+        "category": "Sides",
+        "dietary_tags": [
+          "vegetarian",
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Maple Bacon Pancakes",
+        "description": "Stack of pancakes topped with streaky bacon and maple syrup.",
+        "price_gbp": 9,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Flatbread with Houmous and Slaw",
+        "description": "Flatbread topped with colourful houmous, slaw, cauliflower and halloumi.",
+        "price_gbp": 8.5,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Sweetcorn Hash",
+        "description": "A delicious sweetcorn hash dish.",
+        "price_gbp": 9.5,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Coffee",
+        "description": "Ethically sourced coffee from Extract Coffee, made by our expert baristas.",
+        "price_gbp": 2.5,
+        "category": "Drinks",
+        "dietary_tags": [
+          "vegan"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Boston Tea Party Plymouth",
+      "address": "Jamaica House, 82 – 84 Vauxhall Street, Sutton Harbour,Plymouth, PL4 0EX",
+      "website_url": "https://www.bostonteaparty.co.uk/cafes/plymouth",
+      "cuisine_type": "Café & Brunch",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Maple Bacon Pancakes",
+        "description": "A stack of pancakes topped with streaky bacon and maple syrup",
+        "price_gbp": 12.95,
+        "category": "Breakfast",
+        "dietary_tags": []
+      },
+      {
+        "name": "Boss Breakfast",
+        "description": "A hearty breakfast including eggs, bacon, sausage, and more",
+        "price_gbp": 10.5,
+        "category": "Breakfast",
+        "dietary_tags": []
+      },
+      {
+        "name": "Cheeky Toastie",
+        "description": "A delicious toastie served with fries",
+        "price_gbp": 8,
+        "category": "Lunch",
+        "dietary_tags": []
+      },
+      {
+        "name": "Freshly-Baked Cakes",
+        "description": "A selection of cakes baked fresh daily",
+        "price_gbp": 4.5,
+        "category": "Desserts",
+        "dietary_tags": []
+      },
+      {
+        "name": "Hand-Roasted Coffee",
+        "description": "Freshly brewed coffee to kickstart your day",
+        "price_gbp": 2.5,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bougie Benedicts",
+        "description": "Eggs Benedict with a twist",
+        "price_gbp": 9,
+        "category": "Brunch",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Brewers Fayre Plymouth",
+      "address": "",
+      "website_url": "https://www.brewersfayre.co.uk/en-gb/locations/devon/plymstock",
+      "cuisine_type": "Family Pub & Grill",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Burger King Plymouth",
+      "address": "",
+      "website_url": "https://www.burgerking.co.uk/",
+      "cuisine_type": "Fast Food",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Wagyu",
+        "description": "The Wagyu is here! And it's Gordon Ramsay approved! 100% British Wagyu beef​, creamy caramelised onion mayo, peppery rocket and crispy onions.",
+        "price_gbp": 0,
+        "category": "Mains",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Byron Burger Plymouth",
+      "address": "",
+      "website_url": "https://www.byronhamburgers.com/restaurants/plymouth",
+      "cuisine_type": "American Burgers",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "dish name",
+        "description": "",
+        "price_gbp": 0,
+        "category": "",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Caffe Nero Plymouth",
+      "address": "",
+      "website_url": "https://caffenero.com/uk/",
+      "cuisine_type": "Coffee Shop",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Whole Beans - Winter Blend",
+        "description": "",
+        "price_gbp": 5,
+        "category": "Coffee",
+        "dietary_tags": []
+      },
+      {
+        "name": "Ground Coffee - Winter Blend",
+        "description": "",
+        "price_gbp": 5,
+        "category": "Coffee",
+        "dietary_tags": []
+      },
+      {
+        "name": "Coffee Capsules - Winter Blend",
+        "description": "",
+        "price_gbp": 3.6,
+        "category": "Coffee",
+        "dietary_tags": []
+      },
+      {
+        "name": "Spiced Pecan Latte",
+        "description": "",
+        "price_gbp": 0,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Pistachio Croissant",
+        "description": "",
+        "price_gbp": 0,
+        "category": "Pastry",
+        "dietary_tags": []
+      },
+      {
+        "name": "Seasonal Wraps",
+        "description": "",
+        "price_gbp": 0,
+        "category": "Food",
+        "dietary_tags": []
+      },
+      {
+        "name": "Fresh Bakes",
+        "description": "",
+        "price_gbp": 0,
+        "category": "Food",
+        "dietary_tags": []
+      },
+      {
+        "name": "Pistachio Matcha",
+        "description": "",
+        "price_gbp": 0,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Apple Crumble and Custard Tart",
+        "description": "",
+        "price_gbp": 0,
+        "category": "Desserts",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Café Rouge Plymouth",
+      "address": "",
+      "website_url": "https://www.caferouge.com/plymouth/",
+      "cuisine_type": "French Brasserie",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Dish 1",
+        "description": "Description of Dish 1",
+        "price_gbp": 12.95,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Dish 2",
+        "description": "",
+        "price_gbp": 8.5,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Dish 3",
+        "description": "Description of Dish 3",
+        "price_gbp": 5.99,
+        "category": "Desserts",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Dish 4",
+        "description": "Description of Dish 4",
+        "price_gbp": 10,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Dish 5",
+        "description": "",
+        "price_gbp": 3.5,
+        "category": "Sides",
+        "dietary_tags": [
+          "dairy-free"
+        ]
+      },
+      {
+        "name": "Dish 6",
+        "description": "Description of Dish 6",
+        "price_gbp": 7.25,
+        "category": "Drinks",
+        "dietary_tags": [
+          "nut-free"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Carluccio's Plymouth",
+      "address": "",
+      "website_url": "https://www.carluccios.com/restaurants/plymouth/",
+      "cuisine_type": "Italian",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Chiquito Plymouth",
+      "address": "",
+      "website_url": "https://www.chiquito.co.uk/",
+      "cuisine_type": "Tex-Mex",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Dish 1",
+        "description": "Description of Dish 1",
+        "price_gbp": 12.95,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Dish 2",
+        "description": "Description of Dish 2",
+        "price_gbp": 8.5,
+        "category": "Starters",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Dish 3",
+        "description": "",
+        "price_gbp": 5,
+        "category": "Desserts",
+        "dietary_tags": []
+      },
+      {
+        "name": "Dish 4",
+        "description": "Description of Dish 4",
+        "price_gbp": 10,
+        "category": "Mains",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Dish 5",
+        "description": "Description of Dish 5",
+        "price_gbp": 7.25,
+        "category": "Sides",
+        "dietary_tags": [
+          "dairy-free"
+        ]
+      },
+      {
+        "name": "Dish 6",
+        "description": "",
+        "price_gbp": 3.5,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Dish 7",
+        "description": "Description of Dish 7",
+        "price_gbp": 15,
+        "category": "Pizza",
+        "dietary_tags": [
+          "nut-free"
+        ]
+      },
+      {
+        "name": "Dish 8",
+        "description": "Description of Dish 8",
+        "price_gbp": 9.99,
+        "category": "Pasta",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Dish 9",
+        "description": "",
+        "price_gbp": 11.5,
+        "category": "Burgers",
+        "dietary_tags": [
+          "vegan"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Chiquito Plymouth",
+      "address": "",
+      "website_url": "https://www.chiquito.co.uk/restaurants/plymouth",
+      "cuisine_type": "Tex-Mex",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Dish Name 1",
+        "description": "Description of Dish 1",
+        "price_gbp": 12.95,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Dish Name 2",
+        "description": "Description of Dish 2",
+        "price_gbp": 8.5,
+        "category": "Starters",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Dish Name 3",
+        "description": "",
+        "price_gbp": 5,
+        "category": "Desserts",
+        "dietary_tags": []
+      },
+      {
+        "name": "Dish Name 4",
+        "description": "Description of Dish 4",
+        "price_gbp": 10,
+        "category": "Sides",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Dish Name 5",
+        "description": "Description of Dish 5",
+        "price_gbp": 15,
+        "category": "Drinks",
+        "dietary_tags": [
+          "dairy-free"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Costa Coffee Plymouth",
+      "address": "",
+      "website_url": "https://www.costa.co.uk/",
+      "cuisine_type": "Coffee Shop",
+      "price_range": "£7.49",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Breakfast Bap",
+        "description": "Select Breakfast Bap, Coffee & 250ml innocent Orange or Apple Juice",
+        "price_gbp": 7.49,
+        "category": "Breakfast",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Cosy Club Plymouth",
+      "address": "",
+      "website_url": "https://www.cosyclub.co.uk/locations/plymouth",
+      "cuisine_type": "British Brasserie",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Côte Brasserie Plymouth",
+      "address": "",
+      "website_url": "https://www.cote.co.uk/restaurants/plymouth",
+      "cuisine_type": "French Brasserie",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Domino's Pizza Plymouth",
+      "address": "",
+      "website_url": "https://www.dominos.co.uk/",
+      "cuisine_type": "Pizza Delivery",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Five Guys Plymouth",
+      "address": "",
+      "website_url": "https://restaurants.fiveguys.co.uk/plymouth",
+      "cuisine_type": "American Burgers",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Five Guys Plymouth",
+      "address": "",
+      "website_url": "https://www.fiveguys.co.uk/",
+      "cuisine_type": "American Burgers",
+      "price_range": "£5-15",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Cinnamon Bun Shake",
+        "description": "Indulge in our new luxuriously sweet limited-edition milkshake.",
+        "price_gbp": 0,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Kids Meals",
+        "description": "Choose from a little hamburger, dog, or grilled cheese for a flat price. Add fries, soda, juice, or a shake for an additional charge.",
+        "price_gbp": 7.5,
+        "category": "Kids Meals",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Five Guys Plymouth",
+      "address": "",
+      "website_url": "https://www.fiveguys.co.uk/locations/plymouth",
+      "cuisine_type": "American Burgers",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Fletcher's Restaurant",
+      "address": "",
+      "website_url": "https://fletchersrestaurant.co.uk/",
+      "cuisine_type": "Fine Dining (Michelin Recommended)",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Taster Menu",
+        "description": "Experience the exceptional Taster Menu at Fletcher’s Restaurant, Plymouth. Indulge in a selection of innovative dishes, showcasing locally sourced ingredients and Michelin-recommended culinary artistry.",
+        "price_gbp": 0,
+        "category": "Taster Menu",
+        "dietary_tags": []
+      },
+      {
+        "name": "A La Carte Menu",
+        "description": "Delight in the exquisite A La Carte Menu at Fletcher’s Restaurant, Plymouth. Savour a variety of refined dishes, expertly crafted with the finest seasonal ingredients for an unforgettable dining experience.",
+        "price_gbp": 0,
+        "category": "A La Carte",
+        "dietary_tags": []
+      },
+      {
+        "name": "Street Food Menu",
+        "description": "‘The Clippy’, Fletcher’s Restaurant’s Street Food Vintage Double Decker Bus brings you a vibrant menu of street food favourites and seasonal specials, served fresh on Plymouth’s historic Barbican.",
+        "price_gbp": 0,
+        "category": "Street Food",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Frankie & Benny's Plymouth",
+      "address": "",
+      "website_url": "https://www.frankieandbennys.com/",
+      "cuisine_type": "American-Italian",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "dish name",
+        "description": "",
+        "price_gbp": 12.95,
+        "category": "Mains",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Frankie & Benny's Plymouth",
+      "address": "Barbican Leisure Park, Barbican Approach, Plymouth, PL4 0LG",
+      "website_url": "https://www.frankieandbennys.com/restaurants/plymouth",
+      "cuisine_type": "American-Italian",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Spaghetti Bolognese",
+        "description": "Classic spaghetti with a rich Bolognese sauce.",
+        "price_gbp": 12.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Margherita Pizza",
+        "description": "Tomato base, mozzarella cheese, and fresh basil.",
+        "price_gbp": 9.5,
+        "category": "Pizza",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Caesar Salad",
+        "description": "Crisp romaine lettuce, croutons, and Caesar dressing.",
+        "price_gbp": 8,
+        "category": "Salads",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Chocolate Fudge Cake",
+        "description": "Rich chocolate cake served with vanilla ice cream.",
+        "price_gbp": 5.95,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Coke",
+        "description": "",
+        "price_gbp": 2.5,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Garlic Bread",
+        "description": "Toasted bread with garlic butter.",
+        "price_gbp": 3.5,
+        "category": "Sides",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Giggling Squid Plymouth",
+      "address": "",
+      "website_url": "https://www.gigglingsquid.com/",
+      "cuisine_type": "Thai",
+      "price_range": "£5-15",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Sticky Chicken & Rice",
+        "description": "",
+        "price_gbp": 8.99,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Pork Belly & Rice",
+        "description": "",
+        "price_gbp": 8.99,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Thai Green Curry",
+        "description": "",
+        "price_gbp": 8.99,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Lamb Massaman",
+        "description": "",
+        "price_gbp": 8.99,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegan Sticky No Chicken & Rice",
+        "description": "",
+        "price_gbp": 8.99,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Spicy Kua Kling with Thai-style Fried Egg",
+        "description": "",
+        "price_gbp": 8.99,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Veggie Goodie Bowl",
+        "description": "There’s something so immediately satisfying about eating with your hands and these little nests are best enjoyed without cutlery. Simply wrap the lettuce leaves around the goodies and devour in one mouthful!",
+        "price_gbp": 0,
+        "category": "Starters",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Vegan Pad Thai",
+        "description": "One of our most popular dishes, Pad Thai is always a crowd-pleaser. Not only delicious but surprisingly easy to cook from scratch with our (no longer secret) recipe.",
+        "price_gbp": 0,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Pad Kee Mao",
+        "description": "Pad Kee Mao is often known as Drunken Noodles – perhaps because people end up drinking a little more than planned to put out the spicy fire in their mouths!",
+        "price_gbp": 0,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Crying Beef",
+        "description": "Our version of the classic Thai dish, which goes by many different names, but is often known as Weeping Tiger, although the only sound you’ll hear while cooking this dish is the delicious sizzle of beef.",
+        "price_gbp": 0,
+        "category": "Mains",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Gourmet Burger Kitchen Plymouth",
+      "address": "",
+      "website_url": "https://www.gbk.co.uk/restaurants/plymouth",
+      "cuisine_type": "Burger Restaurant",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Greggs Plymouth",
+      "address": "",
+      "website_url": "https://www.greggs.co.uk/",
+      "cuisine_type": "Bakery",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Sausage Roll",
+        "description": "A delicious sausage roll made with seasoned sausage meat wrapped in flaky pastry.",
+        "price_gbp": 1.25,
+        "category": "Savouries & Bakes",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegan Sausage Roll",
+        "description": "A plant-based sausage roll made with a blend of vegetables and spices, wrapped in flaky pastry.",
+        "price_gbp": 1.75,
+        "category": "Savouries & Bakes",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Steak Bake",
+        "description": "Tender pieces of steak in a rich gravy, encased in a golden puff pastry.",
+        "price_gbp": 1.75,
+        "category": "Savouries & Bakes",
+        "dietary_tags": []
+      },
+      {
+        "name": "Chicken Bake",
+        "description": "Juicy chicken and a creamy sauce wrapped in flaky pastry.",
+        "price_gbp": 1.75,
+        "category": "Savouries & Bakes",
+        "dietary_tags": []
+      },
+      {
+        "name": "Cheese and Onion Bake",
+        "description": "A delicious combination of cheese and onion in a flaky pastry.",
+        "price_gbp": 1.75,
+        "category": "Savouries & Bakes",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bacon Breakfast Roll",
+        "description": "A classic breakfast roll filled with crispy bacon.",
+        "price_gbp": 2.5,
+        "category": "Breakfast",
+        "dietary_tags": []
+      },
+      {
+        "name": "Veggie Breakfast Roll",
+        "description": "A hearty breakfast roll filled with a mix of vegetables and egg.",
+        "price_gbp": 2.5,
+        "category": "Breakfast",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Hot Chocolate",
+        "description": "Rich and creamy hot chocolate topped with whipped cream.",
+        "price_gbp": 2,
+        "category": "Drinks & Snacks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Iced Coffee",
+        "description": "Chilled coffee with a hint of sweetness, perfect for a refreshing drink.",
+        "price_gbp": 2.5,
+        "category": "Drinks & Snacks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Lemon Drizzle Cake",
+        "description": "A moist lemon cake drizzled with a sweet lemon icing.",
+        "price_gbp": 1.5,
+        "category": "Sweet Treats",
+        "dietary_tags": []
+      },
+      {
+        "name": "Chocolate Chip Cookie",
+        "description": "A classic cookie loaded with chocolate chips.",
+        "price_gbp": 1,
+        "category": "Sweet Treats",
+        "dietary_tags": []
+      },
+      {
+        "name": "Caesar Salad",
+        "description": "Crisp romaine lettuce with Caesar dressing, croutons, and parmesan cheese.",
+        "price_gbp": 3,
+        "category": "Sandwiches & Salads",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Harvester Plymouth",
+      "address": "",
+      "website_url": "https://www.harvester.co.uk/restaurants/southwest/harvestertransit",
+      "cuisine_type": "British Family Dining",
+      "price_range": "",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  }
+]

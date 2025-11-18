@@ -1,0 +1,211 @@
+[
+  {
+    "restaurant": {
+      "name": "Salumi Bar & Eatery",
+      "address": "18 Millbay Road, Millbay, Plymouth, PL1 3LH",
+      "website_url": "https://www.eatsalumi.co.uk/",
+      "cuisine_type": "Modern British",
+      "price_range": "£8-30",
+      "data_source": "real_scraped",
+      "scraping_method": "web_fetch_manual"
+    },
+    "menu_items": [
+      {
+        "name": "Roasted Tomato & Sweet Pepper Soup",
+        "description": "basil pesto, lemon creme fraiche, treacle & cheddar toast",
+        "price_gbp": 9.50,
+        "category": "Small Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "Sticky Pork Ribs",
+        "description": "coriander, soy & palm sugar, crispy onions, sesame, pickles",
+        "price_gbp": 12.00,
+        "category": "Small Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "Cured Ocean Trout",
+        "description": "taramasalata, salt & vinegar doughnuts, pickles, caviar",
+        "price_gbp": 11.00,
+        "category": "Small Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "Salumi Scotch Egg",
+        "description": "caramelised apple, pickled red onion",
+        "price_gbp": 9.50,
+        "category": "Small Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "BBQ King Oyster Mushroom Bao Bun",
+        "description": "soy, sesame, chilli",
+        "price_gbp": 11.00,
+        "category": "Small Plates",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Truffled Mac 'n' Cheese",
+        "description": "Creamy mac and cheese with truffle",
+        "price_gbp": 8.50,
+        "category": "Small Plates",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Toasted Sourdough & Focaccia",
+        "description": "nocellara olives, cold pressed rapeseed",
+        "price_gbp": 9.50,
+        "category": "Small Plates",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Lamb Rump",
+        "description": "slow cooked lamb shoulder, spring vegetables, shallot vinaigrette, dauphinoise potato",
+        "price_gbp": 30.00,
+        "category": "Large Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "10oz Rump Steak",
+        "description": "Portobello mushroom, crisp onion, peppercorn butter, chips",
+        "price_gbp": 27.00,
+        "category": "Large Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "Black Bream",
+        "description": "samphire, asparagus, smoked mackerel, lemon, jersey royals",
+        "price_gbp": 26.00,
+        "category": "Large Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "Duck Confit",
+        "description": "thai puree, pork & shrimp baozi, pickled kohlrabi",
+        "price_gbp": 27.00,
+        "category": "Large Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "Crispy Tofu",
+        "description": "udon noodles, fermented soy, roasted peanuts, chilli, bok chow, sesame",
+        "price_gbp": 18.00,
+        "category": "Large Plates",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Bacon Chop",
+        "description": "caramelised apple, pulled pork croquette, wild garlic butter, chips",
+        "price_gbp": 27.00,
+        "category": "Large Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "Battered Day Boat Fish & Chips",
+        "description": "minted peas, tartare, chip shop curry sauce",
+        "price_gbp": 18.50,
+        "category": "Large Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "Steak Burger",
+        "description": "pulled brisket, smoked cheddar, BBQ slaw, fries",
+        "price_gbp": 19.00,
+        "category": "Large Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "Chiang Mai Pork Curry",
+        "description": "chilli, lemongrass, peanuts, cumin, tamarind, braised rice, stuffed poppadom, garlic naan",
+        "price_gbp": 19.50,
+        "category": "Large Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "Grazing Board for Two",
+        "description": "Baked camembert, Salumi short rib scotch egg, spiced tomato & mozzarella arancini, nocellara olives, pickles, garden salad, homemade breads",
+        "price_gbp": 30.00,
+        "category": "Large Plates",
+        "dietary_tags": []
+      },
+      {
+        "name": "Chips",
+        "description": "Classic chips",
+        "price_gbp": 4.00,
+        "category": "Sides",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Brie & Beef Chips",
+        "description": "Chips topped with brie and beef",
+        "price_gbp": 5.50,
+        "category": "Sides",
+        "dietary_tags": []
+      },
+      {
+        "name": "Truffle & Parmesan Chips",
+        "description": "Chips with truffle oil and parmesan",
+        "price_gbp": 5.50,
+        "category": "Sides",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Blue Cheese & Bacon Chips",
+        "description": "Chips topped with blue cheese and bacon",
+        "price_gbp": 5.50,
+        "category": "Sides",
+        "dietary_tags": []
+      },
+      {
+        "name": "Salumi House Salad",
+        "description": "Fresh house salad",
+        "price_gbp": 4.00,
+        "category": "Sides",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Affogato",
+        "description": "Vanilla ice cream, espresso, praline",
+        "price_gbp": 6.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Dark Chocolate & Peanut Parfait",
+        "description": "Raspberry sorbet, caramelised banana",
+        "price_gbp": 9.00,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Honey & Walnut Cake",
+        "description": "Devon blue or Godminster vintage cheddar, quince",
+        "price_gbp": 13.00,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Mango & Passionfruit Cheesecake",
+        "description": "vanilla & Passionfruit Ripple",
+        "price_gbp": 9.00,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Lemon & Honey Panna Cotta",
+        "description": "English strawberries, meringue",
+        "price_gbp": 9.00,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Warm Fairground Doughnuts",
+        "description": "chocolate sauce, honeycomb ice cream",
+        "price_gbp": 8.00,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      }
+    ]
+  }
+]

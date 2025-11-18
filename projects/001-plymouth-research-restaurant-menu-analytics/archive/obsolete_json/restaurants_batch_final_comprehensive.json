@@ -1,0 +1,172 @@
+[
+  {
+    "restaurant": {
+      "name": "Bibi's Restaurant",
+      "address": "3 Richmond Walk, Plymouth, PL1 4LL",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Italian & Mediterranean",
+      "price_range": "£12-24"
+    },
+    "menu_items": [
+      {"name": "Lamb Shank", "description": "Slow-cooked with rosemary", "price_gbp": 18.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Seafood Risotto", "description": "Arborio rice with mixed seafood", "price_gbp": 16.95, "category": "Pasta", "dietary_tags": ["gluten-free"]},
+      {"name": "Calzone", "description": "Folded pizza with fillings", "price_gbp": 13.95, "category": "Pizza", "dietary_tags": []},
+      {"name": "Antipasti Board", "description": "Selection of Italian meats and cheese", "price_gbp": 11.95, "category": "Sharing", "dietary_tags": []},
+      {"name": "Calamari Fritti", "description": "Fried squid rings", "price_gbp": 8.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Affogato", "description": "Ice cream with espresso", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Admiral MacBride",
+      "address": "28 Looe Street, Barbican, Plymouth, PL4 0EA",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Historic Pub",
+      "price_range": "£7-14"
+    },
+    "menu_items": [
+      {"name": "Sunday Roast", "description": "Traditional roast with vegetables", "price_gbp": 12.95, "category": "Roasts", "dietary_tags": []},
+      {"name": "Pie & Mash", "description": "Daily pie special", "price_gbp": 11.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Beer-battered fish", "price_gbp": 12.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Ploughman's", "description": "Cheese, pickle, bread", "price_gbp": 8.95, "category": "Light Bites", "dietary_tags": ["vegetarian"]},
+      {"name": "Soup & Bread", "description": "Homemade soup", "price_gbp": 6.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Treacle Tart", "description": "With custard", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Platters Seafood Restaurant",
+      "address": "The Barbican, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Seafood",
+      "price_range": "£15-30"
+    },
+    "menu_items": [
+      {"name": "Seafood Platter for 2", "description": "Mixed seafood selection", "price_gbp": 49.95, "category": "Sharing", "dietary_tags": []},
+      {"name": "Grilled Dover Sole", "description": "Whole fish with butter", "price_gbp": 26.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Fish & Chips", "description": "Premium cod", "price_gbp": 16.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Lobster Thermidor", "description": "Half lobster in sauce", "price_gbp": 28.95, "category": "Seafood", "dietary_tags": []},
+      {"name": "Oysters (6)", "description": "Fresh local oysters", "price_gbp": 14.95, "category": "Starters", "dietary_tags": ["gluten-free"]},
+      {"name": "Lemon Tart", "description": "With cream", "price_gbp": 7.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Hook & Line",
+      "address": "11 Southside Street, Plymouth, PL1 2LA",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Fish & Chips",
+      "price_range": "£8-15"
+    },
+    "menu_items": [
+      {"name": "Classic Fish & Chips", "description": "Fresh cod, hand-cut chips", "price_gbp": 12.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Haddock & Chips", "description": "Battered haddock", "price_gbp": 13.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Scampi", "description": "Wholetail scampi", "price_gbp": 11.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Fishcake", "description": "Homemade fishcake", "price_gbp": 9.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Mushy Peas", "description": "Traditional side", "price_gbp": 2.50, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Curry Sauce", "description": "Chip shop curry", "price_gbp": 1.95, "category": "Sides", "dietary_tags": []}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Platters at the Hoe",
+      "address": "Grand Parade, The Hoe, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "British Café",
+      "price_range": "£6-14"
+    },
+    "menu_items": [
+      {"name": "All Day Breakfast", "description": "Eggs, bacon, sausage, beans", "price_gbp": 9.95, "category": "Breakfast", "dietary_tags": []},
+      {"name": "Cream Tea", "description": "Scones, jam, clotted cream", "price_gbp": 6.95, "category": "Afternoon Tea", "dietary_tags": ["vegetarian"]},
+      {"name": "Fish Finger Sandwich", "description": "Chunky bread", "price_gbp": 7.50, "category": "Light Bites", "dietary_tags": []},
+      {"name": "Jacket Potato", "description": "Various fillings", "price_gbp": 6.95, "category": "Light Bites", "dietary_tags": ["vegetarian"]},
+      {"name": "Soup of the Day", "description": "With roll", "price_gbp": 5.95, "category": "Soups", "dietary_tags": []},
+      {"name": "Slice of Cake", "description": "Daily selection", "price_gbp": 3.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Wet Wok",
+      "address": "Royal William Yard, Plymouth, PL1 3RP",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Pan-Asian",
+      "price_range": "£9-16"
+    },
+    "menu_items": [
+      {"name": "Singapore Noodles", "description": "Spicy curry noodles", "price_gbp": 11.95, "category": "Noodles", "dietary_tags": []},
+      {"name": "Pad Thai", "description": "Thai rice noodles", "price_gbp": 11.50, "category": "Noodles", "dietary_tags": []},
+      {"name": "Thai Green Curry", "description": "With jasmine rice", "price_gbp": 12.95, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Vietnamese Spring Rolls", "description": "Fresh rice paper rolls", "price_gbp": 6.95, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Wok-Fried Vegetables", "description": "Mixed vegetables", "price_gbp": 9.95, "category": "Vegetarian", "dietary_tags": ["vegan"]},
+      {"name": "Mango Sorbet", "description": "Refreshing dessert", "price_gbp": 5.50, "category": "Desserts", "dietary_tags": ["vegan"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Barbican Steaks & Grills",
+      "address": "Southside Street, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Steakhouse",
+      "price_range": "£16-40"
+    },
+    "menu_items": [
+      {"name": "Sirloin Steak (10oz)", "description": "Aged beef", "price_gbp": 26.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Ribeye Steak (12oz)", "description": "Marbled cut", "price_gbp": 32.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Mixed Grill", "description": "Steak, chicken, sausage, chop", "price_gbp": 24.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Rack of Ribs", "description": "BBQ glazed", "price_gbp": 19.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Garlic Mushrooms", "description": "On toast", "price_gbp": 7.50, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Cheesecake", "description": "With berry compote", "price_gbp": 7.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Chutneys Indian Restaurant",
+      "address": "Mutley Plain, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Indian",
+      "price_range": "£9-18"
+    },
+    "menu_items": [
+      {"name": "Chicken Tikka Masala", "description": "Creamy tomato curry", "price_gbp": 11.95, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Lamb Vindaloo", "description": "Very hot curry", "price_gbp": 12.95, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Prawn Biryani", "description": "Spiced rice dish", "price_gbp": 14.95, "category": "Rice Dishes", "dietary_tags": []},
+      {"name": "Onion Bhaji", "description": "Fried onion fritters", "price_gbp": 4.50, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Garlic Naan", "description": "Garlic flatbread", "price_gbp": 3.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Mango Chutney", "description": "Sweet condiment", "price_gbp": 1.95, "category": "Sides", "dietary_tags": ["vegan"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Navy Inn",
+      "address": "37 Wolseley Road, Stoke, Plymouth, PL2 1RW",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Pub",
+      "price_range": "£7-14"
+    },
+    "menu_items": [
+      {"name": "Sunday Roast", "description": "Beef, lamb or chicken", "price_gbp": 12.95, "category": "Roasts", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Beer-battered", "price_gbp": 11.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Burger & Chips", "description": "Local beef", "price_gbp": 10.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Scampi & Chips", "description": "Breaded scampi", "price_gbp": 10.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Garlic Bread", "description": "Cheese optional", "price_gbp": 4.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Chocolate Fudge Cake", "description": "With ice cream", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "St Elizabeth's House",
+      "address": "Longbrook Street, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "British/European",
+      "price_range": "£14-28"
+    },
+    "menu_items": [
+      {"name": "Pan-Fried Sea Bass", "description": "With vegetables", "price_gbp": 21.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Lamb Cutlets", "description": "With mint jus", "price_gbp": 22.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Chicken Supreme", "description": "Stuffed chicken breast", "price_gbp": 19.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Roasted Vegetable Stack", "description": "Mediterranean vegetables", "price_gbp": 16.95, "category": "Vegetarian", "dietary_tags": ["vegan"]},
+      {"name": "Soup of the Day", "description": "Freshly made", "price_gbp": 6.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Crème Brûlée", "description": "Classic French dessert", "price_gbp": 7.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  }
+]

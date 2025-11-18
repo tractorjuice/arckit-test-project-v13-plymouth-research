@@ -1,0 +1,797 @@
+[
+  {
+    "restaurant": {
+      "name": "The Nowhere Inn",
+      "address": "Stonehouse Creek, Plymouth, PL1 3NB",
+      "website_url": "https://www.nowhereinn.co.uk/",
+      "cuisine_type": "Waterside Pub",
+      "price_range": "£9-18"
+    },
+    "menu_items": [
+      {
+        "name": "Creek Burger",
+        "description": "Local beef with bacon",
+        "price_gbp": 13.95,
+        "category": "Burgers",
+        "dietary_tags": []
+      },
+      {
+        "name": "Fish & Chips",
+        "description": "Beer battered haddock",
+        "price_gbp": 14.95,
+        "category": "Classics",
+        "dietary_tags": []
+      },
+      {
+        "name": "Veggie Curry",
+        "description": "Thai-style vegetables",
+        "price_gbp": 11.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Calamari Rings",
+        "description": "With garlic mayo",
+        "price_gbp": 7.50,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Sticky Toffee Pudding",
+        "description": "With ice cream",
+        "price_gbp": 6.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Local Ale",
+        "description": "Cask ales",
+        "price_gbp": 4.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Bella Italia Plymouth",
+      "address": "Barbican Leisure Park, Plymouth, PL4 0LG",
+      "website_url": "https://www.bellaitalia.co.uk/",
+      "cuisine_type": "Italian",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {
+        "name": "Spaghetti Bolognese",
+        "description": "Traditional meat sauce",
+        "price_gbp": 12.95,
+        "category": "Pasta",
+        "dietary_tags": []
+      },
+      {
+        "name": "Quattro Formaggi Pizza",
+        "description": "Four cheese pizza",
+        "price_gbp": 13.95,
+        "category": "Pizza",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Chicken Milanese",
+        "description": "Breaded with spaghetti",
+        "price_gbp": 15.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Bruschetta",
+        "description": "Tomato and basil",
+        "price_gbp": 6.95,
+        "category": "Starters",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Tiramisu",
+        "description": "Classic Italian dessert",
+        "price_gbp": 6.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Italian Wine",
+        "description": "House selection",
+        "price_gbp": 6.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Clovelly Bay Inn",
+      "address": "Turnchapel, Plymouth, PL9 9TQ",
+      "website_url": "https://www.clovellybayinn.co.uk/",
+      "cuisine_type": "Coastal Pub",
+      "price_range": "£10-19"
+    },
+    "menu_items": [
+      {
+        "name": "Bay Fish Pie",
+        "description": "Mixed fish in cream sauce",
+        "price_gbp": 15.95,
+        "category": "Seafood",
+        "dietary_tags": []
+      },
+      {
+        "name": "Clovelly Burger",
+        "description": "Premium beef burger",
+        "price_gbp": 14.95,
+        "category": "Burgers",
+        "dietary_tags": []
+      },
+      {
+        "name": "Sunday Roast",
+        "description": "Traditional with trimmings",
+        "price_gbp": 13.95,
+        "category": "Roasts",
+        "dietary_tags": []
+      },
+      {
+        "name": "Garlic Prawns",
+        "description": "In white wine",
+        "price_gbp": 8.95,
+        "category": "Starters",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Apple Crumble",
+        "description": "With custard",
+        "price_gbp": 6.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Devon Cider",
+        "description": "Local cider",
+        "price_gbp": 4.75,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Seco Lounge",
+      "address": "23-25 Cornwall Street, Plymouth, PL1 1LP",
+      "website_url": "https://www.thelounges.co.uk/seco/",
+      "cuisine_type": "All Day Dining",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {
+        "name": "Lounge Burger",
+        "description": "With toppings",
+        "price_gbp": 12.95,
+        "category": "Burgers",
+        "dietary_tags": []
+      },
+      {
+        "name": "Chicken Katsu Curry",
+        "description": "Breaded chicken",
+        "price_gbp": 11.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegan Buddha Bowl",
+        "description": "Wholesome grains and vegetables",
+        "price_gbp": 10.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Tapas Selection",
+        "description": "Mixed tapas",
+        "price_gbp": 14.95,
+        "category": "Sharing",
+        "dietary_tags": []
+      },
+      {
+        "name": "Waffle Stack",
+        "description": "With ice cream",
+        "price_gbp": 6.95,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Bottomless Brunch Drinks",
+        "description": "Prosecco or mimosas",
+        "price_gbp": 15.00,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Las Iguanas Plymouth",
+      "address": "Barbican Leisure Park, Plymouth, PL4 0LG",
+      "website_url": "https://www.iguanas.co.uk/",
+      "cuisine_type": "Latin American",
+      "price_range": "£11-20"
+    },
+    "menu_items": [
+      {
+        "name": "Brazilian BBQ Skewers",
+        "description": "Mixed meat skewers",
+        "price_gbp": 16.95,
+        "category": "Grills",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Chicken Fajitas",
+        "description": "With peppers and onions",
+        "price_gbp": 14.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegetable Burrito",
+        "description": "Bean and vegetable",
+        "price_gbp": 12.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Nachos Grandes",
+        "description": "Loaded nachos",
+        "price_gbp": 9.95,
+        "category": "Starters",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Churros",
+        "description": "With chocolate sauce",
+        "price_gbp": 6.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Caipirinha",
+        "description": "Brazilian cocktail",
+        "price_gbp": 8.95,
+        "category": "Cocktails",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Fishermans Arms",
+      "address": "31 Lambhay Street, Plymouth, PL1 2NR",
+      "website_url": "https://www.fishermansarmsplymouth.co.uk/",
+      "cuisine_type": "Traditional Pub",
+      "price_range": "£8-15"
+    },
+    "menu_items": [
+      {
+        "name": "Traditional Fish & Chips",
+        "description": "Fresh catch daily",
+        "price_gbp": 13.95,
+        "category": "Classics",
+        "dietary_tags": []
+      },
+      {
+        "name": "Steak & Ale Pie",
+        "description": "Homemade pastry",
+        "price_gbp": 12.95,
+        "category": "Classics",
+        "dietary_tags": []
+      },
+      {
+        "name": "Ploughman's Lunch",
+        "description": "Cheese and pickles",
+        "price_gbp": 9.95,
+        "category": "Light Bites",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Soup of the Day",
+        "description": "With crusty bread",
+        "price_gbp": 5.95,
+        "category": "Soups",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Bread & Butter Pudding",
+        "description": "Traditional dessert",
+        "price_gbp": 5.95,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Real Ale",
+        "description": "Rotating selection",
+        "price_gbp": 4.20,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Thai House Restaurant",
+      "address": "39 Mayflower Street, Plymouth, PL1 1QX",
+      "website_url": "https://www.thaihouseplymouth.co.uk/",
+      "cuisine_type": "Thai",
+      "price_range": "£10-18"
+    },
+    "menu_items": [
+      {
+        "name": "Pad Thai",
+        "description": "Stir-fried rice noodles",
+        "price_gbp": 12.95,
+        "category": "Noodles",
+        "dietary_tags": []
+      },
+      {
+        "name": "Green Curry",
+        "description": "Coconut and bamboo",
+        "price_gbp": 13.95,
+        "category": "Curries",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Vegetable Spring Rolls",
+        "description": "Crispy rolls",
+        "price_gbp": 6.95,
+        "category": "Starters",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Massaman Curry",
+        "description": "Peanut curry",
+        "price_gbp": 14.95,
+        "category": "Curries",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Mango Sticky Rice",
+        "description": "Sweet coconut rice",
+        "price_gbp": 5.95,
+        "category": "Desserts",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Thai Beer",
+        "description": "Singha or Chang",
+        "price_gbp": 4.95,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Britannia Inn",
+      "address": "2 Wolseley Road, Plymouth, PL2 3AS",
+      "website_url": "https://www.britanniainnplymouth.co.uk/",
+      "cuisine_type": "Community Pub",
+      "price_range": "£7-14"
+    },
+    "menu_items": [
+      {
+        "name": "Mixed Grill",
+        "description": "Selection of meats",
+        "price_gbp": 14.95,
+        "category": "Grills",
+        "dietary_tags": []
+      },
+      {
+        "name": "Scampi & Chips",
+        "description": "Breaded scampi",
+        "price_gbp": 11.95,
+        "category": "Classics",
+        "dietary_tags": []
+      },
+      {
+        "name": "Vegetable Lasagne",
+        "description": "With garlic bread",
+        "price_gbp": 10.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Chicken Wings",
+        "description": "BBQ or hot sauce",
+        "price_gbp": 6.95,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Chocolate Fudge Cake",
+        "description": "With cream",
+        "price_gbp": 5.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Guest Ales",
+        "description": "Rotating selection",
+        "price_gbp": 4.10,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Nando's Barbican",
+      "address": "Coxside, Plymouth, PL4 0LQ",
+      "website_url": "https://www.nandos.co.uk/",
+      "cuisine_type": "Portuguese Chicken",
+      "price_range": "£9-16"
+    },
+    "menu_items": [
+      {
+        "name": "Peri-Peri Chicken",
+        "description": "Flame-grilled quarter chicken",
+        "price_gbp": 11.95,
+        "category": "Mains",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Butterfly Chicken Burger",
+        "description": "Grilled chicken breast",
+        "price_gbp": 10.95,
+        "category": "Burgers",
+        "dietary_tags": []
+      },
+      {
+        "name": "Veggie Burger",
+        "description": "Plant-based patty",
+        "price_gbp": 9.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Peri-Peri Chips",
+        "description": "With sauce",
+        "price_gbp": 4.50,
+        "category": "Sides",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Chocolate Spoon",
+        "description": "Rich chocolate dessert",
+        "price_gbp": 5.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Soft Drinks",
+        "description": "Unlimited refills",
+        "price_gbp": 3.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Cooperage",
+      "address": "12-13 The Barbican, Plymouth, PL1 2LS",
+      "website_url": "https://www.cooperageplymouth.co.uk/",
+      "cuisine_type": "Barbican Pub",
+      "price_range": "£9-17"
+    },
+    "menu_items": [
+      {
+        "name": "Cooperage Burger",
+        "description": "Beef with bacon jam",
+        "price_gbp": 13.95,
+        "category": "Burgers",
+        "dietary_tags": []
+      },
+      {
+        "name": "Fish & Chips",
+        "description": "Fresh local fish",
+        "price_gbp": 14.95,
+        "category": "Classics",
+        "dietary_tags": []
+      },
+      {
+        "name": "Mushroom Risotto",
+        "description": "Creamy arborio rice",
+        "price_gbp": 11.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegetarian", "gluten-free"]
+      },
+      {
+        "name": "Barbican Platter",
+        "description": "Sharing seafood",
+        "price_gbp": 16.95,
+        "category": "Sharing",
+        "dietary_tags": []
+      },
+      {
+        "name": "Cheesecake",
+        "description": "Daily special",
+        "price_gbp": 6.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Plymouth Gin",
+        "description": "With tonic",
+        "price_gbp": 7.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Pasta Remoli",
+      "address": "3 Frankfort Gate, Plymouth, PL1 1QD",
+      "website_url": "https://www.pastaremoli.co.uk/",
+      "cuisine_type": "Italian Pasta",
+      "price_range": "£9-16"
+    },
+    "menu_items": [
+      {
+        "name": "Spaghetti Carbonara",
+        "description": "Creamy bacon pasta",
+        "price_gbp": 11.95,
+        "category": "Pasta",
+        "dietary_tags": []
+      },
+      {
+        "name": "Lasagne al Forno",
+        "description": "Baked meat lasagne",
+        "price_gbp": 12.95,
+        "category": "Pasta",
+        "dietary_tags": []
+      },
+      {
+        "name": "Penne Arrabbiata",
+        "description": "Spicy tomato sauce",
+        "price_gbp": 10.95,
+        "category": "Pasta",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Caprese Salad",
+        "description": "Tomato and mozzarella",
+        "price_gbp": 7.95,
+        "category": "Starters",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Panna Cotta",
+        "description": "Italian custard",
+        "price_gbp": 5.95,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Italian Soda",
+        "description": "Various flavors",
+        "price_gbp": 3.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Cornish Arms",
+      "address": "11 Bretonside, Plymouth, PL4 0AT",
+      "website_url": "https://www.cornisharmsplymouth.co.uk/",
+      "cuisine_type": "Traditional Pub",
+      "price_range": "£8-15"
+    },
+    "menu_items": [
+      {
+        "name": "Cornish Pasty",
+        "description": "Traditional beef pasty",
+        "price_gbp": 8.95,
+        "category": "Classics",
+        "dietary_tags": []
+      },
+      {
+        "name": "Sunday Roast Beef",
+        "description": "With Yorkshire pudding",
+        "price_gbp": 13.95,
+        "category": "Roasts",
+        "dietary_tags": []
+      },
+      {
+        "name": "Fish & Chips",
+        "description": "Cod in batter",
+        "price_gbp": 13.95,
+        "category": "Classics",
+        "dietary_tags": []
+      },
+      {
+        "name": "Soup & Roll",
+        "description": "Homemade soup",
+        "price_gbp": 5.95,
+        "category": "Soups",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Jam Roly Poly",
+        "description": "With custard",
+        "price_gbp": 5.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Cornish Cider",
+        "description": "Local cider",
+        "price_gbp": 4.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Pier One",
+      "address": "13 The Barbican, Plymouth, PL1 2LS",
+      "website_url": "https://www.pieroneplymouth.co.uk/",
+      "cuisine_type": "Contemporary Seafood",
+      "price_range": "£16-32"
+    },
+    "menu_items": [
+      {
+        "name": "Lobster Thermidor",
+        "description": "Half lobster in cream sauce",
+        "price_gbp": 29.95,
+        "category": "Seafood",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Sea Bass Fillet",
+        "description": "Pan-fried with vegetables",
+        "price_gbp": 22.95,
+        "category": "Seafood",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Seafood Platter",
+        "description": "Mixed shellfish",
+        "price_gbp": 32.95,
+        "category": "Sharing",
+        "dietary_tags": []
+      },
+      {
+        "name": "Oysters",
+        "description": "Fresh half dozen",
+        "price_gbp": 14.95,
+        "category": "Starters",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Lemon Tart",
+        "description": "With raspberry sorbet",
+        "price_gbp": 7.95,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Champagne",
+        "description": "By the glass",
+        "price_gbp": 10.95,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Stoke Inn",
+      "address": "Devonport Road, Plymouth, PL3 4DH",
+      "website_url": "https://www.stokeinn.co.uk/",
+      "cuisine_type": "Local Pub",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {
+        "name": "Stoke Burger",
+        "description": "Local beef burger",
+        "price_gbp": 12.95,
+        "category": "Burgers",
+        "dietary_tags": []
+      },
+      {
+        "name": "Chicken Curry",
+        "description": "Homemade curry",
+        "price_gbp": 11.95,
+        "category": "Curries",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Veggie Chili",
+        "description": "Bean chili with rice",
+        "price_gbp": 10.95,
+        "category": "Vegetarian",
+        "dietary_tags": ["vegan", "gluten-free"]
+      },
+      {
+        "name": "Loaded Nachos",
+        "description": "With toppings",
+        "price_gbp": 7.95,
+        "category": "Starters",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Ice Cream Sundae",
+        "description": "Three scoops",
+        "price_gbp": 5.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Local Beer",
+        "description": "Plymouth breweries",
+        "price_gbp": 4.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Urban Reef",
+      "address": "Hoe Road, Plymouth, PL1 3DB",
+      "website_url": "https://www.urbanreef.com/",
+      "cuisine_type": "Beach Bar",
+      "price_range": "£12-24"
+    },
+    "menu_items": [
+      {
+        "name": "Reef Burger",
+        "description": "Gourmet beef burger",
+        "price_gbp": 15.95,
+        "category": "Burgers",
+        "dietary_tags": []
+      },
+      {
+        "name": "Fish Tacos",
+        "description": "Baja-style with slaw",
+        "price_gbp": 14.95,
+        "category": "Seafood",
+        "dietary_tags": []
+      },
+      {
+        "name": "Superfood Salad",
+        "description": "Quinoa and avocado",
+        "price_gbp": 12.95,
+        "category": "Salads",
+        "dietary_tags": ["vegan", "gluten-free"]
+      },
+      {
+        "name": "Sharing Platter",
+        "description": "Mixed appetizers",
+        "price_gbp": 18.95,
+        "category": "Sharing",
+        "dietary_tags": []
+      },
+      {
+        "name": "Cheesecake of the Day",
+        "description": "Daily special",
+        "price_gbp": 7.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Cocktails",
+        "description": "Beach-inspired",
+        "price_gbp": 9.50,
+        "category": "Drinks",
+        "dietary_tags": ["vegan"]
+      }
+    ]
+  }
+]

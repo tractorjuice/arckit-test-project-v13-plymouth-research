@@ -1,0 +1,27 @@
+[
+  {
+    "restaurant": {
+      "name": "Rockfish Plymouth",
+      "address": "3-4 Rope Walk, Coxside, Plymouth, PL4 0LB",
+      "website_url": "https://www.therockfish.co.uk/restaurants/plymouth/",
+      "cuisine_type": "Seafood",
+      "price_range": "\u00a38-26"
+    },
+    "menu_items": [
+      {
+        "name": "Two courses",
+        "description": "Fresh seafood from Rockfish Plymouth",
+        "price_gbp": 21.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Add the dessert of the day for",
+        "description": "Fresh seafood from Rockfish Plymouth",
+        "price_gbp": 5.0,
+        "category": "Sides",
+        "dietary_tags": []
+      }
+    ]
+  }
+]

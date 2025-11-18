@@ -1,0 +1,134 @@
+[
+  {
+    "restaurant": {
+      "name": "Rockfish Plymouth",
+      "address": "3-4 Rope Walk, Coxside, Plymouth, PL4 0LB",
+      "website_url": "https://www.therockfish.co.uk/restaurants/plymouth/",
+      "cuisine_type": "Seafood",
+      "price_range": "£3-26",
+      "data_source": "real_scraped",
+      "scraping_method": "web_fetch_manual"
+    },
+    "menu_items": [
+      {
+        "name": "Green Olives from Seville",
+        "description": "Marinated green olives",
+        "price_gbp": 3.25,
+        "category": "Tapas",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Sweet Chilli Peppers",
+        "description": "Padron-style peppers",
+        "price_gbp": 3.00,
+        "category": "Tapas",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Pickled Anchovy Fillets",
+        "description": "Spanish anchovy fillets",
+        "price_gbp": 3.95,
+        "category": "Tapas",
+        "dietary_tags": []
+      },
+      {
+        "name": "Spidercrab Croquettes Romesco",
+        "description": "Crispy croquettes with romesco sauce",
+        "price_gbp": 6.95,
+        "category": "Tapas",
+        "dietary_tags": []
+      },
+      {
+        "name": "Cantabrian Salted Anchovies",
+        "description": "Premium anchovies from northern Spain",
+        "price_gbp": 5.95,
+        "category": "Tapas",
+        "dietary_tags": []
+      },
+      {
+        "name": "Leigh-on-Sea Cockles",
+        "description": "Fresh cockles from Essex",
+        "price_gbp": 8.95,
+        "category": "Starters",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Wild Prawn Tempura",
+        "description": "Crispy tempura prawns",
+        "price_gbp": 12.95,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Baltic Whitebait",
+        "description": "Fried whitebait with lemon",
+        "price_gbp": 8.95,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Portland Pearl Oysters",
+        "description": "Fresh oysters from Dorset",
+        "price_gbp": 10.95,
+        "category": "Starters",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Norwegian Rockfish Fillets",
+        "description": "Pan-fried rockfish fillets",
+        "price_gbp": 20.95,
+        "category": "Mains",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Brixham Hake Fillet",
+        "description": "Line-caught hake from Devon",
+        "price_gbp": 22.95,
+        "category": "Mains",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Line-Caught Haddock",
+        "description": "Sustainable haddock fillet",
+        "price_gbp": 25.95,
+        "category": "Mains",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Chargrilled Sea Bream",
+        "description": "Whole sea bream chargrilled",
+        "price_gbp": 24.95,
+        "category": "Mains",
+        "dietary_tags": ["gluten-free"]
+      },
+      {
+        "name": "Unlimited Chips",
+        "description": "Bottomless triple-cooked chips",
+        "price_gbp": 5.25,
+        "category": "Sides",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Cornish New Potatoes",
+        "description": "Buttered new potatoes",
+        "price_gbp": 4.50,
+        "category": "Sides",
+        "dietary_tags": ["vegetarian", "gluten-free"]
+      },
+      {
+        "name": "Sticky Toffee Pudding",
+        "description": "Classic pudding with toffee sauce",
+        "price_gbp": 8.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Chocolate Brownie",
+        "description": "Rich chocolate brownie with ice cream",
+        "price_gbp": 8.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      }
+    ]
+  }
+]

@@ -1,0 +1,228 @@
+{
+  "total": 26,
+  "in_database": 11,
+  "to_add": 15,
+  "restaurants": [
+    {
+      "name": "Rockfish Plymouth",
+      "address": "3 Sutton Wharf, Plymouth, PL4 0DW",
+      "website_url": "https://therockfish.co.uk",
+      "cuisine_type": "Seafood & Fish",
+      "status": "IN_DATABASE"
+    },
+    {
+      "name": "Barbican Kitchen",
+      "address": "60 Southside Street, Plymouth, PL1 2LQ",
+      "website_url": "https://barbicankitchen.com/",
+      "cuisine_type": "Modern British",
+      "status": "IN_DATABASE"
+    },
+    {
+      "name": "Pier One",
+      "address": "The Barbican, Plymouth, PL1 2LS",
+      "website_url": "https://www.pieroneplymouth.co.uk/",
+      "cuisine_type": "British & International",
+      "status": "IN_DATABASE"
+    },
+    {
+      "name": "Honky Tonk Wine Library",
+      "address": "Exeter Street, Plymouth, PL4 0AQ",
+      "website_url": "https://www.honkytonkwinelibrary.com/",
+      "cuisine_type": "Wine Bar & Small Plates",
+      "status": "IN_DATABASE"
+    },
+    {
+      "name": "The VOT",
+      "address": "Whitehouse Farm, Plymouth, PL6 7LA",
+      "website_url": "https://thevot.uk/",
+      "cuisine_type": "Tapas & Craft Bar",
+      "status": "IN_DATABASE"
+    },
+    {
+      "name": "Knead Pizza",
+      "address": "Unit 10, Royal William Yard, Plymouth, PL1 3RP",
+      "website_url": "https://www.knead-pizza.co.uk/",
+      "cuisine_type": "Neapolitan Pizza",
+      "status": "IN_DATABASE"
+    },
+    {
+      "name": "Fletcher's Restaurant",
+      "address": "27 Princess Street, Plymouth, PL1 2EX",
+      "website_url": "https://fletchersrestaurant.co.uk/",
+      "cuisine_type": "Fine Dining (Michelin Recommended)",
+      "status": "IN_DATABASE"
+    },
+    {
+      "name": "Captain Jasper's",
+      "address": "Admiralty Street, Stonehouse, Plymouth, PL1 3RU",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Seafood & Grill",
+      "status": "IN_DATABASE"
+    },
+    {
+      "name": "Sutton Snax",
+      "address": "1 Sutton Place, Plymouth, PL4 0JT",
+      "website_url": "https://www.tripadvisor.co.uk",
+      "cuisine_type": "Caf\u00e9 & Deli",
+      "status": "IN_DATABASE"
+    },
+    {
+      "name": "The Village Restaurant",
+      "address": "32 Southside Street, Plymouth, PL1 2LE",
+      "website_url": "https://thevillagerestaurantplymouth.co.uk/",
+      "cuisine_type": "Seafood & Mediterranean (Greek)",
+      "status": "IN_DATABASE"
+    },
+    {
+      "name": "Armado Lounge",
+      "address": "Quay Road, The Barbican, Plymouth, PL1 2LR",
+      "website_url": "https://thelounges.co.uk/armado/",
+      "cuisine_type": "All-Day Cafe Bar",
+      "status": "IN_DATABASE"
+    },
+    {
+      "name": "Seco Lounge",
+      "address": "12-15 Mills Bakery, Royal William Yard, Plymouth, PL1 3GD",
+      "website_url": "https://thelounges.co.uk/seco/",
+      "cuisine_type": "All-Day Cafe Bar",
+      "status": "TO_ADD",
+      "price_range": "\u00a36-15"
+    },
+    {
+      "name": "Arribas Mexican Restaurant",
+      "address": "31 New Street, Plymouth, PL1 2NA",
+      "website_url": "https://www.arribasplymouth.co.uk/",
+      "cuisine_type": "Mexican",
+      "status": "TO_ADD",
+      "price_range": "\u00a38-18"
+    },
+    {
+      "name": "The Dock",
+      "address": "Millbay Road, Plymouth, PL1 3LF",
+      "website_url": "https://www.thedockplymouth.co.uk/",
+      "cuisine_type": "British Pub & Grill",
+      "status": "TO_ADD",
+      "price_range": "\u00a38-20"
+    },
+    {
+      "name": "Barbican Pasta Bar",
+      "address": "96 Southside Street, Plymouth, PL1 2LA",
+      "website_url": "https://www.barbicanpastabar.co.uk/",
+      "cuisine_type": "Italian",
+      "status": "TO_ADD",
+      "price_range": "\u00a310-22"
+    },
+    {
+      "name": "Turtle Bay Plymouth",
+      "address": "60-62 Mayflower Street, Plymouth, PL1 1SD",
+      "website_url": "https://www.turtlebay.co.uk/restaurants/plymouth/",
+      "cuisine_type": "Caribbean",
+      "status": "TO_ADD",
+      "price_range": "\u00a39-18"
+    },
+    {
+      "name": "Wagamama Plymouth",
+      "address": "Drake Circus, 1 Charles Street, Plymouth, PL1 1EA",
+      "website_url": "https://www.wagamama.com/restaurants/plymouth/",
+      "cuisine_type": "Asian Fusion",
+      "status": "TO_ADD",
+      "price_range": "\u00a39-16"
+    },
+    {
+      "name": "Zizzi Plymouth",
+      "address": "Derrys Cross, Plymouth, PL1 2SW",
+      "website_url": "https://www.zizzi.co.uk/restaurants/plymouth/",
+      "cuisine_type": "Italian",
+      "status": "TO_ADD",
+      "price_range": "\u00a310-18"
+    },
+    {
+      "name": "Nando's Plymouth",
+      "address": "Unit 2, Plymouth Pavilions, Plymouth, PL1 3LF",
+      "website_url": "https://www.nandos.co.uk/restaurants/plymouth/",
+      "cuisine_type": "Portuguese/African",
+      "status": "TO_ADD",
+      "price_range": "\u00a38-15"
+    },
+    {
+      "name": "ASK Italian Plymouth",
+      "address": "Barcode, 3-4 Derry's Cross, Plymouth, PL1 2SW",
+      "website_url": "https://www.askitalian.co.uk/restaurant/plymouth/",
+      "cuisine_type": "Italian",
+      "status": "TO_ADD",
+      "price_range": "\u00a310-20"
+    },
+    {
+      "name": "Bill's Plymouth Restaurant",
+      "address": "Drake Circus, 1 Drakes Place, Plymouth, PL1 1EA",
+      "website_url": "https://bills-website.co.uk/restaurants/plymouth/",
+      "cuisine_type": "British Brasserie",
+      "status": "TO_ADD",
+      "price_range": "\u00a310-22"
+    },
+    {
+      "name": "Prezzo Plymouth",
+      "address": "5 Frankfort Gate, Plymouth, PL1 1QD",
+      "website_url": "https://www.prezzorestaurants.co.uk/restaurants/plymouth/",
+      "cuisine_type": "Italian",
+      "status": "TO_ADD",
+      "price_range": "\u00a39-18"
+    },
+    {
+      "name": "Las Iguanas Plymouth",
+      "address": "Barbican Leisure Park, Commercial Road, Plymouth, PL4 0LE",
+      "website_url": "https://www.iguanas.co.uk/restaurants/plymouth/",
+      "cuisine_type": "Latin American",
+      "status": "TO_ADD",
+      "price_range": "\u00a310-20"
+    },
+    {
+      "name": "China Palace",
+      "address": "19 Frankfort Gate, Plymouth, PL1 1QA",
+      "website_url": "https://www.chinapalaceplymouth.co.uk/",
+      "cuisine_type": "Chinese",
+      "status": "TO_ADD",
+      "price_range": "\u00a38-18"
+    },
+    {
+      "name": "Royal Bengal",
+      "address": "8 The Barbican, Plymouth, PL1 2LR",
+      "website_url": "https://www.royalbengalplymouth.co.uk/",
+      "cuisine_type": "Indian",
+      "status": "TO_ADD",
+      "price_range": "\u00a39-20"
+    },
+    {
+      "name": "Bistrot Pierre",
+      "address": "Royal William Yard, Plymouth, PL1 3RP",
+      "website_url": "https://www.bistrotpierre.co.uk/restaurants/plymouth/",
+      "cuisine_type": "French Bistro",
+      "status": "TO_ADD",
+      "price_range": "\u00a312-25"
+    }
+  ],
+  "by_cuisine": {
+    "Seafood & Fish": 1,
+    "Modern British": 1,
+    "British & International": 1,
+    "Wine Bar & Small Plates": 1,
+    "Tapas & Craft Bar": 1,
+    "Neapolitan Pizza": 1,
+    "Fine Dining (Michelin Recommended)": 1,
+    "Seafood & Grill": 1,
+    "Caf\u00e9 & Deli": 1,
+    "Seafood & Mediterranean (Greek)": 1,
+    "All-Day Cafe Bar": 2,
+    "Mexican": 1,
+    "British Pub & Grill": 1,
+    "Italian": 4,
+    "Caribbean": 1,
+    "Asian Fusion": 1,
+    "Portuguese/African": 1,
+    "British Brasserie": 1,
+    "Latin American": 1,
+    "Chinese": 1,
+    "Indian": 1,
+    "French Bistro": 1
+  }
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Plymouth Grill - Steakhouse Menu</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; }
+        .menu-category { margin-bottom: 40px; }
+        .menu-items { list-style: none; padding: 0; }
+        .menu-item { margin-bottom: 20px; padding: 15px; border-left: 3px solid #8B4513; background: #f9f9f9; }
+        .item-header { display: flex; justify-content: space-between; align-items: center; }
+        .item-name { font-weight: bold; font-size: 1.1em; color: #333; }
+        .item-price { color: #8B4513; font-weight: bold; font-size: 1.1em; }
+        .item-description { color: #666; margin-top: 5px; font-size: 0.95em; }
+        .dietary-tags { margin-top: 5px; }
+        .tag { display: inline-block; padding: 3px 8px; margin-right: 5px; border-radius: 3px; font-size: 0.8em; color: white; }
+        .tag-vegetarian { background: #4CAF50; }
+        .tag-vegan { background: #388E3C; }
+        .tag-gluten-free { background: #FF9800; }
+        .tag-dairy-free { background: #2196F3; }
+    </style>
+</head>
+<body>
+    <h1>The Plymouth Grill</h1>
+    <p>Premium steaks and classic British fare</p>
+
+    <div class="menu-category">
+        <h2>Starters</h2>
+        <ul class="menu-items">
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Garlic Bread</span>
+                    <span class="item-price">£5.50</span>
+                </div>
+                <div class="item-description">Toasted sourdough with garlic butter</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-vegetarian">Vegetarian</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Prawn Cocktail</span>
+                    <span class="item-price">£8.95</span>
+                </div>
+                <div class="item-description">Atlantic prawns with Marie Rose sauce and crisp lettuce</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-gluten-free">Gluten-Free</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Chicken Liver Pâté</span>
+                    <span class="item-price">£7.50</span>
+                </div>
+                <div class="item-description">Smooth pâté with red onion chutney and toasted brioche</div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Beetroot & Goat Cheese Salad</span>
+                    <span class="item-price">£7.95</span>
+                </div>
+                <div class="item-description">Roasted beetroot, goat cheese, walnuts, rocket, balsamic</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-vegetarian">Vegetarian</span>
+                    <span class="tag tag-gluten-free">Gluten-Free</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="menu-category">
+        <h2>Steaks & Grills</h2>
+        <ul class="menu-items">
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">8oz Fillet Steak</span>
+                    <span class="item-price">£32.95</span>
+                </div>
+                <div class="item-description">Prime British beef, hand-cut, served with chips and grilled tomato</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-gluten-free">Gluten-Free</span>
+                    <span class="tag tag-dairy-free">Dairy-Free</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">10oz Sirloin Steak</span>
+                    <span class="item-price">£28.95</span>
+                </div>
+                <div class="item-description">28-day aged British sirloin with chips and mushrooms</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-gluten-free">Gluten-Free</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">12oz Ribeye Steak</span>
+                    <span class="item-price">£29.95</span>
+                </div>
+                <div class="item-description">Marbled ribeye with peppercorn sauce, chips, salad</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-gluten-free">Gluten-Free</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Grilled Lamb Chops</span>
+                    <span class="item-price">£24.95</span>
+                </div>
+                <div class="item-description">Devonshire lamb chops with mint jelly, new potatoes, vegetables</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-gluten-free">Gluten-Free</span>
+                    <span class="tag tag-dairy-free">Dairy-Free</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Half Roast Chicken</span>
+                    <span class="item-price">£16.95</span>
+                </div>
+                <div class="item-description">Herb-roasted chicken with chips and coleslaw</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="menu-category">
+        <h2>Fish & Seafood</h2>
+        <ul class="menu-items">
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Grilled Salmon Fillet</span>
+                    <span class="item-price">£19.95</span>
+                </div>
+                <div class="item-description">Fresh Scottish salmon with lemon butter, asparagus, new potatoes</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-gluten-free">Gluten-Free</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Whole Grilled Sea Bass</span>
+                    <span class="item-price">£22.95</span>
+                </div>
+                <div class="item-description">Butterflied sea bass with herbs, garlic, olive oil</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-gluten-free">Gluten-Free</span>
+                    <span class="tag tag-dairy-free">Dairy-Free</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Seafood Platter</span>
+                    <span class="item-price">£26.95</span>
+                </div>
+                <div class="item-description">Prawns, mussels, squid, scallops, garlic butter, crusty bread</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="menu-category">
+        <h2>Vegetarian & Vegan</h2>
+        <ul class="menu-items">
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Mushroom Stroganoff</span>
+                    <span class="item-price">£14.50</span>
+                </div>
+                <div class="item-description">Mixed mushrooms in creamy sauce with rice</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-vegetarian">Vegetarian</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Vegan Buddha Bowl</span>
+                    <span class="item-price">£13.95</span>
+                </div>
+                <div class="item-description">Quinoa, roasted vegetables, avocado, tahini dressing</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-vegan">Vegan</span>
+                    <span class="tag tag-gluten-free">Gluten-Free</span>
+                    <span class="tag tag-dairy-free">Dairy-Free</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Vegetable Lasagne</span>
+                    <span class="item-price">£12.95</span>
+                </div>
+                <div class="item-description">Layers of pasta, roasted vegetables, béchamel sauce</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-vegetarian">Vegetarian</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="menu-category">
+        <h2>Desserts</h2>
+        <ul class="menu-items">
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Sticky Toffee Pudding</span>
+                    <span class="item-price">£6.95</span>
+                </div>
+                <div class="item-description">Warm sponge with toffee sauce and vanilla ice cream</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-vegetarian">Vegetarian</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Chocolate Fondant</span>
+                    <span class="item-price">£7.50</span>
+                </div>
+                <div class="item-description">Molten chocolate pudding with berry compote</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-vegetarian">Vegetarian</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Crème Brûlée</span>
+                    <span class="item-price">£6.50</span>
+                </div>
+                <div class="item-description">Classic vanilla custard with caramelized sugar</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-vegetarian">Vegetarian</span>
+                    <span class="tag tag-gluten-free">Gluten-Free</span>
+                </div>
+            </li>
+            <li class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Sorbet Selection</span>
+                    <span class="item-price">£5.50</span>
+                </div>
+                <div class="item-description">Lemon, raspberry, mango - choose 3 scoops</div>
+                <div class="dietary-tags">
+                    <span class="tag tag-vegan">Vegan</span>
+                    <span class="tag tag-gluten-free">Gluten-Free</span>
+                    <span class="tag tag-dairy-free">Dairy-Free</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <p><small>All our steaks are served with your choice of peppercorn, diane, or mushroom sauce (+£2.50)</small></p>
+        <p><small>Please inform staff of any dietary requirements or allergies</small></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,138 @@
+[
+  {
+    "restaurant": {
+      "name": "The Ship",
+      "address": "8 Southside Street, Barbican, Plymouth, PL1 2LA",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Pub & Gastropub",
+      "price_range": "£8-18"
+    },
+    "menu_items": [
+      {"name": "Traditional Sunday Roast", "description": "Roast beef, Yorkshire pudding, vegetables", "price_gbp": 14.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Beer-battered fish with chips", "price_gbp": 13.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Steak & Ale Pie", "description": "Homemade pie with mash", "price_gbp": 12.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Chicken Caesar Salad", "description": "Grilled chicken, lettuce, parmesan", "price_gbp": 10.95, "category": "Salads", "dietary_tags": []},
+      {"name": "Nachos", "description": "Loaded tortilla chips", "price_gbp": 7.50, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Veggie Burger", "description": "Plant-based burger with fries", "price_gbp": 11.95, "category": "Burgers", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Dolphin Hotel",
+      "address": "14 The Barbican, Plymouth, PL1 2LS",
+      "website_url": "https://www.dolphinhotelbarbican.co.uk/",
+      "cuisine_type": "Pub & Gastropub",
+      "price_range": "£7-16"
+    },
+    "menu_items": [
+      {"name": "Fish & Chips", "description": "Fresh local fish, hand-cut chips", "price_gbp": 13.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Scampi & Chips", "description": "Breaded scampi", "price_gbp": 11.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Burger & Chips", "description": "Beef burger with fries", "price_gbp": 12.50, "category": "Burgers", "dietary_tags": []},
+      {"name": "Ploughman's Lunch", "description": "Cheese, pickles, bread", "price_gbp": 9.95, "category": "Light Bites", "dietary_tags": ["vegetarian"]},
+      {"name": "Soup of the Day", "description": "With crusty bread", "price_gbp": 6.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Apple Crumble", "description": "With custard", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Greedy Goose",
+      "address": "Prysten House, Finewell Street, Plymouth, PL1 2AE",
+      "website_url": "https://www.greedygooseplymouth.co.uk/",
+      "cuisine_type": "British",
+      "price_range": "£10-22"
+    },
+    "menu_items": [
+      {"name": "Devon Beef Burger", "description": "Local beef, bacon, cheese", "price_gbp": 15.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Pan-Fried Sea Bass", "description": "With seasonal vegetables", "price_gbp": 18.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Chicken Supreme", "description": "With dauphinoise potatoes", "price_gbp": 16.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Wild Mushroom Risotto", "description": "Creamy risotto with truffle oil", "price_gbp": 14.95, "category": "Vegetarian", "dietary_tags": ["vegetarian", "gluten-free"]},
+      {"name": "Crispy Calamari", "description": "With garlic aioli", "price_gbp": 8.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Eton Mess", "description": "Meringue, cream, berries", "price_gbp": 7.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Supha's Street Food",
+      "address": "The Barcode, Plymouth, PL1 2SW",
+      "website_url": "https://www.suphasstreetfood.co.uk/",
+      "cuisine_type": "Thai & Vietnamese",
+      "price_range": "£8-14"
+    },
+    "menu_items": [
+      {"name": "Pad Thai", "description": "Rice noodles, peanuts, lime", "price_gbp": 11.50, "category": "Noodles", "dietary_tags": []},
+      {"name": "Green Curry", "description": "Thai green curry with rice", "price_gbp": 12.50, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Tom Yum Soup", "description": "Spicy Thai soup", "price_gbp": 9.50, "category": "Soups", "dietary_tags": ["gluten-free"]},
+      {"name": "Vietnamese Pho", "description": "Rice noodle soup", "price_gbp": 10.95, "category": "Soups", "dietary_tags": []},
+      {"name": "Spring Rolls", "description": "Crispy vegetable rolls", "price_gbp": 6.50, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Sticky Rice & Mango", "description": "Thai dessert", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegan"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Arribas Mexican Restaurant",
+      "address": "2 Bretonside, Plymouth, PL4 0AX",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Mexican",
+      "price_range": "£9-16"
+    },
+    "menu_items": [
+      {"name": "Chicken Fajitas", "description": "Sizzling chicken with tortillas", "price_gbp": 14.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Beef Burrito", "description": "Rice, beans, salsa, cheese", "price_gbp": 12.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Vegetable Enchiladas", "description": "Filled tortillas with sauce", "price_gbp": 11.95, "category": "Vegetarian", "dietary_tags": ["vegetarian"]},
+      {"name": "Nachos Grande", "description": "Loaded nachos", "price_gbp": 9.50, "category": "Sharing", "dietary_tags": ["vegetarian"]},
+      {"name": "Guacamole & Chips", "description": "Fresh guacamole with tortilla chips", "price_gbp": 6.95, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Churros", "description": "With chocolate sauce", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Yukisan",
+      "address": "23 New George Street, Plymouth, PL1 1RW",
+      "website_url": "https://www.yukisan.co.uk/",
+      "cuisine_type": "Japanese",
+      "price_range": "£10-25"
+    },
+    "menu_items": [
+      {"name": "Salmon Sashimi", "description": "Fresh salmon slices", "price_gbp": 12.95, "category": "Sashimi", "dietary_tags": ["gluten-free"]},
+      {"name": "California Roll", "description": "Crab, avocado, cucumber", "price_gbp": 9.95, "category": "Sushi", "dietary_tags": []},
+      {"name": "Chicken Teriyaki", "description": "Grilled chicken with teriyaki sauce", "price_gbp": 14.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Vegetable Tempura", "description": "Battered vegetables", "price_gbp": 8.95, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Miso Soup", "description": "Traditional Japanese soup", "price_gbp": 3.50, "category": "Soups", "dietary_tags": ["vegan"]},
+      {"name": "Green Tea Ice Cream", "description": "Japanese dessert", "price_gbp": 5.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Himalayan Spice",
+      "address": "22 New George Street, Plymouth, PL1 1RW",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Indian & Nepalese",
+      "price_range": "£8-17"
+    },
+    "menu_items": [
+      {"name": "Chicken Tikka Masala", "description": "Creamy tomato curry", "price_gbp": 11.95, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Lamb Bhuna", "description": "Dry spiced lamb curry", "price_gbp": 12.95, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Nepalese Momo", "description": "Dumplings with spicy sauce", "price_gbp": 7.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Vegetable Curry", "description": "Mixed vegetables in curry sauce", "price_gbp": 9.95, "category": "Vegetarian", "dietary_tags": ["vegan", "gluten-free"]},
+      {"name": "Garlic Naan", "description": "Bread with garlic butter", "price_gbp": 3.25, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Gulab Jamun", "description": "Sweet fried dumplings", "price_gbp": 4.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Pasta Bar",
+      "address": "69 Mayflower Street, Plymouth, PL1 1SD",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Italian",
+      "price_range": "£9-16"
+    },
+    "menu_items": [
+      {"name": "Spaghetti Carbonara", "description": "Bacon, egg, parmesan, cream", "price_gbp": 11.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Penne Arrabbiata", "description": "Spicy tomato sauce", "price_gbp": 10.50, "category": "Pasta", "dietary_tags": ["vegan"]},
+      {"name": "Lasagne", "description": "Beef ragu, bechamel", "price_gbp": 12.50, "category": "Pasta", "dietary_tags": []},
+      {"name": "Margherita Pizza", "description": "Tomato, mozzarella, basil", "price_gbp": 9.95, "category": "Pizza", "dietary_tags": ["vegetarian"]},
+      {"name": "Bruschetta", "description": "Tomato, garlic, basil on bread", "price_gbp": 6.50, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Tiramisu", "description": "Classic Italian dessert", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  }
+]

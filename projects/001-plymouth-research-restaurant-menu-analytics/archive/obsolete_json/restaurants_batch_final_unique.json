@@ -1,0 +1,342 @@
+[
+  {
+    "restaurant": {
+      "name": "Barbican Blues Bar",
+      "address": "The Barbican, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Bar & Grill",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "BBQ Ribs", "description": "Slow-cooked ribs", "price_gbp": 16.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Southern Fried Chicken", "description": "Buttermilk chicken", "price_gbp": 14.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Pulled Pork Sandwich", "description": "Smoked pork", "price_gbp": 11.95, "category": "Sandwiches", "dietary_tags": []},
+      {"name": "Buffalo Wings", "description": "Spicy wings", "price_gbp": 8.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Loaded Fries", "description": "With cheese and bacon", "price_gbp": 7.50, "category": "Sides", "dietary_tags": []},
+      {"name": "Pecan Pie", "description": "American dessert", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Waterfront Inn",
+      "address": "Sutton Harbour, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Waterfront Pub",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Fish & Chips", "description": "Fresh daily catch", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Seafood Linguine", "description": "Pasta with mixed seafood", "price_gbp": 17.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Sirloin Steak", "description": "8oz with fries", "price_gbp": 22.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Mussels & Frites", "description": "Steamed mussels", "price_gbp": 16.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Garlic Prawns", "description": "With bread", "price_gbp": 9.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Lemon Tart", "description": "With cream", "price_gbp": 7.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Plympton Inn",
+      "address": "Plympton, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Village Pub",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {"name": "Sunday Roast", "description": "Traditional roast", "price_gbp": 14.50, "category": "Roasts", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Beer-battered cod", "price_gbp": 13.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Steak & Kidney Pie", "description": "With vegetables", "price_gbp": 13.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Burger & Chips", "description": "Beef burger", "price_gbp": 12.50, "category": "Burgers", "dietary_tags": []},
+      {"name": "Garlic Bread", "description": "With cheese", "price_gbp": 5.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Bread & Butter Pudding", "description": "Traditional dessert", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Flavours of India",
+      "address": "North Hill, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Indian",
+      "price_range": "£9-18"
+    },
+    "menu_items": [
+      {"name": "Chicken Jalfrezi", "description": "Spicy curry", "price_gbp": 11.95, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Lamb Korma", "description": "Mild creamy curry", "price_gbp": 12.95, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Tandoori Mixed Grill", "description": "Selection of tandoori meats", "price_gbp": 16.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Vegetable Samosas", "description": "Spiced pastries", "price_gbp": 4.95, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Pilau Rice", "description": "Spiced rice", "price_gbp": 3.50, "category": "Sides", "dietary_tags": ["vegan", "gluten-free"]},
+      {"name": "Gulab Jamun", "description": "Sweet dessert", "price_gbp": 4.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Golden Dragon",
+      "address": "Mutley Plain, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Chinese Takeaway",
+      "price_range": "£7-14"
+    },
+    "menu_items": [
+      {"name": "Chicken Chow Mein", "description": "Stir-fried noodles", "price_gbp": 9.95, "category": "Noodles", "dietary_tags": []},
+      {"name": "Sweet & Sour Hong Kong Style", "description": "Crispy chicken", "price_gbp": 10.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Beef in Oyster Sauce", "description": "Stir-fried beef", "price_gbp": 11.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Vegetable Spring Rolls", "description": "Crispy rolls", "price_gbp": 4.50, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Special Fried Rice", "description": "With mixed meats", "price_gbp": 7.95, "category": "Rice", "dietary_tags": []},
+      {"name": "Toffee Banana", "description": "Caramelized banana", "price_gbp": 5.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Marco's New York Italian",
+      "address": "Drake Circus, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Italian-American",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "New York Pizza", "description": "Large slice pizza", "price_gbp": 12.95, "category": "Pizza", "dietary_tags": []},
+      {"name": "Meatball Sub", "description": "Italian meatballs", "price_gbp": 10.95, "category": "Sandwiches", "dietary_tags": []},
+      {"name": "Chicken Parmigiana", "description": "Breaded chicken with cheese", "price_gbp": 14.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Caesar Salad", "description": "With parmesan", "price_gbp": 9.95, "category": "Salads", "dietary_tags": []},
+      {"name": "Garlic Knots", "description": "Italian bread knots", "price_gbp": 5.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Cannoli", "description": "Sicilian dessert", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Bodrum Kebab House",
+      "address": "Mutley Plain, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Turkish Kebab",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {"name": "Mixed Shish", "description": "Lamb and chicken skewers", "price_gbp": 15.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Chicken Doner", "description": "Rotisserie chicken", "price_gbp": 11.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Lamb Kofte", "description": "Grilled meatballs", "price_gbp": 13.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Falafel Plate", "description": "Vegetarian option", "price_gbp": 10.95, "category": "Vegetarian", "dietary_tags": ["vegan"]},
+      {"name": "Turkish Bread", "description": "Fresh bread", "price_gbp": 2.95, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Baklava", "description": "Sweet pastry", "price_gbp": 5.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The White Thorn",
+      "address": "Shaugh Prior, near Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Country Pub",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Sunday Roast", "description": "Traditional roast with Yorkshire pudding", "price_gbp": 15.95, "category": "Roasts", "dietary_tags": []},
+      {"name": "Pan-Fried Duck Breast", "description": "With cherry sauce", "price_gbp": 18.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Fish & Chips", "description": "Beer-battered", "price_gbp": 14.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Wild Mushroom Risotto", "description": "Creamy rice", "price_gbp": 13.95, "category": "Vegetarian", "dietary_tags": ["vegetarian", "gluten-free"]},
+      {"name": "Soup & Crusty Bread", "description": "Homemade soup", "price_gbp": 7.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Sticky Toffee Pudding", "description": "With toffee sauce", "price_gbp": 7.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Pasta Fresca",
+      "address": "Mutley Plain, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Italian Pasta",
+      "price_range": "£9-16"
+    },
+    "menu_items": [
+      {"name": "Tagliatelle Bolognese", "description": "Meat sauce", "price_gbp": 11.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Penne Puttanesca", "description": "Tomato, olives, capers", "price_gbp": 10.95, "category": "Pasta", "dietary_tags": ["vegan"]},
+      {"name": "Ravioli", "description": "Ricotta and spinach", "price_gbp": 12.50, "category": "Pasta", "dietary_tags": ["vegetarian"]},
+      {"name": "Gnocchi", "description": "Potato dumplings", "price_gbp": 11.95, "category": "Pasta", "dietary_tags": ["vegetarian"]},
+      {"name": "Bruschetta", "description": "Tomato on bread", "price_gbp": 6.50, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Panna Cotta", "description": "Italian cream dessert", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Clifton",
+      "address": "Mutley Plain, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Pub",
+      "price_range": "£7-14"
+    },
+    "menu_items": [
+      {"name": "Fish & Chips", "description": "Beer-battered", "price_gbp": 11.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Burger & Chips", "description": "Beef burger", "price_gbp": 10.50, "category": "Burgers", "dietary_tags": []},
+      {"name": "Sunday Roast", "description": "Traditional roast", "price_gbp": 12.95, "category": "Roasts", "dietary_tags": []},
+      {"name": "Scampi", "description": "Wholetail scampi", "price_gbp": 10.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Garlic Bread", "description": "With cheese", "price_gbp": 4.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Apple Crumble", "description": "With custard", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Eddystone Inn",
+      "address": "Wembury, near Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Coastal Pub",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Fish & Chips", "description": "Fresh local catch", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Crab Sandwich", "description": "Local crab", "price_gbp": 12.95, "category": "Sandwiches", "dietary_tags": []},
+      {"name": "Sunday Roast", "description": "Traditional roast", "price_gbp": 15.50, "category": "Roasts", "dietary_tags": []},
+      {"name": "Seafood Chowder", "description": "Creamy soup", "price_gbp": 9.95, "category": "Soups", "dietary_tags": []},
+      {"name": "Garlic Bread", "description": "With cheese", "price_gbp": 5.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Eton Mess", "description": "Meringue dessert", "price_gbp": 7.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Thai Orchid",
+      "address": "Mutley Plain, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Thai",
+      "price_range": "£10-18"
+    },
+    "menu_items": [
+      {"name": "Pad Thai", "description": "Thai rice noodles", "price_gbp": 11.95, "category": "Noodles", "dietary_tags": []},
+      {"name": "Red Curry", "description": "Spicy coconut curry", "price_gbp": 12.95, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Massaman Curry", "description": "Mild curry", "price_gbp": 13.50, "category": "Curry", "dietary_tags": ["gluten-free"]},
+      {"name": "Tom Kha Gai", "description": "Coconut chicken soup", "price_gbp": 8.95, "category": "Soups", "dietary_tags": ["gluten-free"]},
+      {"name": "Vegetable Spring Rolls", "description": "Fresh rolls", "price_gbp": 6.50, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Mango Sticky Rice", "description": "Thai dessert", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegan", "gluten-free"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Dragon Palace",
+      "address": "North Hill, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Chinese Restaurant",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Crispy Aromatic Duck", "description": "Half duck with pancakes", "price_gbp": 18.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Kung Po Chicken", "description": "Spicy chicken", "price_gbp": 12.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Szechuan Beef", "description": "Hot and spicy", "price_gbp": 13.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Sesame Prawn Toast", "description": "Crispy toast", "price_gbp": 6.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Vegetable Chow Mein", "description": "Stir-fried noodles", "price_gbp": 9.95, "category": "Noodles", "dietary_tags": ["vegan"]},
+      {"name": "Lychees", "description": "In syrup", "price_gbp": 4.95, "category": "Desserts", "dietary_tags": ["vegan", "gluten-free"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Viva Brazil",
+      "address": "Barbican Leisure Park, Plymouth",
+      "website_url": "https://www.vivabrazil.com/",
+      "cuisine_type": "Brazilian Churrascaria",
+      "price_range": "£25-40"
+    },
+    "menu_items": [
+      {"name": "Rodizio Experience", "description": "All-you-can-eat Brazilian BBQ", "price_gbp": 32.95, "category": "Buffet", "dietary_tags": []},
+      {"name": "Picanha", "description": "Brazilian sirloin steak", "price_gbp": 28.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Chicken Hearts", "description": "Grilled hearts", "price_gbp": 16.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Vegetarian Rodizio", "description": "Grilled vegetables", "price_gbp": 24.95, "category": "Vegetarian", "dietary_tags": ["vegan", "gluten-free"]},
+      {"name": "Feijoada", "description": "Brazilian black bean stew", "price_gbp": 14.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Brigadeiro", "description": "Brazilian chocolate dessert", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Fawn",
+      "address": "Plymstock, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Pub",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {"name": "Sunday Roast", "description": "Traditional roast", "price_gbp": 13.95, "category": "Roasts", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Beer-battered", "price_gbp": 12.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Burger & Chips", "description": "Beef burger", "price_gbp": 11.50, "category": "Burgers", "dietary_tags": []},
+      {"name": "Steak & Ale Pie", "description": "With mash", "price_gbp": 12.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Garlic Bread", "description": "With cheese", "price_gbp": 4.95, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Chocolate Fudge Cake", "description": "With ice cream", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Dolphin Hotel Restaurant",
+      "address": "The Barbican, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Historic Hotel Dining",
+      "price_range": "£12-24"
+    },
+    "menu_items": [
+      {"name": "Pan-Fried Sea Bass", "description": "With samphire", "price_gbp": 19.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Beef Wellington", "description": "Individual portion", "price_gbp": 24.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Fresh fish", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Vegetable Tart", "description": "Roasted vegetables", "price_gbp": 14.95, "category": "Vegetarian", "dietary_tags": ["vegetarian"]},
+      {"name": "Soup of the Day", "description": "With crusty bread", "price_gbp": 7.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Crème Brûlée", "description": "Vanilla custard", "price_gbp": 8.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Thistle Park Brewers Fayre",
+      "address": "Derriford, Plymouth",
+      "website_url": "https://www.brewersfayre.co.uk/",
+      "cuisine_type": "Family Pub Chain",
+      "price_range": "£7-14"
+    },
+    "menu_items": [
+      {"name": "Mixed Grill", "description": "Selection of meats", "price_gbp": 16.99, "category": "Mains", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Battered cod", "price_gbp": 11.99, "category": "Mains", "dietary_tags": []},
+      {"name": "Chicken Tikka Masala", "description": "With rice", "price_gbp": 11.99, "category": "Curry", "dietary_tags": []},
+      {"name": "All Day Breakfast", "description": "Full English", "price_gbp": 9.99, "category": "Breakfast", "dietary_tags": []},
+      {"name": "Onion Rings", "description": "Battered rings", "price_gbp": 4.49, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Apple Pie", "description": "With custard", "price_gbp": 5.99, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Mountbatten Hotel Restaurant",
+      "address": "Millbay, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Hotel Restaurant",
+      "price_range": "£14-28"
+    },
+    "menu_items": [
+      {"name": "Grilled Fillet Steak", "description": "8oz with vegetables", "price_gbp": 26.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Pan-Seared Salmon", "description": "With asparagus", "price_gbp": 19.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Chicken Supreme", "description": "Stuffed chicken breast", "price_gbp": 18.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Vegetable Wellington", "description": "Puff pastry", "price_gbp": 16.95, "category": "Vegetarian", "dietary_tags": ["vegan"]},
+      {"name": "Soup of the Day", "description": "Freshly made", "price_gbp": 7.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Chocolate Fondant", "description": "Molten center", "price_gbp": 8.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The George",
+      "address": "Plympton, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Historic Pub",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {"name": "Sunday Roast", "description": "Traditional roast", "price_gbp": 14.50, "category": "Roasts", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Beer-battered", "price_gbp": 13.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Steak & Mushroom Pie", "description": "With vegetables", "price_gbp": 13.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Burger & Chips", "description": "Local beef", "price_gbp": 12.50, "category": "Burgers", "dietary_tags": []},
+      {"name": "Garlic Bread", "description": "With cheese", "price_gbp": 5.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Treacle Tart", "description": "With custard", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Plymouth Pavilions Café",
+      "address": "Plymouth Pavilions, Millbay Road",
+      "website_url": "https://www.plymouthpavilions.com/",
+      "cuisine_type": "Arena Café",
+      "price_range": "£5-12"
+    },
+    "menu_items": [
+      {"name": "Fish & Chips", "description": "Battered fish", "price_gbp": 9.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Burger & Fries", "description": "Beef burger", "price_gbp": 8.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Hot Dog", "description": "With onions", "price_gbp": 6.50, "category": "Fast Food", "dietary_tags": []},
+      {"name": "Nachos", "description": "With cheese", "price_gbp": 6.95, "category": "Snacks", "dietary_tags": ["vegetarian"]},
+      {"name": "Pizza Slice", "description": "Various toppings", "price_gbp": 4.95, "category": "Fast Food", "dietary_tags": []},
+      {"name": "Ice Cream", "description": "Various flavors", "price_gbp": 3.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  }
+]

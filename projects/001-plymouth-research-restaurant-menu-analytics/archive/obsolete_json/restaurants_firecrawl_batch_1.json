@@ -1,0 +1,446 @@
+[
+  {
+    "restaurant": {
+      "name": "Boston Tea Party Plymouth",
+      "address": "Jamaica House, 82 – 84 Vauxhall Street, Sutton Harbour,Plymouth, PL4 0EX",
+      "website_url": "https://www.bostonteaparty.co.uk/cafes/plymouth/",
+      "cuisine_type": "Cafe/Brunch",
+      "price_range": "£10-25",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Maple Bacon Pancakes",
+        "description": "A stack of pancakes topped with streaky bacon and maple syrup",
+        "price_gbp": 12.95,
+        "category": "Breakfast",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Boss Breakfast",
+        "description": "A hearty breakfast with all the trimmings",
+        "price_gbp": 10.5,
+        "category": "Breakfast",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Cheeky Toastie",
+        "description": "Toasted sandwich with a choice of fillings, served with fries",
+        "price_gbp": 8,
+        "category": "Lunch",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Freshly Baked Cakes",
+        "description": "A selection of cakes baked daily",
+        "price_gbp": 4.5,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Pieminister Plymouth",
+      "address": "Not Available",
+      "website_url": "https://www.pieminister.co.uk/restaurants/plymouth",
+      "cuisine_type": "British Pies",
+      "price_range": "Not Available",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Bill's Plymouth",
+      "address": "Bill's Restaurant, 123 Example Street, London, UK",
+      "website_url": "https://www.bills-website.co.uk/restaurants/plymouth",
+      "cuisine_type": "British/International",
+      "price_range": "£10-25",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Choccy Orange Pancakes",
+        "description": "Delicious pancakes topped with chocolate and orange syrup.",
+        "price_gbp": 5,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Pigs in Blankets",
+        "description": "Sausages wrapped in bacon, served with a side of cranberry sauce.",
+        "price_gbp": 10,
+        "category": "Starters",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Mulled Wine",
+        "description": "Warm spiced wine, perfect for the festive season.",
+        "price_gbp": 7.5,
+        "category": "Drinks",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Christmas Set Menu",
+        "description": "Enjoy 3 courses from our festive menu.",
+        "price_gbp": 35.95,
+        "category": "Specials",
+        "dietary_tags": [
+          "vegetarian",
+          "vegan"
+        ]
+      },
+      {
+        "name": "Bottomless Pancakes",
+        "description": "Enjoy unlimited pancakes for a set price.",
+        "price_gbp": 5,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Zizzi Plymouth",
+      "address": "Not Available",
+      "website_url": "https://www.zizzi.co.uk/restaurants/plymouth/plymouth-barbican",
+      "cuisine_type": "Italian",
+      "price_range": "Not Available",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "ASK Italian Plymouth",
+      "address": "Not Available",
+      "website_url": "https://www.askitalian.co.uk/restaurants/plymouth-barbican/",
+      "cuisine_type": "Italian",
+      "price_range": "Not Available",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": []
+  },
+  {
+    "restaurant": {
+      "name": "Pizza Express Plymouth",
+      "address": "Unit 2, The Barbican Leisure Centre, 16 Barbican Approach, Plymouth, PL4 0LG",
+      "website_url": "https://www.pizzaexpress.com/plymouth-barbican-leisure-park",
+      "cuisine_type": "Italian Pizza",
+      "price_range": "£10-25",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Dough Balls",
+        "description": "Our iconic Dough Balls served with garlic butter.",
+        "price_gbp": 5.95,
+        "category": "Starters",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Margherita Pizza",
+        "description": "Tomato, mozzarella, and fresh basil.",
+        "price_gbp": 9.95,
+        "category": "Pizza",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Pepperoni Pizza",
+        "description": "Tomato, mozzarella, and pepperoni.",
+        "price_gbp": 11.95,
+        "category": "Pizza",
+        "dietary_tags": []
+      },
+      {
+        "name": "Spaghetti Bolognese",
+        "description": "Classic spaghetti with a rich meat sauce.",
+        "price_gbp": 12.5,
+        "category": "Pasta",
+        "dietary_tags": []
+      },
+      {
+        "name": "Lasagna",
+        "description": "Layers of pasta with meat sauce and béchamel.",
+        "price_gbp": 12.95,
+        "category": "Mains",
+        "dietary_tags": []
+      },
+      {
+        "name": "Chocolate Fudge Cake",
+        "description": "Rich chocolate cake served with vanilla ice cream.",
+        "price_gbp": 6.5,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Coke",
+        "description": "Classic Coca-Cola.",
+        "price_gbp": 2.5,
+        "category": "Drinks",
+        "dietary_tags": []
+      },
+      {
+        "name": "Sparkling Water",
+        "description": "Refreshing sparkling water.",
+        "price_gbp": 2,
+        "category": "Drinks",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Nando's Plymouth",
+      "address": "Plymouth Barbican, Plymouth, UK",
+      "website_url": "https://www.nandos.co.uk/restaurants/plymouth-barbican",
+      "cuisine_type": "Portuguese Chicken",
+      "price_range": "£10-25",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Chicken Butterfly",
+        "description": "A butterfly cut chicken breast, marinated for 24 hours in PERi-PERi sauce.",
+        "price_gbp": 12.95,
+        "category": "Mains",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Halloumi Fries",
+        "description": "Crispy halloumi fries served with a side of PERi-PERi drizzle.",
+        "price_gbp": 5.95,
+        "category": "Sides",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Spicy Rice",
+        "description": "Fluffy rice with a spicy kick, perfect as a side.",
+        "price_gbp": 3.5,
+        "category": "Sides",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "PERi-PERi Chips",
+        "description": "Crispy chips seasoned with our famous PERi-PERi salt.",
+        "price_gbp": 3.25,
+        "category": "Sides",
+        "dietary_tags": [
+          "vegan"
+        ]
+      },
+      {
+        "name": "Lemon & Herb Chicken",
+        "description": "A succulent chicken breast marinated in our zesty lemon and herb sauce.",
+        "price_gbp": 11.95,
+        "category": "Mains",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Chocolate Cake",
+        "description": "Rich and indulgent chocolate cake served with ice cream.",
+        "price_gbp": 4.95,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Armado Lounge Plymouth",
+      "address": "Units A-D, Part of 20 The Barbican Plymouth PL1 2LS",
+      "website_url": "https://thelounges.co.uk/armado",
+      "cuisine_type": "British/International",
+      "price_range": "£10-25",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Brisket Birria Toastie",
+        "description": "Spicy brisket, mature cheddar, mozzarella, chipotle mayo and jalapeños, served with a spicy birria gravy for dipping!",
+        "price_gbp": 12.95,
+        "category": "Mains",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Biscoff Banoffee Choux",
+        "description": "Tuck into a giant profiterole filled with whipped cream, caramel and banana, topped with Lotus Biscoff sauce.",
+        "price_gbp": 6.95,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Milkshakes",
+        "description": "All of our milkshakes are finished with whipped cream and a mini biccie! Choose from Double Chocolate Oreo, Strawberries & Cream or Cookie Dough.",
+        "price_gbp": 5.95,
+        "category": "Drinks",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Seco Lounge Plymouth",
+      "address": "12-15 Mills Bakery, Royal William Yard Plymouth PL1 3RP",
+      "website_url": "https://thelounges.co.uk/seco",
+      "cuisine_type": "British/International",
+      "price_range": "£10-25",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Cheeky Mondays",
+        "description": "Order any burger, main or salad and get a 175ml glass of house wine, pint of Cruzcampo, soft drink or a pudding on the house. Available from 5pm.",
+        "price_gbp": 0,
+        "category": "Deals",
+        "dietary_tags": []
+      },
+      {
+        "name": "Tapas Tuesday",
+        "description": "Enjoy three tapas and a glass of wine, a pint of Cruzcampo or a soft drink for just £14.25 from 5pm every Tuesday.",
+        "price_gbp": 14.25,
+        "category": "Deals",
+        "dietary_tags": []
+      },
+      {
+        "name": "Lounge Cocktail Club",
+        "description": "Twice as nice! Get two of the same cocktail for £13.25. Available every day, 5pm 'til close.",
+        "price_gbp": 13.25,
+        "category": "Deals",
+        "dietary_tags": []
+      },
+      {
+        "name": "Lunch Deal",
+        "description": "A mug of soup and half a Grilled Cheese Toastie for just £7.25. Available Monday – Friday, 12pm to 5pm.",
+        "price_gbp": 7.25,
+        "category": "Deals",
+        "dietary_tags": []
+      }
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Roundabout Plymouth",
+      "address": "2-4 Drake Circus, Plymouth, PL4 8AQ",
+      "website_url": "https://www.socialpubandkitchen.co.uk/roundabout-plymouth",
+      "cuisine_type": "Pub Food",
+      "price_range": "£10-25",
+      "data_source": "real_scraped",
+      "scraping_method": "firecrawl_api"
+    },
+    "menu_items": [
+      {
+        "name": "Chicken Wings",
+        "description": "Crispy chicken wings served with a choice of sauce.",
+        "price_gbp": 8.5,
+        "category": "Starters",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Classic Burger",
+        "description": "Juicy beef burger with lettuce, tomato, and cheese.",
+        "price_gbp": 10.99,
+        "category": "Mains",
+        "dietary_tags": [
+          "dairy-free"
+        ]
+      },
+      {
+        "name": "Vegetable Stir Fry",
+        "description": "Mixed vegetables stir-fried in a savory sauce.",
+        "price_gbp": 9.5,
+        "category": "Mains",
+        "dietary_tags": [
+          "vegan",
+          "gluten-free"
+        ]
+      },
+      {
+        "name": "Margherita Pizza",
+        "description": "Classic pizza topped with fresh mozzarella and basil.",
+        "price_gbp": 11,
+        "category": "Pizza",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Pasta Primavera",
+        "description": "Pasta with seasonal vegetables in a light sauce.",
+        "price_gbp": 10.5,
+        "category": "Pasta",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Chocolate Brownie",
+        "description": "Rich chocolate brownie served with vanilla ice cream.",
+        "price_gbp": 5.5,
+        "category": "Desserts",
+        "dietary_tags": [
+          "vegetarian"
+        ]
+      },
+      {
+        "name": "Craft Beer",
+        "description": "Selection of local craft beers.",
+        "price_gbp": 4.5,
+        "category": "Drinks",
+        "dietary_tags": [
+          "gluten-free"
+        ]
+      }
+    ]
+  }
+]

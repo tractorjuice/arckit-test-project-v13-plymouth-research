@@ -1,0 +1,172 @@
+[
+  {
+    "restaurant": {
+      "name": "Yo! Sushi Plymouth",
+      "address": "Drake Circus, Plymouth, PL1 1EA",
+      "website_url": "https://yosushi.com/restaurants/plymouth",
+      "cuisine_type": "Japanese Sushi",
+      "price_range": "£12-25"
+    },
+    "menu_items": [
+      {"name": "Salmon Nigiri", "description": "Fresh salmon on rice", "price_gbp": 5.50, "category": "Sushi", "dietary_tags": []},
+      {"name": "California Roll", "description": "Crab, avocado, cucumber", "price_gbp": 6.95, "category": "Sushi", "dietary_tags": []},
+      {"name": "Chicken Katsu", "description": "Breaded chicken with curry", "price_gbp": 13.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Edamame", "description": "Steamed soybeans", "price_gbp": 4.50, "category": "Sides", "dietary_tags": ["vegan", "gluten-free"]},
+      {"name": "Miso Soup", "description": "Traditional soup", "price_gbp": 3.95, "category": "Soups", "dietary_tags": ["vegan"]},
+      {"name": "Mochi Ice Cream", "description": "Japanese dessert", "price_gbp": 5.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Slug & Lettuce Plymouth",
+      "address": "Royal Parade, Plymouth, PL1 1DS",
+      "website_url": "https://www.slugandlettuce.co.uk/plymouth",
+      "cuisine_type": "Bar & Grill",
+      "price_range": "£9-18"
+    },
+    "menu_items": [
+      {"name": "Burger & Fries", "description": "Beef burger", "price_gbp": 12.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Chicken Caesar Salad", "description": "With parmesan", "price_gbp": 11.95, "category": "Salads", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Beer-battered", "price_gbp": 14.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Nachos", "description": "Loaded nachos", "price_gbp": 8.95, "category": "Sharing", "dietary_tags": ["vegetarian"]},
+      {"name": "Halloumi Fries", "description": "With dip", "price_gbp": 6.95, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Chocolate Brownie", "description": "With ice cream", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "All Bar One Plymouth",
+      "address": "Barbican Leisure Park, Plymouth",
+      "website_url": "https://www.allbarone.co.uk/national-search/south-west/all-bar-one-plymouth",
+      "cuisine_type": "Bar & Grill",
+      "price_range": "£9-18"
+    },
+    "menu_items": [
+      {"name": "Steak Frites", "description": "Sirloin with fries", "price_gbp": 17.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Chicken Burger", "description": "Grilled chicken", "price_gbp": 13.50, "category": "Burgers", "dietary_tags": []},
+      {"name": "Quinoa Salad", "description": "Healthy bowl", "price_gbp": 11.95, "category": "Salads", "dietary_tags": ["vegan", "gluten-free"]},
+      {"name": "Garlic Bread", "description": "With cheese", "price_gbp": 5.95, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Calamari", "description": "Fried squid", "price_gbp": 7.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Cheesecake", "description": "Various flavors", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Revolution Plymouth",
+      "address": "New George Street, Plymouth, PL1 1RJ",
+      "website_url": "https://www.revolution-bars.co.uk/bar/plymouth",
+      "cuisine_type": "Bar & Restaurant",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {"name": "Vodka Chicken", "description": "Creamy pasta", "price_gbp": 12.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Burger & Fries", "description": "Beef burger", "price_gbp": 11.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Battered fish", "price_gbp": 13.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Loaded Fries", "description": "With toppings", "price_gbp": 7.95, "category": "Sides", "dietary_tags": []},
+      {"name": "Chicken Wings", "description": "Buffalo or BBQ", "price_gbp": 7.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Cookie Dough", "description": "Warm with ice cream", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Miller & Carter Plymouth",
+      "address": "Marsh Mills, Plymouth, PL6 8NH",
+      "website_url": "https://www.millerandcarter.co.uk/restaurants/south-west/millerandcarterplymouth",
+      "cuisine_type": "Steakhouse",
+      "price_range": "£18-40"
+    },
+    "menu_items": [
+      {"name": "Ribeye Steak (10oz)", "description": "Aged beef", "price_gbp": 29.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Sirloin Steak (8oz)", "description": "Premium cut", "price_gbp": 26.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Fillet Steak (8oz)", "description": "Most tender cut", "price_gbp": 34.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Prawn Cocktail", "description": "Classic starter", "price_gbp": 8.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Triple Cooked Chips", "description": "Premium chips", "price_gbp": 4.95, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Chocolate Tart", "description": "With cream", "price_gbp": 7.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Beefeater Plymouth",
+      "address": "Marsh Mills Retail Park, Plymouth",
+      "website_url": "https://www.beefeater.co.uk/en-gb/locations/devon/plymstock",
+      "cuisine_type": "British Grill",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Mixed Grill", "description": "Selection of meats", "price_gbp": 17.99, "category": "Mains", "dietary_tags": []},
+      {"name": "Gammon Steak", "description": "With egg and chips", "price_gbp": 13.99, "category": "Mains", "dietary_tags": []},
+      {"name": "Fish & Chips", "description": "Beer-battered cod", "price_gbp": 14.49, "category": "Mains", "dietary_tags": []},
+      {"name": "Scampi", "description": "Wholetail scampi", "price_gbp": 12.99, "category": "Mains", "dietary_tags": []},
+      {"name": "Garlic Bread", "description": "With cheese", "price_gbp": 5.49, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Chocolate Fudge Cake", "description": "With ice cream", "price_gbp": 6.49, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Brewers Fayre Plymouth",
+      "address": "Marsh Mills, Plymouth",
+      "website_url": "https://www.brewersfayre.co.uk/en-gb/locations/devon/plymstock",
+      "cuisine_type": "Family Pub & Grill",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {"name": "Fish & Chips", "description": "Battered cod", "price_gbp": 12.99, "category": "Mains", "dietary_tags": []},
+      {"name": "Burger & Chips", "description": "Beef burger", "price_gbp": 11.49, "category": "Burgers", "dietary_tags": []},
+      {"name": "Chicken Tikka Masala", "description": "With rice", "price_gbp": 11.99, "category": "Curry", "dietary_tags": []},
+      {"name": "All Day Breakfast", "description": "Full English", "price_gbp": 9.99, "category": "Breakfast", "dietary_tags": []},
+      {"name": "Onion Rings", "description": "Battered rings", "price_gbp": 4.49, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Apple Crumble", "description": "With custard", "price_gbp": 5.99, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Chimichanga Plymouth",
+      "address": "Barbican Leisure Park, Plymouth",
+      "website_url": "https://www.chimichanga.co.uk/restaurants/plymouth",
+      "cuisine_type": "Mexican",
+      "price_range": "£10-18"
+    },
+    "menu_items": [
+      {"name": "Fajitas", "description": "Sizzling with tortillas", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Burrito", "description": "Large flour tortilla", "price_gbp": 13.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Quesadilla", "description": "Grilled tortilla with cheese", "price_gbp": 11.95, "category": "Mains", "dietary_tags": ["vegetarian"]},
+      {"name": "Nachos", "description": "Fully loaded", "price_gbp": 9.95, "category": "Sharing", "dietary_tags": ["vegetarian"]},
+      {"name": "Jalapeño Poppers", "description": "Stuffed peppers", "price_gbp": 6.95, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Churros", "description": "With chocolate", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Nando's Barbican",
+      "address": "Coxside, Plymouth, PL4 0LG",
+      "website_url": "https://www.nandos.co.uk/restaurants/plymouth-barbican",
+      "cuisine_type": "Portuguese Chicken",
+      "price_range": "£8-15"
+    },
+    "menu_items": [
+      {"name": "Half Chicken", "description": "Flame-grilled", "price_gbp": 10.95, "category": "Chicken", "dietary_tags": ["gluten-free"]},
+      {"name": "Chicken Butterfly", "description": "Boneless breast", "price_gbp": 10.45, "category": "Chicken", "dietary_tags": ["gluten-free"]},
+      {"name": "Peri-Peri Chips", "description": "With seasoning", "price_gbp": 3.95, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Halloumi Sticks", "description": "Grilled cheese", "price_gbp": 6.95, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Chicken Livers", "description": "Spicy livers", "price_gbp": 7.45, "category": "Starters", "dietary_tags": []},
+      {"name": "Chocolate Cake", "description": "Rich dessert", "price_gbp": 5.45, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Subway Plymouth",
+      "address": "Multiple locations, Plymouth",
+      "website_url": "https://www.subway.com/en-GB",
+      "cuisine_type": "Sandwich Chain",
+      "price_range": "£5-10"
+    },
+    "menu_items": [
+      {"name": "Italian B.M.T.", "description": "Salami, pepperoni, ham", "price_gbp": 6.49, "category": "Subs", "dietary_tags": []},
+      {"name": "Chicken Teriyaki", "description": "Glazed chicken", "price_gbp": 6.99, "category": "Subs", "dietary_tags": []},
+      {"name": "Veggie Delite", "description": "Fresh vegetables", "price_gbp": 5.49, "category": "Subs", "dietary_tags": ["vegan"]},
+      {"name": "Meatball Marinara", "description": "Meatballs in sauce", "price_gbp": 5.99, "category": "Subs", "dietary_tags": []},
+      {"name": "Cookie", "description": "Various flavors", "price_gbp": 1.49, "category": "Desserts", "dietary_tags": ["vegetarian"]},
+      {"name": "Nachos", "description": "With cheese", "price_gbp": 3.99, "category": "Sides", "dietary_tags": ["vegetarian"]}
+    ]
+  }
+]

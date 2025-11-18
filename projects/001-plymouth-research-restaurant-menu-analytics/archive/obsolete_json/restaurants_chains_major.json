@@ -1,0 +1,148 @@
+[
+  {
+    "restaurant": {
+      "name": "Wagamama Plymouth",
+      "address": "Drake Circus, 1 Charles Street, Plymouth, PL1 1EA",
+      "website_url": "https://www.wagamama.com/restaurants/plymouth/",
+      "cuisine_type": "Asian Fusion",
+      "price_range": "£9-16"
+    },
+    "menu_items": [
+      {"name": "Chicken Katsu Curry", "description": "Panko chicken, curry sauce, rice, pickles", "price_gbp": 13.25, "category": "Mains", "dietary_tags": []},
+      {"name": "Yasai Katsu Curry", "description": "Fried vegetables, curry sauce, rice", "price_gbp": 12.25, "category": "Mains", "dietary_tags": ["vegan"]},
+      {"name": "Pad Thai", "description": "Rice noodles, egg, beansprouts, leeks", "price_gbp": 12.50, "category": "Noodles", "dietary_tags": []},
+      {"name": "Chicken Ramen", "description": "Grilled chicken, noodles, miso broth", "price_gbp": 13.50, "category": "Ramen", "dietary_tags": []},
+      {"name": "Firecracker Chicken", "description": "Spicy chicken, mangetout, peppers", "price_gbp": 14.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Gyoza", "description": "Steamed dumplings", "price_gbp": 6.25, "category": "Sides", "dietary_tags": []},
+      {"name": "Edamame", "description": "Steamed soybeans", "price_gbp": 4.50, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Chicken Hirata Buns", "description": "Steamed buns with chicken", "price_gbp": 7.50, "category": "Starters", "dietary_tags": []}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Nando's Plymouth",
+      "address": "Unit 2, Plymouth Pavilions, Plymouth, PL1 3LF",
+      "website_url": "https://www.nandos.co.uk/restaurants/plymouth/",
+      "cuisine_type": "Portuguese/African",
+      "price_range": "£8-15"
+    },
+    "menu_items": [
+      {"name": "Butterfly Chicken (Whole)", "description": "Flame-grilled peri-peri chicken", "price_gbp": 13.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Butterfly Chicken (Half)", "description": "Flame-grilled peri-peri chicken", "price_gbp": 10.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Chicken Wings", "description": "Peri-peri chicken wings", "price_gbp": 6.45, "category": "Starters", "dietary_tags": ["gluten-free"]},
+      {"name": "Peri-Peri Chips", "description": "Chips with peri-peri salt", "price_gbp": 3.95, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Halloumi Burger", "description": "Grilled halloumi, lettuce, tomato", "price_gbp": 9.95, "category": "Burgers", "dietary_tags": ["vegetarian"]},
+      {"name": "Chicken Burger", "description": "Peri-peri chicken breast burger", "price_gbp": 10.45, "category": "Burgers", "dietary_tags": []},
+      {"name": "Garlic Bread", "description": "Toasted garlic bread", "price_gbp": 3.75, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Coleslaw", "description": "Creamy coleslaw", "price_gbp": 3.25, "category": "Sides", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Turtle Bay Plymouth",
+      "address": "60-62 Mayflower Street, Plymouth, PL1 1SD",
+      "website_url": "https://www.turtlebay.co.uk/restaurants/plymouth/",
+      "cuisine_type": "Caribbean",
+      "price_range": "£9-18"
+    },
+    "menu_items": [
+      {"name": "Jerk Chicken", "description": "Marinated jerk chicken with rice & peas", "price_gbp": 14.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Curry Goat", "description": "Slow-cooked goat curry", "price_gbp": 15.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Jerk Halloumi", "description": "Jerk halloumi with vegetables", "price_gbp": 12.95, "category": "Mains", "dietary_tags": ["vegetarian"]},
+      {"name": "Roti Wrap", "description": "Caribbean wrap with jerk chicken", "price_gbp": 11.95, "category": "Wraps", "dietary_tags": []},
+      {"name": "Saltfish Fritters", "description": "Crispy fritters with scotch bonnet jam", "price_gbp": 6.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Plantain", "description": "Fried sweet plantain", "price_gbp": 4.50, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Rice & Peas", "description": "Coconut rice with kidney beans", "price_gbp": 3.95, "category": "Sides", "dietary_tags": ["vegan"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Las Iguanas Plymouth",
+      "address": "Barbican Leisure Park, Commercial Road, Plymouth, PL4 0LE",
+      "website_url": "https://www.iguanas.co.uk/restaurants/plymouth/",
+      "cuisine_type": "Latin American",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Fajitas - Chicken", "description": "Sizzling chicken fajitas with tortillas", "price_gbp": 15.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Burrito - Beef", "description": "Beef burrito with rice, beans, cheese", "price_gbp": 14.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Nachos Grande", "description": "Loaded nachos with cheese, salsa, guacamole", "price_gbp": 11.95, "category": "Sharing", "dietary_tags": ["vegetarian"]},
+      {"name": "Quesadilla", "description": "Grilled tortilla with cheese", "price_gbp": 9.95, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Churrasco Steak", "description": "Grilled rump steak with chimichurri", "price_gbp": 18.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Vegan Burrito Bowl", "description": "Rice, beans, vegetables, salsa", "price_gbp": 12.95, "category": "Mains", "dietary_tags": ["vegan"]},
+      {"name": "Churros", "description": "Fried churros with chocolate sauce", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Zizzi Plymouth",
+      "address": "Derrys Cross, Plymouth, PL1 2SW",
+      "website_url": "https://www.zizzi.co.uk/restaurants/plymouth/",
+      "cuisine_type": "Italian",
+      "price_range": "£10-18"
+    },
+    "menu_items": [
+      {"name": "Rustica Pizzas - Margherita", "description": "Tomato, mozzarella, basil", "price_gbp": 11.95, "category": "Pizza", "dietary_tags": ["vegetarian"]},
+      {"name": "Rustica Pizzas - Pepperoni", "description": "Tomato, mozzarella, pepperoni", "price_gbp": 13.50, "category": "Pizza", "dietary_tags": []},
+      {"name": "Spaghetti Carbonara", "description": "Bacon, egg, parmesan, cream", "price_gbp": 12.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Lasagne", "description": "Beef ragu, béchamel, parmesan", "price_gbp": 13.50, "category": "Pasta", "dietary_tags": []},
+      {"name": "Chicken Milanese", "description": "Crispy chicken with spaghetti", "price_gbp": 14.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Dough Balls", "description": "With garlic butter", "price_gbp": 5.95, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Tiramisu", "description": "Classic Italian dessert", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "ASK Italian Plymouth",
+      "address": "Barcode, 3-4 Derry's Cross, Plymouth, PL1 2SW",
+      "website_url": "https://www.askitalian.co.uk/restaurant/plymouth/",
+      "cuisine_type": "Italian",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Prima Pizza - Margherita", "description": "Tomato, mozzarella", "price_gbp": 10.95, "category": "Pizza", "dietary_tags": ["vegetarian"]},
+      {"name": "Prima Pizza - Diavolo", "description": "Spicy salami, mozzarella", "price_gbp": 13.45, "category": "Pizza", "dietary_tags": []},
+      {"name": "Penne Arrabiata", "description": "Spicy tomato sauce", "price_gbp": 11.45, "category": "Pasta", "dietary_tags": ["vegan"]},
+      {"name": "Spaghetti Bolognese", "description": "Beef ragu", "price_gbp": 12.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Pollo Pancetta", "description": "Chicken, bacon, mushrooms", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Bruschetta", "description": "Tomato, garlic, basil on bread", "price_gbp": 6.45, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Chocolate Fudge Cake", "description": "With vanilla ice cream", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Prezzo Plymouth",
+      "address": "5 Frankfort Gate, Plymouth, PL1 1QD",
+      "website_url": "https://www.prezzorestaurants.co.uk/restaurants/plymouth/",
+      "cuisine_type": "Italian",
+      "price_range": "£9-18"
+    },
+    "menu_items": [
+      {"name": "Pizza Margherita", "description": "Tomato, mozzarella, basil", "price_gbp": 10.25, "category": "Pizza", "dietary_tags": ["vegetarian"]},
+      {"name": "Pizza Americana", "description": "Pepperoni, mozzarella", "price_gbp": 12.50, "category": "Pizza", "dietary_tags": []},
+      {"name": "Spaghetti Carbonara", "description": "Bacon, cream, egg, parmesan", "price_gbp": 11.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Penne Arrabbiata", "description": "Spicy tomato sauce", "price_gbp": 10.95, "category": "Pasta", "dietary_tags": ["vegan"]},
+      {"name": "Risotto", "description": "Mushroom risotto", "price_gbp": 12.50, "category": "Mains", "dietary_tags": ["vegetarian"]},
+      {"name": "Garlic Bread with Cheese", "description": "Toasted garlic bread", "price_gbp": 5.95, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Panna Cotta", "description": "Italian cream dessert", "price_gbp": 6.25, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Bill's Plymouth",
+      "address": "Drake Circus, 1 Drakes Place, Plymouth, PL1 1EA",
+      "website_url": "https://bills-website.co.uk/restaurants/plymouth/",
+      "cuisine_type": "British Brasserie",
+      "price_range": "£10-22"
+    },
+    "menu_items": [
+      {"name": "Bill's Breakfast", "description": "Eggs, bacon, sausage, beans, mushrooms, toast", "price_gbp": 12.95, "category": "Breakfast", "dietary_tags": []},
+      {"name": "Eggs Benedict", "description": "Poached eggs, ham, hollandaise, muffin", "price_gbp": 10.95, "category": "Breakfast", "dietary_tags": []},
+      {"name": "Avocado on Toast", "description": "Smashed avocado, chilli, lime, sourdough", "price_gbp": 9.95, "category": "Breakfast", "dietary_tags": ["vegan"]},
+      {"name": "Fish & Chips", "description": "Battered fish, chips, mushy peas", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Bill's Burger", "description": "Beef burger, cheese, bacon, fries", "price_gbp": 14.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Caesar Salad", "description": "Chicken, parmesan, croutons", "price_gbp": 12.95, "category": "Salads", "dietary_tags": []},
+      {"name": "Sticky Toffee Pudding", "description": "With vanilla ice cream", "price_gbp": 7.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  }
+]

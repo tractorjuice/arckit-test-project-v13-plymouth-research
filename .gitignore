@@ -44,42 +44,9 @@ htmlcov/
 *.log
 .arckit-debug/
 
-# Scraped data files (Plymouth Research specific)
-*.csv
-*.json
-*.jsonl
-*.xlsx
-*.xls
-*.parquet
-*.feather
-*.html
-*.htm
-data/
-scraped_data/
-raw_data/
 processed_data/
 cache/
 .scrapy/
-
-# Data files (restaurant data)
-data/raw/*
-data/processed/*
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-*.csv
-*.xlsx
-*.parquet
-!data/sample/
-
-# Database files
-*.db
-*.sqlite
-*.sqlite3
-
-# Vendor proposals (may contain sensitive info)
-# Uncomment if you don't want to commit vendor documents
-# projects/*/vendors/*/proposal.pdf
-# projects/*/vendors/*/proprietary/
 
 # Codex CLI - exclude auth tokens but include prompts
 .codex/*

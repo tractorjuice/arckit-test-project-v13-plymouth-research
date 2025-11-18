@@ -1,0 +1,206 @@
+[
+  {
+    "restaurant": {
+      "name": "Panchos Burritos",
+      "address": "Royal William Yard, Plymouth, PL1 3RP",
+      "website_url": "https://www.panchosburritos.com/",
+      "cuisine_type": "Mexican",
+      "price_range": "£7-14"
+    },
+    "menu_items": [
+      {"name": "Burrito Bowl", "description": "Rice, beans, protein, salsa", "price_gbp": 9.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Chicken Burrito", "description": "Wrapped with rice and beans", "price_gbp": 9.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Veggie Burrito", "description": "Plant-based filling", "price_gbp": 8.95, "category": "Mains", "dietary_tags": ["vegan"]},
+      {"name": "Nachos", "description": "With cheese and jalapeños", "price_gbp": 7.50, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Quesadilla", "description": "Cheese and fillings", "price_gbp": 8.50, "category": "Mains", "dietary_tags": ["vegetarian"]},
+      {"name": "Churros", "description": "With chocolate sauce", "price_gbp": 5.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Samphire Brasserie",
+      "address": "12 Wyndham Square, Plymouth, PL1 5AJ",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Modern British",
+      "price_range": "£16-32"
+    },
+    "menu_items": [
+      {"name": "Monkfish Medallions", "description": "With saffron risotto", "price_gbp": 24.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Duck Confit", "description": "With Dauphinoise potatoes", "price_gbp": 22.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Fillet Steak", "description": "8oz with peppercorn sauce", "price_gbp": 29.95, "category": "Steaks", "dietary_tags": ["gluten-free"]},
+      {"name": "Vegetable Tarte Tatin", "description": "Upside-down tart", "price_gbp": 17.95, "category": "Vegetarian", "dietary_tags": ["vegetarian"]},
+      {"name": "Seared Scallops", "description": "With pea puree", "price_gbp": 12.95, "category": "Starters", "dietary_tags": ["gluten-free"]},
+      {"name": "Crème Brûlée", "description": "Vanilla custard", "price_gbp": 8.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Effings",
+      "address": "8 The Parade, Plymouth, PL1 2JH",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "British Café",
+      "price_range": "£5-12"
+    },
+    "menu_items": [
+      {"name": "Full English Breakfast", "description": "Complete breakfast", "price_gbp": 9.50, "category": "Breakfast", "dietary_tags": []},
+      {"name": "Jacket Potato", "description": "Various fillings", "price_gbp": 6.95, "category": "Light Bites", "dietary_tags": ["vegetarian"]},
+      {"name": "Fish Finger Sandwich", "description": "Chunky white bread", "price_gbp": 7.50, "category": "Light Bites", "dietary_tags": []},
+      {"name": "Soup of the Day", "description": "With bread", "price_gbp": 5.95, "category": "Soups", "dietary_tags": []},
+      {"name": "Cream Tea", "description": "Scones with cream and jam", "price_gbp": 6.50, "category": "Afternoon Tea", "dietary_tags": ["vegetarian"]},
+      {"name": "Victoria Sponge", "description": "Slice of cake", "price_gbp": 3.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Parade Coffee House",
+      "address": "The Hoe, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Café",
+      "price_range": "£4-10"
+    },
+    "menu_items": [
+      {"name": "Breakfast Bap", "description": "Bacon or sausage", "price_gbp": 5.50, "category": "Breakfast", "dietary_tags": []},
+      {"name": "Panini", "description": "Various fillings", "price_gbp": 6.95, "category": "Light Bites", "dietary_tags": []},
+      {"name": "Jacket Potato", "description": "With butter", "price_gbp": 5.95, "category": "Light Bites", "dietary_tags": ["vegetarian"]},
+      {"name": "Latte", "description": "Coffee with milk", "price_gbp": 3.50, "category": "Drinks", "dietary_tags": ["vegetarian"]},
+      {"name": "Toastie", "description": "Cheese or ham", "price_gbp": 5.50, "category": "Light Bites", "dietary_tags": []},
+      {"name": "Slice of Cake", "description": "Daily selection", "price_gbp": 3.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Fishermans Arms",
+      "address": "31 Lambhay Hill, Barbican, Plymouth, PL1 2NN",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Pub",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {"name": "Fish & Chips", "description": "Fresh local fish", "price_gbp": 13.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Hunters Chicken", "description": "Chicken with BBQ sauce", "price_gbp": 12.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Scampi & Chips", "description": "Breaded scampi", "price_gbp": 12.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Soup & Bread", "description": "Daily soup", "price_gbp": 6.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Garlic Bread", "description": "With cheese option", "price_gbp": 4.95, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Apple Pie", "description": "With ice cream", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Seco Tapas",
+      "address": "27 Notte Street, Plymouth, PL1 2AG",
+      "website_url": "https://thelounges.co.uk/seco/",
+      "cuisine_type": "Spanish Tapas",
+      "price_range": "£4-12"
+    },
+    "menu_items": [
+      {"name": "Patatas Bravas", "description": "Spicy potatoes", "price_gbp": 5.50, "category": "Tapas", "dietary_tags": ["vegan"]},
+      {"name": "Chorizo in Cider", "description": "Spanish sausage", "price_gbp": 6.95, "category": "Tapas", "dietary_tags": ["gluten-free"]},
+      {"name": "Gambas Pil Pil", "description": "Garlic prawns", "price_gbp": 8.50, "category": "Tapas", "dietary_tags": ["gluten-free"]},
+      {"name": "Croquetas", "description": "Ham or cheese", "price_gbp": 6.50, "category": "Tapas", "dietary_tags": []},
+      {"name": "Pan Con Tomate", "description": "Tomato bread", "price_gbp": 4.95, "category": "Tapas", "dietary_tags": ["vegan"]},
+      {"name": "Churros", "description": "With chocolate", "price_gbp": 5.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Pier One",
+      "address": "Coxside, Plymouth, PL4 0HP",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "British Seafood",
+      "price_range": "£12-25"
+    },
+    "menu_items": [
+      {"name": "Whole Sea Bass", "description": "Grilled with vegetables", "price_gbp": 19.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Fish & Chips", "description": "Premium cod", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Moules Marinière", "description": "Mussels in white wine", "price_gbp": 16.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Seafood Platter", "description": "Selection for two", "price_gbp": 42.95, "category": "Sharing", "dietary_tags": []},
+      {"name": "Crab Cakes", "description": "With lemon mayo", "price_gbp": 9.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Lemon Posset", "description": "Citrus dessert", "price_gbp": 7.50, "category": "Desserts", "dietary_tags": ["vegetarian", "gluten-free"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Gourmet Burger Kitchen Plymouth",
+      "address": "Barbican Leisure Park, Plymouth",
+      "website_url": "https://www.gbk.co.uk/restaurants/plymouth",
+      "cuisine_type": "Burgers",
+      "price_range": "£10-16"
+    },
+    "menu_items": [
+      {"name": "GBK Classic", "description": "Beef burger with toppings", "price_gbp": 12.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Bacon Cheeseburger", "description": "With smoked bacon", "price_gbp": 13.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Vegan Burger", "description": "Plant-based patty", "price_gbp": 12.50, "category": "Burgers", "dietary_tags": ["vegan"]},
+      {"name": "Chicken Burger", "description": "Grilled chicken breast", "price_gbp": 12.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Sweet Potato Fries", "description": "With dip", "price_gbp": 4.50, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Milkshake", "description": "Various flavors", "price_gbp": 5.50, "category": "Drinks", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Five Guys Plymouth",
+      "address": "Drake Circus, Plymouth, PL1 1EA",
+      "website_url": "https://restaurants.fiveguys.co.uk/plymouth",
+      "cuisine_type": "American Burgers",
+      "price_range": "£10-18"
+    },
+    "menu_items": [
+      {"name": "Hamburger", "description": "Two beef patties", "price_gbp": 10.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Cheeseburger", "description": "With cheese slices", "price_gbp": 11.75, "category": "Burgers", "dietary_tags": []},
+      {"name": "Bacon Burger", "description": "With crispy bacon", "price_gbp": 12.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Veggie Sandwich", "description": "With vegetables", "price_gbp": 7.95, "category": "Vegetarian", "dietary_tags": ["vegetarian"]},
+      {"name": "Regular Fries", "description": "Fresh cut fries", "price_gbp": 4.95, "category": "Sides", "dietary_tags": ["vegan"]},
+      {"name": "Milkshake", "description": "Mix-ins available", "price_gbp": 5.75, "category": "Drinks", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Roundabout Cafe",
+      "address": "The Hoe, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Café",
+      "price_range": "£4-10"
+    },
+    "menu_items": [
+      {"name": "Full English Breakfast", "description": "Traditional breakfast", "price_gbp": 8.95, "category": "Breakfast", "dietary_tags": []},
+      {"name": "BLT Sandwich", "description": "Bacon, lettuce, tomato", "price_gbp": 6.50, "category": "Light Bites", "dietary_tags": []},
+      {"name": "Jacket Potato", "description": "Various fillings", "price_gbp": 6.95, "category": "Light Bites", "dietary_tags": ["vegetarian"]},
+      {"name": "Soup & Roll", "description": "Daily soup", "price_gbp": 5.50, "category": "Soups", "dietary_tags": []},
+      {"name": "Tea & Cake", "description": "Various cakes", "price_gbp": 5.95, "category": "Afternoon Tea", "dietary_tags": ["vegetarian"]},
+      {"name": "Scone with Jam", "description": "Fresh baked", "price_gbp": 3.50, "category": "Snacks", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Treasury",
+      "address": "11 Catherine Street, Plymouth, PL1 2AD",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Pub & Bar",
+      "price_range": "£8-16"
+    },
+    "menu_items": [
+      {"name": "Fish & Chips", "description": "Classic pub meal", "price_gbp": 13.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Mixed Grill", "description": "Steak, sausage, chicken", "price_gbp": 16.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Chicken Tikka Wrap", "description": "With salad", "price_gbp": 9.95, "category": "Light Bites", "dietary_tags": []},
+      {"name": "Nachos", "description": "Loaded with toppings", "price_gbp": 8.50, "category": "Sharing", "dietary_tags": ["vegetarian"]},
+      {"name": "Buffalo Wings", "description": "Spicy wings", "price_gbp": 7.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Chocolate Brownie", "description": "Warm with ice cream", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Blue",
+      "address": "Grand Parade, Plymouth, PL1 3DJ",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Modern British",
+      "price_range": "£14-30"
+    },
+    "menu_items": [
+      {"name": "Pan-Fried Halibut", "description": "With crushed potatoes", "price_gbp": 22.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Lamb Rump", "description": "With rosemary jus", "price_gbp": 24.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Chicken Breast", "description": "Stuffed with cheese", "price_gbp": 19.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Mushroom Risotto", "description": "Creamy arborio rice", "price_gbp": 16.95, "category": "Vegetarian", "dietary_tags": ["vegetarian", "gluten-free"]},
+      {"name": "Tempura Prawns", "description": "With sweet chili", "price_gbp": 9.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Chocolate Fondant", "description": "Molten center", "price_gbp": 8.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  }
+]

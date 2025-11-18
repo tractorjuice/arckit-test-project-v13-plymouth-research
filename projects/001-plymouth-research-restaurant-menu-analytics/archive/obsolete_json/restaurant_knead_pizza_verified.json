@@ -1,0 +1,211 @@
+[
+  {
+    "restaurant": {
+      "name": "Knead Pizza Plymouth",
+      "address": "Prysten House, Finewell St, Plymouth, PL1 2AE",
+      "website_url": "https://www.knead-pizza.co.uk/",
+      "cuisine_type": "Neapolitan Pizza",
+      "price_range": "£8-16",
+      "data_source": "real_scraped",
+      "scraping_method": "web_fetch_manual"
+    },
+    "menu_items": [
+      {
+        "name": "Marinara",
+        "description": "San Marzano tomato, garlic oil, fresh oregano, basil",
+        "price_gbp": 8.20,
+        "category": "Pizza",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Margherita",
+        "description": "San Marzano tomato, Fior di latte, Granforma, extra virgin olive oil, basil",
+        "price_gbp": 10.20,
+        "category": "Pizza",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Parma Farmer",
+        "description": "San Marzano tomato, Fior di latte, Prosciutto di Parma, field mushrooms, rocket, pecorino",
+        "price_gbp": 14.20,
+        "category": "Pizza",
+        "dietary_tags": []
+      },
+      {
+        "name": "Oh Gosh! It's Squash!",
+        "description": "San Marzano tomato, Fior di latte, spinach, maple roasted butternut squash, pickled red onion, goat's cheese",
+        "price_gbp": 13.70,
+        "category": "Pizza",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Nduja Duja Like It",
+        "description": "San Marzano tomato, Fior di latte, Calabrese Nduja, chorizo, courgette, red chillies, blue cheese drizzle",
+        "price_gbp": 14.70,
+        "category": "Pizza",
+        "dietary_tags": []
+      },
+      {
+        "name": "Not So Pepperlonely",
+        "description": "San Marzano tomato, Fior di latte, pepperoni, XL Properoni, Gyulai pepperoni, hot honey drizzle",
+        "price_gbp": 14.70,
+        "category": "Pizza",
+        "dietary_tags": []
+      },
+      {
+        "name": "BBQ Dreamz",
+        "description": "San Marzano tomato, Fior di latte, pulled chicken, pancetta, pickled red onion, sweetcorn, BBQ drizzle",
+        "price_gbp": 14.20,
+        "category": "Pizza",
+        "dietary_tags": []
+      },
+      {
+        "name": "Thou Shall Have a Fishy",
+        "description": "San Marzano tomato, Fior di latte, Sicilian anchovies, green capers, pickled red onion, black olives",
+        "price_gbp": 14.30,
+        "category": "Pizza",
+        "dietary_tags": []
+      },
+      {
+        "name": "The Carbonara",
+        "description": "Fior di latte, pancetta, garlic oil, egg yolk drizzle, Pecorino Romano, black pepper",
+        "price_gbp": 14.30,
+        "category": "Pizza",
+        "dietary_tags": []
+      },
+      {
+        "name": "Burnin' Burrata",
+        "description": "San Marzano tomato, burrata, coppa, Calabrese Nduja, fresh red chillies",
+        "price_gbp": 16.20,
+        "category": "Pizza",
+        "dietary_tags": []
+      },
+      {
+        "name": "Holy Spud!",
+        "description": "Ricotta base, Fior di latte, garlic oil, rosemary, oregano, fried potatoes, Salami Napoli, Pecorino Romano",
+        "price_gbp": 14.70,
+        "category": "Pizza",
+        "dietary_tags": []
+      },
+      {
+        "name": "Roasted Potatoes",
+        "description": "Crispy roasted potatoes",
+        "price_gbp": 6.40,
+        "category": "Sides",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Courgette Fries",
+        "description": "Crispy courgette fries",
+        "price_gbp": 6.40,
+        "category": "Sides",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Dough Sticks",
+        "description": "Freshly baked dough sticks",
+        "price_gbp": 6.40,
+        "category": "Sides",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Olives",
+        "description": "Mixed olives",
+        "price_gbp": 5.20,
+        "category": "Sides",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Rocket Salad",
+        "description": "Fresh rocket salad",
+        "price_gbp": 5.00,
+        "category": "Sides",
+        "dietary_tags": ["vegan"]
+      },
+      {
+        "name": "Chicken Milanese",
+        "description": "Breaded chicken cutlet",
+        "price_gbp": 9.40,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Beef Shin Ragu Spaghetti",
+        "description": "Slow-cooked beef shin ragu with spaghetti",
+        "price_gbp": 9.70,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Meatballs",
+        "description": "Italian-style meatballs",
+        "price_gbp": 9.20,
+        "category": "Starters",
+        "dietary_tags": []
+      },
+      {
+        "name": "Burrata with Focaccia",
+        "description": "Fresh burrata cheese with focaccia bread",
+        "price_gbp": 10.20,
+        "category": "Starters",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Cheesy Garlic Bread",
+        "description": "Garlic bread with melted cheese",
+        "price_gbp": 6.00,
+        "category": "Sides",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Marmite Bread",
+        "description": "Bread with marmite butter",
+        "price_gbp": 7.25,
+        "category": "Sides",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Chilli Jam Bread",
+        "description": "Bread with chilli jam",
+        "price_gbp": 7.25,
+        "category": "Sides",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Lemoncello Cheesecake",
+        "description": "Italian lemoncello cheesecake",
+        "price_gbp": 7.80,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Tiramisu",
+        "description": "Classic Italian tiramisu",
+        "price_gbp": 7.80,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Cinnamon Dough Bites",
+        "description": "Sweet cinnamon dough bites",
+        "price_gbp": 6.80,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Affogato",
+        "description": "Ice cream with espresso",
+        "price_gbp": 7.50,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      },
+      {
+        "name": "Chocolate Cake",
+        "description": "Rich chocolate cake",
+        "price_gbp": 7.80,
+        "category": "Desserts",
+        "dietary_tags": ["vegetarian"]
+      }
+    ]
+  }
+]

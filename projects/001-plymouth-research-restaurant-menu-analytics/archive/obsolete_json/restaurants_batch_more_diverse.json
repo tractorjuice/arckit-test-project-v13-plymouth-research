@@ -1,0 +1,172 @@
+[
+  {
+    "restaurant": {
+      "name": "Chart Room at the Royal William Yard",
+      "address": "Royal William Yard, Plymouth, PL1 3RP",
+      "website_url": "https://www.chartroom-plymouth.co.uk/",
+      "cuisine_type": "British/Seafood",
+      "price_range": "£12-28"
+    },
+    "menu_items": [
+      {"name": "Fish & Chips", "description": "Beer-battered fish with triple-cooked chips", "price_gbp": 16.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Pan-Fried Sea Bass", "description": "With seasonal vegetables", "price_gbp": 19.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Steak & Ale Pie", "description": "Traditional pie with mash", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Seafood Chowder", "description": "Creamy soup with fresh fish", "price_gbp": 9.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Sticky Toffee Pudding", "description": "With vanilla ice cream", "price_gbp": 7.50, "category": "Desserts", "dietary_tags": ["vegetarian"]},
+      {"name": "Vegetable Wellington", "description": "Puff pastry with roasted vegetables", "price_gbp": 14.95, "category": "Vegetarian", "dietary_tags": ["vegan"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Waterfront",
+      "address": "Grand Parade, West Hoe, Plymouth, PL1 3DQ",
+      "website_url": "https://www.waterfrontplymouth.co.uk/",
+      "cuisine_type": "British",
+      "price_range": "£10-25"
+    },
+    "menu_items": [
+      {"name": "Sunday Roast", "description": "Beef, lamb or chicken with all the trimmings", "price_gbp": 16.95, "category": "Roasts", "dietary_tags": []},
+      {"name": "Burger & Chips", "description": "Local beef burger", "price_gbp": 13.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Scampi & Chips", "description": "Wholetail scampi", "price_gbp": 14.50, "category": "Seafood", "dietary_tags": []},
+      {"name": "Caesar Salad", "description": "With grilled chicken", "price_gbp": 11.95, "category": "Salads", "dietary_tags": []},
+      {"name": "Soup of the Day", "description": "With crusty bread", "price_gbp": 6.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Chocolate Brownie", "description": "With ice cream", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Cosmic Kitchen",
+      "address": "Lisbon Street, Stonehouse, Plymouth",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Vegan & Vegetarian",
+      "price_range": "£6-12"
+    },
+    "menu_items": [
+      {"name": "Vegan Burger", "description": "Plant-based burger with vegan cheese", "price_gbp": 10.95, "category": "Burgers", "dietary_tags": ["vegan"]},
+      {"name": "Buddha Bowl", "description": "Quinoa, roasted vegetables, tahini", "price_gbp": 11.50, "category": "Bowls", "dietary_tags": ["vegan", "gluten-free"]},
+      {"name": "Falafel Wrap", "description": "With hummus and salad", "price_gbp": 8.95, "category": "Wraps", "dietary_tags": ["vegan"]},
+      {"name": "Smoothie Bowl", "description": "Acai, banana, berries", "price_gbp": 7.95, "category": "Breakfast", "dietary_tags": ["vegan"]},
+      {"name": "Vegan Cake Slice", "description": "Daily selection", "price_gbp": 4.50, "category": "Desserts", "dietary_tags": ["vegan"]},
+      {"name": "Fresh Juice", "description": "Various flavors", "price_gbp": 4.95, "category": "Drinks", "dietary_tags": ["vegan"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Boathouse Café",
+      "address": "Teats Hill Road, Radford, Plymouth, PL9 9RG",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Café",
+      "price_range": "£5-14"
+    },
+    "menu_items": [
+      {"name": "Full English Breakfast", "description": "Eggs, bacon, sausage, beans, toast", "price_gbp": 9.95, "category": "Breakfast", "dietary_tags": []},
+      {"name": "Bacon Sandwich", "description": "On fresh bread", "price_gbp": 5.50, "category": "Light Bites", "dietary_tags": []},
+      {"name": "Jacket Potato", "description": "With various fillings", "price_gbp": 7.50, "category": "Light Bites", "dietary_tags": ["vegetarian"]},
+      {"name": "Homemade Soup", "description": "With crusty bread", "price_gbp": 6.50, "category": "Soups", "dietary_tags": []},
+      {"name": "Coffee & Cake", "description": "Daily selection", "price_gbp": 5.95, "category": "Drinks", "dietary_tags": ["vegetarian"]},
+      {"name": "Cream Tea", "description": "Scones, jam, clotted cream, tea", "price_gbp": 6.95, "category": "Afternoon Tea", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Jacka Bakery",
+      "address": "Multiple locations, Plymouth",
+      "website_url": "https://www.jackabakery.com/",
+      "cuisine_type": "Bakery",
+      "price_range": "£2-7"
+    },
+    "menu_items": [
+      {"name": "Cornish Pasty", "description": "Traditional pasty", "price_gbp": 3.50, "category": "Savoury", "dietary_tags": []},
+      {"name": "Cheese & Onion Pasty", "description": "Vegetarian pasty", "price_gbp": 3.25, "category": "Savoury", "dietary_tags": ["vegetarian"]},
+      {"name": "Sausage Roll", "description": "Flaky pastry", "price_gbp": 2.50, "category": "Savoury", "dietary_tags": []},
+      {"name": "Cream Bun", "description": "Fresh cream filled bun", "price_gbp": 2.95, "category": "Sweet", "dietary_tags": ["vegetarian"]},
+      {"name": "Fudge Doughnut", "description": "Sugar-coated doughnut", "price_gbp": 1.95, "category": "Sweet", "dietary_tags": ["vegetarian"]},
+      {"name": "Coffee", "description": "Freshly brewed", "price_gbp": 2.20, "category": "Drinks", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Real Sichuan",
+      "address": "12 Southside Street, Barbican, Plymouth, PL1 2LA",
+      "website_url": "https://www.tripadvisor.com",
+      "cuisine_type": "Chinese (Sichuan)",
+      "price_range": "£10-18"
+    },
+    "menu_items": [
+      {"name": "Mapo Tofu", "description": "Spicy tofu with minced pork", "price_gbp": 11.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Kung Pao Chicken", "description": "Spicy chicken with peanuts", "price_gbp": 12.50, "category": "Mains", "dietary_tags": []},
+      {"name": "Dan Dan Noodles", "description": "Spicy noodles with sesame sauce", "price_gbp": 10.95, "category": "Noodles", "dietary_tags": []},
+      {"name": "Hot & Sour Soup", "description": "Traditional Sichuan soup", "price_gbp": 6.95, "category": "Soups", "dietary_tags": []},
+      {"name": "Dumplings (8 pieces)", "description": "Steamed or fried", "price_gbp": 7.50, "category": "Starters", "dietary_tags": []},
+      {"name": "Stir-Fried Green Beans", "description": "With garlic and chili", "price_gbp": 8.95, "category": "Sides", "dietary_tags": ["vegan"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Wildwood Plymouth",
+      "address": "Barbican Leisure Park, Plymouth, PL4 0LG",
+      "website_url": "https://www.wildwoodrestaurants.co.uk/restaurant/plymouth/",
+      "cuisine_type": "Italian",
+      "price_range": "£10-20"
+    },
+    "menu_items": [
+      {"name": "Margherita Pizza", "description": "Tomato, mozzarella, basil", "price_gbp": 10.95, "category": "Pizza", "dietary_tags": ["vegetarian"]},
+      {"name": "Spaghetti Carbonara", "description": "Bacon, egg, parmesan, cream", "price_gbp": 12.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Chicken Milanese", "description": "Breaded chicken with spaghetti", "price_gbp": 14.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Vegan Pizza", "description": "With vegan cheese", "price_gbp": 12.95, "category": "Pizza", "dietary_tags": ["vegan"]},
+      {"name": "Garlic Bread", "description": "With or without cheese", "price_gbp": 5.95, "category": "Sides", "dietary_tags": ["vegetarian"]},
+      {"name": "Chocolate Fudge Cake", "description": "Rich chocolate dessert", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "The Mission",
+      "address": "Royal William Yard, Plymouth, PL1 3RP",
+      "website_url": "https://www.themission-plymouth.co.uk/",
+      "cuisine_type": "Mexican & American",
+      "price_range": "£10-22"
+    },
+    "menu_items": [
+      {"name": "Beef Burrito", "description": "Rice, beans, cheese, salsa", "price_gbp": 13.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Chicken Tacos (3)", "description": "Soft tortillas with toppings", "price_gbp": 12.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Nachos Grande", "description": "Loaded nachos", "price_gbp": 10.95, "category": "Sharing", "dietary_tags": ["vegetarian"]},
+      {"name": "Pulled Pork Quesadilla", "description": "With cheese and salsa", "price_gbp": 11.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Guacamole & Chips", "description": "Fresh guacamole", "price_gbp": 6.95, "category": "Starters", "dietary_tags": ["vegan"]},
+      {"name": "Churros", "description": "With chocolate dip", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Café Rouge Plymouth",
+      "address": "Drake Circus, Plymouth, PL1 1EA",
+      "website_url": "https://www.caferouge.com/plymouth/",
+      "cuisine_type": "French Brasserie",
+      "price_range": "£10-22"
+    },
+    "menu_items": [
+      {"name": "Steak Frites", "description": "Sirloin steak with fries", "price_gbp": 18.95, "category": "Mains", "dietary_tags": ["gluten-free"]},
+      {"name": "Chicken Breton", "description": "Chicken breast with mushroom sauce", "price_gbp": 15.95, "category": "Mains", "dietary_tags": []},
+      {"name": "Moules Marinière", "description": "Mussels in white wine sauce", "price_gbp": 16.95, "category": "Seafood", "dietary_tags": ["gluten-free"]},
+      {"name": "Croque Monsieur", "description": "Ham and cheese toasted sandwich", "price_gbp": 10.95, "category": "Light Bites", "dietary_tags": []},
+      {"name": "French Onion Soup", "description": "Classic soup with cheese", "price_gbp": 6.95, "category": "Starters", "dietary_tags": ["vegetarian"]},
+      {"name": "Crème Brûlée", "description": "Classic French dessert", "price_gbp": 6.95, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  },
+  {
+    "restaurant": {
+      "name": "Frankie & Benny's Plymouth",
+      "address": "Barbican Leisure Park, Plymouth, PL4 0LG",
+      "website_url": "https://www.frankieandbennys.com/restaurants/plymouth",
+      "cuisine_type": "American Italian",
+      "price_range": "£10-18"
+    },
+    "menu_items": [
+      {"name": "BBQ Chicken Burger", "description": "Grilled chicken with BBQ sauce", "price_gbp": 12.95, "category": "Burgers", "dietary_tags": []},
+      {"name": "Margherita Pizza", "description": "Tomato and mozzarella", "price_gbp": 10.95, "category": "Pizza", "dietary_tags": ["vegetarian"]},
+      {"name": "Spaghetti Bolognese", "description": "Beef ragu with pasta", "price_gbp": 11.95, "category": "Pasta", "dietary_tags": []},
+      {"name": "Chicken Wings", "description": "With various sauces", "price_gbp": 7.95, "category": "Starters", "dietary_tags": []},
+      {"name": "Loaded Fries", "description": "With cheese and bacon", "price_gbp": 5.95, "category": "Sides", "dietary_tags": []},
+      {"name": "Chocolate Fudge Cake", "description": "With ice cream", "price_gbp": 6.50, "category": "Desserts", "dietary_tags": ["vegetarian"]}
+    ]
+  }
+]
