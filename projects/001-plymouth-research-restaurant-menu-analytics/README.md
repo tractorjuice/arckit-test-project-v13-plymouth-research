@@ -134,15 +134,19 @@ python import_from_json.py
 ### Competitor Analysis
 - **Intelligent Similarity Scoring:** Multi-factor algorithm (100 points max)
   - Cuisine Type Match (40 points) - Exact or partial match
-  - Price Similarity (30 points) - Based on average menu price
-  - Category Overlap (15 points) - Jaccard similarity of categories
-  - Menu Size Similarity (15 points) - Item count comparison
+  - Price Similarity (30 points) - Based on average menu price (increased from 20)
+  - Category Overlap (20 points) - Jaccard similarity of categories
+  - Menu Size Similarity (10 points) - Item count comparison
+- **Smart Match Quality Detection:**
+  - Identifies unique restaurants with no close competitors (<50% similarity)
+  - Provides market positioning insights and alternative search suggestions
+  - Color-coded match quality badges (Strong/Good/Fair/Weak)
 - **Top 5 Competitors:** Ranked by similarity score with detailed breakdowns
 - **Comparison Metrics:**
   - Restaurant details (cuisine, price, menu size)
   - Percentage differences (price, size)
   - Shared categories count
-  - Similarity progress bars
+  - Similarity progress bars with quality indicators
 - **Visual Analytics:** Side-by-side bar charts for price and menu size comparison
 
 ### Statistics
