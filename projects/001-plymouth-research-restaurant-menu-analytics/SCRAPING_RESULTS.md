@@ -2,23 +2,27 @@
 
 ## Summary
 
-Successfully scraped real menu data from 135 Plymouth restaurants using Firecrawl API with a two-phase restartable architecture.
+Successfully scraped real menu data from 129 Plymouth restaurants using Firecrawl API with a two-phase restartable architecture. Data quality validated and corrected to remove erroneous third-party aggregator data.
 
-## Final Database Statistics
+## Final Database Statistics (Corrected)
 
 **Total Data:**
 - **219 restaurants** in database
-- **4,583 menu items** total
+- **3,599 menu items** total
 
 **Real Scraped Data:**
-- **135 restaurants** (62%) with real menu data from actual websites
-- **4,045 menu items** extracted from live websites
-- **Success rate**: 62% of target restaurants successfully scraped
+- **129 restaurants** (59%) with real menu data from actual websites
+- **3,061 menu items** extracted from live websites
+- **Success rate**: 59% of target restaurants successfully scraped
 
 **Synthetic/Placeholder Data:**
-- **84 restaurants** (38%) with placeholder data
+- **85 restaurants** (41%) with placeholder data
   - Failed scraping attempts (DNS errors, blocked sites, no structured data)
   - Restaurants without accessible menus
+
+**Data Quality Note:**
+- Removed 984 incorrect items from "Changs Chinese Restaurant" which scraped TripAdvisor instead of actual restaurant website
+- This demonstrates importance of URL validation in production scraping
 
 ## Scraping Architecture
 
