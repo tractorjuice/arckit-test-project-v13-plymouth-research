@@ -424,16 +424,72 @@ def main():
         # Menu item count by restaurant
         st.subheader("Menu Size Comparison")
         restaurant_counts = filtered_menu.groupby('restaurant_name').size().reset_index(name='item_count')
+        restaurant_counts = restaurant_counts.sort_values('item_count', ascending=False)
+
+        # Calculate statistics for outlier detection
+        import numpy as np
+        q1 = restaurant_counts['item_count'].quantile(0.25)
+        q3 = restaurant_counts['item_count'].quantile(0.75)
+        iqr = q3 - q1
+        outlier_threshold = q3 + 1.5 * iqr
+        median_count = restaurant_counts['item_count'].median()
+
+        # Identify outliers
+        restaurant_counts['is_outlier'] = restaurant_counts['item_count'] > outlier_threshold
+        outlier_count = restaurant_counts['is_outlier'].sum()
+
+        # Show statistics
+        col_stat1, col_stat2, col_stat3, col_stat4 = st.columns(4)
+        with col_stat1:
+            st.metric("Median Items", f"{int(median_count)}", help="Middle value - less affected by extremes")
+        with col_stat2:
+            st.metric("Max Items", f"{int(restaurant_counts['item_count'].max())}")
+        with col_stat3:
+            st.metric("Min Items", f"{int(restaurant_counts['item_count'].min())}")
+        with col_stat4:
+            st.metric("Outliers", f"{outlier_count}", help=f"Restaurants with >{int(outlier_threshold)} items")
+
+        # Add visualization options
+        use_log_scale = st.checkbox("Use logarithmic scale", value=False,
+                                    help="Helpful when a few restaurants have significantly more items")
+        exclude_outliers = st.checkbox(f"Exclude outliers (>{int(outlier_threshold)} items)", value=False,
+                                      help="Focus on typical restaurant menu sizes")
+
+        # Apply outlier filter if requested
+        display_counts = restaurant_counts.copy()
+        if exclude_outliers and outlier_count > 0:
+            display_counts = display_counts[~display_counts['is_outlier']]
+            st.info(f"ℹ️ Hiding {outlier_count} outlier restaurant(s) to improve visualization clarity")
+
+        # Create bar chart with optional log scale
         fig_counts = px.bar(
-            restaurant_counts,
+            display_counts,
             x='restaurant_name',
             y='item_count',
             title="Number of Menu Items per Restaurant",
             labels={'restaurant_name': 'Restaurant', 'item_count': 'Menu Items'},
-            color='item_count',
-            color_continuous_scale='Blues'
+            color='is_outlier' if not exclude_outliers else 'item_count',
+            color_discrete_map={True: '#FF6B6B', False: '#4ECDC4'} if not exclude_outliers else None,
+            color_continuous_scale='Blues' if exclude_outliers or outlier_count == 0 else None,
+            hover_data={'is_outlier': False}
         )
+
+        if use_log_scale:
+            fig_counts.update_yaxes(type='log', title='Menu Items (log scale)')
+
+        # Add reference line for median
+        fig_counts.add_hline(y=median_count, line_dash="dash", line_color="green",
+                            annotation_text=f"Median: {int(median_count)}",
+                            annotation_position="right")
+
         st.plotly_chart(fig_counts, use_container_width=True)
+
+        # Show outlier details if any exist
+        if outlier_count > 0 and not exclude_outliers:
+            with st.expander(f"⚠️ View {outlier_count} outlier restaurant(s) details"):
+                outliers_df = restaurant_counts[restaurant_counts['is_outlier']][['restaurant_name', 'item_count']]
+                outliers_df.columns = ['Restaurant', 'Menu Items']
+                st.dataframe(outliers_df, hide_index=True, use_container_width=True)
 
         # Average price by restaurant
         if not filtered_menu['price_gbp'].isna().all():
@@ -454,16 +510,46 @@ def main():
 
         # Category distribution by restaurant
         st.subheader("Menu Category Distribution")
-        category_dist = filtered_menu.groupby(['restaurant_name', 'category']).size().reset_index(name='count')
-        fig_category_dist = px.bar(
-            category_dist,
-            x='restaurant_name',
-            y='count',
-            color='category',
-            title="Menu Categories by Restaurant",
-            labels={'restaurant_name': 'Restaurant', 'count': 'Number of Items'},
-            barmode='stack'
-        )
+
+        # Optionally filter out outlier restaurants from category view
+        category_menu = filtered_menu.copy()
+        if exclude_outliers and outlier_count > 0:
+            outlier_restaurants = restaurant_counts[restaurant_counts['is_outlier']]['restaurant_name'].tolist()
+            category_menu = category_menu[~category_menu['restaurant_name'].isin(outlier_restaurants)]
+
+        category_dist = category_menu.groupby(['restaurant_name', 'category']).size().reset_index(name='count')
+
+        # Add percentage option for better comparison
+        use_percentage = st.checkbox("Show as percentage of restaurant menu", value=False,
+                                     help="Compare relative category proportions instead of absolute counts")
+
+        if use_percentage:
+            # Calculate percentages
+            restaurant_totals = category_dist.groupby('restaurant_name')['count'].sum().reset_index(name='total')
+            category_dist = category_dist.merge(restaurant_totals, on='restaurant_name')
+            category_dist['percentage'] = (category_dist['count'] / category_dist['total'] * 100).round(1)
+
+            fig_category_dist = px.bar(
+                category_dist,
+                x='restaurant_name',
+                y='percentage',
+                color='category',
+                title="Menu Categories by Restaurant (Percentage)",
+                labels={'restaurant_name': 'Restaurant', 'percentage': 'Percentage of Menu (%)'},
+                barmode='stack',
+                hover_data={'count': True, 'total': True}
+            )
+        else:
+            fig_category_dist = px.bar(
+                category_dist,
+                x='restaurant_name',
+                y='count',
+                color='category',
+                title="Menu Categories by Restaurant",
+                labels={'restaurant_name': 'Restaurant', 'count': 'Number of Items'},
+                barmode='stack'
+            )
+
         st.plotly_chart(fig_category_dist, use_container_width=True)
 
     # ------------------------------------------------------------------------

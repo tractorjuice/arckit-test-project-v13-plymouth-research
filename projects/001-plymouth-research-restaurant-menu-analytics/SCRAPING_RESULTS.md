@@ -8,7 +8,7 @@ Successfully scraped real menu data from 129 Plymouth restaurants using Firecraw
 
 **Total Data:**
 - **219 restaurants** in database
-- **3,599 menu items** total
+- **3,577 menu items** total (after data quality corrections)
 
 **Real Scraped Data:**
 - **129 restaurants** (59%) with real menu data from actual websites
@@ -19,10 +19,13 @@ Successfully scraped real menu data from 129 Plymouth restaurants using Firecraw
 - **85 restaurants** (41%) with placeholder data
   - Failed scraping attempts (DNS errors, blocked sites, no structured data)
   - Restaurants without accessible menus
+- **5 restaurants** marked as scraped but with 0 items (extraction failures)
 
-**Data Quality Note:**
-- Removed 984 incorrect items from "Changs Chinese Restaurant" which scraped TripAdvisor instead of actual restaurant website
-- This demonstrates importance of URL validation in production scraping
+**Data Quality Corrections:**
+- **Changs Chinese Restaurant**: Removed 984 incorrect items (scraped TripAdvisor aggregator instead of restaurant site)
+- **Sutton Snax**: Removed 22 incorrect items (scraped TripAdvisor aggregator instead of restaurant site)
+- **Total removed**: 1,006 erroneous items from aggregator contamination
+- **Lesson**: Importance of URL validation and aggregator filtering in production scraping
 
 ## Scraping Architecture
 
@@ -98,6 +101,41 @@ Successfully scraped real menu data from 129 Plymouth restaurants using Firecraw
 - **GDPR**: No personal data collected
 - **Ethical**: Transformative use for analytics
 
+## Dashboard Visualization Improvements
+
+**Problem**: Restaurants with unusually high menu item counts (e.g., Revolution Plymouth with 167 items) were distorting visualizations, making it difficult to compare typical restaurants.
+
+**Solution Implemented**:
+
+1. **Outlier Detection** (IQR Method):
+   - Calculates Q1, Q3, and Interquartile Range (IQR)
+   - Identifies outliers as restaurants with > Q3 + 1.5×IQR items
+   - Displays outlier count and threshold in dashboard
+
+2. **Statistical Metrics**:
+   - Shows median (robust against outliers), min, max menu item counts
+   - Median provides better central tendency than mean for skewed data
+
+3. **Visualization Options**:
+   - **Logarithmic scale toggle**: For datasets with extreme outliers
+   - **Exclude outliers toggle**: Hides outliers to focus on typical restaurants
+   - **Percentage view**: Shows category distribution as percentages (0-100%) instead of absolute counts
+   - **Color coding**: Outliers shown in red (#FF6B6B), typical restaurants in teal (#4ECDC4)
+
+4. **Reference Lines**:
+   - Green dashed line shows median value across all restaurants
+   - Helps identify restaurants above/below typical menu size
+
+5. **Outlier Details**:
+   - Expandable section lists all outlier restaurants with item counts
+   - Transparency about which data points are excluded
+
+**Impact**:
+- Better comparison of typical restaurants
+- Clear identification of unusual data patterns
+- Flexible visualization for different analysis needs
+- User control over data presentation
+
 ## Files
 
 - `phase1_discover_menus.py` - Menu URL discovery script
@@ -106,7 +144,7 @@ Successfully scraped real menu data from 129 Plymouth restaurants using Firecraw
 - `restaurants_extracted.json` - Extracted menu data (gitignored)
 - `plymouth_research.db` - SQLite database (gitignored)
 - `import_from_json.py` - Import script for database
-- `dashboard_app.py` - Streamlit dashboard with real data badges
+- `dashboard_app.py` - Streamlit dashboard with real data badges, outlier handling, and advanced visualizations
 
 ## Next Steps
 
