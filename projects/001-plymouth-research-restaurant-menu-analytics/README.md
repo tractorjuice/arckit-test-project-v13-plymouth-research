@@ -131,6 +131,20 @@ python import_from_json.py
 - **Statistical Metrics:** Median, min, max, outlier count
 - **Color Coding:** Outliers (red), typical restaurants (teal)
 
+### Competitor Analysis
+- **Intelligent Similarity Scoring:** Multi-factor algorithm (100 points max)
+  - Cuisine Type Match (40 points) - Exact or partial match
+  - Price Similarity (30 points) - Based on average menu price
+  - Category Overlap (15 points) - Jaccard similarity of categories
+  - Menu Size Similarity (15 points) - Item count comparison
+- **Top 5 Competitors:** Ranked by similarity score with detailed breakdowns
+- **Comparison Metrics:**
+  - Restaurant details (cuisine, price, menu size)
+  - Percentage differences (price, size)
+  - Shared categories count
+  - Similarity progress bars
+- **Visual Analytics:** Side-by-side bar charts for price and menu size comparison
+
 ### Statistics
 - Real vs synthetic data breakdown
 - Data provenance tracking
@@ -202,6 +216,7 @@ python import_from_json.py
 - ✅ Two-phase scraping architecture with checkpoints
 - ✅ Database schema with data provenance tracking
 - ✅ Interactive Streamlit dashboard with outlier handling
+- ✅ Competitor analysis with intelligent similarity scoring
 - ✅ Data quality validation and corrections
 - ✅ GDPR compliance assessment
 - ✅ 129 restaurants successfully scraped
