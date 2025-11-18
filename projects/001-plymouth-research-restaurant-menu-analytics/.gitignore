@@ -1,6 +1,7 @@
-# Database files (should not be in version control)
-*.db
-*.db.backup_*
+# Database files (now tracked in git per user request)
+# Note: Normally databases should not be in version control, but included here for distribution
+# *.db
+# *.db.backup_*
 *.sqlite
 *.sqlite3
 
