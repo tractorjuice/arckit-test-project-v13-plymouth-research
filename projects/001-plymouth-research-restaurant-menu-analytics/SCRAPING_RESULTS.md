@@ -25,7 +25,15 @@ Successfully scraped real menu data from 129 Plymouth restaurants using Firecraw
 - **Changs Chinese Restaurant**: Removed 984 incorrect items (scraped TripAdvisor aggregator instead of restaurant site)
 - **Sutton Snax**: Removed 22 incorrect items (scraped TripAdvisor aggregator instead of restaurant site)
 - **Total removed**: 1,006 erroneous items from aggregator contamination
-- **Lesson**: Importance of URL validation and aggregator filtering in production scraping
+- **Empty categories**: Fixed 342 menu items with missing categories (set to "Uncategorized")
+  - McDonald's Plymouth: 121 items
+  - Pret A Manger Plymouth: 104 items
+  - The Dock: 30 items
+  - The Early Bird Cafe: 26 items
+  - 16 other restaurants: 61 items
+- **Lessons learned**:
+  - Importance of URL validation and aggregator filtering in production scraping
+  - Need for default category values when extraction fails to populate category field
 
 ## Scraping Architecture
 
