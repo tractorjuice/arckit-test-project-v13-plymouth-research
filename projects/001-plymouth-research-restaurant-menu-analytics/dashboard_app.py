@@ -605,39 +605,41 @@ def main():
                     # Calculate similarity score (0-100)
                     score = 0
 
-                    # 1. Cuisine Type Match (40 points)
+                    # 1. Cuisine Type Match (40 points) - PRIMARY differentiator
                     if pd.notna(target['cuisine_type']) and pd.notna(resto['cuisine_type']):
                         if target['cuisine_type'] == resto['cuisine_type']:
                             score += 40
                         elif any(word in resto['cuisine_type'] for word in target['cuisine_type'].split()):
                             score += 20
 
-                    # 2. Price Similarity (30 points)
-                    if target_avg_price > 0 and comp_avg_price > 0:
-                        price_diff_pct = abs(target_avg_price - comp_avg_price) / target_avg_price
-                        if price_diff_pct <= 0.10:
-                            score += 30
-                        elif price_diff_pct <= 0.25:
-                            score += 20
-                        elif price_diff_pct <= 0.50:
-                            score += 10
-
-                    # 3. Category Overlap (15 points) - Jaccard similarity
+                    # 2. Category Overlap (30 points) - CRITICAL for menu similarity
+                    # Jaccard similarity: measures shared categories vs unique categories
                     if target_categories and comp_categories:
                         intersection = len(target_categories & comp_categories)
                         union = len(target_categories | comp_categories)
                         jaccard = intersection / union if union > 0 else 0
-                        score += jaccard * 15
+                        score += jaccard * 30
 
-                    # 4. Menu Size Similarity (15 points)
+                    # 3. Price Similarity (20 points) - Important but less than menu type
+                    if target_avg_price > 0 and comp_avg_price > 0:
+                        price_diff_pct = abs(target_avg_price - comp_avg_price) / target_avg_price
+                        if price_diff_pct <= 0.10:
+                            score += 20
+                        elif price_diff_pct <= 0.25:
+                            score += 15
+                        elif price_diff_pct <= 0.50:
+                            score += 10
+
+                    # 4. Menu Size Similarity (10 points) - LEAST important
+                    # A restaurant with 30 vs 50 items can still be direct competitors
                     if target_item_count > 0:
                         size_diff_pct = abs(target_item_count - comp_item_count) / target_item_count
                         if size_diff_pct <= 0.20:
-                            score += 15
-                        elif size_diff_pct <= 0.50:
                             score += 10
+                        elif size_diff_pct <= 0.50:
+                            score += 7
                         elif size_diff_pct <= 1.00:
-                            score += 5
+                            score += 3
 
                     competitors.append({
                         'name': resto['name'],
@@ -736,7 +738,7 @@ def main():
                             title="Average Price Comparison",
                             color_discrete_map={'Target': '#FF6B6B', 'Competitor': '#4ECDC4'}
                         )
-                        fig_price.update_xaxis(tickangle=-45)
+                        fig_price.update_xaxes(tickangle=-45)
                         st.plotly_chart(fig_price, use_container_width=True)
 
                     with col_chart2:
@@ -748,7 +750,7 @@ def main():
                             title="Menu Size Comparison",
                             color_discrete_map={'Target': '#FF6B6B', 'Competitor': '#4ECDC4'}
                         )
-                        fig_items.update_xaxis(tickangle=-45)
+                        fig_items.update_xaxes(tickangle=-45)
                         st.plotly_chart(fig_items, use_container_width=True)
 
     # ------------------------------------------------------------------------
