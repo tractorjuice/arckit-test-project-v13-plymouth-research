@@ -2,27 +2,29 @@
 
 ## Summary
 
-Successfully scraped real menu data from 99 unique Plymouth restaurants using Firecrawl API with a two-phase restartable architecture. Data quality validated, corrected to remove erroneous third-party aggregator data, and deduplicated to remove 34 duplicate restaurant entries.
+Successfully scraped real menu data from 98 Plymouth restaurants using Firecrawl API with a two-phase restartable architecture. Database contains 100% real data after removing synthetic entries, duplicates, and data quality issues.
 
-## Final Database Statistics (After Deduplication - 2025-11-18)
+## Final Database Statistics (After Cleanup - 2025-11-18)
 
-**Total Data:**
-- **185 restaurants** in database total
-- **3,141 menu items** total (after data quality corrections and deduplication)
+**Clean Database (100% Real Data):**
+- **98 restaurants** in database (all with menu items)
+- **2,625 menu items** total
+- **Average:** 26 items per restaurant
+- **Range:** 4-177 items per restaurant
+- **Success rate**: 98/211 target restaurants (46%)
 
-**Real Scraped Data:**
-- **99 unique restaurants** with real menu data from actual websites (54%)
-- **All 3,141 menu items** are from live websites
-- **Success rate**: 99 successfully scraped and deduplicated from 211 target restaurants (47%)
+**Failed Restaurants (Exported for Retry):**
+- **86 restaurants** exported to `failed_restaurants_for_retry.csv`
+  - 85 synthetic (never successfully scraped)
+  - 1 failed extraction (Pieminister Plymouth - 0 items)
+- Available for future scraping attempts
 
-**Synthetic/Placeholder Data:**
-- **86 restaurants** (46%) with placeholder data
-  - Failed scraping attempts (DNS errors, blocked sites, no structured data)
-  - Restaurants without accessible menus
-
-**Removed During Deduplication:**
+**Removed During Data Cleaning:**
 - **34 duplicate restaurant entries** merged into 26 unique restaurants
-- **436 duplicate menu items** removed during merge process
+- **436 duplicate menu items** removed during deduplication
+- **85 synthetic placeholder restaurants** removed
+- **516 orphaned menu items** removed
+- **1 restaurant with 0 items** removed
 - **Major duplicates**: Zizzi (4→1), ASK Italian (3→1), Bill's (3→1), Rockfish (3→1)
 
 **Data Quality Corrections:**

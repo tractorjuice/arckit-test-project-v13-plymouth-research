@@ -178,18 +178,26 @@ python import_from_json.py
 
 ## Current Statistics
 
-**As of 2025-11-18 (after deduplication):**
-- **185 restaurants** in database total
-- **99 unique restaurants** with real scraped menu data (54%)
-- **3,141 menu items** total (after deduplication)
-- **All real menu items** from live websites (synthetic data removed)
-- **86 restaurants** with synthetic/placeholder data (failed scrapes)
+**As of 2025-11-18 (after cleanup):**
+- **98 restaurants** in database (100% real data)
+- **2,625 menu items** total
+- **Average:** 26 items per restaurant
+- **Range:** 4-177 items per restaurant
+- **0 synthetic entries** - database contains only successfully scraped data
+
+**Failed Restaurants (Retry List):**
+- **86 restaurants** exported to `failed_restaurants_for_retry.csv`
+- Available for future scraping attempts
+- Includes URLs, cuisine types, and failure reasons
 
 **Data Quality Corrections:**
 - Removed 1,006 erroneous items from TripAdvisor aggregator contamination
 - Fixed 342 menu items with missing categories
 - Deduplicated 34 restaurant entries (26 sets merged into single entries)
 - Removed 436 duplicate menu items during merge
+- Removed 85 synthetic placeholder restaurants
+- Removed 516 orphaned menu items
+- Removed 1 restaurant with failed extraction (0 items)
 
 ## Legal & Ethical Compliance
 
