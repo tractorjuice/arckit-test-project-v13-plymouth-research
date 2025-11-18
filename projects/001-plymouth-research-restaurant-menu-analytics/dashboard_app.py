@@ -289,10 +289,11 @@ def main():
     # ========================================================================
     # Tabs
     # ========================================================================
-    tab1, tab2, tab3, tab4 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "🍽️ Browse Menus",
         "📊 Price Analytics",
         "🏪 Restaurant Comparison",
+        "🎯 Competitor Analysis",
         "📈 Statistics"
     ])
 
@@ -553,9 +554,207 @@ def main():
         st.plotly_chart(fig_category_dist, use_container_width=True)
 
     # ------------------------------------------------------------------------
-    # Tab 4: Statistics
+    # Tab 4: Competitor Analysis
     # ------------------------------------------------------------------------
     with tab4:
+        st.header("🎯 Competitor Analysis")
+        st.markdown("Select a restaurant to find its top 5 competitors based on cuisine type, pricing, menu size, and category overlap.")
+
+        # Restaurant selector
+        restaurants_with_data = restaurants_df[restaurants_df['data_source'] == 'real_scraped']['name'].tolist()
+
+        if not restaurants_with_data:
+            st.warning("⚠️ No restaurants with real data available for competitor analysis.")
+        else:
+            selected_restaurant = st.selectbox(
+                "Select a restaurant:",
+                options=sorted(restaurants_with_data),
+                help="Choose a restaurant to analyze its competitors"
+            )
+
+            if selected_restaurant:
+                # Get selected restaurant data
+                target = restaurants_df[restaurants_df['name'] == selected_restaurant].iloc[0]
+                target_id = target['restaurant_id']
+
+                # Get target restaurant menu data
+                target_menu = menu_df[menu_df['restaurant_id'] == target_id]
+                target_item_count = len(target_menu)
+                target_avg_price = target_menu['price_gbp'].mean() if not target_menu['price_gbp'].isna().all() else 0
+                target_categories = set(target_menu['category'].dropna().unique())
+
+                # Calculate similarity scores for all other restaurants
+                competitors = []
+
+                for _, resto in restaurants_df.iterrows():
+                    # Skip self and restaurants without real data
+                    if resto['restaurant_id'] == target_id or resto['data_source'] != 'real_scraped':
+                        continue
+
+                    # Get competitor menu data
+                    comp_menu = menu_df[menu_df['restaurant_id'] == resto['restaurant_id']]
+                    comp_item_count = len(comp_menu)
+
+                    # Skip if no items
+                    if comp_item_count == 0:
+                        continue
+
+                    comp_avg_price = comp_menu['price_gbp'].mean() if not comp_menu['price_gbp'].isna().all() else 0
+                    comp_categories = set(comp_menu['category'].dropna().unique())
+
+                    # Calculate similarity score (0-100)
+                    score = 0
+
+                    # 1. Cuisine Type Match (40 points)
+                    if pd.notna(target['cuisine_type']) and pd.notna(resto['cuisine_type']):
+                        if target['cuisine_type'] == resto['cuisine_type']:
+                            score += 40
+                        elif any(word in resto['cuisine_type'] for word in target['cuisine_type'].split()):
+                            score += 20
+
+                    # 2. Price Similarity (30 points)
+                    if target_avg_price > 0 and comp_avg_price > 0:
+                        price_diff_pct = abs(target_avg_price - comp_avg_price) / target_avg_price
+                        if price_diff_pct <= 0.10:
+                            score += 30
+                        elif price_diff_pct <= 0.25:
+                            score += 20
+                        elif price_diff_pct <= 0.50:
+                            score += 10
+
+                    # 3. Category Overlap (15 points) - Jaccard similarity
+                    if target_categories and comp_categories:
+                        intersection = len(target_categories & comp_categories)
+                        union = len(target_categories | comp_categories)
+                        jaccard = intersection / union if union > 0 else 0
+                        score += jaccard * 15
+
+                    # 4. Menu Size Similarity (15 points)
+                    if target_item_count > 0:
+                        size_diff_pct = abs(target_item_count - comp_item_count) / target_item_count
+                        if size_diff_pct <= 0.20:
+                            score += 15
+                        elif size_diff_pct <= 0.50:
+                            score += 10
+                        elif size_diff_pct <= 1.00:
+                            score += 5
+
+                    competitors.append({
+                        'name': resto['name'],
+                        'cuisine_type': resto['cuisine_type'],
+                        'avg_price': comp_avg_price,
+                        'item_count': comp_item_count,
+                        'categories': comp_categories,
+                        'similarity_score': round(score, 1)
+                    })
+
+                # Sort by similarity score and get top 5
+                competitors.sort(key=lambda x: x['similarity_score'], reverse=True)
+                top_competitors = competitors[:5]
+
+                if not top_competitors:
+                    st.warning("⚠️ No competitors found for this restaurant.")
+                else:
+                    # Display target restaurant info
+                    st.subheader(f"📍 Target Restaurant: {selected_restaurant}")
+                    col1, col2, col3, col4 = st.columns(4)
+                    with col1:
+                        st.metric("Cuisine", target['cuisine_type'] if pd.notna(target['cuisine_type']) else "Unknown")
+                    with col2:
+                        st.metric("Avg Price", f"£{target_avg_price:.2f}" if target_avg_price > 0 else "N/A")
+                    with col3:
+                        st.metric("Menu Items", target_item_count)
+                    with col4:
+                        st.metric("Categories", len(target_categories))
+
+                    st.divider()
+
+                    # Display top 5 competitors
+                    st.subheader("🏆 Top 5 Competitors")
+
+                    for i, comp in enumerate(top_competitors, 1):
+                        with st.expander(f"#{i} - {comp['name']} (Similarity: {comp['similarity_score']}%)", expanded=(i==1)):
+                            col_a, col_b, col_c = st.columns(3)
+
+                            with col_a:
+                                st.markdown("**Restaurant Details:**")
+                                st.markdown(f"- **Cuisine:** {comp['cuisine_type']}")
+                                st.markdown(f"- **Avg Price:** £{comp['avg_price']:.2f}")
+                                st.markdown(f"- **Menu Items:** {comp['item_count']}")
+
+                            with col_b:
+                                st.markdown("**Comparison:**")
+                                price_diff = ((comp['avg_price'] - target_avg_price) / target_avg_price * 100) if target_avg_price > 0 else 0
+                                st.markdown(f"- **Price Diff:** {price_diff:+.1f}%")
+                                item_diff = ((comp['item_count'] - target_item_count) / target_item_count * 100) if target_item_count > 0 else 0
+                                st.markdown(f"- **Size Diff:** {item_diff:+.1f}%")
+
+                                # Category overlap
+                                shared_cats = target_categories & comp['categories']
+                                st.markdown(f"- **Shared Categories:** {len(shared_cats)}/{len(target_categories)}")
+
+                            with col_c:
+                                st.markdown("**Similarity Breakdown:**")
+                                # Show a simple progress bar for similarity
+                                st.progress(comp['similarity_score'] / 100)
+                                st.markdown(f"**Score: {comp['similarity_score']}/100**")
+
+                    # Comparison chart
+                    st.divider()
+                    st.subheader("📊 Competitor Comparison Chart")
+
+                    # Prepare data for visualization
+                    comparison_data = []
+                    comparison_data.append({
+                        'Restaurant': selected_restaurant + ' (Target)',
+                        'Avg Price (£)': target_avg_price,
+                        'Menu Items': target_item_count,
+                        'Categories': len(target_categories),
+                        'Type': 'Target'
+                    })
+
+                    for comp in top_competitors:
+                        comparison_data.append({
+                            'Restaurant': comp['name'],
+                            'Avg Price (£)': comp['avg_price'],
+                            'Menu Items': comp['item_count'],
+                            'Categories': len(comp['categories']),
+                            'Type': 'Competitor'
+                        })
+
+                    comparison_df = pd.DataFrame(comparison_data)
+
+                    # Multi-metric comparison
+                    col_chart1, col_chart2 = st.columns(2)
+
+                    with col_chart1:
+                        fig_price = px.bar(
+                            comparison_df,
+                            x='Restaurant',
+                            y='Avg Price (£)',
+                            color='Type',
+                            title="Average Price Comparison",
+                            color_discrete_map={'Target': '#FF6B6B', 'Competitor': '#4ECDC4'}
+                        )
+                        fig_price.update_xaxis(tickangle=-45)
+                        st.plotly_chart(fig_price, use_container_width=True)
+
+                    with col_chart2:
+                        fig_items = px.bar(
+                            comparison_df,
+                            x='Restaurant',
+                            y='Menu Items',
+                            color='Type',
+                            title="Menu Size Comparison",
+                            color_discrete_map={'Target': '#FF6B6B', 'Competitor': '#4ECDC4'}
+                        )
+                        fig_items.update_xaxis(tickangle=-45)
+                        st.plotly_chart(fig_items, use_container_width=True)
+
+    # ------------------------------------------------------------------------
+    # Tab 5: Statistics
+    # ------------------------------------------------------------------------
+    with tab5:
         st.header("Database Statistics")
 
         col1, col2 = st.columns(2)
