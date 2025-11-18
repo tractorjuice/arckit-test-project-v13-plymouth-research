@@ -612,23 +612,26 @@ def main():
                         elif any(word in resto['cuisine_type'] for word in target['cuisine_type'].split()):
                             score += 20
 
-                    # 2. Category Overlap (30 points) - CRITICAL for menu similarity
+                    # 2. Price Similarity (30 points) - CRITICAL competitive factor
+                    # Restaurants at different price points don't compete for same customers
+                    if target_avg_price > 0 and comp_avg_price > 0:
+                        price_diff_pct = abs(target_avg_price - comp_avg_price) / target_avg_price
+                        if price_diff_pct <= 0.10:
+                            score += 30
+                        elif price_diff_pct <= 0.20:
+                            score += 25
+                        elif price_diff_pct <= 0.35:
+                            score += 20
+                        elif price_diff_pct <= 0.50:
+                            score += 15
+
+                    # 3. Category Overlap (20 points) - Menu similarity matters
                     # Jaccard similarity: measures shared categories vs unique categories
                     if target_categories and comp_categories:
                         intersection = len(target_categories & comp_categories)
                         union = len(target_categories | comp_categories)
                         jaccard = intersection / union if union > 0 else 0
-                        score += jaccard * 30
-
-                    # 3. Price Similarity (20 points) - Important but less than menu type
-                    if target_avg_price > 0 and comp_avg_price > 0:
-                        price_diff_pct = abs(target_avg_price - comp_avg_price) / target_avg_price
-                        if price_diff_pct <= 0.10:
-                            score += 20
-                        elif price_diff_pct <= 0.25:
-                            score += 15
-                        elif price_diff_pct <= 0.50:
-                            score += 10
+                        score += jaccard * 20
 
                     # 4. Menu Size Similarity (10 points) - LEAST important
                     # A restaurant with 30 vs 50 items can still be direct competitors
