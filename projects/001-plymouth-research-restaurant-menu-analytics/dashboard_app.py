@@ -671,8 +671,58 @@ def main():
 
                     st.divider()
 
+                    # Check if restaurant has unique positioning (low similarity scores)
+                    max_similarity = top_competitors[0]['similarity_score'] if top_competitors else 0
+
+                    if max_similarity < 50:
+                        st.info(f"""
+                        💡 **Unique Market Position Detected**
+
+                        {selected_restaurant} appears to have a **unique concept** with no close direct competitors in the database.
+                        The highest similarity score is only {max_similarity:.1f}%, indicating this restaurant occupies a distinct market niche.
+
+                        **What this means:**
+                        - **Low competition risk** - Few direct competitors for the same customer base
+                        - **Unique value proposition** - Distinctive cuisine/concept in Plymouth market
+                        - **Market opportunity** - Potentially underserved customer segment
+
+                        The results below show the *closest* matches, but they may serve different customer needs.
+                        """)
+
+                        # Suggest alternatives based on attributes
+                        suggestions = []
+
+                        # Look for cuisine-type alternatives
+                        if pd.notna(target['cuisine_type']):
+                            cuisine_words = target['cuisine_type'].split()
+                            similar_cuisines = restaurants_df[
+                                (restaurants_df['data_source'] == 'real_scraped') &
+                                (restaurants_df['restaurant_id'] != target_id)
+                            ].apply(lambda x: any(word in str(x['cuisine_type']) for word in cuisine_words), axis=1)
+
+                            if similar_cuisines.sum() > 0:
+                                suggestions.append(f"**Try searching:** Restaurants with similar cuisine keywords: {', '.join(cuisine_words[:3])}")
+
+                        # Look for price-range alternatives
+                        if target_avg_price > 0:
+                            price_label = "budget-friendly" if target_avg_price < 12 else "mid-range" if target_avg_price < 20 else "premium"
+                            suggestions.append(f"**Price positioning:** This is a {price_label} restaurant (£{target_avg_price:.2f} avg). Consider comparing with other {price_label} establishments.")
+
+                        # Suggest category-based search
+                        if target_categories:
+                            top_cats = list(target_categories)[:3]
+                            suggestions.append(f"**Menu focus:** Look for restaurants serving: {', '.join(top_cats)}")
+
+                        if suggestions:
+                            with st.expander("💡 Suggested Alternative Comparisons", expanded=False):
+                                for suggestion in suggestions:
+                                    st.markdown(f"- {suggestion}")
+
                     # Display top 5 competitors
-                    st.subheader("🏆 Top 5 Competitors")
+                    if max_similarity >= 50:
+                        st.subheader("🏆 Top 5 Competitors")
+                    else:
+                        st.subheader("🔍 Closest Alternatives (Low Match)")
 
                     for i, comp in enumerate(top_competitors, 1):
                         with st.expander(f"#{i} - {comp['name']} (Similarity: {comp['similarity_score']}%)", expanded=(i==1)):
@@ -697,6 +747,24 @@ def main():
 
                             with col_c:
                                 st.markdown("**Similarity Breakdown:**")
+
+                                # Determine match quality with color coding
+                                score = comp['similarity_score']
+                                if score >= 70:
+                                    quality = "Strong Match"
+                                    color = "#4CAF50"  # Green
+                                elif score >= 50:
+                                    quality = "Good Match"
+                                    color = "#2196F3"  # Blue
+                                elif score >= 40:
+                                    quality = "Fair Match"
+                                    color = "#FF9800"  # Orange
+                                else:
+                                    quality = "Weak Match"
+                                    color = "#F44336"  # Red
+
+                                st.markdown(f"<span style='background: {color}; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.85em;'>{quality}</span>", unsafe_allow_html=True)
+
                                 # Show a simple progress bar for similarity
                                 st.progress(comp['similarity_score'] / 100)
                                 st.markdown(f"**Score: {comp['similarity_score']}/100**")
