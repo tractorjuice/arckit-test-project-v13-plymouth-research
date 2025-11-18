@@ -4,13 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an **ArcKit v0.9.1 test project** for Plymouth Research, a restaurant menu scraping and analytics platform. The repository focuses on **enterprise architecture governance workflows** rather than application code implementation.
+This is an **ArcKit v0.9.1 test project** for Plymouth Research, a restaurant menu scraping and analytics platform. The repository contains both **enterprise architecture governance artifacts** and a **working implementation** (project 001).
 
 **Key Context**:
 - **Business Domain**: Web scraping, data analytics, restaurant menu aggregation
-- **Tech Stack (Planned)**: Python (BeautifulSoup/Scrapy), PostgreSQL, Streamlit/Dash
+- **Tech Stack**: Python (BeautifulSoup/Scrapy), SQLite, Streamlit
+- **Current Status**: 98 restaurants, 2,625 menu items, FSA hygiene ratings integrated
 - **Target**: 150+ restaurants in Plymouth, UK; 10,000+ menu items
-- **Architecture Phase**: Design and governance documentation (not implementation)
+- **Phase**: MVP dashboard implemented with ongoing data collection
 
 ## Repository Structure
 
@@ -30,10 +31,17 @@ This repository is organized around **architecture governance artifacts**, not s
 .codex/prompts/          # Codex CLI prompts (mirror of Claude commands)
 .gemini/commands/        # Gemini CLI commands (mirror of Claude commands)
 
-projects/                # Individual architecture projects (created on demand)
+projects/                # Individual architecture projects
+└── 001-plymouth-research-restaurant-menu-analytics/
+    ├── dashboard_app.py              # Main Streamlit dashboard (1,687 lines)
+    ├── fetch_hygiene_ratings_v2.py   # FSA data fetcher
+    ├── plymouth_research.db          # SQLite database (excluded from git)
+    ├── CLAUDE.md                     # Implementation-specific guide
+    ├── HYGIENE_RATINGS_GUIDE.md      # FSA rating system documentation
+    └── add_hygiene_columns.sql       # Database schema
 ```
 
-**Important**: The `projects/` directory does not exist initially. It's created when users run architecture commands like `/arckit.principles` or `/arckit.requirements`.
+**Important**: Project 001 contains a working implementation. For implementation details, see `projects/001-plymouth-research-restaurant-menu-analytics/CLAUDE.md`.
 
 ## ArcKit Slash Commands
 
@@ -106,12 +114,13 @@ This repository includes **35 slash commands** for enterprise architecture gover
 - GDPR compliance (UK): only public business data, no PII
 - Copyright considerations: transformative use (analytics, not republication)
 
-**Technical Architecture (Planned)**:
+**Technical Architecture (Implemented)**:
 - **Scraping**: Python (BeautifulSoup, Scrapy, Selenium for dynamic content)
-- **Storage**: PostgreSQL 15 with full-text search
-- **Dashboard**: Streamlit (rapid prototyping) or Dash (production)
+- **Storage**: SQLite with full-text search indexes
+- **Dashboard**: Streamlit (interactive web app)
 - **ETL**: Custom Python pipeline for data normalization
-- **Hosting**: TBD (cloud or on-premise)
+- **Hygiene Ratings**: FSA Food Hygiene Rating Scheme integration via XML
+- **Hosting**: Local development (production deployment TBD)
 
 **Key NFRs**:
 - Dashboard page load < 2 seconds
@@ -203,12 +212,16 @@ status: Draft
 
 The repository uses a simple git workflow:
 - **Main branch**: `main`
-- **Current status**: Clean working directory
-- **Latest commit**: `7a5f551 chore: initialize Plymouth Research test project v13`
+- **Latest commit**: `cf10628 feat: integrate FSA Food Hygiene Rating Scheme data`
 
 When making commits:
 - Follow conventional commit format: `type: description`
 - Common types: `feat`, `docs`, `chore`, `fix`
+
+**Recent Updates**:
+- FSA Food Hygiene Rating Scheme integration (2025-11-18)
+- Dashboard with 7 tabs including hygiene ratings
+- 98 restaurants, 2,625 menu items, 49 hygiene ratings
 
 ## ArcKit Version
 
@@ -225,12 +238,13 @@ When making commits:
 - Respect the project context (Plymouth Research, restaurant scraping)
 - Generate documents in `projects/<project-name>/docs/` structure
 - Use templates from `.arckit/templates/` as reference
+- For project 001 implementation work, see `projects/001-plymouth-research-restaurant-menu-analytics/CLAUDE.md`
 
 **DON'T**:
-- Don't write application code (this is a governance repository, not an implementation)
 - Don't modify `.arckit/templates/` without understanding ArcKit versioning
 - Don't ignore legal/ethical constraints (robots.txt, GDPR, copyright)
-- Don't assume `projects/` directory exists (it's created on demand)
+- Don't commit database files or large data files (use .gitignore)
+- Don't skip FSA attribution when displaying hygiene ratings
 
 ## Key Principles for This Project
 
