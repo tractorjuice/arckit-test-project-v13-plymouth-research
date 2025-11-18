@@ -609,8 +609,15 @@ def main():
                     if pd.notna(target['cuisine_type']) and pd.notna(resto['cuisine_type']):
                         if target['cuisine_type'] == resto['cuisine_type']:
                             score += 40
-                        elif any(word in resto['cuisine_type'] for word in target['cuisine_type'].split()):
-                            score += 20
+                        else:
+                            # Check for meaningful word overlap (exclude connectors)
+                            stop_words = {'&', 'and', 'the', 'a', 'an', 'at', 'of', 'in', 'on', '/', '-', '+', 'with'}
+                            target_words = {word.lower() for word in target['cuisine_type'].split() if word.lower() not in stop_words and len(word) > 1}
+                            comp_words = {word.lower() for word in resto['cuisine_type'].split() if word.lower() not in stop_words and len(word) > 1}
+
+                            # Check if any meaningful words match
+                            if target_words & comp_words:
+                                score += 20
 
                     # 2. Price Similarity (30 points) - CRITICAL competitive factor
                     # Restaurants at different price points don't compete for same customers
