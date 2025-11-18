@@ -289,11 +289,12 @@ def main():
     # ========================================================================
     # Tabs
     # ========================================================================
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "🍽️ Browse Menus",
         "📊 Price Analytics",
         "🏪 Restaurant Comparison",
         "🎯 Competitor Analysis",
+        "🍹 Drinks Analysis",
         "📈 Statistics"
     ])
 
@@ -832,9 +833,446 @@ def main():
                         st.plotly_chart(fig_items, use_container_width=True)
 
     # ------------------------------------------------------------------------
-    # Tab 5: Statistics
+    # Tab 5: Drinks Analysis
     # ------------------------------------------------------------------------
     with tab5:
+        st.header("🍹 Drinks Analysis")
+
+        # Filter for drink items
+        drink_categories = ['Drinks', 'Kids Drinks', 'Cocktails', 'Beer', 'Beverages', 'Coffee']
+        drinks_df = menu_df[menu_df['category'].isin(drink_categories)].copy()
+
+        if drinks_df.empty:
+            st.warning("⚠️ No drink data available in the database.")
+        else:
+            # Overview statistics
+            st.subheader("📊 Overview")
+            col1, col2, col3, col4 = st.columns(4)
+
+            with col1:
+                total_drinks = len(drinks_df)
+                st.metric("Total Drinks", f"{total_drinks:,}")
+
+            with col2:
+                restaurants_with_drinks = drinks_df['restaurant_name'].nunique()
+                st.metric("Restaurants with Drinks", restaurants_with_drinks)
+
+            with col3:
+                avg_drink_price = drinks_df[drinks_df['price_gbp'] > 0]['price_gbp'].mean()
+                st.metric("Avg Drink Price", f"£{avg_drink_price:.2f}")
+
+            with col4:
+                price_range = f"£{drinks_df[drinks_df['price_gbp'] > 0]['price_gbp'].min():.2f} - £{drinks_df[drinks_df['price_gbp'] > 0]['price_gbp'].max():.2f}"
+                st.metric("Price Range", price_range)
+
+            st.divider()
+
+            # Classify drinks by type based on name
+            def classify_drink(name: str, category: str) -> str:
+                """Classify drink into subcategories based on name and category."""
+                name_lower = name.lower()
+
+                if category == 'Cocktails':
+                    return 'Cocktails'
+                elif category == 'Beer':
+                    return 'Beer'
+                elif category == 'Kids Drinks':
+                    return 'Soft Drinks'
+
+                # Coffee & Hot Drinks
+                if any(word in name_lower for word in ['coffee', 'espresso', 'cappuccino', 'latte', 'americano', 'mocha', 'macchiato']):
+                    return 'Coffee'
+                elif any(word in name_lower for word in ['tea', 'hot chocolate', 'chai']):
+                    return 'Hot Drinks'
+
+                # Alcoholic
+                elif any(word in name_lower for word in ['beer', 'lager', 'ale', 'ipa', 'stout', 'cider', 'pint']):
+                    return 'Beer & Cider'
+                elif any(word in name_lower for word in ['wine', 'prosecco', 'champagne', 'rosé', 'pinot', 'chardonnay', 'merlot', 'sauvignon']):
+                    return 'Wine'
+                elif any(word in name_lower for word in ['cocktail', 'margarita', 'mojito', 'martini', 'daiquiri', 'gin', 'vodka', 'rum', 'whisky', 'whiskey', 'tequila']):
+                    return 'Cocktails & Spirits'
+
+                # Non-alcoholic
+                elif any(word in name_lower for word in ['juice', 'orange', 'apple', 'pineapple', 'cranberry', 'tomato']):
+                    return 'Juice'
+                elif any(word in name_lower for word in ['smoothie', 'milkshake', 'shake', 'frappe', 'frappuccino']):
+                    return 'Smoothies & Shakes'
+                elif any(word in name_lower for word in ['water', 'mineral', 'sparkling', 'still']):
+                    return 'Water'
+                elif any(word in name_lower for word in ['coke', 'cola', 'pepsi', 'fanta', 'sprite', 'lemonade', 'soda', 'fizzy', 'soft drink']):
+                    return 'Soft Drinks'
+
+                return 'Other Drinks'
+
+            drinks_df['drink_type'] = drinks_df.apply(
+                lambda row: classify_drink(row['item_name'], row['category']),
+                axis=1
+            )
+
+            # Drink type distribution
+            st.subheader("🥤 Drink Types Distribution")
+
+            col_a, col_b = st.columns([2, 1])
+
+            with col_a:
+                type_counts = drinks_df['drink_type'].value_counts().reset_index()
+                type_counts.columns = ['Drink Type', 'Count']
+
+                fig_types = px.bar(
+                    type_counts,
+                    x='Drink Type',
+                    y='Count',
+                    title="Number of Drinks by Type",
+                    color='Count',
+                    color_continuous_scale='Blues'
+                )
+                fig_types.update_xaxes(tickangle=-45)
+                st.plotly_chart(fig_types, use_container_width=True)
+
+            with col_b:
+                st.dataframe(
+                    type_counts,
+                    hide_index=True,
+                    use_container_width=True
+                )
+
+            st.divider()
+
+            # Price analysis by drink type
+            st.subheader("💰 Price Analysis by Drink Type")
+
+            drinks_with_price = drinks_df[drinks_df['price_gbp'] > 0].copy()
+
+            if not drinks_with_price.empty:
+                col_c, col_d = st.columns(2)
+
+                with col_c:
+                    # Box plot by drink type
+                    fig_price_box = px.box(
+                        drinks_with_price,
+                        x='drink_type',
+                        y='price_gbp',
+                        title="Price Distribution by Drink Type",
+                        color='drink_type',
+                        labels={'price_gbp': 'Price (£)', 'drink_type': 'Drink Type'}
+                    )
+                    fig_price_box.update_xaxes(tickangle=-45)
+                    st.plotly_chart(fig_price_box, use_container_width=True)
+
+                with col_d:
+                    # Average prices by type
+                    avg_prices = drinks_with_price.groupby('drink_type')['price_gbp'].agg(['mean', 'min', 'max', 'count']).reset_index()
+                    avg_prices.columns = ['Drink Type', 'Avg Price', 'Min Price', 'Max Price', 'Count']
+                    avg_prices['Avg Price'] = avg_prices['Avg Price'].apply(lambda x: f"£{x:.2f}")
+                    avg_prices['Min Price'] = avg_prices['Min Price'].apply(lambda x: f"£{x:.2f}")
+                    avg_prices['Max Price'] = avg_prices['Max Price'].apply(lambda x: f"£{x:.2f}")
+                    avg_prices = avg_prices.sort_values('Count', ascending=False)
+
+                    st.dataframe(
+                        avg_prices,
+                        hide_index=True,
+                        use_container_width=True,
+                        height=400
+                    )
+
+            st.divider()
+
+            # Restaurant rankings
+            st.subheader("🏆 Restaurant Rankings")
+
+            col_e, col_f = st.columns(2)
+
+            with col_e:
+                st.markdown("**Top 10 Restaurants by Drink Count**")
+
+                resto_counts = drinks_df.groupby('restaurant_name').agg({
+                    'item_id': 'count',
+                    'price_gbp': lambda x: x[x > 0].mean() if len(x[x > 0]) > 0 else 0
+                }).reset_index()
+                resto_counts.columns = ['Restaurant', 'Drink Count', 'Avg Price']
+                resto_counts = resto_counts.sort_values('Drink Count', ascending=False).head(10)
+                resto_counts['Avg Price'] = resto_counts['Avg Price'].apply(lambda x: f"£{x:.2f}" if x > 0 else "N/A")
+
+                st.dataframe(
+                    resto_counts,
+                    hide_index=True,
+                    use_container_width=True
+                )
+
+            with col_f:
+                st.markdown("**Most Expensive Drinks**")
+
+                expensive_drinks = drinks_with_price.nlargest(10, 'price_gbp')[
+                    ['item_name', 'price_gbp', 'drink_type', 'restaurant_name']
+                ].copy()
+                expensive_drinks.columns = ['Drink', 'Price', 'Type', 'Restaurant']
+                expensive_drinks['Price'] = expensive_drinks['Price'].apply(lambda x: f"£{x:.2f}")
+
+                st.dataframe(
+                    expensive_drinks,
+                    hide_index=True,
+                    use_container_width=True
+                )
+
+            st.divider()
+
+            # Specific drink comparisons
+            st.subheader("☕ Compare Common Drinks Across Restaurants")
+
+            # Common drink search terms
+            drink_search = st.selectbox(
+                "Select a drink type to compare:",
+                [
+                    'Coffee (all types)',
+                    'Cappuccino',
+                    'Latte',
+                    'Espresso',
+                    'Beer/Pint',
+                    'Wine',
+                    'Cocktail',
+                    'Coca Cola/Coke',
+                    'Juice',
+                    'Water'
+                ]
+            )
+
+            # Map search terms to keywords
+            search_mapping = {
+                'Coffee (all types)': ['coffee', 'cappuccino', 'latte', 'americano', 'espresso', 'mocha'],
+                'Cappuccino': ['cappuccino'],
+                'Latte': ['latte'],
+                'Espresso': ['espresso'],
+                'Beer/Pint': ['beer', 'pint', 'lager', 'ale'],
+                'Wine': ['wine'],
+                'Cocktail': ['cocktail', 'margarita', 'mojito', 'martini'],
+                'Coca Cola/Coke': ['coca cola', 'coke', 'cola'],
+                'Juice': ['juice', 'orange juice', 'apple juice'],
+                'Water': ['water', 'mineral water']
+            }
+
+            keywords = search_mapping[drink_search]
+
+            # Filter drinks matching keywords
+            matching_drinks = drinks_with_price[
+                drinks_with_price['item_name'].str.lower().apply(
+                    lambda x: any(keyword in x for keyword in keywords)
+                )
+            ].copy()
+
+            if not matching_drinks.empty:
+                col_g, col_h = st.columns([2, 1])
+
+                with col_g:
+                    # Bar chart of prices
+                    comparison_df = matching_drinks.groupby('restaurant_name')['price_gbp'].mean().reset_index()
+                    comparison_df.columns = ['Restaurant', 'Avg Price']
+                    comparison_df = comparison_df.sort_values('Avg Price', ascending=False).head(15)
+
+                    fig_comparison = px.bar(
+                        comparison_df,
+                        x='Restaurant',
+                        y='Avg Price',
+                        title=f"Average {drink_search} Price by Restaurant (Top 15)",
+                        labels={'Avg Price': 'Price (£)'},
+                        color='Avg Price',
+                        color_continuous_scale='Viridis'
+                    )
+                    fig_comparison.update_xaxes(tickangle=-45)
+                    st.plotly_chart(fig_comparison, use_container_width=True)
+
+                with col_h:
+                    # Statistics
+                    st.metric("Restaurants Serving", matching_drinks['restaurant_name'].nunique())
+                    st.metric("Total Items Found", len(matching_drinks))
+                    st.metric("Cheapest", f"£{matching_drinks['price_gbp'].min():.2f}")
+                    st.metric("Most Expensive", f"£{matching_drinks['price_gbp'].max():.2f}")
+                    st.metric("Average", f"£{matching_drinks['price_gbp'].mean():.2f}")
+
+                # Detailed list
+                st.markdown(f"**All {drink_search} Items Found:**")
+                detailed_list = matching_drinks[['item_name', 'price_gbp', 'restaurant_name']].copy()
+                detailed_list.columns = ['Drink', 'Price', 'Restaurant']
+                detailed_list['Price'] = detailed_list['Price'].apply(lambda x: f"£{x:.2f}")
+                detailed_list = detailed_list.sort_values('Price')
+
+                st.dataframe(
+                    detailed_list,
+                    hide_index=True,
+                    use_container_width=True,
+                    height=400
+                )
+            else:
+                st.info(f"No {drink_search} items found in the database.")
+
+            st.divider()
+
+            # Dedicated beer comparison section
+            st.subheader("🍺 Complete Beer & Cider Analysis")
+
+            # Filter for beer and cider items (exclude food items)
+            def is_beer_drink(row):
+                """Check if item is actually a beer/cider drink (not food)."""
+                name_lower = row['item_name'].lower()
+                category_lower = str(row['category']).lower()
+
+                # Exclude food categories
+                if any(word in category_lower for word in ['burger', 'side', 'uncategorized', 'food', 'main', 'starter']):
+                    return False
+
+                # Check for beer/cider keywords
+                beer_keywords = ['beer', 'pint', 'lager', 'ale', 'ipa', 'stout', 'cider', 'bitter']
+                if any(keyword in name_lower for keyword in beer_keywords):
+                    # Exclude food items that happen to have beer in the name
+                    food_keywords = ['batter', 'crisp', 'chip', 'burger', 'chicken', 'wing', 'fries', 'onion ring']
+                    if not any(food in name_lower for food in food_keywords):
+                        return True
+
+                return False
+
+            beer_items = drinks_with_price[drinks_with_price.apply(is_beer_drink, axis=1)].copy()
+
+            if not beer_items.empty:
+                # Classify beer type
+                def classify_beer(name: str) -> str:
+                    """Classify beer into subcategories."""
+                    name_lower = name.lower()
+
+                    if any(word in name_lower for word in ['cider', 'scrumpy']):
+                        return 'Cider'
+                    elif any(word in name_lower for word in ['lager', 'pilsner', 'pilsen']):
+                        return 'Lager'
+                    elif any(word in name_lower for word in ['ipa', 'pale ale']):
+                        return 'IPA/Pale Ale'
+                    elif any(word in name_lower for word in ['stout', 'porter', 'guinness']):
+                        return 'Stout/Porter'
+                    elif any(word in name_lower for word in ['real ale', 'bitter', 'best bitter']):
+                        return 'Real Ale/Bitter'
+                    elif any(word in name_lower for word in ['craft beer', 'craft']):
+                        return 'Craft Beer'
+                    elif 'ale' in name_lower:
+                        return 'Ale'
+                    else:
+                        return 'Beer (General)'
+
+                beer_items['beer_type'] = beer_items['item_name'].apply(classify_beer)
+
+                # Overview metrics
+                col_beer1, col_beer2, col_beer3, col_beer4 = st.columns(4)
+
+                with col_beer1:
+                    st.metric("Total Beers/Ciders", len(beer_items))
+
+                with col_beer2:
+                    st.metric("Restaurants", beer_items['restaurant_name'].nunique())
+
+                with col_beer3:
+                    st.metric("Cheapest", f"£{beer_items['price_gbp'].min():.2f}")
+
+                with col_beer4:
+                    st.metric("Most Expensive", f"£{beer_items['price_gbp'].max():.2f}")
+
+                # Beer type distribution
+                col_type1, col_type2 = st.columns([2, 1])
+
+                with col_type1:
+                    beer_type_counts = beer_items['beer_type'].value_counts().reset_index()
+                    beer_type_counts.columns = ['Beer Type', 'Count']
+
+                    fig_beer_types = px.pie(
+                        beer_type_counts,
+                        names='Beer Type',
+                        values='Count',
+                        title="Beer & Cider Types Distribution",
+                        hole=0.3
+                    )
+                    st.plotly_chart(fig_beer_types, use_container_width=True)
+
+                with col_type2:
+                    st.dataframe(
+                        beer_type_counts,
+                        hide_index=True,
+                        use_container_width=True
+                    )
+
+                st.markdown("**All Beers & Ciders Comparison:**")
+
+                # Create comprehensive comparison table
+                beer_comparison = beer_items[['item_name', 'price_gbp', 'beer_type', 'restaurant_name']].copy()
+                beer_comparison.columns = ['Beer/Cider Name', 'Price (£)', 'Type', 'Restaurant']
+                beer_comparison = beer_comparison.sort_values('Price (£)')
+
+                # Add price formatting for display
+                display_beer = beer_comparison.copy()
+                display_beer['Price'] = display_beer['Price (£)'].apply(lambda x: f"£{x:.2f}")
+                display_beer = display_beer[['Beer/Cider Name', 'Price', 'Type', 'Restaurant']]
+
+                # Allow sorting
+                st.dataframe(
+                    display_beer,
+                    hide_index=True,
+                    use_container_width=True,
+                    height=600
+                )
+
+                # Price comparison by type
+                st.markdown("**Average Price by Beer Type:**")
+
+                avg_by_type = beer_items.groupby('beer_type')['price_gbp'].agg(['mean', 'min', 'max', 'count']).reset_index()
+                avg_by_type.columns = ['Beer Type', 'Avg Price', 'Min Price', 'Max Price', 'Count']
+                avg_by_type = avg_by_type.sort_values('Avg Price', ascending=False)
+
+                col_chart1, col_chart2 = st.columns([2, 1])
+
+                with col_chart1:
+                    fig_beer_price = px.bar(
+                        avg_by_type,
+                        x='Beer Type',
+                        y='Avg Price',
+                        title="Average Price by Beer Type",
+                        labels={'Avg Price': 'Average Price (£)'},
+                        color='Avg Price',
+                        color_continuous_scale='YlOrBr',
+                        text='Avg Price'
+                    )
+                    fig_beer_price.update_traces(texttemplate='£%{text:.2f}', textposition='outside')
+                    fig_beer_price.update_xaxes(tickangle=-45)
+                    st.plotly_chart(fig_beer_price, use_container_width=True)
+
+                with col_chart2:
+                    display_avg = avg_by_type.copy()
+                    display_avg['Avg Price'] = display_avg['Avg Price'].apply(lambda x: f"£{x:.2f}")
+                    display_avg['Min Price'] = display_avg['Min Price'].apply(lambda x: f"£{x:.2f}")
+                    display_avg['Max Price'] = display_avg['Max Price'].apply(lambda x: f"£{x:.2f}")
+
+                    st.dataframe(
+                        display_avg,
+                        hide_index=True,
+                        use_container_width=True
+                    )
+
+                # Best value analysis
+                st.markdown("**💰 Best Value Beers (Cheapest Options by Type):**")
+
+                cheapest_by_type = beer_items.loc[beer_items.groupby('beer_type')['price_gbp'].idxmin()]
+                cheapest_display = cheapest_by_type[['beer_type', 'item_name', 'price_gbp', 'restaurant_name']].copy()
+                cheapest_display.columns = ['Type', 'Beer/Cider', 'Price', 'Restaurant']
+                cheapest_display['Price'] = cheapest_display['Price'].apply(lambda x: f"£{x:.2f}")
+                cheapest_display = cheapest_display.sort_values('Type')
+
+                st.dataframe(
+                    cheapest_display,
+                    hide_index=True,
+                    use_container_width=True
+                )
+
+            else:
+                st.info("No beer or cider items found in the database.")
+
+    # ------------------------------------------------------------------------
+    # Tab 6: Statistics
+    # ------------------------------------------------------------------------
+    with tab6:
         st.header("Database Statistics")
 
         col1, col2 = st.columns(2)
