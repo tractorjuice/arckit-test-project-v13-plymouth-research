@@ -68,7 +68,14 @@ def load_restaurants() -> pd.DataFrame:
             scraped_at,
             last_updated,
             data_source,
-            scraping_method
+            scraping_method,
+            hygiene_rating,
+            hygiene_rating_date,
+            fsa_id,
+            hygiene_score_hygiene,
+            hygiene_score_structural,
+            hygiene_score_confidence,
+            fsa_business_type
         FROM restaurants
         WHERE is_active = 1
         ORDER BY name
@@ -125,6 +132,78 @@ def load_dietary_tags() -> pd.DataFrame:
 # ============================================================================
 # Helper Functions
 # ============================================================================
+
+def format_hygiene_rating(rating: float, include_text: bool = False) -> str:
+    """
+    Format hygiene rating with stars and color.
+
+    Args:
+        rating: Hygiene rating (0-5)
+        include_text: Whether to include descriptive text
+
+    Returns:
+        HTML formatted rating string
+    """
+    if pd.isna(rating):
+        return "Not rated"
+
+    rating = int(rating)
+    stars = "⭐" * rating if rating > 0 else "❌"
+
+    # Color coding
+    if rating >= 5:
+        color = "#4CAF50"  # Green
+        text = "Very Good"
+    elif rating >= 4:
+        color = "#8BC34A"  # Light Green
+        text = "Good"
+    elif rating >= 3:
+        color = "#FFC107"  # Yellow
+        text = "Satisfactory"
+    elif rating >= 2:
+        color = "#FF9800"  # Orange
+        text = "Improvement Necessary"
+    elif rating >= 1:
+        color = "#FF5722"  # Deep Orange
+        text = "Major Improvement"
+    else:
+        color = "#F44336"  # Red
+        text = "Urgent Improvement"
+
+    if include_text:
+        return f'<span style="color: {color}; font-weight: bold;">{stars} {text}</span>'
+    else:
+        return f'<span style="color: {color};">{stars}</span>'
+
+
+def get_hygiene_badge(rating: float) -> str:
+    """Get colored badge for hygiene rating."""
+    if pd.isna(rating):
+        return '<span style="background: #9E9E9E; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.85em;">No Rating</span>'
+
+    rating = int(rating)
+
+    if rating >= 5:
+        bg_color = "#4CAF50"
+        label = f"5★ Very Good"
+    elif rating >= 4:
+        bg_color = "#8BC34A"
+        label = f"4★ Good"
+    elif rating >= 3:
+        bg_color = "#FFC107"
+        label = f"3★ Satisfactory"
+    elif rating >= 2:
+        bg_color = "#FF9800"
+        label = f"2★ Improvement Needed"
+    elif rating >= 1:
+        bg_color = "#FF5722"
+        label = f"1★ Major Improvement"
+    else:
+        bg_color = "#F44336"
+        label = f"0★ Urgent Action"
+
+    return f'<span style="background: {bg_color}; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.85em;">{label}</span>'
+
 
 def filter_menu_items(
     menu_df: pd.DataFrame,
@@ -246,6 +325,18 @@ def main():
         help="Items must have ALL selected tags"
     )
 
+    # Hygiene rating filter
+    st.sidebar.subheader("⭐ Food Hygiene Rating")
+    min_hygiene_rating = st.sidebar.select_slider(
+        "Minimum Rating",
+        options=[0, 1, 2, 3, 4, 5],
+        value=0,
+        format_func=lambda x: f"{x}★" if x > 0 else "Any",
+        help="Filter restaurants by minimum FSA hygiene rating"
+    )
+
+    st.sidebar.caption("🏛️ Source: [Food Standards Agency](https://www.food.gov.uk/safety-hygiene/food-hygiene-rating-scheme)")
+
     # Apply filters
     filtered_menu = filter_menu_items(
         menu_df,
@@ -258,16 +349,27 @@ def main():
         dietary_filters=selected_dietary if selected_dietary else None
     )
 
+    # Apply hygiene rating filter to restaurants
+    filtered_restaurants = restaurants_df.copy()
+    if min_hygiene_rating > 0:
+        # Filter out restaurants below minimum rating (include NaN as they may not have ratings yet)
+        filtered_restaurants = filtered_restaurants[
+            (filtered_restaurants['hygiene_rating'] >= min_hygiene_rating) |
+            (filtered_restaurants['hygiene_rating'].isna())
+        ]
+        # Also filter menu items to only show items from qualifying restaurants
+        filtered_menu = filtered_menu[filtered_menu['restaurant_name'].isin(filtered_restaurants['name'])]
+
     # ========================================================================
     # Key Metrics
     # ========================================================================
-    col1, col2, col3, col4, col5 = st.columns(5)
+    col1, col2, col3, col4, col5, col6 = st.columns(6)
 
     with col1:
-        st.metric("🍽️ Restaurants", len(restaurants_df))
+        st.metric("🍽️ Restaurants", len(filtered_restaurants))
 
     with col2:
-        real_count = (restaurants_df['data_source'] == 'real_scraped').sum()
+        real_count = (filtered_restaurants['data_source'] == 'real_scraped').sum()
         st.metric("✓ Real Data", real_count, help="Restaurants with actual scraped menus")
 
     with col3:
@@ -284,17 +386,27 @@ def main():
         unique_categories = filtered_menu['category'].nunique()
         st.metric("🏷️ Categories", unique_categories)
 
+    with col6:
+        # Average hygiene rating for filtered restaurants
+        rated_restos = filtered_restaurants[filtered_restaurants['hygiene_rating'].notna()]
+        if len(rated_restos) > 0:
+            avg_rating = rated_restos['hygiene_rating'].mean()
+            st.metric("⭐ Avg Hygiene", f"{avg_rating:.1f}/5", help=f"{len(rated_restos)} of {len(filtered_restaurants)} restaurants rated")
+        else:
+            st.metric("⭐ Avg Hygiene", "N/A", help="No hygiene ratings available")
+
     st.divider()
 
     # ========================================================================
     # Tabs
     # ========================================================================
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
         "🍽️ Browse Menus",
         "📊 Price Analytics",
         "🏪 Restaurant Comparison",
         "🎯 Competitor Analysis",
         "🍹 Drinks Analysis",
+        "⭐ Hygiene Ratings",
         "📈 Statistics"
     ])
 
@@ -326,7 +438,22 @@ def main():
                         badge_text = "⚠ SYNTHETIC DATA"
                         badge_title = "This is test/demonstration data, not real menu information"
 
-                    st.markdown(f"<span style='background: {badge_color}; color: white; padding: 3px 10px; border-radius: 3px; font-size: 0.85em; font-weight: bold;' title='{badge_title}'>{badge_text}</span>", unsafe_allow_html=True)
+                    # Display data source and hygiene rating badges
+                    badge_html = f"<span style='background: {badge_color}; color: white; padding: 3px 10px; border-radius: 3px; font-size: 0.85em; font-weight: bold;' title='{badge_title}'>{badge_text}</span>"
+
+                    # Add hygiene rating badge
+                    hygiene_rating = restaurant_info.get('hygiene_rating')
+                    if pd.notna(hygiene_rating):
+                        hygiene_badge = get_hygiene_badge(hygiene_rating)
+                        badge_html += " " + hygiene_badge
+
+                        # Add inspection date
+                        hygiene_date = restaurant_info.get('hygiene_rating_date')
+                        if pd.notna(hygiene_date):
+                            date_str = str(hygiene_date)[:10]
+                            badge_html += f" <small style='color: #666;'>(Inspected: {date_str})</small>"
+
+                    st.markdown(badge_html, unsafe_allow_html=True)
                     st.markdown("")  # Spacer
 
                     col_a, col_b, col_c = st.columns(3)
@@ -1270,9 +1397,188 @@ def main():
                 st.info("No beer or cider items found in the database.")
 
     # ------------------------------------------------------------------------
-    # Tab 6: Statistics
+    # Tab 6: Hygiene Ratings
     # ------------------------------------------------------------------------
     with tab6:
+        st.header("⭐ Food Hygiene Ratings")
+
+        st.markdown("""
+        Food hygiene ratings are provided by the [Food Standards Agency (FSA)](https://www.food.gov.uk/safety-hygiene/food-hygiene-rating-scheme)
+        and reflect the hygiene standards found at the time of inspection.
+        """)
+
+        # Overview
+        rated_restaurants = filtered_restaurants[filtered_restaurants['hygiene_rating'].notna()]
+
+        if rated_restaurants.empty:
+            st.warning("⚠️ No hygiene ratings available for the selected restaurants.")
+        else:
+            # Overview metrics
+            col1, col2, col3, col4 = st.columns(4)
+
+            with col1:
+                st.metric("Restaurants Rated", f"{len(rated_restaurants)} of {len(filtered_restaurants)}")
+
+            with col2:
+                avg_rating = rated_restaurants['hygiene_rating'].mean()
+                st.metric("Average Rating", f"{avg_rating:.2f}/5")
+
+            with col3:
+                top_rated = (rated_restaurants['hygiene_rating'] == 5).sum()
+                pct = top_rated / len(rated_restaurants) * 100
+                st.metric("5★ (Very Good)", f"{top_rated} ({pct:.0f}%)")
+
+            with col4:
+                low_rated = (rated_restaurants['hygiene_rating'] <= 2).sum()
+                if low_rated > 0:
+                    st.metric("≤2★ (Needs Improvement)", f"{low_rated}", delta_color="inverse")
+                else:
+                    st.metric("≤2★ (Needs Improvement)", "0")
+
+            st.divider()
+
+            # Rating distribution
+            st.subheader("📊 Rating Distribution")
+
+            col_chart1, col_chart2 = st.columns([2, 1])
+
+            with col_chart1:
+                rating_counts = rated_restaurants['hygiene_rating'].value_counts().sort_index(ascending=False).reset_index()
+                rating_counts.columns = ['Rating', 'Count']
+                rating_counts['Stars'] = rating_counts['Rating'].apply(lambda x: "⭐" * int(x))
+
+                fig_ratings = px.bar(
+                    rating_counts,
+                    x='Stars',
+                    y='Count',
+                    title="Number of Restaurants by Hygiene Rating",
+                    color='Rating',
+                    color_continuous_scale='RdYlGn',
+                    text='Count'
+                )
+                fig_ratings.update_traces(textposition='outside')
+                st.plotly_chart(fig_ratings, use_container_width=True)
+
+            with col_chart2:
+                display_counts = rating_counts.copy()
+                display_counts['Percentage'] = (display_counts['Count'] / display_counts['Count'].sum() * 100).apply(lambda x: f"{x:.1f}%")
+                st.dataframe(
+                    display_counts[['Stars', 'Count', 'Percentage']],
+                    hide_index=True,
+                    use_container_width=True
+                )
+
+            st.divider()
+
+            # Detailed score breakdown
+            st.subheader("📋 Detailed Scores Breakdown")
+
+            st.markdown("""
+            The FSA scores establishments in three areas (lower is better):
+            - **Hygiene**: Food handling, preparation, cooking, storage
+            - **Structural**: Cleanliness, layout, ventilation, pest control
+            - **Confidence in Management**: Food safety systems, training, protocols
+            """)
+
+            # Show restaurants with detailed scores
+            score_df = rated_restaurants[['name', 'hygiene_rating', 'hygiene_score_hygiene',
+                                         'hygiene_score_structural', 'hygiene_score_confidence',
+                                         'hygiene_rating_date']].copy()
+            score_df.columns = ['Restaurant', 'Rating', 'Hygiene Score', 'Structural Score',
+                               'Management Score', 'Inspection Date']
+
+            # Format scores with color coding
+            def format_score(score):
+                if pd.isna(score):
+                    return "N/A"
+                score = int(score)
+                if score == 0:
+                    return f"✅ {score}"
+                elif score <= 10:
+                    return f"🟢 {score}"
+                elif score <= 15:
+                    return f"🟡 {score}"
+                elif score <= 20:
+                    return f"🟠 {score}"
+                else:
+                    return f"🔴 {score}"
+
+            display_score_df = score_df.copy()
+            display_score_df['Hygiene Score'] = display_score_df['Hygiene Score'].apply(format_score)
+            display_score_df['Structural Score'] = display_score_df['Structural Score'].apply(format_score)
+            display_score_df['Management Score'] = display_score_df['Management Score'].apply(format_score)
+            display_score_df['Inspection Date'] = pd.to_datetime(display_score_df['Inspection Date'], format='ISO8601').dt.strftime('%Y-%m-%d')
+            display_score_df['Rating'] = display_score_df['Rating'].apply(lambda x: "⭐" * int(x))
+
+            # Sort by rating descending
+            display_score_df = display_score_df.sort_values('Rating', ascending=False)
+
+            st.dataframe(
+                display_score_df,
+                hide_index=True,
+                use_container_width=True,
+                height=600
+            )
+
+            st.divider()
+
+            # Restaurants needing attention
+            low_rated_restos = rated_restaurants[rated_restaurants['hygiene_rating'] <= 2]
+
+            if not low_rated_restos.empty:
+                st.subheader("🚨 Restaurants Requiring Attention (≤2★)")
+
+                for _, resto in low_rated_restos.iterrows():
+                    rating = int(resto['hygiene_rating'])
+                    stars = "⭐" * rating if rating > 0 else "❌"
+
+                    with st.expander(f"{resto['name']}: {stars} ({rating})"):
+                        st.markdown(f"**Inspected:** {str(resto['hygiene_rating_date'])[:10]}")
+                        st.markdown(f"**Business Type:** {resto.get('fsa_business_type', 'N/A')}")
+
+                        st.markdown("**Scores:**")
+                        col_s1, col_s2, col_s3 = st.columns(3)
+
+                        with col_s1:
+                            hyg_score = resto.get('hygiene_score_hygiene')
+                            if pd.notna(hyg_score):
+                                st.metric("Hygiene", int(hyg_score))
+
+                        with col_s2:
+                            struct_score = resto.get('hygiene_score_structural')
+                            if pd.notna(struct_score):
+                                st.metric("Structural", int(struct_score))
+
+                        with col_s3:
+                            conf_score = resto.get('hygiene_score_confidence')
+                            if pd.notna(conf_score):
+                                st.metric("Management", int(conf_score))
+
+                        # Calculate total and explain
+                        if all(pd.notna([hyg_score, struct_score, conf_score])):
+                            total = int(hyg_score) + int(struct_score) + int(conf_score)
+                            st.markdown(f"**Total Score:** {total} points")
+
+                            if total >= 50:
+                                st.error("🔴 Urgent improvement required (50+ points)")
+                            elif total >= 35:
+                                st.warning("🟠 Improvement necessary (35-40 points)")
+
+            st.divider()
+
+            # FSA Attribution
+            st.info("""
+            **Data Source:** [Food Standards Agency - Food Hygiene Rating Scheme](https://www.food.gov.uk/safety-hygiene/food-hygiene-rating-scheme)
+
+            Ratings are updated regularly. Last data fetch: 2025-11-15
+
+            For the most current information, visit the [official FSA ratings website](https://ratings.food.gov.uk/).
+            """)
+
+    # ------------------------------------------------------------------------
+    # Tab 7: Statistics
+    # ------------------------------------------------------------------------
+    with tab7:
         st.header("Database Statistics")
 
         col1, col2 = st.columns(2)
