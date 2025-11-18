@@ -2,24 +2,28 @@
 
 ## Summary
 
-Successfully scraped real menu data from 129 Plymouth restaurants using Firecrawl API with a two-phase restartable architecture. Data quality validated and corrected to remove erroneous third-party aggregator data.
+Successfully scraped real menu data from 99 unique Plymouth restaurants using Firecrawl API with a two-phase restartable architecture. Data quality validated, corrected to remove erroneous third-party aggregator data, and deduplicated to remove 34 duplicate restaurant entries.
 
-## Final Database Statistics (Corrected)
+## Final Database Statistics (After Deduplication - 2025-11-18)
 
 **Total Data:**
-- **219 restaurants** in database
-- **3,577 menu items** total (after data quality corrections)
+- **185 restaurants** in database total
+- **3,141 menu items** total (after data quality corrections and deduplication)
 
 **Real Scraped Data:**
-- **129 restaurants** (59%) with real menu data from actual websites
-- **3,061 menu items** extracted from live websites
-- **Success rate**: 59% of target restaurants successfully scraped
+- **99 unique restaurants** with real menu data from actual websites (54%)
+- **All 3,141 menu items** are from live websites
+- **Success rate**: 99 successfully scraped and deduplicated from 211 target restaurants (47%)
 
 **Synthetic/Placeholder Data:**
-- **85 restaurants** (41%) with placeholder data
+- **86 restaurants** (46%) with placeholder data
   - Failed scraping attempts (DNS errors, blocked sites, no structured data)
   - Restaurants without accessible menus
-- **5 restaurants** marked as scraped but with 0 items (extraction failures)
+
+**Removed During Deduplication:**
+- **34 duplicate restaurant entries** merged into 26 unique restaurants
+- **436 duplicate menu items** removed during merge process
+- **Major duplicates**: Zizzi (4→1), ASK Italian (3→1), Bill's (3→1), Rockfish (3→1)
 
 **Data Quality Corrections:**
 - **Changs Chinese Restaurant**: Removed 984 incorrect items (scraped TripAdvisor aggregator instead of restaurant site)
