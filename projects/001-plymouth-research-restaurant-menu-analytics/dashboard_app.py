@@ -1793,11 +1793,16 @@ def main():
             google_reviews_df['source_url'] = google_reviews_df['google_author_url']
             google_reviews_df['review_title'] = ''  # Google doesn't have titles
             google_reviews_df['review_body'] = google_reviews_df['review_text']
+            # Add Trustpilot-specific columns to Google reviews (with defaults)
+            google_reviews_df['author_location'] = None
+            google_reviews_df['is_verified_purchase'] = False
+            google_reviews_df['helpful_count'] = 0
 
             # Select common columns
             common_cols = ['restaurant_id', 'restaurant_name', 'review_date', 'author_name',
                           'review_title', 'review_body', 'rating', 'source', 'source_url',
-                          'hygiene_rating', 'cuisine_type', 'price_range']
+                          'hygiene_rating', 'cuisine_type', 'price_range',
+                          'author_location', 'is_verified_purchase', 'helpful_count']
 
             reviews_df = pd.concat([
                 trustpilot_reviews_df[common_cols],
@@ -1810,6 +1815,9 @@ def main():
             google_reviews_df['source'] = 'Google'
             google_reviews_df['review_title'] = ''
             google_reviews_df['review_body'] = google_reviews_df['review_text']
+            google_reviews_df['author_location'] = None
+            google_reviews_df['is_verified_purchase'] = False
+            google_reviews_df['helpful_count'] = 0
             reviews_df = google_reviews_df
         else:
             reviews_df = pd.DataFrame()
