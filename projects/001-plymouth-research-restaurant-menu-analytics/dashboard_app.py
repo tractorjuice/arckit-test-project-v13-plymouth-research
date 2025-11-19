@@ -2159,9 +2159,9 @@ def main():
             # Restaurants by Review Count and Rating
             st.subheader("🏪 Restaurants by Reviews")
 
-            if not summary_df.empty:
+            if not trustpilot_summary_df.empty:
                 # Filter to restaurants with reviews
-                summary_with_reviews = summary_df[summary_df['actual_review_count'] > 0].copy()
+                summary_with_reviews = trustpilot_summary_df[trustpilot_summary_df['actual_review_count'] > 0].copy()
 
                 if not summary_with_reviews.empty:
                     # Display table
