@@ -85,6 +85,51 @@ def load_restaurants() -> pd.DataFrame:
 
 
 @st.cache_data(ttl=300)
+def load_trustpilot_reviews() -> pd.DataFrame:
+    """Load all Trustpilot reviews with restaurant info."""
+    conn = get_database_connection()
+    query = """
+        SELECT
+            tr.review_id,
+            tr.restaurant_id,
+            r.name as restaurant_name,
+            r.trustpilot_url,
+            tr.review_date,
+            tr.author_name,
+            tr.review_title,
+            tr.review_body,
+            tr.rating,
+            tr.author_location,
+            tr.author_review_count,
+            tr.is_verified_purchase,
+            tr.helpful_count,
+            r.hygiene_rating,
+            r.cuisine_type,
+            r.price_range
+        FROM trustpilot_reviews tr
+        JOIN restaurants r ON tr.restaurant_id = r.restaurant_id
+        WHERE r.is_active = 1
+        ORDER BY tr.review_date DESC
+    """
+    df = pd.read_sql_query(query, conn)
+    if not df.empty:
+        df['review_date'] = pd.to_datetime(df['review_date'])
+    return df
+
+
+@st.cache_data(ttl=300)
+def load_trustpilot_summary() -> pd.DataFrame:
+    """Load Trustpilot summary stats per restaurant."""
+    conn = get_database_connection()
+    query = """
+        SELECT * FROM restaurant_trustpilot_summary
+        ORDER BY calculated_avg_rating DESC, actual_review_count DESC
+    """
+    df = pd.read_sql_query(query, conn)
+    return df
+
+
+@st.cache_data(ttl=300)
 def load_menu_items() -> pd.DataFrame:
     """Load all menu items with restaurant info."""
     conn = get_database_connection()
@@ -203,6 +248,73 @@ def get_hygiene_badge(rating: float) -> str:
         label = f"0★ Urgent Action"
 
     return f'<span style="background: {bg_color}; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.85em;">{label}</span>'
+
+
+def format_trustpilot_rating(rating: float, include_text: bool = False) -> str:
+    """
+    Format Trustpilot rating with stars and color.
+
+    Args:
+        rating: Trustpilot rating (1-5)
+        include_text: Whether to include descriptive text
+
+    Returns:
+        HTML formatted rating string
+    """
+    if pd.isna(rating):
+        return "No reviews"
+
+    rating_int = int(rating)
+    stars = "⭐" * rating_int
+
+    # Color coding (green for good, red for bad)
+    if rating >= 4.5:
+        color = "#4CAF50"  # Green
+        text = "Excellent"
+    elif rating >= 3.5:
+        color = "#8BC34A"  # Light Green
+        text = "Good"
+    elif rating >= 2.5:
+        color = "#FFC107"  # Yellow
+        text = "Average"
+    elif rating >= 1.5:
+        color = "#FF9800"  # Orange
+        text = "Below Average"
+    else:
+        color = "#F44336"  # Red
+        text = "Poor"
+
+    if include_text:
+        return f'<span style="color: {color}; font-weight: bold;">{stars} {rating:.1f}/5 ({text})</span>'
+    else:
+        return f'<span style="color: {color};">{stars} {rating:.1f}/5</span>'
+
+
+def get_trustpilot_badge(rating: float, review_count: int = None) -> str:
+    """Get colored badge for Trustpilot rating."""
+    if pd.isna(rating):
+        return '<span style="background: #9E9E9E; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.85em;">No Reviews</span>'
+
+    if rating >= 4.5:
+        bg_color = "#00B67A"  # Trustpilot green
+        label = "Excellent"
+    elif rating >= 3.5:
+        bg_color = "#73CF11"  # Light green
+        label = "Great"
+    elif rating >= 2.5:
+        bg_color = "#FFCE00"  # Yellow
+        label = "Average"
+    elif rating >= 1.5:
+        bg_color = "#FF8622"  # Orange
+        label = "Poor"
+    else:
+        bg_color = "#FF3722"  # Red
+        label = "Bad"
+
+    stars = "⭐" * int(rating)
+    review_text = f" ({review_count} reviews)" if review_count else ""
+
+    return f'<span style="background: {bg_color}; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.85em;">{stars} {rating:.1f}/5 {label}{review_text}</span>'
 
 
 def filter_menu_items(
@@ -400,13 +512,14 @@ def main():
     # ========================================================================
     # Tabs
     # ========================================================================
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
         "🍽️ Browse Menus",
         "📊 Price Analytics",
         "🏪 Restaurant Comparison",
         "🎯 Competitor Analysis",
         "🍹 Drinks Analysis",
         "⭐ Hygiene Ratings",
+        "💬 Reviews",
         "📈 Statistics"
     ])
 
@@ -1576,9 +1689,260 @@ def main():
             """)
 
     # ------------------------------------------------------------------------
-    # Tab 7: Statistics
+    # Tab 7: Trustpilot Reviews
     # ------------------------------------------------------------------------
     with tab7:
+        st.header("💬 Trustpilot Reviews")
+
+        # Load Trustpilot data
+        reviews_df = load_trustpilot_reviews()
+        summary_df = load_trustpilot_summary()
+
+        if reviews_df.empty:
+            st.info("📊 No Trustpilot reviews have been collected yet.")
+            st.markdown("""
+            **To collect Trustpilot reviews:**
+            1. Discover Trustpilot URLs: `python discover_trustpilot_urls.py --export-for-verification`
+            2. Manually verify and add URLs to CSV
+            3. Import URLs: `python discover_trustpilot_urls.py --import-csv <filename>`
+            4. Scrape reviews: `python fetch_trustpilot_reviews.py --all`
+
+            See `TRUSTPILOT_INTEGRATION_GUIDE.md` for details.
+            """)
+        else:
+            # Overview metrics
+            col1, col2, col3, col4 = st.columns(4)
+
+            with col1:
+                restaurants_with_reviews = summary_df[summary_df['actual_review_count'] > 0].shape[0]
+                total_restaurants = len(restaurants_df)
+                st.metric("Restaurants Reviewed",
+                         f"{restaurants_with_reviews} of {total_restaurants}")
+
+            with col2:
+                total_reviews = len(reviews_df)
+                st.metric("Total Reviews", f"{total_reviews:,}")
+
+            with col3:
+                avg_rating = reviews_df['rating'].mean()
+                st.metric("Avg Trustpilot Rating", f"{avg_rating:.2f}/5")
+
+            with col4:
+                # Reviews in last 30 days
+                thirty_days_ago = pd.Timestamp.now() - pd.Timedelta(days=30)
+                recent_reviews = reviews_df[reviews_df['review_date'] >= thirty_days_ago]
+                st.metric("Reviews (Last 30 Days)", len(recent_reviews))
+
+            st.markdown("---")
+
+            # Recent Reviews Feed
+            st.subheader("📝 Recent Reviews")
+
+            # Filter controls
+            col1, col2, col3 = st.columns(3)
+
+            with col1:
+                restaurant_filter = st.selectbox(
+                    "Filter by Restaurant",
+                    options=["All"] + sorted(reviews_df['restaurant_name'].unique().tolist())
+                )
+
+            with col2:
+                rating_filter = st.selectbox(
+                    "Filter by Rating",
+                    options=["All", "5 Stars", "4 Stars", "3 Stars", "2 Stars", "1 Star"]
+                )
+
+            with col3:
+                show_count = st.slider("Number of reviews to show", 5, 50, 20)
+
+            # Apply filters
+            filtered_reviews = reviews_df.copy()
+
+            if restaurant_filter != "All":
+                filtered_reviews = filtered_reviews[filtered_reviews['restaurant_name'] == restaurant_filter]
+
+            if rating_filter != "All":
+                rating_value = int(rating_filter.split()[0])
+                filtered_reviews = filtered_reviews[filtered_reviews['rating'] == rating_value]
+
+            # Display reviews
+            for idx, review in filtered_reviews.head(show_count).iterrows():
+                with st.container():
+                    col1, col2 = st.columns([3, 1])
+
+                    with col1:
+                        # Restaurant name and rating
+                        st.markdown(f"**{review['restaurant_name']}**")
+                        st.markdown(format_trustpilot_rating(review['rating'], include_text=True), unsafe_allow_html=True)
+
+                    with col2:
+                        # Date and author
+                        st.caption(f"📅 {review['review_date'].strftime('%Y-%m-%d')}")
+                        st.caption(f"👤 {review['author_name']}")
+
+                    # Review title
+                    if review['review_title']:
+                        st.markdown(f"**{review['review_title']}**")
+
+                    # Review body
+                    body = review['review_body']
+                    if len(body) > 300:
+                        with st.expander("Read more..."):
+                            st.write(body)
+                        st.write(body[:300] + "...")
+                    else:
+                        st.write(body)
+
+                    # Metadata
+                    metadata_parts = []
+                    if pd.notna(review['author_location']):
+                        metadata_parts.append(f"📍 {review['author_location']}")
+                    if review['is_verified_purchase']:
+                        metadata_parts.append("✓ Verified")
+                    if review['helpful_count'] > 0:
+                        metadata_parts.append(f"👍 {review['helpful_count']} helpful")
+
+                    if metadata_parts:
+                        st.caption(" • ".join(metadata_parts))
+
+                    st.markdown("---")
+
+            st.markdown("---")
+
+            # Rating Distribution
+            st.subheader("📊 Rating Distribution")
+
+            col1, col2 = st.columns(2)
+
+            with col1:
+                # Bar chart
+                rating_counts = reviews_df['rating'].value_counts().sort_index()
+                fig = px.bar(
+                    x=rating_counts.index,
+                    y=rating_counts.values,
+                    labels={'x': 'Rating (Stars)', 'y': 'Number of Reviews'},
+                    title="Reviews by Rating",
+                    color=rating_counts.index,
+                    color_continuous_scale='RdYlGn'
+                )
+                fig.update_layout(showlegend=False)
+                st.plotly_chart(fig, use_container_width=True)
+
+            with col2:
+                # Pie chart
+                fig = px.pie(
+                    values=rating_counts.values,
+                    names=[f"{r}★" for r in rating_counts.index],
+                    title="Rating Proportion",
+                    color_discrete_sequence=px.colors.sequential.RdYlGn
+                )
+                st.plotly_chart(fig, use_container_width=True)
+
+            st.markdown("---")
+
+            # Restaurants by Review Count and Rating
+            st.subheader("🏪 Restaurants by Reviews")
+
+            if not summary_df.empty:
+                # Filter to restaurants with reviews
+                summary_with_reviews = summary_df[summary_df['actual_review_count'] > 0].copy()
+
+                if not summary_with_reviews.empty:
+                    # Display table
+                    display_df = summary_with_reviews[[
+                        'name', 'calculated_avg_rating', 'actual_review_count',
+                        'newest_review_date', 'trustpilot_url'
+                    ]].copy()
+
+                    display_df.columns = ['Restaurant', 'Avg Rating', 'Review Count',
+                                         'Latest Review', 'Trustpilot URL']
+
+                    # Format rating column
+                    display_df['Avg Rating'] = display_df['Avg Rating'].apply(
+                        lambda x: f"{x:.2f}/5" if pd.notna(x) else "N/A"
+                    )
+
+                    # Format date
+                    display_df['Latest Review'] = pd.to_datetime(display_df['Latest Review']).dt.strftime('%Y-%m-%d')
+
+                    # Make URL clickable
+                    display_df['Trustpilot URL'] = display_df['Trustpilot URL'].apply(
+                        lambda x: f"[View]({x})" if pd.notna(x) else ""
+                    )
+
+                    st.dataframe(
+                        display_df,
+                        use_container_width=True,
+                        hide_index=True
+                    )
+
+            st.markdown("---")
+
+            # Hygiene vs Trustpilot Correlation
+            st.subheader("🔬 Hygiene Rating vs Customer Reviews")
+
+            # Merge hygiene and Trustpilot data
+            correlation_df = summary_df.merge(
+                restaurants_df[['restaurant_id', 'hygiene_rating']],
+                on='restaurant_id',
+                how='inner'
+            )
+
+            # Filter to restaurants with both ratings
+            correlation_df = correlation_df[
+                (correlation_df['actual_review_count'] > 0) &
+                (correlation_df['hygiene_rating'].notna())
+            ]
+
+            if not correlation_df.empty:
+                fig = px.scatter(
+                    correlation_df,
+                    x='hygiene_rating',
+                    y='calculated_avg_rating',
+                    size='actual_review_count',
+                    hover_data=['name'],
+                    labels={
+                        'hygiene_rating': 'FSA Hygiene Rating (0-5)',
+                        'calculated_avg_rating': 'Trustpilot Rating (1-5)',
+                        'name': 'Restaurant'
+                    },
+                    title="Does Food Safety Predict Customer Satisfaction?",
+                    color='calculated_avg_rating',
+                    color_continuous_scale='RdYlGn'
+                )
+
+                fig.update_layout(
+                    xaxis=dict(range=[0, 5.5]),
+                    yaxis=dict(range=[0, 5.5])
+                )
+
+                st.plotly_chart(fig, use_container_width=True)
+
+                # Calculate correlation
+                if len(correlation_df) > 2:
+                    corr = correlation_df['hygiene_rating'].corr(correlation_df['calculated_avg_rating'])
+                    st.info(f"📈 Correlation coefficient: {corr:.3f}")
+
+                    if corr > 0.5:
+                        st.success("✓ Strong positive correlation: Better hygiene ratings tend to have better customer reviews!")
+                    elif corr > 0.3:
+                        st.info("~ Moderate correlation: Some relationship between hygiene and customer satisfaction.")
+                    elif corr < 0:
+                        st.warning("⚠️ Negative correlation: Interesting! This might warrant further investigation.")
+                    else:
+                        st.info("~ Weak correlation: Hygiene ratings and customer reviews appear independent.")
+            else:
+                st.info("Not enough restaurants with both hygiene ratings and Trustpilot reviews to show correlation.")
+
+            # Attribution
+            st.markdown("---")
+            st.caption("💚 Review data from [Trustpilot.com](https://www.trustpilot.com) • For internal research use only")
+
+    # ------------------------------------------------------------------------
+    # Tab 8: Statistics
+    # ------------------------------------------------------------------------
+    with tab8:
         st.header("Database Statistics")
 
         col1, col2 = st.columns(2)
