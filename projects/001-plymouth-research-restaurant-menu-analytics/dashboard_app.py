@@ -75,7 +75,11 @@ def load_restaurants() -> pd.DataFrame:
             hygiene_score_hygiene,
             hygiene_score_structural,
             hygiene_score_confidence,
-            fsa_business_type
+            fsa_business_type,
+            trustpilot_review_count,
+            trustpilot_avg_rating,
+            google_review_count,
+            google_avg_rating
         FROM restaurants
         WHERE is_active = 1
         ORDER BY name
