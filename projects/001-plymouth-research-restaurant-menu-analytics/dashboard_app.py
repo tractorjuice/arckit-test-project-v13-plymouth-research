@@ -130,6 +130,49 @@ def load_trustpilot_summary() -> pd.DataFrame:
 
 
 @st.cache_data(ttl=300)
+def load_google_reviews() -> pd.DataFrame:
+    """Load all Google reviews with restaurant info."""
+    conn = get_database_connection()
+    query = """
+        SELECT
+            gr.review_id,
+            gr.restaurant_id,
+            r.name as restaurant_name,
+            gr.review_date,
+            gr.author_name,
+            gr.review_text,
+            gr.rating,
+            gr.google_author_url,
+            gr.google_profile_photo_url,
+            gr.language,
+            gr.relative_time_description,
+            r.hygiene_rating,
+            r.cuisine_type,
+            r.price_range
+        FROM google_reviews gr
+        JOIN restaurants r ON gr.restaurant_id = r.restaurant_id
+        WHERE r.is_active = 1
+        ORDER BY gr.review_date DESC
+    """
+    df = pd.read_sql_query(query, conn)
+    if not df.empty:
+        df['review_date'] = pd.to_datetime(df['review_date'])
+    return df
+
+
+@st.cache_data(ttl=300)
+def load_google_summary() -> pd.DataFrame:
+    """Load Google summary stats per restaurant."""
+    conn = get_database_connection()
+    query = """
+        SELECT * FROM restaurant_google_summary
+        ORDER BY calculated_avg_rating DESC, actual_review_count DESC
+    """
+    df = pd.read_sql_query(query, conn)
+    return df
+
+
+@st.cache_data(ttl=300)
 def load_menu_items() -> pd.DataFrame:
     """Load all menu items with restaurant info."""
     conn = get_database_connection()
@@ -273,6 +316,46 @@ def format_trustpilot_rating(rating: float, include_text: bool = False) -> str:
         text = "Excellent"
     elif rating >= 3.5:
         color = "#8BC34A"  # Light Green
+        text = "Good"
+    elif rating >= 2.5:
+        color = "#FFC107"  # Yellow
+        text = "Average"
+    elif rating >= 1.5:
+        color = "#FF9800"  # Orange
+        text = "Below Average"
+    else:
+        color = "#F44336"  # Red
+        text = "Poor"
+
+    if include_text:
+        return f'<span style="color: {color}; font-weight: bold;">{stars} {rating:.1f}/5 ({text})</span>'
+    else:
+        return f'<span style="color: {color};">{stars} {rating:.1f}/5</span>'
+
+
+def format_google_rating(rating: float, include_text: bool = False) -> str:
+    """
+    Format Google rating with stars and color.
+
+    Args:
+        rating: Google rating (1-5)
+        include_text: Whether to include descriptive text
+
+    Returns:
+        HTML formatted rating string
+    """
+    if pd.isna(rating):
+        return "No reviews"
+
+    rating_int = int(rating)
+    stars = "⭐" * rating_int
+
+    # Color coding (green for good, red for bad) - Google style
+    if rating >= 4.5:
+        color = "#0F9D58"  # Google Green
+        text = "Excellent"
+    elif rating >= 3.5:
+        color = "#4CAF50"  # Green
         text = "Good"
     elif rating >= 2.5:
         color = "#FFC107"  # Yellow
@@ -1689,49 +1772,115 @@ def main():
             """)
 
     # ------------------------------------------------------------------------
-    # Tab 7: Trustpilot Reviews
+    # Tab 7: Reviews (Trustpilot + Google)
     # ------------------------------------------------------------------------
     with tab7:
-        st.header("💬 Trustpilot Reviews")
+        st.header("💬 Customer Reviews")
 
-        # Load Trustpilot data
-        reviews_df = load_trustpilot_reviews()
-        summary_df = load_trustpilot_summary()
+        # Load both Trustpilot and Google data
+        trustpilot_reviews_df = load_trustpilot_reviews()
+        trustpilot_summary_df = load_trustpilot_summary()
+        google_reviews_df = load_google_reviews()
+        google_summary_df = load_google_summary()
+
+        # Combine reviews from both sources
+        if not trustpilot_reviews_df.empty and not google_reviews_df.empty:
+            # Add source column and standardize columns
+            trustpilot_reviews_df['source'] = 'Trustpilot'
+            trustpilot_reviews_df['source_url'] = trustpilot_reviews_df['trustpilot_url']
+
+            google_reviews_df['source'] = 'Google'
+            google_reviews_df['source_url'] = google_reviews_df['google_author_url']
+            google_reviews_df['review_title'] = ''  # Google doesn't have titles
+            google_reviews_df['review_body'] = google_reviews_df['review_text']
+
+            # Select common columns
+            common_cols = ['restaurant_id', 'restaurant_name', 'review_date', 'author_name',
+                          'review_title', 'review_body', 'rating', 'source', 'source_url',
+                          'hygiene_rating', 'cuisine_type', 'price_range']
+
+            reviews_df = pd.concat([
+                trustpilot_reviews_df[common_cols],
+                google_reviews_df[common_cols]
+            ], ignore_index=True).sort_values('review_date', ascending=False)
+        elif not trustpilot_reviews_df.empty:
+            trustpilot_reviews_df['source'] = 'Trustpilot'
+            reviews_df = trustpilot_reviews_df
+        elif not google_reviews_df.empty:
+            google_reviews_df['source'] = 'Google'
+            google_reviews_df['review_title'] = ''
+            google_reviews_df['review_body'] = google_reviews_df['review_text']
+            reviews_df = google_reviews_df
+        else:
+            reviews_df = pd.DataFrame()
 
         if reviews_df.empty:
-            st.info("📊 No Trustpilot reviews have been collected yet.")
+            st.info("📊 No reviews have been collected yet.")
             st.markdown("""
-            **To collect Trustpilot reviews:**
-            1. Discover Trustpilot URLs: `python discover_trustpilot_urls.py --export-for-verification`
-            2. Manually verify and add URLs to CSV
-            3. Import URLs: `python discover_trustpilot_urls.py --import-csv <filename>`
-            4. Scrape reviews: `python fetch_trustpilot_reviews.py --all`
+            **To collect reviews:**
+            - **Trustpilot**: Run `python fetch_trustpilot_reviews.py --all`
+            - **Google**: Run `python fetch_google_reviews.py --all`
 
-            See `TRUSTPILOT_INTEGRATION_GUIDE.md` for details.
+            See documentation for details.
             """)
         else:
             # Overview metrics
-            col1, col2, col3, col4 = st.columns(4)
+            col1, col2, col3, col4, col5 = st.columns(5)
 
             with col1:
-                restaurants_with_reviews = summary_df[summary_df['actual_review_count'] > 0].shape[0]
-                total_restaurants = len(restaurants_df)
-                st.metric("Restaurants Reviewed",
-                         f"{restaurants_with_reviews} of {total_restaurants}")
-
-            with col2:
                 total_reviews = len(reviews_df)
                 st.metric("Total Reviews", f"{total_reviews:,}")
 
+            with col2:
+                trustpilot_count = len(reviews_df[reviews_df['source'] == 'Trustpilot'])
+                st.metric("Trustpilot Reviews", f"{trustpilot_count:,}")
+
             with col3:
-                avg_rating = reviews_df['rating'].mean()
-                st.metric("Avg Trustpilot Rating", f"{avg_rating:.2f}/5")
+                google_count = len(reviews_df[reviews_df['source'] == 'Google'])
+                st.metric("Google Reviews", f"{google_count:,}")
 
             with col4:
+                avg_rating = reviews_df['rating'].mean()
+                st.metric("Overall Avg Rating", f"{avg_rating:.2f}/5")
+
+            with col5:
                 # Reviews in last 30 days
                 thirty_days_ago = pd.Timestamp.now() - pd.Timedelta(days=30)
                 recent_reviews = reviews_df[reviews_df['review_date'] >= thirty_days_ago]
-                st.metric("Reviews (Last 30 Days)", len(recent_reviews))
+                st.metric("Recent (30 Days)", len(recent_reviews))
+
+            # Source breakdown
+            st.markdown("---")
+            col1, col2, col3 = st.columns(3)
+
+            with col1:
+                st.subheader("📊 Review Sources")
+                trustpilot_avg = reviews_df[reviews_df['source'] == 'Trustpilot']['rating'].mean() if trustpilot_count > 0 else 0
+                google_avg = reviews_df[reviews_df['source'] == 'Google']['rating'].mean() if google_count > 0 else 0
+                st.markdown(f"""
+                - 💚 **Trustpilot**: {trustpilot_count:,} reviews (Avg: {trustpilot_avg:.2f}/5)
+                - 🔍 **Google**: {google_count:,} reviews (Avg: {google_avg:.2f}/5)
+                """)
+
+            with col2:
+                st.subheader("🏪 Restaurant Coverage")
+                trustpilot_restaurants = len(trustpilot_reviews_df['restaurant_id'].unique()) if not trustpilot_reviews_df.empty else 0
+                google_restaurants = len(google_reviews_df['restaurant_id'].unique()) if not google_reviews_df.empty else 0
+                st.markdown(f"""
+                - 💚 **Trustpilot**: {trustpilot_restaurants} restaurants
+                - 🔍 **Google**: {google_restaurants} restaurants
+                """)
+
+            with col3:
+                st.subheader("📈 Key Insights")
+                if trustpilot_count > 0 and google_count > 0:
+                    rating_diff = google_avg - trustpilot_avg
+                    if rating_diff > 0.5:
+                        st.success(f"✓ Google reviews are {rating_diff:.2f} stars higher on average")
+                    elif rating_diff < -0.5:
+                        st.warning(f"⚠ Trustpilot reviews are {abs(rating_diff):.2f} stars higher")
+                    else:
+                        st.info("~ Both sources show similar ratings")
 
             st.markdown("---")
 
@@ -1739,25 +1888,34 @@ def main():
             st.subheader("📝 Recent Reviews")
 
             # Filter controls
-            col1, col2, col3 = st.columns(3)
+            col1, col2, col3, col4 = st.columns(4)
 
             with col1:
+                source_filter = st.selectbox(
+                    "Filter by Source",
+                    options=["All", "Trustpilot", "Google"]
+                )
+
+            with col2:
                 restaurant_filter = st.selectbox(
                     "Filter by Restaurant",
                     options=["All"] + sorted(reviews_df['restaurant_name'].unique().tolist())
                 )
 
-            with col2:
+            with col3:
                 rating_filter = st.selectbox(
                     "Filter by Rating",
                     options=["All", "5 Stars", "4 Stars", "3 Stars", "2 Stars", "1 Star"]
                 )
 
-            with col3:
+            with col4:
                 show_count = st.slider("Number of reviews to show", 5, 100, 20)
 
             # Apply filters
             filtered_reviews = reviews_df.copy()
+
+            if source_filter != "All":
+                filtered_reviews = filtered_reviews[filtered_reviews['source'] == source_filter]
 
             if restaurant_filter != "All":
                 filtered_reviews = filtered_reviews[filtered_reviews['restaurant_name'] == restaurant_filter]
@@ -1766,14 +1924,14 @@ def main():
                 rating_value = int(rating_filter.split()[0])
                 filtered_reviews = filtered_reviews[filtered_reviews['rating'] == rating_value]
 
-            # Display reviews (show all if filtered by restaurant, otherwise use slider limit)
-            if restaurant_filter != "All" or rating_filter != "All":
+            # Display reviews (show all if filtered, otherwise use slider limit)
+            if source_filter != "All" or restaurant_filter != "All" or rating_filter != "All":
                 # When filtering, show all matching reviews
                 reviews_to_display = filtered_reviews
                 if len(reviews_to_display) > 0:
                     st.caption(f"Showing all {len(reviews_to_display)} matching reviews")
             else:
-                # When showing all restaurants, use slider limit
+                # When showing all, use slider limit
                 reviews_to_display = filtered_reviews.head(show_count)
                 st.caption(f"Showing {len(reviews_to_display)} of {len(filtered_reviews)} total reviews")
 
@@ -1783,9 +1941,14 @@ def main():
                     col1, col2 = st.columns([3, 1])
 
                     with col1:
-                        # Restaurant name and rating
-                        st.markdown(f"**{review['restaurant_name']}**")
-                        st.markdown(format_trustpilot_rating(review['rating'], include_text=True), unsafe_allow_html=True)
+                        # Restaurant name, source badge, and rating
+                        source_badge = "💚 Trustpilot" if review['source'] == 'Trustpilot' else "🔍 Google"
+                        st.markdown(f"**{review['restaurant_name']}** • {source_badge}")
+
+                        if review['source'] == 'Trustpilot':
+                            st.markdown(format_trustpilot_rating(review['rating'], include_text=True), unsafe_allow_html=True)
+                        else:
+                            st.markdown(format_google_rating(review['rating'], include_text=True), unsafe_allow_html=True)
 
                     with col2:
                         # Date and author
@@ -1948,7 +2111,7 @@ def main():
 
             # Attribution
             st.markdown("---")
-            st.caption("💚 Review data from [Trustpilot.com](https://www.trustpilot.com) • For internal research use only")
+            st.caption("💚 Trustpilot data from [Trustpilot.com](https://www.trustpilot.com) • 🔍 Google data from [Google Places API](https://developers.google.com/maps/documentation/places/web-service/overview) • For internal research use only")
 
     # ------------------------------------------------------------------------
     # Tab 8: Statistics
