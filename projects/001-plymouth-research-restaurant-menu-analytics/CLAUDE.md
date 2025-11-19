@@ -4,16 +4,20 @@ This file provides guidance for working with the Plymouth Research Restaurant Me
 
 ## Project Status
 
-**Implementation Phase**: Dashboard MVP with Food Hygiene Ratings + Trustpilot Reviews integration
+**Implementation Phase**: Dashboard MVP with Food Hygiene Ratings + Trustpilot Reviews + Google Places integration
 
 **Current Capabilities**:
 - 98 restaurants with scraped menu data
 - 2,625 menu items with prices, descriptions, dietary tags
 - FSA Food Hygiene Rating Scheme integration (49/98 restaurants rated)
 - Trustpilot Reviews integration (63/98 restaurants, 9,410 reviews)
+- Google Places API integration (98/98 restaurants, 481 reviews + extended metadata)
 - Interactive Streamlit dashboard with 8 tabs
 - SQLite database with full-text search
 - Hygiene vs Customer Satisfaction correlation analysis
+- Service options filtering (dine-in, takeout, delivery, reservations)
+- Meal time filtering (breakfast, lunch, dinner)
+- Contact information display (phone, website, Google Maps links)
 
 ## Quick Start
 
@@ -119,7 +123,7 @@ python discover_trustpilot_urls.py --discover-all --auto-update
 
 ## Database Schema
 
-### restaurants table (29 columns)
+### restaurants table (52 columns)
 
 **Core Fields**:
 - `restaurant_id` INTEGER PRIMARY KEY
@@ -148,6 +152,37 @@ python discover_trustpilot_urls.py --discover-all --auto-update
 - `trustpilot_last_scraped_at` TEXT (ISO8601 timestamp)
 - `trustpilot_review_count` INTEGER (Auto-updated by trigger)
 - `trustpilot_avg_rating` REAL (Auto-updated by trigger)
+
+**Google Places Fields** (added 2025-11-19):
+- `google_place_id` TEXT (Google's unique place identifier)
+- `google_rating` REAL (Overall Google rating 1-5)
+- `google_user_ratings_total` INTEGER (Total ratings on Google)
+- `google_price_level` INTEGER (0-4: Free to Very Expensive)
+- `google_last_fetched_at` TEXT (ISO8601 timestamp)
+- `google_review_count` INTEGER (Count of reviews in our DB, max 5)
+- `google_avg_rating` REAL (Average of our stored reviews)
+
+**Google Service Options** (added 2025-11-19):
+- `google_dine_in` INTEGER (0/1)
+- `google_takeout` INTEGER (0/1)
+- `google_delivery` INTEGER (0/1)
+- `google_reservable` INTEGER (0/1)
+- `google_serves_breakfast` INTEGER (0/1)
+- `google_serves_lunch` INTEGER (0/1)
+- `google_serves_dinner` INTEGER (0/1)
+- `google_serves_beer` INTEGER (0/1)
+- `google_serves_wine` INTEGER (0/1)
+- `google_serves_vegetarian` INTEGER (0/1)
+
+**Google Contact & Location** (added 2025-11-19):
+- `google_phone_national` TEXT (e.g., "01752 255974")
+- `google_phone_international` TEXT (e.g., "+44 1752 255974")
+- `google_website_url` TEXT
+- `google_business_status` TEXT (OPERATIONAL, CLOSED_TEMPORARILY, CLOSED_PERMANENTLY)
+- `google_latitude` REAL (GPS coordinates)
+- `google_longitude` REAL (GPS coordinates)
+- `google_formatted_address` TEXT
+- `google_maps_url` TEXT (Deep link to Google Maps)
 
 ### menu_items table (13 columns)
 - `item_id` INTEGER PRIMARY KEY
@@ -236,8 +271,14 @@ python discover_trustpilot_urls.py --discover-all --auto-update
 ### Tab 2: Browse Menus
 - Search across all menu items (full-text search)
 - Filter by: cuisine, price range, dietary preferences, hygiene rating
+- **NEW: Google service filters** (dine-in, takeout, delivery, reservations)
+- **NEW: Meal time filters** (breakfast, lunch, dinner)
+- **NEW: Food & beverage filters** (vegetarian food, beer, wine)
+- **NEW: Hide closed restaurants** (filter out permanently/temporarily closed)
 - Color-coded data source badges
 - Hygiene rating badges with inspection dates
+- **NEW: Service option badges** (🍽️ Dine-in, 🥡 Takeout, 🚚 Delivery, 📅 Reservations, 🍳 Breakfast, 🍴 Lunch, 🍷 Dinner, 🥗 Vegetarian, 🍺 Beer, 🍷 Wine)
+- **NEW: Contact information** (📞 Phone with tel: link, 🌐 Website, 📍 Google Maps link)
 - Menu item cards with prices and dietary tags
 
 ### Tab 3: Price Analysis

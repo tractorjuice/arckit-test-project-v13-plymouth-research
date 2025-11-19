@@ -532,6 +532,39 @@ def main():
 
     st.sidebar.caption("🏛️ Source: [Food Standards Agency](https://www.food.gov.uk/safety-hygiene/food-hygiene-rating-scheme)")
 
+    # Google service options filters
+    st.sidebar.subheader("🍽️ Service Options")
+    service_filters = st.sidebar.multiselect(
+        "Select Services",
+        options=["Dine-in", "Takeout", "Delivery", "Reservations"],
+        help="Filter restaurants by available services"
+    )
+
+    # Meal time filters
+    st.sidebar.subheader("🍳 Meal Times")
+    meal_filters = st.sidebar.multiselect(
+        "Select Meal Times",
+        options=["Breakfast", "Lunch", "Dinner"],
+        help="Filter restaurants by meal service times"
+    )
+
+    # Dietary/beverage filters (Google-sourced)
+    st.sidebar.subheader("🍷 Food & Beverages")
+    fb_filters = st.sidebar.multiselect(
+        "Select Options",
+        options=["Vegetarian Food", "Beer", "Wine"],
+        help="Filter restaurants by food and beverage options"
+    )
+
+    # Business status filter
+    hide_closed = st.sidebar.checkbox(
+        "Hide Closed Restaurants",
+        value=True,
+        help="Hide permanently and temporarily closed restaurants"
+    )
+
+    st.sidebar.caption("🌐 Service data from Google Places API")
+
     # Apply filters
     filtered_menu = filter_menu_items(
         menu_df,
@@ -553,6 +586,53 @@ def main():
             (filtered_restaurants['hygiene_rating'].isna())
         ]
         # Also filter menu items to only show items from qualifying restaurants
+        filtered_menu = filtered_menu[filtered_menu['restaurant_name'].isin(filtered_restaurants['name'])]
+
+    # Apply Google service options filters
+    if service_filters:
+        for service in service_filters:
+            if service == "Dine-in":
+                filtered_restaurants = filtered_restaurants[filtered_restaurants['google_dine_in'] == 1]
+            elif service == "Takeout":
+                filtered_restaurants = filtered_restaurants[filtered_restaurants['google_takeout'] == 1]
+            elif service == "Delivery":
+                filtered_restaurants = filtered_restaurants[filtered_restaurants['google_delivery'] == 1]
+            elif service == "Reservations":
+                filtered_restaurants = filtered_restaurants[filtered_restaurants['google_reservable'] == 1]
+        # Update menu items to match filtered restaurants
+        filtered_menu = filtered_menu[filtered_menu['restaurant_name'].isin(filtered_restaurants['name'])]
+
+    # Apply meal time filters
+    if meal_filters:
+        for meal in meal_filters:
+            if meal == "Breakfast":
+                filtered_restaurants = filtered_restaurants[filtered_restaurants['google_serves_breakfast'] == 1]
+            elif meal == "Lunch":
+                filtered_restaurants = filtered_restaurants[filtered_restaurants['google_serves_lunch'] == 1]
+            elif meal == "Dinner":
+                filtered_restaurants = filtered_restaurants[filtered_restaurants['google_serves_dinner'] == 1]
+        # Update menu items to match filtered restaurants
+        filtered_menu = filtered_menu[filtered_menu['restaurant_name'].isin(filtered_restaurants['name'])]
+
+    # Apply food & beverage filters
+    if fb_filters:
+        for fb in fb_filters:
+            if fb == "Vegetarian Food":
+                filtered_restaurants = filtered_restaurants[filtered_restaurants['google_serves_vegetarian'] == 1]
+            elif fb == "Beer":
+                filtered_restaurants = filtered_restaurants[filtered_restaurants['google_serves_beer'] == 1]
+            elif fb == "Wine":
+                filtered_restaurants = filtered_restaurants[filtered_restaurants['google_serves_wine'] == 1]
+        # Update menu items to match filtered restaurants
+        filtered_menu = filtered_menu[filtered_menu['restaurant_name'].isin(filtered_restaurants['name'])]
+
+    # Apply business status filter
+    if hide_closed:
+        filtered_restaurants = filtered_restaurants[
+            (filtered_restaurants['google_business_status'] == 'OPERATIONAL') |
+            (filtered_restaurants['google_business_status'].isna())
+        ]
+        # Update menu items to match filtered restaurants
         filtered_menu = filtered_menu[filtered_menu['restaurant_name'].isin(filtered_restaurants['name'])]
 
     # ========================================================================
@@ -666,8 +746,61 @@ def main():
                         except:
                             st.markdown(f"**Scraped:** {restaurant_info['scraped_at'][:10]}")
 
-                    # Data source information
-                    st.markdown(f"<small>📍 Source: <a href='{restaurant_info['website_url']}' target='_blank'>{restaurant_info['website_url']}</a></small>", unsafe_allow_html=True)
+                    # Service icons/badges
+                    service_badges = []
+                    if restaurant_info.get('google_dine_in') == 1:
+                        service_badges.append("🍽️ Dine-in")
+                    if restaurant_info.get('google_takeout') == 1:
+                        service_badges.append("🥡 Takeout")
+                    if restaurant_info.get('google_delivery') == 1:
+                        service_badges.append("🚚 Delivery")
+                    if restaurant_info.get('google_reservable') == 1:
+                        service_badges.append("📅 Reservations")
+                    if restaurant_info.get('google_serves_breakfast') == 1:
+                        service_badges.append("🍳 Breakfast")
+                    if restaurant_info.get('google_serves_lunch') == 1:
+                        service_badges.append("🍴 Lunch")
+                    if restaurant_info.get('google_serves_dinner') == 1:
+                        service_badges.append("🍷 Dinner")
+                    if restaurant_info.get('google_serves_vegetarian') == 1:
+                        service_badges.append("🥗 Vegetarian")
+                    if restaurant_info.get('google_serves_beer') == 1:
+                        service_badges.append("🍺 Beer")
+                    if restaurant_info.get('google_serves_wine') == 1:
+                        service_badges.append("🍷 Wine")
+
+                    if service_badges:
+                        badges_html = " ".join([
+                            f"<span style='background: #E8F5E9; color: #2E7D32; padding: 2px 8px; border-radius: 3px; font-size: 0.85em; margin-right: 5px; display: inline-block; margin-top: 3px;'>{badge}</span>"
+                            for badge in service_badges
+                        ])
+                        st.markdown(badges_html, unsafe_allow_html=True)
+                        st.markdown("")  # Spacer
+
+                    # Contact information and links
+                    contact_links = []
+
+                    # Phone number
+                    phone = restaurant_info.get('google_phone_national')
+                    if pd.notna(phone) and phone:
+                        contact_links.append(f"📞 <a href='tel:{phone}'>{phone}</a>")
+
+                    # Website
+                    website = restaurant_info.get('google_website_url') or restaurant_info.get('website_url')
+                    if pd.notna(website) and website:
+                        contact_links.append(f"🌐 <a href='{website}' target='_blank'>Website</a>")
+
+                    # Google Maps
+                    maps_url = restaurant_info.get('google_maps_url')
+                    if pd.notna(maps_url) and maps_url:
+                        contact_links.append(f"📍 <a href='{maps_url}' target='_blank'>View on Google Maps</a>")
+
+                    if contact_links:
+                        contact_html = " • ".join(contact_links)
+                        st.markdown(f"<small>{contact_html}</small>", unsafe_allow_html=True)
+
+                    # Data source attribution
+                    st.markdown(f"<small style='color: #999;'>Data from {restaurant_info.get('data_source', 'unknown')} source</small>", unsafe_allow_html=True)
 
                     # Group items by category
                     for category in restaurant_items['category'].unique():
