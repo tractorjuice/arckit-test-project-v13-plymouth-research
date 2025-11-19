@@ -1754,7 +1754,7 @@ def main():
                 )
 
             with col3:
-                show_count = st.slider("Number of reviews to show", 5, 50, 20)
+                show_count = st.slider("Number of reviews to show", 5, 100, 20)
 
             # Apply filters
             filtered_reviews = reviews_df.copy()
@@ -1766,8 +1766,19 @@ def main():
                 rating_value = int(rating_filter.split()[0])
                 filtered_reviews = filtered_reviews[filtered_reviews['rating'] == rating_value]
 
+            # Display reviews (show all if filtered by restaurant, otherwise use slider limit)
+            if restaurant_filter != "All" or rating_filter != "All":
+                # When filtering, show all matching reviews
+                reviews_to_display = filtered_reviews
+                if len(reviews_to_display) > 0:
+                    st.caption(f"Showing all {len(reviews_to_display)} matching reviews")
+            else:
+                # When showing all restaurants, use slider limit
+                reviews_to_display = filtered_reviews.head(show_count)
+                st.caption(f"Showing {len(reviews_to_display)} of {len(filtered_reviews)} total reviews")
+
             # Display reviews
-            for idx, review in filtered_reviews.head(show_count).iterrows():
+            for idx, review in reviews_to_display.iterrows():
                 with st.container():
                     col1, col2 = st.columns([3, 1])
 
