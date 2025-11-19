@@ -1835,7 +1835,7 @@ def main():
                     values=rating_counts.values,
                     names=[f"{r}★" for r in rating_counts.index],
                     title="Rating Proportion",
-                    color_discrete_sequence=px.colors.sequential.RdYlGn
+                    color_discrete_sequence=['#FF3722', '#FF8622', '#FFCE00', '#73CF11', '#00B67A']
                 )
                 st.plotly_chart(fig, use_container_width=True)
 
