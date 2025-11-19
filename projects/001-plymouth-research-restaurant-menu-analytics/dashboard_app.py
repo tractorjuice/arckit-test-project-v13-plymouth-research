@@ -591,13 +591,13 @@ def main():
     # Apply Google service options filters
     if service_filters:
         for service in service_filters:
-            if service == "Dine-in":
+            if service == "Dine-in" and 'google_dine_in' in filtered_restaurants.columns:
                 filtered_restaurants = filtered_restaurants[filtered_restaurants['google_dine_in'] == 1]
-            elif service == "Takeout":
+            elif service == "Takeout" and 'google_takeout' in filtered_restaurants.columns:
                 filtered_restaurants = filtered_restaurants[filtered_restaurants['google_takeout'] == 1]
-            elif service == "Delivery":
+            elif service == "Delivery" and 'google_delivery' in filtered_restaurants.columns:
                 filtered_restaurants = filtered_restaurants[filtered_restaurants['google_delivery'] == 1]
-            elif service == "Reservations":
+            elif service == "Reservations" and 'google_reservable' in filtered_restaurants.columns:
                 filtered_restaurants = filtered_restaurants[filtered_restaurants['google_reservable'] == 1]
         # Update menu items to match filtered restaurants
         filtered_menu = filtered_menu[filtered_menu['restaurant_name'].isin(filtered_restaurants['name'])]
@@ -605,11 +605,11 @@ def main():
     # Apply meal time filters
     if meal_filters:
         for meal in meal_filters:
-            if meal == "Breakfast":
+            if meal == "Breakfast" and 'google_serves_breakfast' in filtered_restaurants.columns:
                 filtered_restaurants = filtered_restaurants[filtered_restaurants['google_serves_breakfast'] == 1]
-            elif meal == "Lunch":
+            elif meal == "Lunch" and 'google_serves_lunch' in filtered_restaurants.columns:
                 filtered_restaurants = filtered_restaurants[filtered_restaurants['google_serves_lunch'] == 1]
-            elif meal == "Dinner":
+            elif meal == "Dinner" and 'google_serves_dinner' in filtered_restaurants.columns:
                 filtered_restaurants = filtered_restaurants[filtered_restaurants['google_serves_dinner'] == 1]
         # Update menu items to match filtered restaurants
         filtered_menu = filtered_menu[filtered_menu['restaurant_name'].isin(filtered_restaurants['name'])]
@@ -617,17 +617,17 @@ def main():
     # Apply food & beverage filters
     if fb_filters:
         for fb in fb_filters:
-            if fb == "Vegetarian Food":
+            if fb == "Vegetarian Food" and 'google_serves_vegetarian' in filtered_restaurants.columns:
                 filtered_restaurants = filtered_restaurants[filtered_restaurants['google_serves_vegetarian'] == 1]
-            elif fb == "Beer":
+            elif fb == "Beer" and 'google_serves_beer' in filtered_restaurants.columns:
                 filtered_restaurants = filtered_restaurants[filtered_restaurants['google_serves_beer'] == 1]
-            elif fb == "Wine":
+            elif fb == "Wine" and 'google_serves_wine' in filtered_restaurants.columns:
                 filtered_restaurants = filtered_restaurants[filtered_restaurants['google_serves_wine'] == 1]
         # Update menu items to match filtered restaurants
         filtered_menu = filtered_menu[filtered_menu['restaurant_name'].isin(filtered_restaurants['name'])]
 
     # Apply business status filter
-    if hide_closed:
+    if hide_closed and 'google_business_status' in filtered_restaurants.columns:
         filtered_restaurants = filtered_restaurants[
             (filtered_restaurants['google_business_status'] == 'OPERATIONAL') |
             (filtered_restaurants['google_business_status'].isna())
