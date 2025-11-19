@@ -159,12 +159,47 @@ class GooglePlacesReviewFetcher:
             response.raise_for_status()
             data = response.json()
 
+            # Extract location data
+            location = data.get('location', {})
+
             return {
                 'place_id': place_id,
                 'rating': data.get('rating'),
                 'user_ratings_total': data.get('userRatingCount', 0),
                 'price_level': data.get('priceLevel'),
-                'reviews': data.get('reviews', [])
+                'reviews': data.get('reviews', []),
+
+                # Service options
+                'dine_in': data.get('dineIn', False),
+                'takeout': data.get('takeout', False),
+                'delivery': data.get('delivery', False),
+                'reservable': data.get('reservable', False),
+
+                # Meal services
+                'serves_breakfast': data.get('servesBreakfast', False),
+                'serves_lunch': data.get('servesLunch', False),
+                'serves_dinner': data.get('servesDinner', False),
+
+                # Beverage services
+                'serves_beer': data.get('servesBeer', False),
+                'serves_wine': data.get('servesWine', False),
+
+                # Dietary options
+                'serves_vegetarian': data.get('servesVegetarianFood', False),
+
+                # Contact information
+                'phone_national': data.get('nationalPhoneNumber'),
+                'phone_international': data.get('internationalPhoneNumber'),
+                'website_url': data.get('websiteUri'),
+
+                # Business status
+                'business_status': data.get('businessStatus'),
+
+                # Location data
+                'latitude': location.get('latitude'),
+                'longitude': location.get('longitude'),
+                'formatted_address': data.get('formattedAddress'),
+                'google_maps_url': data.get('googleMapsUri')
             }
 
         except requests.exceptions.RequestException as e:
@@ -290,7 +325,39 @@ class GooglePlacesReviewFetcher:
                 google_rating = ?,
                 google_user_ratings_total = ?,
                 google_price_level = ?,
-                google_last_fetched_at = ?
+                google_last_fetched_at = ?,
+
+                -- Service options
+                google_dine_in = ?,
+                google_takeout = ?,
+                google_delivery = ?,
+                google_reservable = ?,
+
+                -- Meal services
+                google_serves_breakfast = ?,
+                google_serves_lunch = ?,
+                google_serves_dinner = ?,
+
+                -- Beverage services
+                google_serves_beer = ?,
+                google_serves_wine = ?,
+
+                -- Dietary options
+                google_serves_vegetarian = ?,
+
+                -- Contact information
+                google_phone_national = ?,
+                google_phone_international = ?,
+                google_website_url = ?,
+
+                -- Business status
+                google_business_status = ?,
+
+                -- Location data
+                google_latitude = ?,
+                google_longitude = ?,
+                google_formatted_address = ?,
+                google_maps_url = ?
             WHERE restaurant_id = ?
         """, (
             place_data.get('place_id'),
@@ -298,6 +365,39 @@ class GooglePlacesReviewFetcher:
             place_data.get('user_ratings_total', 0),
             place_data.get('price_level'),
             datetime.now().isoformat(),
+
+            # Service options (convert bool to int)
+            1 if place_data.get('dine_in') else 0,
+            1 if place_data.get('takeout') else 0,
+            1 if place_data.get('delivery') else 0,
+            1 if place_data.get('reservable') else 0,
+
+            # Meal services
+            1 if place_data.get('serves_breakfast') else 0,
+            1 if place_data.get('serves_lunch') else 0,
+            1 if place_data.get('serves_dinner') else 0,
+
+            # Beverage services
+            1 if place_data.get('serves_beer') else 0,
+            1 if place_data.get('serves_wine') else 0,
+
+            # Dietary options
+            1 if place_data.get('serves_vegetarian') else 0,
+
+            # Contact information
+            place_data.get('phone_national'),
+            place_data.get('phone_international'),
+            place_data.get('website_url'),
+
+            # Business status
+            place_data.get('business_status'),
+
+            # Location data
+            place_data.get('latitude'),
+            place_data.get('longitude'),
+            place_data.get('formatted_address'),
+            place_data.get('google_maps_url'),
+
             restaurant_id
         ))
 
