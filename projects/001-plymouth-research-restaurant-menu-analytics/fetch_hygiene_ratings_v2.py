@@ -243,7 +243,8 @@ def main():
     cursor.execute("""
         SELECT restaurant_id, name, address
         FROM restaurants
-        WHERE data_source = 'real_scraped'
+        WHERE data_source IN ('real_scraped', 'google_discovered')
+        AND is_active = 1
         ORDER BY name
     """)
 
@@ -361,7 +362,7 @@ def main():
         cursor.execute("""
             SELECT hygiene_rating, COUNT(*) as count
             FROM restaurants
-            WHERE hygiene_rating IS NOT NULL AND data_source = 'real_scraped'
+            WHERE hygiene_rating IS NOT NULL AND data_source IN ('real_scraped', 'google_discovered')
             GROUP BY hygiene_rating
             ORDER BY hygiene_rating DESC
         """)
@@ -378,7 +379,7 @@ def main():
         cursor.execute("""
             SELECT AVG(hygiene_rating) as avg_rating
             FROM restaurants
-            WHERE hygiene_rating IS NOT NULL AND data_source = 'real_scraped'
+            WHERE hygiene_rating IS NOT NULL AND data_source IN ('real_scraped', 'google_discovered')
         """)
         avg_rating = cursor.fetchone()[0]
         print(f"📈 Average hygiene rating: {avg_rating:.2f}/5")

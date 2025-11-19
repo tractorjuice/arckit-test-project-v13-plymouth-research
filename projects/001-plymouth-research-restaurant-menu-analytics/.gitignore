@@ -11,6 +11,7 @@ plymouth_fsa_data.xml
 # CSV export files (generated data)
 matched_hygiene_ratings.csv
 unmatched_hygiene_ratings.csv
+companies_*.csv
 
 # Python cache
 __pycache__/
@@ -33,3 +34,4 @@ ENV/
 # OS
 .DS_Store
 Thumbs.db
+.env

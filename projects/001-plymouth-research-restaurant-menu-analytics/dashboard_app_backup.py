@@ -53,7 +53,7 @@ def get_database_connection():
     return sqlite3.connect(str(db_path), check_same_thread=False)
 
 
-@st.cache_data(ttl=3600)  # 1 hour cache
+@st.cache_data(ttl=300)
 def load_restaurants() -> pd.DataFrame:
     """Load all restaurants from database."""
     conn = get_database_connection()
@@ -79,14 +79,7 @@ def load_restaurants() -> pd.DataFrame:
             trustpilot_review_count,
             trustpilot_avg_rating,
             google_review_count,
-            google_avg_rating,
-            company_number,
-            company_name,
-            company_status,
-            company_type,
-            incorporation_date,
-            company_registered_address,
-            company_sic_codes
+            google_avg_rating
         FROM restaurants
         WHERE is_active = 1
         ORDER BY name
@@ -95,7 +88,7 @@ def load_restaurants() -> pd.DataFrame:
     return df
 
 
-@st.cache_data(ttl=3600)  # 1 hour cache
+@st.cache_data(ttl=300)
 def load_trustpilot_reviews() -> pd.DataFrame:
     """Load all Trustpilot reviews with restaurant info."""
     conn = get_database_connection()
@@ -128,7 +121,7 @@ def load_trustpilot_reviews() -> pd.DataFrame:
     return df
 
 
-@st.cache_data(ttl=3600)  # 1 hour cache
+@st.cache_data(ttl=300)
 def load_trustpilot_summary() -> pd.DataFrame:
     """Load Trustpilot summary stats per restaurant."""
     conn = get_database_connection()
@@ -140,7 +133,7 @@ def load_trustpilot_summary() -> pd.DataFrame:
     return df
 
 
-@st.cache_data(ttl=3600)  # 1 hour cache
+@st.cache_data(ttl=300)
 def load_google_reviews() -> pd.DataFrame:
     """Load all Google reviews with restaurant info."""
     conn = get_database_connection()
@@ -171,7 +164,7 @@ def load_google_reviews() -> pd.DataFrame:
     return df
 
 
-@st.cache_data(ttl=3600)  # 1 hour cache
+@st.cache_data(ttl=300)
 def load_google_summary() -> pd.DataFrame:
     """Load Google summary stats per restaurant."""
     conn = get_database_connection()
@@ -183,7 +176,7 @@ def load_google_summary() -> pd.DataFrame:
     return df
 
 
-@st.cache_data(ttl=3600)  # 1 hour cache
+@st.cache_data(ttl=300)
 def load_menu_items() -> pd.DataFrame:
     """Load all menu items with restaurant info."""
     conn = get_database_connection()
@@ -208,7 +201,7 @@ def load_menu_items() -> pd.DataFrame:
     return df
 
 
-@st.cache_data(ttl=3600)  # 1 hour cache
+@st.cache_data(ttl=300)
 def load_dietary_tags() -> pd.DataFrame:
     """Load menu items with dietary tags."""
     conn = get_database_connection()
@@ -223,27 +216,6 @@ def load_dietary_tags() -> pd.DataFrame:
         JOIN menu_item_dietary_tags midt ON mi.item_id = midt.item_id
         JOIN dietary_tags dt ON midt.tag_id = dt.tag_id
         WHERE r.is_active = 1
-    """
-    df = pd.read_sql_query(query, conn)
-    return df
-
-@st.cache_data(ttl=3600)  # 1 hour cache
-def load_directors() -> pd.DataFrame:
-    """Load all active directors from Companies House."""
-    conn = get_database_connection()
-    query = """
-        SELECT
-            director_id,
-            restaurant_id,
-            company_number,
-            director_name,
-            officer_role,
-            appointed_date,
-            nationality,
-            occupation
-        FROM company_directors
-        WHERE resigned_date IS NULL OR resigned_date = ''
-        ORDER BY restaurant_id, appointed_date
     """
     df = pd.read_sql_query(query, conn)
     return df
@@ -2864,9 +2836,14 @@ def main():
                     st.markdown("**Registered Address**")
                     st.caption(restaurant['company_registered_address'])
 
-                # Directors (using cached data)
-                all_directors = load_directors()
-                directors_query = all_directors[all_directors['restaurant_id'] == restaurant_id]
+                # Directors
+                directors_query = pd.read_sql_query("""
+                    SELECT director_name, officer_role, appointed_date, nationality, occupation
+                    FROM company_directors
+                    WHERE restaurant_id = ?
+                    AND resigned_date IS NULL OR resigned_date = ''
+                    ORDER BY appointed_date
+                """, conn, params=(restaurant_id,))
 
                 if not directors_query.empty:
                     st.markdown("**Directors / Officers**")
