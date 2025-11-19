@@ -4,14 +4,16 @@ This file provides guidance for working with the Plymouth Research Restaurant Me
 
 ## Project Status
 
-**Implementation Phase**: Dashboard MVP with Food Hygiene Ratings integration
+**Implementation Phase**: Dashboard MVP with Food Hygiene Ratings + Trustpilot Reviews integration
 
 **Current Capabilities**:
 - 98 restaurants with scraped menu data
 - 2,625 menu items with prices, descriptions, dietary tags
 - FSA Food Hygiene Rating Scheme integration (49/98 restaurants rated)
-- Interactive Streamlit dashboard with 7 tabs
+- Trustpilot Reviews integration (63/98 restaurants, 9,410 reviews)
+- Interactive Streamlit dashboard with 8 tabs
 - SQLite database with full-text search
+- Hygiene vs Customer Satisfaction correlation analysis
 
 ## Quick Start
 
@@ -40,26 +42,48 @@ python fetch_hygiene_ratings_v2.py
 cat unmatched_hygiene_ratings.csv
 ```
 
+### Refreshing Trustpilot Reviews
+
+```bash
+# Incremental update (fetch only new reviews)
+python fetch_trustpilot_reviews.py --update
+
+# Full refresh of specific restaurant
+python fetch_trustpilot_reviews.py --restaurant-id 4 --max-pages 50
+
+# Discover Trustpilot URLs for new restaurants
+python discover_trustpilot_urls.py --discover-all --auto-update
+```
+
 ## Key Files
 
 ### Core Application
-- **dashboard_app.py** (1,687 lines) - Main Streamlit dashboard application
-  - 7 tabs: Overview, Browse Menus, Price Analysis, Cuisine Comparison, Dietary Options, Hygiene Ratings, About
+- **dashboard_app.py** (2,053 lines) - Main Streamlit dashboard application
+  - 8 tabs: Overview, Browse Menus, Price Analysis, Cuisine Comparison, Dietary Options, Hygiene Ratings, Reviews, About
   - Caches data with 5-minute TTL
   - Full-text search with filtering
   - Hygiene rating filters and badges
+  - Trustpilot review display and correlation analysis
 
 ### Database
 - **plymouth_research.db** - SQLite database (excluded from git)
-  - `restaurants` table: 98 rows, 24 columns (inc. 9 hygiene columns)
+  - `restaurants` table: 98 rows, 29 columns (inc. 9 hygiene + 5 Trustpilot columns)
   - `menu_items` table: 2,625 rows, 13 columns
   - `drinks` table: Beverage data with categories
+  - `trustpilot_reviews` table: 9,410 rows, 13 columns
+  - `restaurant_trustpilot_summary` view: Pre-aggregated review statistics
   - Full-text search indexes
 
 ### Schema Management
 - **add_hygiene_columns.sql** - Database schema for FSA hygiene ratings
   - 9 new columns added to `restaurants` table
   - Indexed for performance
+- **add_trustpilot_schema.sql** - Database schema for Trustpilot reviews
+  - 5 new columns added to `restaurants` table
+  - New `trustpilot_reviews` table with 13 columns
+  - New `restaurant_trustpilot_summary` view
+  - 5 indexes for query performance
+  - 2 triggers for automatic stat updates
 
 ### Data Fetching
 - **fetch_hygiene_ratings_v2.py** - FSA data matcher (XML-based)
@@ -67,6 +91,17 @@ cat unmatched_hygiene_ratings.csv
   - Multi-factor matching: name similarity + postcode + address
   - 70+ confidence threshold for auto-matching
   - Exports matched/unmatched CSVs
+- **fetch_trustpilot_reviews.py** (591 lines) - Trustpilot review scraper
+  - Scrapes Trustpilot's __NEXT_DATA__ JSON structure
+  - Rate limiting: 2.5s between pages, 5s between restaurants
+  - Incremental updates (only fetch new reviews)
+  - Automatic deduplication
+  - Batch processing support
+- **discover_trustpilot_urls.py** (533 lines) - Trustpilot URL discovery
+  - Multi-strategy: domain-based + direct search
+  - Confidence scoring with SequenceMatcher
+  - CSV export for manual verification
+  - Auto-update for high-confidence matches (95%+)
 
 ### Documentation
 - **HYGIENE_RATINGS_GUIDE.md** - Complete FSA rating system documentation
@@ -74,10 +109,17 @@ cat unmatched_hygiene_ratings.csv
   - Final rating calculation (0-5 stars)
   - Plymouth data analysis (49 restaurants)
   - Dashboard display guidelines
+- **TRUSTPILOT_INTEGRATION_GUIDE.md** (632 lines) - Comprehensive Trustpilot integration guide
+  - Implementation overview (Phases 1-4)
+  - Database schema documentation
+  - Tool usage examples and workflows
+  - Data quality checks
+  - Legal & ethical compliance notes
+  - Troubleshooting guide
 
 ## Database Schema
 
-### restaurants table (24 columns)
+### restaurants table (29 columns)
 
 **Core Fields**:
 - `restaurant_id` INTEGER PRIMARY KEY
@@ -100,6 +142,13 @@ cat unmatched_hygiene_ratings.csv
 - `fsa_local_authority` TEXT
 - `hygiene_rating_fetched_at` TEXT (ISO8601 timestamp)
 
+**Trustpilot Fields** (added 2025-11-19):
+- `trustpilot_url` TEXT (Full Trustpilot page URL)
+- `trustpilot_business_id` TEXT (Business slug, e.g., "therockfish.co.uk")
+- `trustpilot_last_scraped_at` TEXT (ISO8601 timestamp)
+- `trustpilot_review_count` INTEGER (Auto-updated by trigger)
+- `trustpilot_avg_rating` REAL (Auto-updated by trigger)
+
 ### menu_items table (13 columns)
 - `item_id` INTEGER PRIMARY KEY
 - `restaurant_id` INTEGER FOREIGN KEY
@@ -114,6 +163,22 @@ cat unmatched_hygiene_ratings.csv
 - `allergen_info` TEXT
 - `scraped_at` TEXT
 - `last_updated` TEXT
+
+### trustpilot_reviews table (13 columns, added 2025-11-19)
+- `review_id` INTEGER PRIMARY KEY AUTOINCREMENT
+- `restaurant_id` INTEGER FOREIGN KEY (CASCADE DELETE)
+- `review_date` TEXT NOT NULL (ISO8601 date)
+- `author_name` TEXT
+- `review_title` TEXT
+- `review_body` TEXT
+- `rating` INTEGER CHECK(rating BETWEEN 1 AND 5)
+- `author_location` TEXT (Country code)
+- `author_review_count` INTEGER
+- `page_number` INTEGER
+- `scraped_at` TEXT NOT NULL
+- `is_verified_purchase` INTEGER DEFAULT 0
+- `reply_count` INTEGER DEFAULT 0
+- `helpful_count` INTEGER DEFAULT 0
 
 ## FSA Food Hygiene Rating System
 
@@ -193,14 +258,22 @@ cat unmatched_hygiene_ratings.csv
 - Dietary option percentages (stacked bar chart)
 - Restaurant-level dietary support
 
-### Tab 6: Hygiene Ratings ⭐ NEW
+### Tab 6: Hygiene Ratings
 - Overview metrics (rated count, average, distribution)
 - Rating distribution chart (color-coded)
 - Detailed scores breakdown table
 - Restaurants requiring attention (≤2★)
 - FSA attribution and links
 
-### Tab 7: About
+### Tab 7: Reviews ⭐ NEW
+- Overview metrics (restaurants reviewed, total reviews, avg rating, recent reviews)
+- Recent reviews feed with filters (restaurant, rating, date range)
+- Rating distribution charts (bar chart + pie chart)
+- Hygiene vs Trustpilot correlation scatter plot
+- Restaurants by reviews table (sortable)
+- Trustpilot attribution
+
+### Tab 8: About
 - Project overview
 - Data sources
 - Statistics
@@ -224,6 +297,17 @@ cat unmatched_hygiene_ratings.csv
 - **Update Frequency**: Weekly (FSA updates XML files weekly)
 - **License**: Open Government License (OGL)
 
+### Trustpilot Reviews
+- **Source**: Trustpilot.com (public reviews)
+- **Method**: Web scraping (__NEXT_DATA__ JSON extraction)
+- **Coverage**: 63/98 restaurants (96.9% of those with Trustpilot pages)
+- **Total Reviews**: 9,410
+- **Date Range**: 2013-12-04 to 2025-11-19 (12 years)
+- **Average Rating**: 2.67/5
+- **Update Frequency**: Manual (run --update for incremental)
+- **Rate Limiting**: 2.5s between pages, 5s between restaurants
+- **License**: Public data for analytics (non-commercial, internal use)
+
 ## Known Limitations
 
 1. **Hygiene Rating Coverage**: Only 50% of restaurants matched
@@ -231,17 +315,23 @@ cat unmatched_hygiene_ratings.csv
    - Missing addresses make matching difficult
    - Some restaurants may be new (not yet inspected)
 
-2. **Menu Data Freshness**: Varies by restaurant
+2. **Trustpilot Review Coverage**: 64% of restaurants
+   - 35 restaurants have no Trustpilot page
+   - Chain restaurant reviews are company-wide (not location-specific)
+   - Some reviews may be for different branches
+   - Only 27% of restaurants have BOTH hygiene AND review data
+
+3. **Menu Data Freshness**: Varies by restaurant
    - No automated refresh yet
    - Some menus may be outdated
    - Prices may have changed
 
-3. **Data Quality**: Scraped data quality varies
+4. **Data Quality**: Scraped data quality varies
    - Some descriptions missing
    - Dietary tags may be incomplete
    - Price extraction errors possible
 
-4. **Search Performance**: Good for current scale (2,625 items)
+5. **Search Performance**: Good for current scale (2,625 items, 9,410 reviews)
    - May need optimization at 10,000+ items
    - Full-text search is not indexed on all fields
 
@@ -254,14 +344,16 @@ cat unmatched_hygiene_ratings.csv
 4. Data quality validation and cleanup
 
 ### Medium Priority
-1. Historical trend analysis (hygiene rating changes over time)
+1. Historical trend analysis (hygiene rating + review changes over time)
 2. Geographic mapping (restaurant locations on map)
 3. Export functionality (CSV, PDF reports)
 4. API endpoint for programmatic access
+5. Sentiment analysis on review text
+6. Weekly automated refresh of Trustpilot reviews
 
 ### Low Priority
 1. User accounts and favorites
-2. Restaurant reviews integration
+2. Additional review sources (Google, TripAdvisor)
 3. Reservation system integration
 4. Mobile app
 
@@ -319,14 +411,46 @@ python fetch_hygiene_ratings_v2.py
 - **Permitted Use**: Free to use, share, adapt
 - **Updates**: FSA updates weekly, use latest data
 
+### Trustpilot Data
+- **License**: Public data scraping for analytics
+- **Attribution**: Required ("Reviews from Trustpilot.com")
+- **Permitted Use**: Internal analytics only, not republication
+- **Rate Limiting**: Respectful scraping (2.5s between requests)
+- **Compliance**: Robots.txt compliant, User-Agent header included
+- **Ethics**: Transformative use (analytics), not commercial redistribution
+
+## Key Insights
+
+### Hygiene vs Customer Satisfaction Disconnect
+
+Analysis of the 26 restaurants with BOTH hygiene ratings AND Trustpilot reviews reveals:
+
+**Average Ratings by Hygiene Category**:
+- 5★ Hygiene (Excellent) → 2.72★ Trustpilot
+- 4★ Hygiene (Good) → 2.15★ Trustpilot
+
+**Finding**: Food safety does NOT predict customer satisfaction
+
+**Biggest Gaps** (all have 5★ FSA hygiene but poor reviews):
+- Taco Bell: 5★ hygiene, 1.66★ Trustpilot (-3.34 gap)
+- McDonald's: 5★ hygiene, 1.89★ Trustpilot (-3.11 gap)
+- Burger King: 5★ hygiene, 2.04★ Trustpilot (-2.96 gap)
+
+**Interpretation**: Fast food chains maintain excellent food safety but receive poor customer reviews driven by service quality, food taste, value, and speed - not hygiene.
+
+**Top Overall** (high in both metrics):
+- Rockfish Plymouth: 5★ hygiene, 3.75★ Trustpilot
+- Armado Lounge: 5★ hygiene, 3.45★ Trustpilot
+
 ## References
 
 - **FSA FHRS Homepage**: https://www.food.gov.uk/safety-hygiene/food-hygiene-rating-scheme
 - **FSA API Documentation**: https://api.ratings.food.gov.uk/help
 - **Plymouth FSA Data**: https://ratings.food.gov.uk/api/open-data-files/FHRS891en-GB.xml
 - **OGL License**: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+- **Trustpilot Integration Guide**: TRUSTPILOT_INTEGRATION_GUIDE.md
 
 ---
 
-*Last Updated: 2025-11-18*
-*Dashboard Version: 1.1.0 (with FSA hygiene ratings)*
+*Last Updated: 2025-11-19*
+*Dashboard Version: 1.2.0 (with FSA hygiene ratings + Trustpilot reviews)*

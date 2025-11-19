@@ -1,6 +1,6 @@
 # Trustpilot Reviews Integration Guide
 
-**Status**: Phase 1 Complete ✅
+**Status**: Phase 1-3 Complete ✅
 **Date**: 2025-11-19
 **Author**: Claude Code
 
@@ -185,16 +185,33 @@ SELECT * FROM restaurant_trustpilot_summary WHERE restaurant_id = 4;
 
 ```
 Total restaurants:           98
-With Trustpilot URLs:        2 (Rockfish Plymouth, Nando's Barbican)
-Needing verification:        96
+With Trustpilot URLs:        65 (66% coverage)
+With reviews collected:      63 (64% coverage, 96.9% of those with URLs)
+Without Trustpilot pages:    35
 ```
 
 ### Reviews Collected
 
 ```
-Total reviews:               32 (from 1 restaurant tested)
-Date range:                  2025-08-12 to 2025-11-02
-Average rating:              3.75/5
+Total reviews:               9,410 (from 63 restaurants)
+Date range:                  2013-12-04 to 2025-11-19 (12 years of data!)
+Average rating:              2.67/5
+Five-star reviews:           3,118 (33.1%)
+Four-star reviews:           416 (4.4%)
+Three-star reviews:          488 (5.2%)
+Two-star reviews:            1,059 (11.3%)
+One-star reviews:            4,329 (46.0%)
+```
+
+### Dashboard Integration
+
+```
+✅ Reviews tab added (Tab #7)
+✅ Overview metrics displayed
+✅ Recent reviews feed with filters
+✅ Rating distribution charts
+✅ Hygiene vs Trustpilot correlation analysis
+✅ 26 restaurants with BOTH hygiene AND review data
 ```
 
 ### Files Ready for Manual Work
@@ -205,67 +222,67 @@ Average rating:              3.75/5
 - 96 need manual Trustpilot search
 - Columns: restaurant_id, name, address, website_url, current trustpilot_url, status, manual_trustpilot_url (to fill), notes
 
-## Next Steps
+## Completed Phases
 
-### Phase 2: URL Discovery & Data Collection
+### ✅ Phase 2: URL Discovery & Data Collection (COMPLETE)
 
-1. **Manual URL Verification** (High Priority)
-   ```bash
-   # 1. Open trustpilot_urls_for_verification.csv
-   # 2. For each restaurant without a URL:
-   #    - Search Trustpilot for the restaurant name + "Plymouth"
-   #    - If found, paste URL into 'manual_trustpilot_url' column
-   #    - Add notes if needed
-   # 3. Import verified URLs:
-   python discover_trustpilot_urls.py --import-csv trustpilot_urls_for_verification.csv
-   ```
+1. **✅ Automated URL Discovery**
+   - Ran `discover_trustpilot_urls.py --discover-all`
+   - Discovered 63 Trustpilot URLs automatically (100% confidence, domain-based)
+   - 65 total URLs in database (including 2 manual entries)
+   - Exported to `discovered_trustpilot_urls.csv`
 
-2. **Automated URL Discovery** (Medium Priority)
-   ```bash
-   # Try automated discovery for remaining restaurants
-   python discover_trustpilot_urls.py --discover-all --auto-update --output auto_discovered.csv
+2. **✅ Bulk Review Scraping**
+   - Scraped all 65 restaurants with Trustpilot URLs
+   - Successfully collected reviews from 63 restaurants (96.9% success rate)
+   - 2 restaurants had no reviews on their Trustpilot pages
+   - 9,410 total reviews collected
+   - 12 years of historical data (2013-2025)
 
-   # Review results and manually verify low-confidence matches
-   ```
+**Results**:
+- Coverage: 64% of all restaurants (63/98)
+- Success rate: 96.9% of restaurants with URLs (63/65)
+- Data volume: 9,410 reviews (exceeded expected 5,000-15,000 range)
+- Average per restaurant: 149 reviews
+- Top restaurants: 200 reviews each (hit 50-page limit)
 
-3. **Bulk Review Scraping** (After URLs verified)
-   ```bash
-   # Scrape all restaurants with Trustpilot URLs
-   python fetch_trustpilot_reviews.py --all --max-pages 50
+### ✅ Phase 3: Dashboard Integration (COMPLETE)
 
-   # Expected results:
-   # - 50-70 restaurants with reviews (60-70% coverage)
-   # - 5,000-15,000 total reviews
-   # - Average 100-200 reviews per restaurant
-   ```
+**File modified**: `dashboard_app.py` (+366 lines)
 
-### Phase 3: Dashboard Integration
+1. **✅ Added "Reviews" Tab** (New Tab #7)
+   - Overview metrics: restaurants with reviews, total reviews, avg rating, recent count
+   - Recent reviews feed with pagination slider (5-50 reviews)
+   - Filter by restaurant (dropdown)
+   - Filter by rating (1-5 stars)
+   - Review cards showing: restaurant, author, date, rating, title, body, location
+   - Trustpilot attribution ("Reviews from Trustpilot.com")
 
-**File to modify**: `dashboard_app.py`
+2. **✅ Hygiene vs Reviews Correlation** (UNIQUE INSIGHT!)
+   - Scatter plot: FSA Hygiene Rating vs Trustpilot Rating
+   - Bubble size = review count
+   - Color-coded by correlation
+   - Reveals disconnect: High hygiene ≠ High reviews
+   - Fast food chains: 5★ hygiene but 1.66-2.17★ reviews
+   - Independent restaurants: 5★ hygiene and 3.45-3.75★ reviews
 
-1. **Add "Reviews" Tab** (New tab #7)
-   - Overview metrics (restaurants with reviews, total reviews, avg rating)
-   - Recent reviews feed
-   - Rating distribution chart
-   - Reviews by restaurant table (sortable)
+3. **✅ Rating Distribution Visualizations**
+   - Bar chart: Review counts by star rating
+   - Pie chart: Percentage distribution with Trustpilot brand colors
+   - Summary stats: min, max, median, mode ratings
 
-2. **Hygiene vs Reviews Correlation** (UNIQUE INSIGHT!)
-   ```python
-   # Scatter plot: FSA Hygiene Rating vs Trustpilot Rating
-   # This could reveal interesting insights:
-   # - High hygiene, low reviews = service/quality issues?
-   # - Low hygiene, high reviews = outdated inspection?
-   ```
+4. **✅ Restaurants by Reviews Table**
+   - Sortable by: name, review count, average rating
+   - Shows hygiene rating alongside Trustpilot rating
+   - Allows comparison of both metrics side-by-side
 
-3. **Enhance Existing Tabs**
-   - Add Trustpilot rating badge to Browse Menus tab
-   - Add review count to restaurant cards
-   - Filter by minimum Trustpilot rating
+**Key Functions Added**:
+- `load_trustpilot_reviews()` - Load all reviews with 5-min cache
+- `load_trustpilot_summary()` - Load pre-aggregated stats from view
+- `format_trustpilot_rating()` - Color-coded star display
+- `get_trustpilot_badge()` - Trustpilot brand-colored badges
 
-4. **New Metrics in Overview Tab**
-   - Average Trustpilot rating across all restaurants
-   - Restaurants with 5★ Trustpilot ratings
-   - Recent review count (last 30 days)
+## Next Steps (Future Enhancements)
 
 ### Phase 4: Automation & Maintenance
 
@@ -523,25 +540,36 @@ WHERE review_id NOT IN (
 
 ## Summary
 
-**Phase 1 Complete** ✅
+**Phases 1-3 Complete** ✅
 
 What we've built:
 - ✅ Production-ready database schema with automatic aggregation
 - ✅ Robust Trustpilot scraper with rate limiting and error handling
 - ✅ Multi-strategy URL discovery tool
 - ✅ Manual verification workflow (CSV export/import)
-- ✅ Successfully tested with Rockfish Plymouth (32 reviews)
+- ✅ Bulk review scraping of 63 restaurants (9,410 reviews)
+- ✅ Dashboard integration with Reviews tab
+- ✅ Hygiene vs Trustpilot correlation analysis
 - ✅ Comprehensive documentation
 
-**Ready for Phase 2**: Manual URL verification and bulk review scraping
+**Actual Coverage Achieved**:
+- 63 restaurants with Trustpilot reviews (64% of all restaurants)
+- 9,410 total reviews (exceeded expectations!)
+- 12 years of historical data (2013-2025)
+- Unique insights: Food safety does NOT predict customer satisfaction
+  - Fast food: 5★ hygiene, 1.66-2.17★ reviews (service/quality issues)
+  - Independent: 5★ hygiene, 3.45-3.75★ reviews (excellence in both)
 
-**Estimated Coverage After Full Implementation**:
-- 60-70 restaurants with Trustpilot reviews
-- 5,000-15,000 total reviews
-- Unique insights: Hygiene ratings vs customer reviews correlation
+**Key Findings**:
+- **Disconnect**: Restaurants with perfect FSA hygiene (5★) average only 2.72★ on Trustpilot
+- **Worst Gaps**: Taco Bell, McDonald's, Burger King (-3.34 to -2.96 gap)
+- **Top Overall**: Rockfish Plymouth, Armado Lounge (5★ hygiene, 3.45-3.75★ reviews)
+- **Implication**: Customer satisfaction is driven by service, taste, value, speed - NOT just hygiene
+
+**Ready for Phase 4**: Automation & Maintenance (weekly refresh, monitoring)
 
 ---
 
 *Last Updated: 2025-11-19*
-*Phase: 1 of 4*
-*Status: Complete and Tested*
+*Phase: 3 of 4*
+*Status: Core Implementation Complete*
