@@ -272,9 +272,15 @@ class RestaurantDiscovery:
         else:
             price_range = None
 
+        # Use google_website_url, fallback to google_maps_url, or generate placeholder
+        # website_url must be unique and not null
+        website_url = (restaurant_data['google_website_url'] or
+                      restaurant_data['google_maps_url'] or
+                      f"https://www.google.com/maps/place/?q=place_id:{restaurant_data['google_place_id']}")
+
         cursor.execute("""
             INSERT INTO restaurants (
-                name, cuisine_type, price_range, address,
+                name, cuisine_type, price_range, address, website_url,
                 google_place_id, google_rating, google_user_ratings_total,
                 google_price_level, google_latitude, google_longitude,
                 google_formatted_address, google_maps_url,
@@ -286,13 +292,14 @@ class RestaurantDiscovery:
                 google_last_fetched_at, data_source, scraped_at, last_updated,
                 is_active
             ) VALUES (
-                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1
+                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1
             )
         """, (
             restaurant_data['name'],
             restaurant_data['cuisine_type'],
             price_range,
             restaurant_data['address'],
+            website_url,
             restaurant_data['google_place_id'],
             restaurant_data['google_rating'],
             restaurant_data['google_user_ratings_total'],
