@@ -2663,29 +2663,35 @@ def main():
             # ================================================================
             st.subheader("📋 Menu Summary")
 
-            if not restaurant_menu.empty:
+            if not restaurant_menu.empty and len(restaurant_menu.columns) > 0:
                 col_a, col_b, col_c, col_d = st.columns(4)
 
                 with col_a:
                     st.metric("Total Items", len(restaurant_menu))
 
                 with col_b:
-                    categories = restaurant_menu['category'].nunique()
-                    st.metric("Categories", categories)
+                    if 'category' in restaurant_menu.columns:
+                        categories = restaurant_menu['category'].nunique()
+                        st.metric("Categories", categories)
+                    else:
+                        st.metric("Categories", "N/A")
 
                 with col_c:
-                    if not restaurant_menu['price_gbp'].isna().all():
+                    if 'price_gbp' in restaurant_menu.columns and not restaurant_menu['price_gbp'].isna().all():
                         avg_price = restaurant_menu['price_gbp'].mean()
                         st.metric("Avg Price", f"£{avg_price:.2f}")
                     else:
                         st.metric("Avg Price", "N/A")
 
                 with col_d:
-                    vegetarian = (restaurant_menu['is_vegetarian'] == 1).sum()
-                    st.metric("Vegetarian", vegetarian)
+                    if 'is_vegetarian' in restaurant_menu.columns:
+                        vegetarian = (restaurant_menu['is_vegetarian'] == 1).sum()
+                        st.metric("Vegetarian", vegetarian)
+                    else:
+                        st.metric("Vegetarian", "N/A")
 
                 # Menu items by category
-                if not restaurant_menu['category'].isna().all():
+                if 'category' in restaurant_menu.columns and not restaurant_menu['category'].isna().all():
                     st.markdown("**Menu Items by Category**")
                     category_counts = restaurant_menu['category'].value_counts().reset_index()
                     category_counts.columns = ['category', 'count']
@@ -2702,7 +2708,7 @@ def main():
                     st.plotly_chart(fig_categories, use_container_width=True)
 
                 # Price distribution
-                if not restaurant_menu['price_gbp'].isna().all():
+                if 'price_gbp' in restaurant_menu.columns and not restaurant_menu['price_gbp'].isna().all():
                     st.markdown("**Price Distribution**")
                     fig_price = px.histogram(
                         restaurant_menu[restaurant_menu['price_gbp'].notna()],
@@ -2715,23 +2721,33 @@ def main():
                     st.plotly_chart(fig_price, use_container_width=True)
 
                 # Dietary options summary
-                st.markdown("**Dietary Options**")
-                dietary_col1, dietary_col2, dietary_col3 = st.columns(3)
-                with dietary_col1:
-                    veg_count = (restaurant_menu['is_vegetarian'] == 1).sum()
-                    veg_pct = (veg_count / len(restaurant_menu) * 100) if len(restaurant_menu) > 0 else 0
-                    st.metric("🥬 Vegetarian", f"{veg_count} ({veg_pct:.0f}%)")
-                with dietary_col2:
-                    vegan_count = (restaurant_menu['is_vegan'] == 1).sum()
-                    vegan_pct = (vegan_count / len(restaurant_menu) * 100) if len(restaurant_menu) > 0 else 0
-                    st.metric("🌱 Vegan", f"{vegan_count} ({vegan_pct:.0f}%)")
-                with dietary_col3:
-                    gf_count = (restaurant_menu['is_gluten_free'] == 1).sum()
-                    gf_pct = (gf_count / len(restaurant_menu) * 100) if len(restaurant_menu) > 0 else 0
-                    st.metric("🌾 Gluten-Free", f"{gf_count} ({gf_pct:.0f}%)")
+                if 'is_vegetarian' in restaurant_menu.columns or 'is_vegan' in restaurant_menu.columns or 'is_gluten_free' in restaurant_menu.columns:
+                    st.markdown("**Dietary Options**")
+                    dietary_col1, dietary_col2, dietary_col3 = st.columns(3)
+                    with dietary_col1:
+                        if 'is_vegetarian' in restaurant_menu.columns:
+                            veg_count = (restaurant_menu['is_vegetarian'] == 1).sum()
+                            veg_pct = (veg_count / len(restaurant_menu) * 100) if len(restaurant_menu) > 0 else 0
+                            st.metric("🥬 Vegetarian", f"{veg_count} ({veg_pct:.0f}%)")
+                        else:
+                            st.metric("🥬 Vegetarian", "N/A")
+                    with dietary_col2:
+                        if 'is_vegan' in restaurant_menu.columns:
+                            vegan_count = (restaurant_menu['is_vegan'] == 1).sum()
+                            vegan_pct = (vegan_count / len(restaurant_menu) * 100) if len(restaurant_menu) > 0 else 0
+                            st.metric("🌱 Vegan", f"{vegan_count} ({vegan_pct:.0f}%)")
+                        else:
+                            st.metric("🌱 Vegan", "N/A")
+                    with dietary_col3:
+                        if 'is_gluten_free' in restaurant_menu.columns:
+                            gf_count = (restaurant_menu['is_gluten_free'] == 1).sum()
+                            gf_pct = (gf_count / len(restaurant_menu) * 100) if len(restaurant_menu) > 0 else 0
+                            st.metric("🌾 Gluten-Free", f"{gf_count} ({gf_pct:.0f}%)")
+                        else:
+                            st.metric("🌾 Gluten-Free", "N/A")
 
             else:
-                st.info("No menu items available for this restaurant")
+                st.info("No menu items available for this restaurant. This restaurant was discovered via Google Places but menu data has not been scraped yet.")
 
             # ================================================================
             # Hygiene Rating Section
