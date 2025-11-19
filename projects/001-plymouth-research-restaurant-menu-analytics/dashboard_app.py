@@ -1010,6 +1010,106 @@ def main():
 
         st.plotly_chart(fig_category_dist, use_container_width=True)
 
+        # Customer Reviews Comparison
+        st.subheader("💬 Customer Reviews Comparison")
+
+        # Merge restaurant data with review statistics from both sources
+        restaurants_with_reviews = filtered_restaurants.copy()
+
+        # Calculate combined review stats
+        restaurants_with_reviews['total_reviews'] = (
+            restaurants_with_reviews['trustpilot_review_count'].fillna(0) +
+            restaurants_with_reviews['google_review_count'].fillna(0)
+        )
+
+        # Calculate weighted average rating
+        def calculate_combined_rating(row):
+            tp_reviews = row['trustpilot_review_count'] if pd.notna(row['trustpilot_review_count']) else 0
+            tp_rating = row['trustpilot_avg_rating'] if pd.notna(row['trustpilot_avg_rating']) else 0
+            g_reviews = row['google_review_count'] if pd.notna(row['google_review_count']) else 0
+            g_rating = row['google_avg_rating'] if pd.notna(row['google_avg_rating']) else 0
+
+            total = tp_reviews + g_reviews
+            if total == 0:
+                return None
+            return (tp_reviews * tp_rating + g_reviews * g_rating) / total
+
+        restaurants_with_reviews['combined_rating'] = restaurants_with_reviews.apply(calculate_combined_rating, axis=1)
+
+        # Filter to restaurants with reviews
+        reviewed_restaurants = restaurants_with_reviews[restaurants_with_reviews['total_reviews'] > 0].copy()
+
+        if not reviewed_restaurants.empty:
+            # Show metrics
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.metric("Restaurants with Reviews", len(reviewed_restaurants))
+            with col2:
+                total_all_reviews = reviewed_restaurants['total_reviews'].sum()
+                st.metric("Total Reviews", f"{int(total_all_reviews):,}")
+            with col3:
+                avg_combined = reviewed_restaurants['combined_rating'].mean()
+                st.metric("Average Rating (All Sources)", f"{avg_combined:.2f}/5")
+
+            # Sort by rating
+            reviewed_restaurants_sorted = reviewed_restaurants.sort_values('combined_rating', ascending=False)
+
+            # Bar chart of ratings
+            fig_reviews = px.bar(
+                reviewed_restaurants_sorted.head(20),
+                x='name',
+                y='combined_rating',
+                title="Top 20 Restaurants by Customer Rating (Combined Trustpilot + Google)",
+                labels={'name': 'Restaurant', 'combined_rating': 'Average Rating'},
+                color='combined_rating',
+                color_continuous_scale='RdYlGn',
+                range_color=[1, 5],
+                hover_data={
+                    'trustpilot_review_count': True,
+                    'google_review_count': True,
+                    'total_reviews': True
+                }
+            )
+            fig_reviews.update_xaxes(tickangle=-45)
+            st.plotly_chart(fig_reviews, use_container_width=True)
+
+            # Scatter plot: Rating vs Review Count
+            fig_scatter = px.scatter(
+                reviewed_restaurants,
+                x='total_reviews',
+                y='combined_rating',
+                size='total_reviews',
+                color='combined_rating',
+                hover_name='name',
+                title="Customer Rating vs Number of Reviews",
+                labels={'total_reviews': 'Total Reviews', 'combined_rating': 'Average Rating'},
+                color_continuous_scale='RdYlGn',
+                range_color=[1, 5]
+            )
+            fig_scatter.update_layout(xaxis_type="log")
+            st.plotly_chart(fig_scatter, use_container_width=True)
+
+            # Detailed table
+            with st.expander("📊 View Detailed Review Statistics"):
+                review_table = reviewed_restaurants[['name', 'cuisine_type', 'trustpilot_review_count',
+                                                     'trustpilot_avg_rating', 'google_review_count',
+                                                     'google_avg_rating', 'combined_rating', 'total_reviews']].copy()
+                review_table.columns = ['Restaurant', 'Cuisine', 'Trustpilot Reviews', 'Trustpilot Rating',
+                                       'Google Reviews', 'Google Rating', 'Combined Rating', 'Total Reviews']
+                review_table = review_table.sort_values('Combined Rating', ascending=False)
+
+                # Format numeric columns
+                review_table['Trustpilot Reviews'] = review_table['Trustpilot Reviews'].fillna(0).astype(int)
+                review_table['Google Reviews'] = review_table['Google Reviews'].fillna(0).astype(int)
+                review_table['Total Reviews'] = review_table['Total Reviews'].astype(int)
+                review_table['Trustpilot Rating'] = review_table['Trustpilot Rating'].apply(lambda x: f"{x:.2f}" if pd.notna(x) else "-")
+                review_table['Google Rating'] = review_table['Google Rating'].apply(lambda x: f"{x:.2f}" if pd.notna(x) else "-")
+                review_table['Combined Rating'] = review_table['Combined Rating'].apply(lambda x: f"{x:.2f}")
+
+                st.dataframe(review_table, hide_index=True, use_container_width=True)
+        else:
+            st.info("💡 No review data available for the filtered restaurants. Visit the Reviews tab to see all reviews.")
+
     # ------------------------------------------------------------------------
     # Tab 4: Competitor Analysis
     # ------------------------------------------------------------------------
