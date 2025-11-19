@@ -679,7 +679,7 @@ def main():
     # ========================================================================
     # Tabs
     # ========================================================================
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
         "🍽️ Browse Menus",
         "📊 Price Analytics",
         "🏪 Restaurant Comparison",
@@ -687,7 +687,8 @@ def main():
         "🍹 Drinks Analysis",
         "⭐ Hygiene Ratings",
         "💬 Reviews",
-        "📈 Statistics"
+        "📈 Statistics",
+        "🏢 Restaurant Profiles"
     ])
 
     # ------------------------------------------------------------------------
@@ -2467,6 +2468,353 @@ def main():
             st.info(f"📅 Most recent update: {latest_update.strftime('%Y-%m-%d %H:%M')}")
         with col_y:
             st.info(f"📆 Oldest data: {oldest_update.strftime('%Y-%m-%d %H:%M')}")
+
+    # ------------------------------------------------------------------------
+    # Tab 9: Restaurant Profiles
+    # ------------------------------------------------------------------------
+    with tab9:
+        st.header("🏢 Restaurant Profiles")
+        st.markdown("View comprehensive details for each restaurant including menu, reviews, hygiene ratings, and location.")
+
+        # Restaurant selector
+        restaurant_names = sorted(restaurants_df['name'].unique())
+        selected_restaurant = st.selectbox(
+            "Select a Restaurant",
+            restaurant_names,
+            help="Choose a restaurant to view its detailed profile"
+        )
+
+        if selected_restaurant:
+            # Get restaurant data
+            restaurant = restaurants_df[restaurants_df['name'] == selected_restaurant].iloc[0]
+            restaurant_id = restaurant['restaurant_id']
+
+            # Get menu items for this restaurant
+            restaurant_menu = menu_df[menu_df['restaurant_name'] == selected_restaurant]
+
+            # Get reviews for this restaurant
+            conn = get_database_connection()
+
+            # Trustpilot reviews
+            trustpilot_reviews = pd.read_sql_query("""
+                SELECT * FROM trustpilot_reviews
+                WHERE restaurant_id = ?
+                ORDER BY review_date DESC
+                LIMIT 10
+            """, conn, params=(restaurant_id,))
+
+            # Google reviews
+            google_reviews = pd.read_sql_query("""
+                SELECT * FROM google_reviews
+                WHERE restaurant_id = ?
+                ORDER BY review_date DESC
+                LIMIT 10
+            """, conn, params=(restaurant_id,))
+
+            conn.close()
+
+            # ================================================================
+            # Header Section
+            # ================================================================
+            st.markdown(f"## {restaurant['name']}")
+
+            # Status and badges row
+            badge_html = []
+
+            # Hygiene badge
+            if pd.notna(restaurant.get('hygiene_rating')):
+                rating = int(restaurant['hygiene_rating'])
+                colors = {5: '#00AA00', 4: '#55CC00', 3: '#FFAA00', 2: '#FF6600', 1: '#CC0000', 0: '#990000'}
+                color = colors.get(rating, '#CCCCCC')
+                badge_html.append(
+                    f'<span style="background: {color}; color: white; padding: 4px 12px; border-radius: 4px; font-weight: bold; margin-right: 8px;">Hygiene: {rating}★</span>'
+                )
+
+            # Business status badge
+            if pd.notna(restaurant.get('google_business_status')):
+                status = restaurant['google_business_status']
+                if status == 'OPERATIONAL':
+                    badge_html.append('<span style="background: #E8F5E9; color: #2E7D32; padding: 4px 12px; border-radius: 4px; font-weight: bold; margin-right: 8px;">✓ Open</span>')
+                elif status == 'CLOSED_TEMPORARILY':
+                    badge_html.append('<span style="background: #FFF3E0; color: #E65100; padding: 4px 12px; border-radius: 4px; font-weight: bold; margin-right: 8px;">⚠ Temporarily Closed</span>')
+                elif status == 'CLOSED_PERMANENTLY':
+                    badge_html.append('<span style="background: #FFEBEE; color: #C62828; padding: 4px 12px; border-radius: 4px; font-weight: bold; margin-right: 8px;">✗ Permanently Closed</span>')
+
+            # Price range badge
+            if pd.notna(restaurant.get('price_range')):
+                badge_html.append(
+                    f'<span style="background: #E3F2FD; color: #1565C0; padding: 4px 12px; border-radius: 4px; font-weight: bold; margin-right: 8px;">{restaurant["price_range"]}</span>'
+                )
+
+            # Cuisine badge
+            if pd.notna(restaurant.get('cuisine_type')):
+                badge_html.append(
+                    f'<span style="background: #F3E5F5; color: #6A1B9A; padding: 4px 12px; border-radius: 4px; font-weight: bold;">{restaurant["cuisine_type"]}</span>'
+                )
+
+            if badge_html:
+                st.markdown(' '.join(badge_html), unsafe_allow_html=True)
+
+            st.markdown("---")
+
+            # ================================================================
+            # Quick Stats
+            # ================================================================
+            col1, col2, col3, col4 = st.columns(4)
+
+            with col1:
+                st.metric("Menu Items", len(restaurant_menu))
+
+            with col2:
+                if pd.notna(restaurant.get('google_rating')):
+                    st.metric("Google Rating", f"{restaurant['google_rating']:.1f}⭐")
+                else:
+                    st.metric("Google Rating", "N/A")
+
+            with col3:
+                if pd.notna(restaurant.get('trustpilot_avg_rating')):
+                    st.metric("Trustpilot Rating", f"{restaurant['trustpilot_avg_rating']:.1f}⭐")
+                else:
+                    st.metric("Trustpilot Rating", "N/A")
+
+            with col4:
+                total_reviews = 0
+                if pd.notna(restaurant.get('trustpilot_review_count')):
+                    total_reviews += int(restaurant['trustpilot_review_count'])
+                if pd.notna(restaurant.get('google_review_count')):
+                    total_reviews += int(restaurant['google_review_count'])
+                st.metric("Total Reviews", total_reviews)
+
+            # ================================================================
+            # Contact & Location Section
+            # ================================================================
+            st.subheader("📍 Contact & Location")
+
+            col_left, col_right = st.columns(2)
+
+            with col_left:
+                # Address
+                if pd.notna(restaurant.get('address')):
+                    st.markdown(f"**Address:** {restaurant['address']}")
+                elif pd.notna(restaurant.get('google_formatted_address')):
+                    st.markdown(f"**Address:** {restaurant['google_formatted_address']}")
+
+                # Phone
+                if pd.notna(restaurant.get('google_phone_national')):
+                    phone = restaurant['google_phone_national']
+                    st.markdown(f"**Phone:** [{phone}](tel:{phone})")
+
+                # Website
+                website = restaurant.get('google_website_url') or restaurant.get('website_url')
+                if pd.notna(website):
+                    st.markdown(f"**Website:** [{website}]({website})")
+
+            with col_right:
+                # Google Maps link
+                if pd.notna(restaurant.get('google_maps_url')):
+                    st.markdown(f"[📍 View on Google Maps]({restaurant['google_maps_url']})")
+
+                # Coordinates
+                if pd.notna(restaurant.get('google_latitude')) and pd.notna(restaurant.get('google_longitude')):
+                    st.markdown(f"**Coordinates:** {restaurant['google_latitude']:.6f}, {restaurant['google_longitude']:.6f}")
+
+                # Trustpilot link
+                if pd.notna(restaurant.get('trustpilot_url')):
+                    st.markdown(f"[⭐ View on Trustpilot]({restaurant['trustpilot_url']})")
+
+            # ================================================================
+            # Service Options Section
+            # ================================================================
+            st.subheader("🍽️ Service Options")
+
+            service_badges = []
+            if restaurant.get('google_dine_in') == 1:
+                service_badges.append("🍽️ Dine-in")
+            if restaurant.get('google_takeout') == 1:
+                service_badges.append("🥡 Takeout")
+            if restaurant.get('google_delivery') == 1:
+                service_badges.append("🚚 Delivery")
+            if restaurant.get('google_reservable') == 1:
+                service_badges.append("📅 Reservations")
+            if restaurant.get('google_serves_breakfast') == 1:
+                service_badges.append("🍳 Breakfast")
+            if restaurant.get('google_serves_lunch') == 1:
+                service_badges.append("🍴 Lunch")
+            if restaurant.get('google_serves_dinner') == 1:
+                service_badges.append("🍷 Dinner")
+            if restaurant.get('google_serves_vegetarian') == 1:
+                service_badges.append("🥗 Vegetarian")
+            if restaurant.get('google_serves_beer') == 1:
+                service_badges.append("🍺 Beer")
+            if restaurant.get('google_serves_wine') == 1:
+                service_badges.append("🍷 Wine")
+
+            if service_badges:
+                badges_html = " ".join([
+                    f"<span style='background: #E8F5E9; color: #2E7D32; padding: 6px 12px; border-radius: 4px; font-size: 0.9em; margin-right: 8px; display: inline-block; margin-bottom: 8px;'>{badge}</span>"
+                    for badge in service_badges
+                ])
+                st.markdown(badges_html, unsafe_allow_html=True)
+            else:
+                st.info("No service information available")
+
+            # ================================================================
+            # Menu Summary Section
+            # ================================================================
+            st.subheader("📋 Menu Summary")
+
+            if not restaurant_menu.empty:
+                col_a, col_b, col_c, col_d = st.columns(4)
+
+                with col_a:
+                    st.metric("Total Items", len(restaurant_menu))
+
+                with col_b:
+                    categories = restaurant_menu['category'].nunique()
+                    st.metric("Categories", categories)
+
+                with col_c:
+                    if not restaurant_menu['price_gbp'].isna().all():
+                        avg_price = restaurant_menu['price_gbp'].mean()
+                        st.metric("Avg Price", f"£{avg_price:.2f}")
+                    else:
+                        st.metric("Avg Price", "N/A")
+
+                with col_d:
+                    vegetarian = (restaurant_menu['is_vegetarian'] == 1).sum()
+                    st.metric("Vegetarian", vegetarian)
+
+                # Menu items by category
+                if not restaurant_menu['category'].isna().all():
+                    st.markdown("**Menu Items by Category**")
+                    category_counts = restaurant_menu['category'].value_counts().reset_index()
+                    category_counts.columns = ['category', 'count']
+
+                    fig_categories = px.bar(
+                        category_counts,
+                        x='category',
+                        y='count',
+                        title=f"Menu Categories at {selected_restaurant}",
+                        labels={'category': 'Category', 'count': 'Number of Items'},
+                        color='count',
+                        color_continuous_scale='Blues'
+                    )
+                    st.plotly_chart(fig_categories, use_container_width=True)
+
+                # Price distribution
+                if not restaurant_menu['price_gbp'].isna().all():
+                    st.markdown("**Price Distribution**")
+                    fig_price = px.histogram(
+                        restaurant_menu[restaurant_menu['price_gbp'].notna()],
+                        x='price_gbp',
+                        nbins=20,
+                        title=f"Price Distribution at {selected_restaurant}",
+                        labels={'price_gbp': 'Price (£)', 'count': 'Number of Items'},
+                        color_discrete_sequence=['#1f77b4']
+                    )
+                    st.plotly_chart(fig_price, use_container_width=True)
+
+                # Dietary options summary
+                st.markdown("**Dietary Options**")
+                dietary_col1, dietary_col2, dietary_col3 = st.columns(3)
+                with dietary_col1:
+                    veg_count = (restaurant_menu['is_vegetarian'] == 1).sum()
+                    veg_pct = (veg_count / len(restaurant_menu) * 100) if len(restaurant_menu) > 0 else 0
+                    st.metric("🥬 Vegetarian", f"{veg_count} ({veg_pct:.0f}%)")
+                with dietary_col2:
+                    vegan_count = (restaurant_menu['is_vegan'] == 1).sum()
+                    vegan_pct = (vegan_count / len(restaurant_menu) * 100) if len(restaurant_menu) > 0 else 0
+                    st.metric("🌱 Vegan", f"{vegan_count} ({vegan_pct:.0f}%)")
+                with dietary_col3:
+                    gf_count = (restaurant_menu['is_gluten_free'] == 1).sum()
+                    gf_pct = (gf_count / len(restaurant_menu) * 100) if len(restaurant_menu) > 0 else 0
+                    st.metric("🌾 Gluten-Free", f"{gf_count} ({gf_pct:.0f}%)")
+
+            else:
+                st.info("No menu items available for this restaurant")
+
+            # ================================================================
+            # Hygiene Rating Section
+            # ================================================================
+            if pd.notna(restaurant.get('hygiene_rating')):
+                st.subheader("⭐ Food Hygiene Rating")
+
+                hygiene_col1, hygiene_col2 = st.columns([1, 2])
+
+                with hygiene_col1:
+                    rating = int(restaurant['hygiene_rating'])
+                    st.markdown(f"### {rating}★ / 5★")
+                    if pd.notna(restaurant.get('hygiene_rating_date')):
+                        rating_date = pd.to_datetime(restaurant['hygiene_rating_date'], format='ISO8601')
+                        st.caption(f"Inspected: {rating_date.strftime('%Y-%m-%d')}")
+
+                with hygiene_col2:
+                    st.markdown("**Detailed Scores** (lower is better)")
+                    score_data = []
+                    if pd.notna(restaurant.get('hygiene_score_hygiene')):
+                        score_data.append({'Category': 'Hygiene', 'Score': restaurant['hygiene_score_hygiene'], 'Max': 25})
+                    if pd.notna(restaurant.get('hygiene_score_structural')):
+                        score_data.append({'Category': 'Structural', 'Score': restaurant['hygiene_score_structural'], 'Max': 25})
+                    if pd.notna(restaurant.get('hygiene_score_confidence')):
+                        score_data.append({'Category': 'Confidence in Management', 'Score': restaurant['hygiene_score_confidence'], 'Max': 30})
+
+                    if score_data:
+                        score_df = pd.DataFrame(score_data)
+                        st.dataframe(score_df, hide_index=True, use_container_width=True)
+
+            # ================================================================
+            # Reviews Section
+            # ================================================================
+            st.subheader("💬 Customer Reviews")
+
+            # Review sources tabs
+            if not trustpilot_reviews.empty or not google_reviews.empty:
+                review_tab1, review_tab2 = st.tabs(["Trustpilot Reviews", "Google Reviews"])
+
+                with review_tab1:
+                    if not trustpilot_reviews.empty:
+                        st.markdown(f"**Latest {len(trustpilot_reviews)} Trustpilot Reviews**")
+                        for _, review in trustpilot_reviews.iterrows():
+                            with st.expander(f"{'⭐' * review['rating']} - {review['author_name']} ({review['review_date']})"):
+                                if pd.notna(review.get('review_title')):
+                                    st.markdown(f"**{review['review_title']}**")
+                                st.markdown(review['review_body'])
+                                if pd.notna(review.get('author_location')):
+                                    st.caption(f"Location: {review['author_location']}")
+                    else:
+                        st.info("No Trustpilot reviews available for this restaurant")
+
+                with review_tab2:
+                    if not google_reviews.empty:
+                        st.markdown(f"**Latest {len(google_reviews)} Google Reviews**")
+                        for _, review in google_reviews.iterrows():
+                            with st.expander(f"{'⭐' * review['rating']} - {review['author_name']} ({review['review_date']})"):
+                                st.markdown(review['review_text'])
+                                if pd.notna(review.get('relative_time_description')):
+                                    st.caption(f"Posted: {review['relative_time_description']}")
+                    else:
+                        st.info("No Google reviews available for this restaurant")
+            else:
+                st.info("No reviews available for this restaurant")
+
+            # ================================================================
+            # Data Freshness
+            # ================================================================
+            st.markdown("---")
+            st.caption("**Data Last Updated:**")
+            data_col1, data_col2, data_col3 = st.columns(3)
+            with data_col1:
+                if pd.notna(restaurant.get('last_updated')):
+                    updated = pd.to_datetime(restaurant['last_updated'], format='ISO8601')
+                    st.caption(f"Menu: {updated.strftime('%Y-%m-%d')}")
+            with data_col2:
+                if pd.notna(restaurant.get('hygiene_rating_fetched_at')):
+                    updated = pd.to_datetime(restaurant['hygiene_rating_fetched_at'], format='ISO8601')
+                    st.caption(f"Hygiene: {updated.strftime('%Y-%m-%d')}")
+            with data_col3:
+                if pd.notna(restaurant.get('trustpilot_last_scraped_at')):
+                    updated = pd.to_datetime(restaurant['trustpilot_last_scraped_at'], format='ISO8601')
+                    st.caption(f"Reviews: {updated.strftime('%Y-%m-%d')}")
 
 
 # ============================================================================
