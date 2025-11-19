@@ -1013,31 +1013,38 @@ def main():
         # Customer Reviews Comparison
         st.subheader("💬 Customer Reviews Comparison")
 
-        # Merge restaurant data with review statistics from both sources
-        restaurants_with_reviews = filtered_restaurants.copy()
+        # Check if review columns exist
+        has_trustpilot = 'trustpilot_review_count' in filtered_restaurants.columns
+        has_google = 'google_review_count' in filtered_restaurants.columns
 
-        # Calculate combined review stats
-        restaurants_with_reviews['total_reviews'] = (
-            restaurants_with_reviews['trustpilot_review_count'].fillna(0) +
-            restaurants_with_reviews['google_review_count'].fillna(0)
-        )
+        if not has_trustpilot and not has_google:
+            st.info("💡 No review data available. Reviews data requires Trustpilot and/or Google review columns in the database.")
+            reviewed_restaurants = pd.DataFrame()  # Empty dataframe
+        else:
+            # Merge restaurant data with review statistics from both sources
+            restaurants_with_reviews = filtered_restaurants.copy()
 
-        # Calculate weighted average rating
-        def calculate_combined_rating(row):
-            tp_reviews = row['trustpilot_review_count'] if pd.notna(row['trustpilot_review_count']) else 0
-            tp_rating = row['trustpilot_avg_rating'] if pd.notna(row['trustpilot_avg_rating']) else 0
-            g_reviews = row['google_review_count'] if pd.notna(row['google_review_count']) else 0
-            g_rating = row['google_avg_rating'] if pd.notna(row['google_avg_rating']) else 0
+            # Calculate combined review stats
+            tp_count = restaurants_with_reviews['trustpilot_review_count'].fillna(0) if has_trustpilot else 0
+            g_count = restaurants_with_reviews['google_review_count'].fillna(0) if has_google else 0
+            restaurants_with_reviews['total_reviews'] = tp_count + g_count
 
-            total = tp_reviews + g_reviews
-            if total == 0:
-                return None
-            return (tp_reviews * tp_rating + g_reviews * g_rating) / total
+            # Calculate weighted average rating
+            def calculate_combined_rating(row):
+                tp_reviews = row.get('trustpilot_review_count', 0) if has_trustpilot and pd.notna(row.get('trustpilot_review_count')) else 0
+                tp_rating = row.get('trustpilot_avg_rating', 0) if has_trustpilot and pd.notna(row.get('trustpilot_avg_rating')) else 0
+                g_reviews = row.get('google_review_count', 0) if has_google and pd.notna(row.get('google_review_count')) else 0
+                g_rating = row.get('google_avg_rating', 0) if has_google and pd.notna(row.get('google_avg_rating')) else 0
 
-        restaurants_with_reviews['combined_rating'] = restaurants_with_reviews.apply(calculate_combined_rating, axis=1)
+                total = tp_reviews + g_reviews
+                if total == 0:
+                    return None
+                return (tp_reviews * tp_rating + g_reviews * g_rating) / total
 
-        # Filter to restaurants with reviews
-        reviewed_restaurants = restaurants_with_reviews[restaurants_with_reviews['total_reviews'] > 0].copy()
+            restaurants_with_reviews['combined_rating'] = restaurants_with_reviews.apply(calculate_combined_rating, axis=1)
+
+            # Filter to restaurants with reviews
+            reviewed_restaurants = restaurants_with_reviews[restaurants_with_reviews['total_reviews'] > 0].copy()
 
         if not reviewed_restaurants.empty:
             # Show metrics
