@@ -2198,7 +2198,7 @@ def main():
             st.subheader("🔬 Hygiene Rating vs Customer Reviews")
 
             # Merge hygiene and Trustpilot data
-            correlation_df = summary_df.merge(
+            correlation_df = trustpilot_summary_df.merge(
                 restaurants_df[['restaurant_id', 'hygiene_rating']],
                 on='restaurant_id',
                 how='inner'
