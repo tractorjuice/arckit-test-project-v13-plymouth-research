@@ -881,7 +881,7 @@ def main():
                 title="Price Range by Menu Category",
                 labels={'price_gbp': 'Price (£)', 'category': 'Category'}
             )
-            st.plotly_chart(fig_category, use_container_width=True)
+            st.plotly_chart(fig_category, width="stretch")
 
             # Price distribution by restaurant
             st.subheader("Price Distribution by Restaurant")
@@ -893,7 +893,7 @@ def main():
                 title="Price Range by Restaurant",
                 labels={'price_gbp': 'Price (£)', 'restaurant_name': 'Restaurant'}
             )
-            st.plotly_chart(fig_restaurant, use_container_width=True)
+            st.plotly_chart(fig_restaurant, width="stretch")
 
             # Price histogram
             st.subheader("Price Distribution")
@@ -904,7 +904,7 @@ def main():
                 title="Distribution of Menu Item Prices",
                 labels={'price_gbp': 'Price (£)'}
             )
-            st.plotly_chart(fig_hist, use_container_width=True)
+            st.plotly_chart(fig_hist, width="stretch")
 
     # ------------------------------------------------------------------------
     # Tab 4: Restaurant Comparison
@@ -973,14 +973,14 @@ def main():
                             annotation_text=f"Median: {int(median_count)}",
                             annotation_position="right")
 
-        st.plotly_chart(fig_counts, use_container_width=True)
+        st.plotly_chart(fig_counts, width="stretch")
 
         # Show outlier details if any exist
         if outlier_count > 0 and not exclude_outliers:
             with st.expander(f"⚠️ View {outlier_count} outlier restaurant(s) details"):
                 outliers_df = restaurant_counts[restaurant_counts['is_outlier']][['restaurant_name', 'item_count']]
                 outliers_df.columns = ['Restaurant', 'Menu Items']
-                st.dataframe(outliers_df, hide_index=True, use_container_width=True)
+                st.dataframe(outliers_df, hide_index=True, width="stretch")
 
         # Average price by restaurant
         if not filtered_menu['price_gbp'].isna().all():
@@ -997,7 +997,7 @@ def main():
                 color='avg_price',
                 color_continuous_scale='Greens'
             )
-            st.plotly_chart(fig_avg_price, use_container_width=True)
+            st.plotly_chart(fig_avg_price, width="stretch")
 
         # Category distribution by restaurant
         st.subheader("Menu Category Distribution")
@@ -1041,7 +1041,7 @@ def main():
                 barmode='stack'
             )
 
-        st.plotly_chart(fig_category_dist, use_container_width=True)
+        st.plotly_chart(fig_category_dist, width="stretch")
 
         # Customer Reviews Comparison
         st.subheader("💬 Customer Reviews Comparison")
@@ -1111,7 +1111,7 @@ def main():
                 }
             )
             fig_reviews.update_xaxes(tickangle=-45)
-            st.plotly_chart(fig_reviews, use_container_width=True)
+            st.plotly_chart(fig_reviews, width="stretch")
 
             # Scatter plot: Rating vs Review Count
             fig_scatter = px.scatter(
@@ -1127,7 +1127,7 @@ def main():
                 range_color=[1, 5]
             )
             fig_scatter.update_layout(xaxis_type="log")
-            st.plotly_chart(fig_scatter, use_container_width=True)
+            st.plotly_chart(fig_scatter, width="stretch")
 
             # Detailed table
             with st.expander("📊 View Detailed Review Statistics"):
@@ -1146,7 +1146,7 @@ def main():
                 review_table['Google Rating'] = review_table['Google Rating'].apply(lambda x: f"{x:.2f}" if pd.notna(x) else "-")
                 review_table['Combined Rating'] = review_table['Combined Rating'].apply(lambda x: f"{x:.2f}")
 
-                st.dataframe(review_table, hide_index=True, use_container_width=True)
+                st.dataframe(review_table, hide_index=True, width="stretch")
         else:
             st.info("💡 No review data available for the filtered restaurants. Visit the Reviews tab to see all reviews.")
 
@@ -1414,7 +1414,7 @@ def main():
                             color_discrete_map={'Target': '#FF6B6B', 'Competitor': '#4ECDC4'}
                         )
                         fig_price.update_xaxes(tickangle=-45)
-                        st.plotly_chart(fig_price, use_container_width=True)
+                        st.plotly_chart(fig_price, width="stretch")
 
                     with col_chart2:
                         fig_items = px.bar(
@@ -1426,7 +1426,7 @@ def main():
                             color_discrete_map={'Target': '#FF6B6B', 'Competitor': '#4ECDC4'}
                         )
                         fig_items.update_xaxes(tickangle=-45)
-                        st.plotly_chart(fig_items, use_container_width=True)
+                        st.plotly_chart(fig_items, width="stretch")
 
     # ------------------------------------------------------------------------
     # Tab 6: Drinks Analysis
@@ -1524,13 +1524,13 @@ def main():
                     color_continuous_scale='Blues'
                 )
                 fig_types.update_xaxes(tickangle=-45)
-                st.plotly_chart(fig_types, use_container_width=True)
+                st.plotly_chart(fig_types, width="stretch")
 
             with col_b:
                 st.dataframe(
                     type_counts,
                     hide_index=True,
-                    use_container_width=True
+                    width="stretch"
                 )
 
             st.divider()
@@ -1554,7 +1554,7 @@ def main():
                         labels={'price_gbp': 'Price (£)', 'drink_type': 'Drink Type'}
                     )
                     fig_price_box.update_xaxes(tickangle=-45)
-                    st.plotly_chart(fig_price_box, use_container_width=True)
+                    st.plotly_chart(fig_price_box, width="stretch")
 
                 with col_d:
                     # Average prices by type
@@ -1568,7 +1568,7 @@ def main():
                     st.dataframe(
                         avg_prices,
                         hide_index=True,
-                        use_container_width=True,
+                        width="stretch",
                         height=400
                     )
 
@@ -1593,7 +1593,7 @@ def main():
                 st.dataframe(
                     resto_counts,
                     hide_index=True,
-                    use_container_width=True
+                    width="stretch"
                 )
 
             with col_f:
@@ -1608,7 +1608,7 @@ def main():
                 st.dataframe(
                     expensive_drinks,
                     hide_index=True,
-                    use_container_width=True
+                    width="stretch"
                 )
 
             st.divider()
@@ -1675,7 +1675,7 @@ def main():
                         color_continuous_scale='Viridis'
                     )
                     fig_comparison.update_xaxes(tickangle=-45)
-                    st.plotly_chart(fig_comparison, use_container_width=True)
+                    st.plotly_chart(fig_comparison, width="stretch")
 
                 with col_h:
                     # Statistics
@@ -1695,7 +1695,7 @@ def main():
                 st.dataframe(
                     detailed_list,
                     hide_index=True,
-                    use_container_width=True,
+                    width="stretch",
                     height=400
                 )
             else:
@@ -1782,13 +1782,13 @@ def main():
                         title="Beer & Cider Types Distribution",
                         hole=0.3
                     )
-                    st.plotly_chart(fig_beer_types, use_container_width=True)
+                    st.plotly_chart(fig_beer_types, width="stretch")
 
                 with col_type2:
                     st.dataframe(
                         beer_type_counts,
                         hide_index=True,
-                        use_container_width=True
+                        width="stretch"
                     )
 
                 st.markdown("**All Beers & Ciders Comparison:**")
@@ -1807,7 +1807,7 @@ def main():
                 st.dataframe(
                     display_beer,
                     hide_index=True,
-                    use_container_width=True,
+                    width="stretch",
                     height=600
                 )
 
@@ -1833,7 +1833,7 @@ def main():
                     )
                     fig_beer_price.update_traces(texttemplate='£%{text:.2f}', textposition='outside')
                     fig_beer_price.update_xaxes(tickangle=-45)
-                    st.plotly_chart(fig_beer_price, use_container_width=True)
+                    st.plotly_chart(fig_beer_price, width="stretch")
 
                 with col_chart2:
                     display_avg = avg_by_type.copy()
@@ -1844,7 +1844,7 @@ def main():
                     st.dataframe(
                         display_avg,
                         hide_index=True,
-                        use_container_width=True
+                        width="stretch"
                     )
 
                 # Best value analysis
@@ -1859,7 +1859,7 @@ def main():
                 st.dataframe(
                     cheapest_display,
                     hide_index=True,
-                    use_container_width=True
+                    width="stretch"
                 )
 
             else:
@@ -1926,7 +1926,7 @@ def main():
                     text='Count'
                 )
                 fig_ratings.update_traces(textposition='outside')
-                st.plotly_chart(fig_ratings, use_container_width=True)
+                st.plotly_chart(fig_ratings, width="stretch")
 
             with col_chart2:
                 display_counts = rating_counts.copy()
@@ -1934,7 +1934,7 @@ def main():
                 st.dataframe(
                     display_counts[['Stars', 'Count', 'Percentage']],
                     hide_index=True,
-                    use_container_width=True
+                    width="stretch"
                 )
 
             st.divider()
@@ -1985,7 +1985,7 @@ def main():
             st.dataframe(
                 display_score_df,
                 hide_index=True,
-                use_container_width=True,
+                width="stretch",
                 height=600
             )
 
@@ -2282,7 +2282,7 @@ def main():
                     color_continuous_scale='RdYlGn'
                 )
                 fig.update_layout(showlegend=False)
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width="stretch")
 
             with col2:
                 # Pie chart
@@ -2292,7 +2292,7 @@ def main():
                     title="Rating Proportion",
                     color_discrete_sequence=['#FF3722', '#FF8622', '#FFCE00', '#73CF11', '#00B67A']
                 )
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width="stretch")
 
             st.markdown("---")
 
@@ -2328,7 +2328,7 @@ def main():
 
                     st.dataframe(
                         display_df,
-                        use_container_width=True,
+                        width="stretch",
                         hide_index=True
                     )
 
@@ -2372,7 +2372,7 @@ def main():
                     yaxis=dict(range=[0, 5.5])
                 )
 
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width="stretch")
 
                 # Calculate correlation
                 if len(correlation_df) > 2:
@@ -2435,7 +2435,7 @@ def main():
                 st.dataframe(
                     real_restaurants,
                     hide_index=True,
-                    use_container_width=True
+                    width="stretch"
                 )
 
             st.subheader("🏪 Restaurant Details")
@@ -2447,7 +2447,7 @@ def main():
             st.dataframe(
                 display_df,
                 hide_index=True,
-                use_container_width=True
+                width="stretch"
             )
 
         # Dietary tags distribution
@@ -2462,7 +2462,7 @@ def main():
                 values='count',
                 title="Distribution of Dietary Tags Across All Menu Items"
             )
-            st.plotly_chart(fig_tags, use_container_width=True)
+            st.plotly_chart(fig_tags, width="stretch")
         else:
             st.info("No dietary tag data available")
 
@@ -2477,7 +2477,7 @@ def main():
         st.dataframe(
             source_df,
             hide_index=True,
-            use_container_width=True,
+            width="stretch",
             column_config={
                 "Data Source": st.column_config.LinkColumn(
                     "Data Source",
@@ -2721,7 +2721,7 @@ def main():
                         color='count',
                         color_continuous_scale='Blues'
                     )
-                    st.plotly_chart(fig_categories, use_container_width=True)
+                    st.plotly_chart(fig_categories, width="stretch")
 
                 # Price distribution
                 if 'price_gbp' in restaurant_menu.columns and not restaurant_menu['price_gbp'].isna().all():
@@ -2734,7 +2734,7 @@ def main():
                         labels={'price_gbp': 'Price (£)', 'count': 'Number of Items'},
                         color_discrete_sequence=['#1f77b4']
                     )
-                    st.plotly_chart(fig_price, use_container_width=True)
+                    st.plotly_chart(fig_price, width="stretch")
 
                 # Dietary options summary
                 if 'is_vegetarian' in restaurant_menu.columns or 'is_vegan' in restaurant_menu.columns or 'is_gluten_free' in restaurant_menu.columns:
@@ -2792,7 +2792,7 @@ def main():
 
                     if score_data:
                         score_df = pd.DataFrame(score_data)
-                        st.dataframe(score_df, hide_index=True, use_container_width=True)
+                        st.dataframe(score_df, hide_index=True, width="stretch")
 
             # ================================================================
             # Company Information Section
