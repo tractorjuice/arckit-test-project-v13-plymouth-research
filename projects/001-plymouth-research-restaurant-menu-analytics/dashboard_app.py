@@ -2663,7 +2663,7 @@ def main():
                     color=asset_dist.values,
                     color_continuous_scale='Blues'
                 )
-                st.plotly_chart(fig_assets, use_container_width=True)
+                st.plotly_chart(fig_assets, width="stretch")
 
                 # Two column layout for additional charts
                 chart_col1, chart_col2 = st.columns(2)
@@ -2690,7 +2690,7 @@ def main():
                             color='hygiene_rating',
                             color_continuous_scale='RdYlGn'
                         )
-                        st.plotly_chart(fig_hygiene_emp, use_container_width=True)
+                        st.plotly_chart(fig_hygiene_emp, width="stretch")
                     else:
                         st.info("Not enough data to show correlation between employees and hygiene ratings.")
 
@@ -2718,7 +2718,7 @@ def main():
                             color='avg_rating',
                             color_continuous_scale='RdYlGn'
                         )
-                        st.plotly_chart(fig_assets_reviews, use_container_width=True)
+                        st.plotly_chart(fig_assets_reviews, width="stretch")
                     else:
                         st.info("Not enough data to show correlation between net assets and review scores.")
 
@@ -2744,7 +2744,7 @@ def main():
                     )
 
                     top_assets.columns = ['Restaurant', 'Net Assets', 'Employees', 'Hygiene Rating']
-                    st.dataframe(top_assets, hide_index=True, use_container_width=True)
+                    st.dataframe(top_assets, hide_index=True, width="stretch")
 
                 with rank_tab2:
                     top_employees = financial_df[financial_df['employees'].notna() & (financial_df['employees'] > 0)].nlargest(10, 'employees')[
@@ -2761,7 +2761,7 @@ def main():
                         )
 
                         top_employees.columns = ['Restaurant', 'Employees', 'Net Assets', 'Hygiene Rating']
-                        st.dataframe(top_employees, hide_index=True, use_container_width=True)
+                        st.dataframe(top_employees, hide_index=True, width="stretch")
                     else:
                         st.info("No employee data available.")
 
@@ -2782,7 +2782,7 @@ def main():
                         )
 
                         top_total_assets.columns = ['Restaurant', 'Total Assets', 'Net Assets', 'Employees']
-                        st.dataframe(top_total_assets, hide_index=True, use_container_width=True)
+                        st.dataframe(top_total_assets, hide_index=True, width="stretch")
                     else:
                         st.info("No total assets data available.")
 
@@ -3316,7 +3316,7 @@ def main():
 
                     # Display as DataFrame for better alignment
                     comparison_df = pd.DataFrame(comparison_data)
-                    st.dataframe(comparison_df, hide_index=True, use_container_width=True)
+                    st.dataframe(comparison_df, hide_index=True, width="stretch")
 
                     # Year-over-year changes
                     st.markdown("#### 📈 Performance Metrics")
@@ -3426,7 +3426,7 @@ def main():
                         showlegend=False
                     )
 
-                    st.plotly_chart(fig, use_container_width=True)
+                    st.plotly_chart(fig, width="stretch")
                 except:
                     pass  # Silently fail if chart cannot be rendered
 
