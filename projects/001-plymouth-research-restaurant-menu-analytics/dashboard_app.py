@@ -2310,9 +2310,9 @@ def main():
                 data=map_data,
                 get_position=["lon", "lat"],
                 get_color="color",
-                get_radius=100,
-                radius_min_pixels=5,
-                radius_max_pixels=20,
+                get_radius=50,
+                radius_min_pixels=3,
+                radius_max_pixels=10,
                 pickable=True,
             )
 
