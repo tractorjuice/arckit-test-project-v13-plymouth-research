@@ -514,14 +514,15 @@ def main():
     # Header
     st.title("🍽️ Plymouth Restaurant Menu Analytics")
 
-    # Load data
-    try:
-        restaurants_df = load_restaurants()
-        menu_df = load_menu_items()
-        dietary_df = load_dietary_tags()
-    except Exception as e:
-        st.error(f"❌ Failed to load data: {e}")
-        st.stop()
+    # Load data with spinner
+    with st.spinner("🔄 Loading restaurant data and caching for fast performance..."):
+        try:
+            restaurants_df = load_restaurants()
+            menu_df = load_menu_items()
+            dietary_df = load_dietary_tags()
+        except Exception as e:
+            st.error(f"❌ Failed to load data: {e}")
+            st.stop()
 
     # Dynamic subtitle with restaurant count
     restaurant_count = len(restaurants_df)
