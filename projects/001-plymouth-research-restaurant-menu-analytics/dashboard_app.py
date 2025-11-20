@@ -86,7 +86,20 @@ def load_restaurants() -> pd.DataFrame:
             company_type,
             incorporation_date,
             company_registered_address,
-            company_sic_codes
+            company_sic_codes,
+            fixed_assets_gbp,
+            current_assets_gbp,
+            net_current_assets_gbp,
+            total_assets_gbp,
+            net_assets_gbp,
+            shareholders_equity_gbp,
+            turnover_gbp,
+            gross_profit_gbp,
+            operating_profit_gbp,
+            profit_loss_gbp,
+            employees,
+            accounts_period_end,
+            financial_data_fetched_at
         FROM restaurants
         WHERE is_active = 1
         ORDER BY name
