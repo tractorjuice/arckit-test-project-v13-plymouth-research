@@ -2740,11 +2740,16 @@ def main():
         default_restaurant = "Honky Tonk Wine Library"
         default_index = restaurant_names.index(default_restaurant) if default_restaurant in restaurant_names else 0
 
+        # Pre-load all reviews once (cached, outside selection block for better performance)
+        all_trustpilot = load_trustpilot_reviews()
+        all_google = load_google_reviews()
+
         selected_restaurant = st.selectbox(
             "Select a Restaurant",
             restaurant_names,
             index=default_index,
-            help="Choose a restaurant to view its detailed profile"
+            help="Choose a restaurant to view its detailed profile",
+            key="restaurant_profile_selector"
         )
 
         if selected_restaurant:
@@ -2752,16 +2757,9 @@ def main():
             restaurant = restaurants_df[restaurants_df['name'] == selected_restaurant].iloc[0]
             restaurant_id = int(restaurant['restaurant_id'])  # Convert numpy.int64 to Python int
 
-            # Get menu items for this restaurant
+            # Filter data for selected restaurant (fast operations on cached data)
             restaurant_menu = menu_df[menu_df['restaurant_name'] == selected_restaurant]
-
-            # Get reviews for this restaurant (using cached data)
-            # Trustpilot reviews
-            all_trustpilot = load_trustpilot_reviews()
             trustpilot_reviews = all_trustpilot[all_trustpilot['restaurant_id'] == restaurant_id].head(10)
-
-            # Google reviews
-            all_google = load_google_reviews()
             google_reviews = all_google[all_google['restaurant_id'] == restaurant_id].head(10)
 
             # ================================================================
