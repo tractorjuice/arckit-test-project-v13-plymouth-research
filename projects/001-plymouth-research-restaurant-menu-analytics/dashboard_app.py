@@ -2007,8 +2007,6 @@ def main():
             score_df = rated_restaurants[['name', 'hygiene_rating', 'hygiene_score_hygiene',
                                          'hygiene_score_structural', 'hygiene_score_confidence',
                                          'hygiene_rating_date']].copy()
-            score_df.columns = ['Restaurant', 'Rating', 'Hygiene Score', 'Structural Score',
-                               'Management Score', 'Inspection Date']
 
             # Format scores with color coding
             def format_score(score):
@@ -2026,43 +2024,60 @@ def main():
                 else:
                     return f"🔴 {score}"
 
-            display_score_df = score_df.copy()
-            display_score_df['Hygiene Score'] = display_score_df['Hygiene Score'].apply(format_score)
-            display_score_df['Structural Score'] = display_score_df['Structural Score'].apply(format_score)
-            display_score_df['Management Score'] = display_score_df['Management Score'].apply(format_score)
-            display_score_df['Inspection Date'] = pd.to_datetime(display_score_df['Inspection Date'], format='ISO8601').dt.strftime('%Y-%m-%d')
-            display_score_df['Rating'] = display_score_df['Rating'].apply(lambda x: "⭐" * int(x))
-
             # Sort by rating descending
-            display_score_df = display_score_df.sort_values('Rating', ascending=False)
+            score_df = score_df.sort_values('hygiene_rating', ascending=False)
 
-            st.dataframe(
-                display_score_df,
-                hide_index=True,
-                width="stretch",
-                height=400
-            )
+            # Create interactive table with view profile buttons
+            st.markdown("**📋 Detailed Scores - Click 👁️ to view restaurant profile**")
 
-            # Add "View Profile" buttons for selected restaurants
-            st.markdown("**🔗 View Restaurant Profiles:**")
-            st.markdown("Click a restaurant name below to view its full profile in the 🏢 Restaurant Profiles tab.")
+            # Header row
+            header_cols = st.columns([3, 1.5, 1, 1, 1, 1.2, 0.8])
+            header_cols[0].markdown("**Restaurant**")
+            header_cols[1].markdown("**Rating**")
+            header_cols[2].markdown("**Hygiene**")
+            header_cols[3].markdown("**Structural**")
+            header_cols[4].markdown("**Management**")
+            header_cols[5].markdown("**Inspection**")
+            header_cols[6].markdown("**View**")
 
-            # Create columns for restaurant buttons (5 per row)
-            restaurant_names_sorted = display_score_df['Restaurant'].tolist()
-            cols_per_row = 5
-            for i in range(0, len(restaurant_names_sorted), cols_per_row):
-                cols = st.columns(cols_per_row)
-                for j, col in enumerate(cols):
-                    idx = i + j
-                    if idx < len(restaurant_names_sorted):
-                        resto_name = restaurant_names_sorted[idx]
-                        with col:
-                            if st.button(f"📍 {resto_name[:20]}{'...' if len(resto_name) > 20 else ''}",
-                                       key=f"hygiene_profile_{idx}",
-                                       help=f"View profile for {resto_name}"):
-                                st.session_state['selected_restaurant_profile'] = resto_name
-                                st.success(f"✅ Selected: {resto_name}")
-                                st.info("👆 Now go to the **🏢 Restaurant Profiles** tab to see the full profile!")
+            st.markdown("---")
+
+            # Create a container with scrollable content
+            with st.container():
+                # Data rows (limit to first 50 for performance, add pagination if needed)
+                for idx, row in enumerate(score_df.itertuples()):
+                    if idx >= 50:  # Limit display for performance
+                        break
+
+                    cols = st.columns([3, 1.5, 1, 1, 1, 1.2, 0.8])
+
+                    with cols[0]:
+                        st.markdown(f"{row.name}")
+
+                    with cols[1]:
+                        stars = "⭐" * int(row.hygiene_rating)
+                        st.markdown(stars)
+
+                    with cols[2]:
+                        st.markdown(format_score(row.hygiene_score_hygiene))
+
+                    with cols[3]:
+                        st.markdown(format_score(row.hygiene_score_structural))
+
+                    with cols[4]:
+                        st.markdown(format_score(row.hygiene_score_confidence))
+
+                    with cols[5]:
+                        inspection_date = pd.to_datetime(row.hygiene_rating_date, format='ISO8601').strftime('%Y-%m-%d')
+                        st.markdown(f"`{inspection_date}`")
+
+                    with cols[6]:
+                        if st.button("👁️", key=f"view_profile_{idx}", help=f"View profile for {row.name}"):
+                            st.session_state['selected_restaurant_profile'] = row.name
+                            st.rerun()
+
+                if len(score_df) > 50:
+                    st.info(f"Showing first 50 of {len(score_df)} restaurants")
 
             st.divider()
 
