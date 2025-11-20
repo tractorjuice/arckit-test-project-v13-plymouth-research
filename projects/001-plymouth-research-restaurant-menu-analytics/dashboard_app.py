@@ -2240,6 +2240,21 @@ def main():
                 'fsa_longitude': 'lon'
             })
 
+            # Add jitter to prevent overlapping markers
+            # Group by coordinates to find duplicates
+            coord_groups = map_data.groupby(['lat', 'lon']).size()
+            duplicate_coords = coord_groups[coord_groups > 1].index
+
+            # Apply jitter to duplicate coordinates
+            import numpy as np
+            for coord in duplicate_coords:
+                mask = (map_data['lat'] == coord[0]) & (map_data['lon'] == coord[1])
+                n_duplicates = mask.sum()
+                # Add small random offset (0.0001 degrees ≈ 11 meters)
+                np.random.seed(hash(coord) % 2**32)  # Consistent jitter for same coordinates
+                map_data.loc[mask, 'lat'] += np.random.uniform(-0.0001, 0.0001, n_duplicates)
+                map_data.loc[mask, 'lon'] += np.random.uniform(-0.0001, 0.0001, n_duplicates)
+
             # Create color mapping for hygiene ratings
             def get_rating_color(rating):
                 if pd.isna(rating):
