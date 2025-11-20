@@ -99,7 +99,24 @@ def load_restaurants() -> pd.DataFrame:
             profit_loss_gbp,
             employees,
             accounts_period_end,
-            financial_data_fetched_at
+            financial_data_fetched_at,
+            fixed_assets_gbp_prior,
+            current_assets_gbp_prior,
+            net_current_assets_gbp_prior,
+            total_assets_gbp_prior,
+            net_assets_gbp_prior,
+            shareholders_equity_gbp_prior,
+            turnover_gbp_prior,
+            gross_profit_gbp_prior,
+            operating_profit_gbp_prior,
+            profit_loss_gbp_prior,
+            employees_prior,
+            net_assets_change_gbp,
+            net_assets_change_pct,
+            employee_change,
+            financial_health_score,
+            financial_rating,
+            rating_description
         FROM restaurants
         WHERE is_active = 1
         ORDER BY name
@@ -3108,63 +3125,183 @@ def main():
                 st.markdown("---")
                 st.subheader("💰 Financial Overview")
 
-                # Financial metrics in columns
-                fin_col1, fin_col2, fin_col3 = st.columns(3)
+                # Financial Rating Badge
+                if pd.notna(restaurant.get('financial_rating')):
+                    rating = restaurant['financial_rating']
+                    score = restaurant.get('financial_health_score', 0)
+                    description = restaurant.get('rating_description', '')
 
-                with fin_col1:
-                    st.markdown("**Net Assets**")
-                    net_assets = restaurant.get('net_assets_gbp', 0)
-                    if net_assets:
-                        if net_assets >= 1_000_000:
-                            st.markdown(f"£{net_assets/1_000_000:.2f}M")
-                        elif net_assets >= 1_000:
-                            st.markdown(f"£{net_assets/1_000:.1f}k")
+                    # Color code the rating
+                    rating_colors = {
+                        'A': '🟢',
+                        'B': '🟢',
+                        'C': '🟡',
+                        'D': '🟠',
+                        'E': '🟠',
+                        'F': '🔴'
+                    }
+                    indicator = rating_colors.get(rating, '⚪')
+
+                    st.markdown(f"### {indicator} Financial Rating: **{rating}** ({description}) - Score: {score}/100")
+
+                # Helper function to format currency
+                def format_currency(value):
+                    if pd.isna(value):
+                        return "N/A"
+                    if value >= 1_000_000:
+                        return f"£{value/1_000_000:.2f}M"
+                    elif value >= 1_000:
+                        return f"£{value/1_000:.1f}k"
+                    elif value <= -1_000_000:
+                        return f"-£{abs(value)/1_000_000:.2f}M"
+                    elif value <= -1_000:
+                        return f"-£{abs(value)/1_000:.1f}k"
+                    else:
+                        return f"£{value:,}"
+
+                # Current vs Prior Year Comparison
+                has_prior = pd.notna(restaurant.get('net_assets_gbp_prior'))
+
+                if has_prior:
+                    st.markdown("#### 📊 Year-over-Year Comparison")
+
+                    # Create comparison table
+                    comparison_col1, comparison_col2, comparison_col3 = st.columns(3)
+
+                    with comparison_col1:
+                        st.markdown("**Metric**")
+                        st.markdown("Net Assets")
+                        if pd.notna(restaurant.get('employees')):
+                            st.markdown("Employees")
+                        if pd.notna(restaurant.get('total_assets_gbp')):
+                            st.markdown("Total Assets")
+
+                    with comparison_col2:
+                        period_end = pd.to_datetime(restaurant['accounts_period_end']) if pd.notna(restaurant.get('accounts_period_end')) else None
+                        current_year = period_end.year if period_end else "Current"
+                        st.markdown(f"**{current_year}**")
+                        st.markdown(format_currency(restaurant.get('net_assets_gbp')))
+                        if pd.notna(restaurant.get('employees')):
+                            emp = int(restaurant['employees'])
+                            st.markdown(f"{emp} staff")
+                        if pd.notna(restaurant.get('total_assets_gbp')):
+                            st.markdown(format_currency(restaurant.get('total_assets_gbp')))
+
+                    with comparison_col3:
+                        prior_year = current_year - 1 if isinstance(current_year, int) else "Prior"
+                        st.markdown(f"**{prior_year}**")
+                        st.markdown(format_currency(restaurant.get('net_assets_gbp_prior')))
+                        if pd.notna(restaurant.get('employees_prior')):
+                            emp_prior = int(restaurant['employees_prior'])
+                            st.markdown(f"{emp_prior} staff")
+                        if pd.notna(restaurant.get('total_assets_gbp_prior')):
+                            st.markdown(format_currency(restaurant.get('total_assets_gbp_prior')))
+
+                    # Year-over-year changes
+                    st.markdown("#### 📈 Performance Metrics")
+
+                    change_col1, change_col2 = st.columns(2)
+
+                    with change_col1:
+                        if pd.notna(restaurant.get('net_assets_change_gbp')):
+                            change = restaurant['net_assets_change_gbp']
+                            change_pct = restaurant.get('net_assets_change_pct', 0)
+                            change_emoji = "📈" if change > 0 else "📉" if change < 0 else "➖"
+
+                            st.metric(
+                                "Net Assets Change",
+                                format_currency(change),
+                                f"{change_pct:+.1f}%" if pd.notna(change_pct) else None,
+                                delta_color="normal"
+                            )
+
+                    with change_col2:
+                        if pd.notna(restaurant.get('employee_change')):
+                            emp_change = int(restaurant['employee_change'])
+                            change_emoji = "👥+" if emp_change > 0 else "👥-" if emp_change < 0 else "👥="
+
+                            st.metric(
+                                "Employee Change",
+                                f"{emp_change:+d}",
+                                "Growing" if emp_change > 0 else "Shrinking" if emp_change < 0 else "Stable",
+                                delta_color="normal"
+                            )
+                else:
+                    # No prior year data - just show current year
+                    st.markdown("#### Current Year Data")
+                    fin_col1, fin_col2, fin_col3 = st.columns(3)
+
+                    with fin_col1:
+                        st.markdown("**Net Assets**")
+                        st.markdown(format_currency(restaurant.get('net_assets_gbp')))
+
+                    with fin_col2:
+                        st.markdown("**Employees**")
+                        employees = restaurant.get('employees')
+                        if pd.notna(employees) and employees > 0:
+                            st.markdown(f"{int(employees)} staff")
                         else:
-                            st.markdown(f"£{net_assets:,}")
-                    else:
-                        st.markdown("N/A")
+                            st.markdown("N/A")
 
-                with fin_col2:
-                    st.markdown("**Employees**")
-                    employees = restaurant.get('employees')
-                    if pd.notna(employees) and employees > 0:
-                        st.markdown(f"{int(employees)} staff")
-                    else:
-                        st.markdown("N/A")
-
-                with fin_col3:
-                    st.markdown("**Total Assets**")
-                    total_assets = restaurant.get('total_assets_gbp')
-                    if pd.notna(total_assets) and total_assets > 0:
-                        if total_assets >= 1_000_000:
-                            st.markdown(f"£{total_assets/1_000_000:.2f}M")
-                        elif total_assets >= 1_000:
-                            st.markdown(f"£{total_assets/1_000:.1f}k")
-                        else:
-                            st.markdown(f"£{total_assets:,}")
-                    else:
-                        st.markdown("N/A")
+                    with fin_col3:
+                        st.markdown("**Total Assets**")
+                        st.markdown(format_currency(restaurant.get('total_assets_gbp')))
 
                 # Additional financial details
                 if pd.notna(restaurant.get('turnover_gbp')) or pd.notna(restaurant.get('profit_loss_gbp')):
-                    st.markdown("**Additional Metrics**")
+                    st.markdown("#### Additional Metrics")
                     extra_fin_col1, extra_fin_col2 = st.columns(2)
 
                     with extra_fin_col1:
                         if pd.notna(restaurant.get('turnover_gbp')):
                             turnover = restaurant['turnover_gbp']
-                            st.caption(f"Turnover: £{turnover:,}")
+                            st.caption(f"Turnover: {format_currency(turnover)}")
 
                     with extra_fin_col2:
                         if pd.notna(restaurant.get('profit_loss_gbp')):
                             profit = restaurant['profit_loss_gbp']
                             profit_emoji = "📈" if profit > 0 else "📉" if profit < 0 else "➖"
-                            st.caption(f"{profit_emoji} Profit/Loss: £{profit:,}")
+                            st.caption(f"{profit_emoji} Profit/Loss: {format_currency(profit)}")
 
                 # Accounts period
                 if pd.notna(restaurant.get('accounts_period_end')):
                     period_end = pd.to_datetime(restaurant['accounts_period_end'])
-                    st.caption(f"Accounts period ending {period_end.strftime('%B %Y')}")
+                    st.caption(f"📅 Accounts period ending {period_end.strftime('%B %Y')}")
+                    st.caption(f"💼 Data from Companies House")
+
+            # ================================================================
+            # Financial Performance Chart (if both years available)
+            # ================================================================
+            if pd.notna(restaurant.get('net_assets_gbp')) and pd.notna(restaurant.get('net_assets_gbp_prior')):
+                try:
+                    import plotly.graph_objects as go
+
+                    current_val = restaurant['net_assets_gbp']
+                    prior_val = restaurant['net_assets_gbp_prior']
+                    period_end = pd.to_datetime(restaurant['accounts_period_end']) if pd.notna(restaurant.get('accounts_period_end')) else None
+                    current_year = period_end.year if period_end else "Current"
+                    prior_year = current_year - 1 if isinstance(current_year, int) else "Prior"
+
+                    fig = go.Figure()
+                    fig.add_trace(go.Bar(
+                        x=[prior_year, current_year],
+                        y=[prior_val, current_val],
+                        marker_color=['lightblue', 'green' if current_val > prior_val else 'red'],
+                        text=[f"£{prior_val:,.0f}", f"£{current_val:,.0f}"],
+                        textposition='auto',
+                    ))
+
+                    fig.update_layout(
+                        title="Net Assets Trend",
+                        xaxis_title="Year",
+                        yaxis_title="Net Assets (£)",
+                        height=300,
+                        showlegend=False
+                    )
+
+                    st.plotly_chart(fig, use_container_width=True)
+                except:
+                    pass  # Silently fail if chart cannot be rendered
 
             # ================================================================
             # Reviews Section
