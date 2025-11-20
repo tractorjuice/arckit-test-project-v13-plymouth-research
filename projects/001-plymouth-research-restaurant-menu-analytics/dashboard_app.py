@@ -708,6 +708,7 @@ def main():
     # Tabs
     # ========================================================================
     tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
+        "🏢 Restaurant Profiles",
         "🍽️ Browse Menus",
         "📊 Price Analytics",
         "🏪 Restaurant Comparison",
@@ -715,14 +716,13 @@ def main():
         "🍹 Drinks Analysis",
         "⭐ Hygiene Ratings",
         "💬 Reviews",
-        "📈 Statistics",
-        "🏢 Restaurant Profiles"
+        "📈 Statistics"
     ])
 
     # ------------------------------------------------------------------------
-    # Tab 1: Browse Menus
+    # Tab 2: Browse Menus
     # ------------------------------------------------------------------------
-    with tab1:
+    with tab2:
         st.header("Browse Menu Items")
 
         if filtered_menu.empty:
@@ -863,9 +863,9 @@ def main():
                             st.markdown("---")
 
     # ------------------------------------------------------------------------
-    # Tab 2: Price Analytics
+    # Tab 3: Price Analytics
     # ------------------------------------------------------------------------
-    with tab2:
+    with tab3:
         st.header("Price Analytics")
 
         if filtered_menu.empty or filtered_menu['price_gbp'].isna().all():
@@ -907,9 +907,9 @@ def main():
             st.plotly_chart(fig_hist, use_container_width=True)
 
     # ------------------------------------------------------------------------
-    # Tab 3: Restaurant Comparison
+    # Tab 4: Restaurant Comparison
     # ------------------------------------------------------------------------
-    with tab3:
+    with tab4:
         st.header("Restaurant Comparison")
 
         # Menu item count by restaurant
@@ -1151,9 +1151,9 @@ def main():
             st.info("💡 No review data available for the filtered restaurants. Visit the Reviews tab to see all reviews.")
 
     # ------------------------------------------------------------------------
-    # Tab 4: Competitor Analysis
+    # Tab 5: Competitor Analysis
     # ------------------------------------------------------------------------
-    with tab4:
+    with tab5:
         st.header("🎯 Competitor Analysis")
         st.markdown("Select a restaurant to find its top 5 competitors based on cuisine type, pricing, menu size, and category overlap.")
 
@@ -1429,9 +1429,9 @@ def main():
                         st.plotly_chart(fig_items, use_container_width=True)
 
     # ------------------------------------------------------------------------
-    # Tab 5: Drinks Analysis
+    # Tab 6: Drinks Analysis
     # ------------------------------------------------------------------------
-    with tab5:
+    with tab6:
         st.header("🍹 Drinks Analysis")
 
         # Filter for drink items
@@ -1866,9 +1866,9 @@ def main():
                 st.info("No beer or cider items found in the database.")
 
     # ------------------------------------------------------------------------
-    # Tab 6: Hygiene Ratings
+    # Tab 7: Hygiene Ratings
     # ------------------------------------------------------------------------
-    with tab6:
+    with tab7:
         st.header("⭐ Food Hygiene Ratings")
 
         st.markdown("""
@@ -2045,9 +2045,9 @@ def main():
             """)
 
     # ------------------------------------------------------------------------
-    # Tab 7: Reviews (Trustpilot + Google)
+    # Tab 8: Reviews (Trustpilot + Google)
     # ------------------------------------------------------------------------
-    with tab7:
+    with tab8:
         st.header("💬 Customer Reviews")
 
         # Load both Trustpilot and Google data
@@ -2395,9 +2395,9 @@ def main():
             st.caption("💚 Trustpilot data from [Trustpilot.com](https://www.trustpilot.com) • 🔍 Google data from [Google Places API](https://developers.google.com/maps/documentation/places/web-service/overview) • For internal research use only")
 
     # ------------------------------------------------------------------------
-    # Tab 8: Statistics
+    # Tab 9: Statistics
     # ------------------------------------------------------------------------
-    with tab8:
+    with tab9:
         st.header("Database Statistics")
 
         col1, col2 = st.columns(2)
@@ -2498,9 +2498,9 @@ def main():
             st.info(f"📆 Oldest data: {oldest_update.strftime('%Y-%m-%d %H:%M')}")
 
     # ------------------------------------------------------------------------
-    # Tab 9: Restaurant Profiles
+    # Tab 1: Restaurant Profiles
     # ------------------------------------------------------------------------
-    with tab9:
+    with tab1:
         st.header("🏢 Restaurant Profiles")
         st.markdown("View comprehensive details for each restaurant including menu, reviews, hygiene ratings, and location.")
 
