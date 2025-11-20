@@ -2845,7 +2845,8 @@ def main():
             restaurant_id = int(restaurant['restaurant_id'])  # Convert numpy.int64 to Python int
 
             # Filter data for selected restaurant (fast operations on cached data)
-            restaurant_menu = menu_df[menu_df['restaurant_name'] == selected_restaurant]
+            # Use restaurant_id for numeric filtering (much faster than string comparison)
+            restaurant_menu = menu_df[menu_df['restaurant_id'] == restaurant_id]
             trustpilot_reviews = all_trustpilot[all_trustpilot['restaurant_id'] == restaurant_id].head(10)
             google_reviews = all_google[all_google['restaurant_id'] == restaurant_id].head(10)
 
