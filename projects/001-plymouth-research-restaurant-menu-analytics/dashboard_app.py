@@ -25,6 +25,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import pydeck as pdk
 
 # Page configuration
 st.set_page_config(
@@ -2274,16 +2275,16 @@ def main():
             center_lon = map_data['lon'].mean()
 
             # Create pydeck layer
-            layer = {
-                "type": "ScatterplotLayer",
-                "data": map_data,
-                "getPosition": ["lon", "lat"],
-                "getColor": "color",
-                "getRadius": 100,
-                "radiusMinPixels": 5,
-                "radiusMaxPixels": 20,
-                "pickable": True,
-            }
+            layer = pdk.Layer(
+                "ScatterplotLayer",
+                data=map_data,
+                get_position=["lon", "lat"],
+                get_color="color",
+                get_radius=100,
+                radius_min_pixels=5,
+                radius_max_pixels=20,
+                pickable=True,
+            )
 
             # Set map style
             if map_style == "Satellite":
@@ -2292,22 +2293,23 @@ def main():
                 map_style_url = None  # Default to Open Street Map
 
             # Create view state
-            view_state = {
-                "latitude": center_lat,
-                "longitude": center_lon,
-                "zoom": 12,
-                "pitch": 0,
-            }
+            view_state = pdk.ViewState(
+                latitude=center_lat,
+                longitude=center_lon,
+                zoom=12,
+                pitch=0,
+            )
+
+            # Create deck
+            deck = pdk.Deck(
+                layers=[layer],
+                initial_view_state=view_state,
+                map_style=map_style_url,
+                tooltip={"text": "{tooltip_text}"}
+            )
 
             # Display map
-            st.pydeck_chart({
-                "layers": [layer],
-                "initialViewState": view_state,
-                "mapStyle": map_style_url,
-                "tooltip": {
-                    "text": "{tooltip_text}"
-                }
-            })
+            st.pydeck_chart(deck)
 
             # Legend
             st.markdown("### 🎨 Map Legend")
