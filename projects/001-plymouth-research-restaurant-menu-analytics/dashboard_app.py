@@ -2230,7 +2230,7 @@ def main():
                 )
 
             # Prepare map data
-            map_data = restaurants_with_gps[['name', 'fsa_latitude', 'fsa_longitude', 'hygiene_rating',
+            map_data = restaurants_with_gps[['restaurant_id', 'name', 'fsa_latitude', 'fsa_longitude', 'hygiene_rating',
                                              'fsa_business_name', 'fsa_address_line1', 'fsa_address_line2',
                                              'fsa_postcode', 'cuisine_type', 'price_range']].copy()
 
