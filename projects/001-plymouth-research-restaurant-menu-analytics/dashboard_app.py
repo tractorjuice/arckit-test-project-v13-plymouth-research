@@ -2241,10 +2241,10 @@ def main():
             })
 
             # Spread overlapping markers in a circle pattern
-            # Round coordinates to detect near-duplicates within ~10 meters (0.0001 degrees)
+            # Round coordinates to detect near-duplicates within ~2 meters (0.00001 degrees)
             import numpy as np
-            map_data['lat_rounded'] = map_data['lat'].round(4)
-            map_data['lon_rounded'] = map_data['lon'].round(4)
+            map_data['lat_rounded'] = map_data['lat'].round(5)
+            map_data['lon_rounded'] = map_data['lon'].round(5)
 
             coord_groups = map_data.groupby(['lat_rounded', 'lon_rounded']).size()
             duplicate_coords = coord_groups[coord_groups > 1].index
@@ -2259,8 +2259,8 @@ def main():
                 center_lat = duplicate_rows['lat'].mean()
                 center_lon = duplicate_rows['lon'].mean()
 
-                # Spread in a circle (0.0015 degrees ≈ 150 meters radius)
-                radius = 0.0015
+                # Spread in a circle (0.0001 degrees ≈ 10 meters radius)
+                radius = 0.0001
                 for i, (idx, row) in enumerate(duplicate_rows.iterrows()):
                     # Use restaurant_id for consistent angle assignment
                     angle = (2 * np.pi * hash(row['restaurant_id']) / (2**32)) + (2 * np.pi * i / n_duplicates)
