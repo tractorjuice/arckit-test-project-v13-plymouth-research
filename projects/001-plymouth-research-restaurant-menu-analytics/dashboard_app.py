@@ -2241,24 +2241,34 @@ def main():
             })
 
             # Spread overlapping markers in a circle pattern
-            # Group by coordinates to find duplicates
-            coord_groups = map_data.groupby(['lat', 'lon']).size()
+            # Round coordinates to detect near-duplicates within ~10 meters (0.0001 degrees)
+            import numpy as np
+            map_data['lat_rounded'] = map_data['lat'].round(4)
+            map_data['lon_rounded'] = map_data['lon'].round(4)
+
+            coord_groups = map_data.groupby(['lat_rounded', 'lon_rounded']).size()
             duplicate_coords = coord_groups[coord_groups > 1].index
 
-            # Apply circular spread to duplicate coordinates
-            import numpy as np
+            # Apply circular spread to near-duplicate coordinates only
             for coord in duplicate_coords:
-                mask = (map_data['lat'] == coord[0]) & (map_data['lon'] == coord[1])
+                mask = (map_data['lat_rounded'] == coord[0]) & (map_data['lon_rounded'] == coord[1])
                 duplicate_rows = map_data[mask].copy()
                 n_duplicates = len(duplicate_rows)
+
+                # Calculate center point for this cluster
+                center_lat = duplicate_rows['lat'].mean()
+                center_lon = duplicate_rows['lon'].mean()
 
                 # Spread in a circle (0.0015 degrees ≈ 150 meters radius)
                 radius = 0.0015
                 for i, (idx, row) in enumerate(duplicate_rows.iterrows()):
                     # Use restaurant_id for consistent angle assignment
                     angle = (2 * np.pi * hash(row['restaurant_id']) / (2**32)) + (2 * np.pi * i / n_duplicates)
-                    map_data.loc[idx, 'lat'] = coord[0] + radius * np.sin(angle)
-                    map_data.loc[idx, 'lon'] = coord[1] + radius * np.cos(angle)
+                    map_data.loc[idx, 'lat'] = center_lat + radius * np.sin(angle)
+                    map_data.loc[idx, 'lon'] = center_lon + radius * np.cos(angle)
+
+            # Drop temporary rounding columns
+            map_data = map_data.drop(columns=['lat_rounded', 'lon_rounded'])
 
             # Create color mapping for hygiene ratings
             def get_rating_color(rating):
