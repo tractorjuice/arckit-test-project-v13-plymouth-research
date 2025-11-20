@@ -3001,6 +3001,42 @@ def main():
                 st.info("No menu items available for this restaurant. This restaurant was discovered via Google Places but menu data has not been scraped yet.")
 
             # ================================================================
+            # Reviews Section
+            # ================================================================
+            st.markdown("---")
+            st.subheader("💬 Customer Reviews")
+
+            # Review sources tabs - Google first, then Trustpilot
+            if not trustpilot_reviews.empty or not google_reviews.empty:
+                review_tab1, review_tab2 = st.tabs(["Google Reviews", "Trustpilot Reviews"])
+
+                with review_tab1:
+                    if not google_reviews.empty:
+                        st.markdown(f"**Latest {len(google_reviews)} Google Reviews**")
+                        for _, review in google_reviews.iterrows():
+                            with st.expander(f"{'⭐' * review['rating']} - {review['author_name']} ({review['review_date']})"):
+                                st.markdown(review['review_text'])
+                                if pd.notna(review.get('relative_time_description')):
+                                    st.caption(f"Posted: {review['relative_time_description']}")
+                    else:
+                        st.info("No Google reviews available for this restaurant")
+
+                with review_tab2:
+                    if not trustpilot_reviews.empty:
+                        st.markdown(f"**Latest {len(trustpilot_reviews)} Trustpilot Reviews**")
+                        for _, review in trustpilot_reviews.iterrows():
+                            with st.expander(f"{'⭐' * review['rating']} - {review['author_name']} ({review['review_date']})"):
+                                if pd.notna(review.get('review_title')):
+                                    st.markdown(f"**{review['review_title']}**")
+                                st.markdown(review['review_body'])
+                                if pd.notna(review.get('author_location')):
+                                    st.caption(f"Location: {review['author_location']}")
+                    else:
+                        st.info("No Trustpilot reviews available for this restaurant")
+            else:
+                st.info("No reviews available for this restaurant")
+
+            # ================================================================
             # Hygiene Rating Section
             # ================================================================
             if pd.notna(restaurant.get('hygiene_rating')):
@@ -3321,42 +3357,6 @@ def main():
                     st.plotly_chart(fig, use_container_width=True)
                 except:
                     pass  # Silently fail if chart cannot be rendered
-
-            # ================================================================
-            # Reviews Section
-            # ================================================================
-            st.markdown("---")
-            st.subheader("💬 Customer Reviews")
-
-            # Review sources tabs
-            if not trustpilot_reviews.empty or not google_reviews.empty:
-                review_tab1, review_tab2 = st.tabs(["Trustpilot Reviews", "Google Reviews"])
-
-                with review_tab1:
-                    if not trustpilot_reviews.empty:
-                        st.markdown(f"**Latest {len(trustpilot_reviews)} Trustpilot Reviews**")
-                        for _, review in trustpilot_reviews.iterrows():
-                            with st.expander(f"{'⭐' * review['rating']} - {review['author_name']} ({review['review_date']})"):
-                                if pd.notna(review.get('review_title')):
-                                    st.markdown(f"**{review['review_title']}**")
-                                st.markdown(review['review_body'])
-                                if pd.notna(review.get('author_location')):
-                                    st.caption(f"Location: {review['author_location']}")
-                    else:
-                        st.info("No Trustpilot reviews available for this restaurant")
-
-                with review_tab2:
-                    if not google_reviews.empty:
-                        st.markdown(f"**Latest {len(google_reviews)} Google Reviews**")
-                        for _, review in google_reviews.iterrows():
-                            with st.expander(f"{'⭐' * review['rating']} - {review['author_name']} ({review['review_date']})"):
-                                st.markdown(review['review_text'])
-                                if pd.notna(review.get('relative_time_description')):
-                                    st.caption(f"Posted: {review['relative_time_description']}")
-                    else:
-                        st.info("No Google reviews available for this restaurant")
-            else:
-                st.info("No reviews available for this restaurant")
 
             # ================================================================
             # Data Freshness
