@@ -2612,6 +2612,7 @@ def main():
                     ].copy()
 
                     if len(hygiene_financial) > 0:
+                        # Don't use size parameter - net assets can be negative which causes errors
                         fig_hygiene_emp = px.scatter(
                             hygiene_financial,
                             x='employees',
@@ -2620,9 +2621,7 @@ def main():
                             title=f"Employees vs Hygiene Rating ({len(hygiene_financial)} companies)",
                             labels={'employees': 'Number of Employees', 'hygiene_rating': 'Hygiene Rating'},
                             color='hygiene_rating',
-                            color_continuous_scale='RdYlGn',
-                            size='net_assets_gbp',
-                            size_max=20
+                            color_continuous_scale='RdYlGn'
                         )
                         st.plotly_chart(fig_hygiene_emp, use_container_width=True)
                     else:
