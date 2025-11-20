@@ -118,27 +118,48 @@ def parse_fsa_xml(xml_path: Path) -> List[Dict]:
         else:
             hygiene_score = structural_score = confidence_score = None
 
-        # Build address
-        address_parts = [
-            get_text(est_elem, 'AddressLine1'),
-            get_text(est_elem, 'AddressLine2'),
-            get_text(est_elem, 'AddressLine3'),
-            get_text(est_elem, 'AddressLine4')
-        ]
+        # Build address (both combined and individual lines)
+        address_line1 = get_text(est_elem, 'AddressLine1')
+        address_line2 = get_text(est_elem, 'AddressLine2')
+        address_line3 = get_text(est_elem, 'AddressLine3')
+        address_line4 = get_text(est_elem, 'AddressLine4')
+        address_parts = [address_line1, address_line2, address_line3, address_line4]
         full_address = ', '.join([p for p in address_parts if p])
+
+        # Get GPS coordinates
+        geocode_elem = est_elem.find('Geocode')
+        if geocode_elem is not None:
+            latitude_text = get_text(geocode_elem, 'Latitude')
+            longitude_text = get_text(geocode_elem, 'Longitude')
+            latitude = float(latitude_text) if latitude_text else None
+            longitude = float(longitude_text) if longitude_text else None
+        else:
+            latitude = None
+            longitude = None
 
         establishment = {
             'fsa_id': int(get_text(est_elem, 'FHRSID')),
             'business_name': get_text(est_elem, 'BusinessName'),
             'business_type': business_type_text,
             'address': full_address,
+            'address_line1': address_line1,
+            'address_line2': address_line2,
+            'address_line3': address_line3,
+            'address_line4': address_line4,
             'postcode': get_text(est_elem, 'PostCode'),
+            'latitude': latitude,
+            'longitude': longitude,
             'rating': rating_numeric,
             'rating_date': get_text(est_elem, 'RatingDate'),
+            'rating_key': get_text(est_elem, 'RatingKey'),
             'hygiene_score': int(hygiene_score) if hygiene_score else None,
             'structural_score': int(structural_score) if structural_score else None,
             'confidence_score': int(confidence_score) if confidence_score else None,
-            'local_authority': get_text(est_elem, 'LocalAuthorityName')
+            'local_authority': get_text(est_elem, 'LocalAuthorityName'),
+            'local_authority_business_id': get_text(est_elem, 'LocalAuthorityBusinessID'),
+            'local_authority_website': get_text(est_elem, 'LocalAuthorityWebSite'),
+            'scheme_type': get_text(est_elem, 'SchemeType'),
+            'new_rating_pending': get_text(est_elem, 'NewRatingPending')
         }
 
         establishments.append(establishment)
@@ -280,7 +301,20 @@ def main():
                     hygiene_score_structural = ?,
                     hygiene_score_confidence = ?,
                     fsa_business_type = ?,
-                    fsa_local_authority = ?
+                    fsa_local_authority = ?,
+                    fsa_business_name = ?,
+                    fsa_address_line1 = ?,
+                    fsa_address_line2 = ?,
+                    fsa_address_line3 = ?,
+                    fsa_address_line4 = ?,
+                    fsa_postcode = ?,
+                    fsa_latitude = ?,
+                    fsa_longitude = ?,
+                    fsa_local_authority_business_id = ?,
+                    fsa_rating_key = ?,
+                    fsa_scheme_type = ?,
+                    fsa_local_authority_website = ?,
+                    fsa_new_rating_pending = ?
                 WHERE restaurant_id = ?
             """, (
                 best_match['rating'],
@@ -292,6 +326,19 @@ def main():
                 best_match['confidence_score'],
                 best_match['business_type'],
                 best_match['local_authority'],
+                best_match['business_name'],
+                best_match['address_line1'],
+                best_match['address_line2'],
+                best_match['address_line3'],
+                best_match['address_line4'],
+                best_match['postcode'],
+                best_match['latitude'],
+                best_match['longitude'],
+                best_match['local_authority_business_id'],
+                best_match['rating_key'],
+                best_match['scheme_type'],
+                best_match['local_authority_website'],
+                best_match['new_rating_pending'],
                 restaurant_id
             ))
 
