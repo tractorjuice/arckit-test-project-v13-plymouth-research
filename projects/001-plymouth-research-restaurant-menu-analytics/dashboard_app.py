@@ -3172,9 +3172,18 @@ def main():
                     # Build rows - always show all metrics, use N/A for missing data
                     comparison_data = []
 
-                    # Net Assets (always present)
+                    # Net Assets/Liabilities (always present)
+                    net_assets_current = restaurant.get('net_assets_gbp', 0)
+                    net_assets_prior = restaurant.get('net_assets_gbp_prior', 0)
+
+                    # Use "Net Liabilities" if both years are negative, otherwise "Net Assets"
+                    if net_assets_current < 0 and net_assets_prior < 0:
+                        metric_label = 'Net Liabilities'
+                    else:
+                        metric_label = 'Net Assets'
+
                     comparison_data.append({
-                        'Metric': 'Net Assets',
+                        'Metric': metric_label,
                         str(current_year): format_currency(restaurant.get('net_assets_gbp')),
                         str(prior_year): format_currency(restaurant.get('net_assets_gbp_prior'))
                     })
@@ -3212,8 +3221,11 @@ def main():
                             change_pct = restaurant.get('net_assets_change_pct', 0)
                             change_emoji = "📈" if change > 0 else "📉" if change < 0 else "➖"
 
+                            # Use appropriate label based on whether we have assets or liabilities
+                            change_label = f"{metric_label} Change"
+
                             st.metric(
-                                "Net Assets Change",
+                                change_label,
                                 format_currency(change),
                                 f"{change_pct:+.1f}%" if pd.notna(change_pct) else None,
                                 delta_color="normal"
@@ -3236,7 +3248,10 @@ def main():
                     fin_col1, fin_col2, fin_col3 = st.columns(3)
 
                     with fin_col1:
-                        st.markdown("**Net Assets**")
+                        # Use "Net Liabilities" if negative, otherwise "Net Assets"
+                        net_assets_current = restaurant.get('net_assets_gbp', 0)
+                        asset_label = "Net Liabilities" if net_assets_current < 0 else "Net Assets"
+                        st.markdown(f"**{asset_label}**")
                         st.markdown(format_currency(restaurant.get('net_assets_gbp')))
 
                     with fin_col2:
