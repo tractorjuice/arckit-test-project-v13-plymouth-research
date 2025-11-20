@@ -1187,60 +1187,84 @@ def main():
         st.header("🎯 Competitor Analysis")
         st.markdown("Select a restaurant to find its top 5 competitors based on cuisine type, pricing, menu size, and category overlap.")
 
-        # Restaurant selector
-        restaurants_with_data = restaurants_df[restaurants_df['data_source'] == 'real_scraped']['name'].tolist()
+        # Pre-compute restaurant metrics for fast lookups (cached outside selection)
+        @st.cache_data(ttl=300)
+        def compute_restaurant_metrics(menu_data, resto_data):
+            """Pre-compute metrics for all restaurants for fast competitor analysis."""
+            metrics = {}
+            for _, resto in resto_data.iterrows():
+                if resto['data_source'] != 'real_scraped':
+                    continue
+
+                resto_id = resto['restaurant_id']
+                resto_menu = menu_data[menu_data['restaurant_id'] == resto_id]
+
+                if len(resto_menu) == 0:
+                    continue
+
+                metrics[resto_id] = {
+                    'name': resto['name'],
+                    'cuisine_type': resto['cuisine_type'],
+                    'item_count': len(resto_menu),
+                    'avg_price': resto_menu['price_gbp'].mean() if not resto_menu['price_gbp'].isna().all() else 0,
+                    'categories': set(resto_menu['category'].dropna().unique())
+                }
+            return metrics
+
+        # Pre-compute metrics once
+        all_metrics = compute_restaurant_metrics(menu_df, restaurants_df)
+        restaurants_with_data = [m['name'] for m in all_metrics.values()]
 
         if not restaurants_with_data:
             st.warning("⚠️ No restaurants with real data available for competitor analysis.")
         else:
+            # Set default to Honky Tonk Wine Library if it exists
+            default_index = 0
+            if 'Honky Tonk Wine Library' in restaurants_with_data:
+                default_index = sorted(restaurants_with_data).index('Honky Tonk Wine Library')
+
             selected_restaurant = st.selectbox(
                 "Select a restaurant:",
                 options=sorted(restaurants_with_data),
-                help="Choose a restaurant to analyze its competitors"
+                index=default_index,
+                help="Choose a restaurant to analyze its competitors",
+                key="competitor_analysis_selector"
             )
 
             if selected_restaurant:
                 # Get selected restaurant data
                 target = restaurants_df[restaurants_df['name'] == selected_restaurant].iloc[0]
                 target_id = target['restaurant_id']
+                target_metrics = all_metrics[target_id]
 
-                # Get target restaurant menu data
-                target_menu = menu_df[menu_df['restaurant_id'] == target_id]
-                target_item_count = len(target_menu)
-                target_avg_price = target_menu['price_gbp'].mean() if not target_menu['price_gbp'].isna().all() else 0
-                target_categories = set(target_menu['category'].dropna().unique())
+                target_item_count = target_metrics['item_count']
+                target_avg_price = target_metrics['avg_price']
+                target_categories = target_metrics['categories']
 
-                # Calculate similarity scores for all other restaurants
+                # Calculate similarity scores using pre-computed metrics
                 competitors = []
 
-                for _, resto in restaurants_df.iterrows():
-                    # Skip self and restaurants without real data
-                    if resto['restaurant_id'] == target_id or resto['data_source'] != 'real_scraped':
+                for resto_id, comp_metrics in all_metrics.items():
+                    # Skip self
+                    if resto_id == target_id:
                         continue
 
-                    # Get competitor menu data
-                    comp_menu = menu_df[menu_df['restaurant_id'] == resto['restaurant_id']]
-                    comp_item_count = len(comp_menu)
-
-                    # Skip if no items
-                    if comp_item_count == 0:
-                        continue
-
-                    comp_avg_price = comp_menu['price_gbp'].mean() if not comp_menu['price_gbp'].isna().all() else 0
-                    comp_categories = set(comp_menu['category'].dropna().unique())
+                    comp_item_count = comp_metrics['item_count']
+                    comp_avg_price = comp_metrics['avg_price']
+                    comp_categories = comp_metrics['categories']
 
                     # Calculate similarity score (0-100)
                     score = 0
 
                     # 1. Cuisine Type Match (40 points) - PRIMARY differentiator
-                    if pd.notna(target['cuisine_type']) and pd.notna(resto['cuisine_type']):
-                        if target['cuisine_type'] == resto['cuisine_type']:
+                    if pd.notna(target['cuisine_type']) and pd.notna(comp_metrics['cuisine_type']):
+                        if target['cuisine_type'] == comp_metrics['cuisine_type']:
                             score += 40
                         else:
                             # Check for meaningful word overlap (exclude connectors)
                             stop_words = {'&', 'and', 'the', 'a', 'an', 'at', 'of', 'in', 'on', '/', '-', '+', 'with'}
                             target_words = {word.lower() for word in target['cuisine_type'].split() if word.lower() not in stop_words and len(word) > 1}
-                            comp_words = {word.lower() for word in resto['cuisine_type'].split() if word.lower() not in stop_words and len(word) > 1}
+                            comp_words = {word.lower() for word in comp_metrics['cuisine_type'].split() if word.lower() not in stop_words and len(word) > 1}
 
                             # Check if any meaningful words match
                             if target_words & comp_words:
@@ -1279,8 +1303,8 @@ def main():
                             score += 3
 
                     competitors.append({
-                        'name': resto['name'],
-                        'cuisine_type': resto['cuisine_type'],
+                        'name': comp_metrics['name'],
+                        'cuisine_type': comp_metrics['cuisine_type'],
                         'avg_price': comp_avg_price,
                         'item_count': comp_item_count,
                         'categories': comp_categories,
