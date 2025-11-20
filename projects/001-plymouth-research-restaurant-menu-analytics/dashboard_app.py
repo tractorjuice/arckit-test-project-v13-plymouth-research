@@ -753,14 +753,14 @@ def main():
     # Tabs
     # ========================================================================
     tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([
-        "🏢 Restaurant Profiles",
+        "🗺️ Map View",
         "🍽️ Browse Menus",
         "📊 Price Analytics",
         "🏪 Restaurant Comparison",
         "🎯 Competitor Analysis",
         "🍹 Drinks Analysis",
         "⭐ Hygiene Ratings",
-        "🗺️ Map View",
+        "🏢 Restaurant Profiles",
         "💬 Reviews",
         "📈 Statistics"
     ])
@@ -2188,9 +2188,9 @@ def main():
             """)
 
     # ------------------------------------------------------------------------
-    # Tab 8: Map View
+    # Tab 1: Map View
     # ------------------------------------------------------------------------
-    with tab8:
+    with tab1:
         st.header("🗺️ Restaurant Map")
         st.markdown("Interactive map showing restaurant locations based on FSA GPS coordinates.")
 
@@ -3184,9 +3184,9 @@ def main():
             st.caption("💡 Perfect (≥90%), Good (70-89%), Poor (50-69%), Mismatch (<50%). Lower scores may indicate incorrect FSA matches or address data issues.")
 
     # ------------------------------------------------------------------------
-    # Tab 1: Restaurant Profiles
+    # Tab 8: Restaurant Profiles
     # ------------------------------------------------------------------------
-    with tab1:
+    with tab8:
         st.header("🏢 Restaurant Profiles")
         st.markdown("View comprehensive details for each restaurant including menu, reviews, hygiene ratings, and location.")
 
