@@ -2259,8 +2259,8 @@ def main():
                 center_lat = duplicate_rows['lat'].mean()
                 center_lon = duplicate_rows['lon'].mean()
 
-                # Spread in a circle (0.0001 degrees ≈ 10 meters radius)
-                radius = 0.0001
+                # Spread in a circle (0.00002 degrees ≈ 2 meters radius)
+                radius = 0.00002
                 for i, (idx, row) in enumerate(duplicate_rows.iterrows()):
                     # Use restaurant_id for consistent angle assignment
                     angle = (2 * np.pi * hash(row['restaurant_id']) / (2**32)) + (2 * np.pi * i / n_duplicates)
