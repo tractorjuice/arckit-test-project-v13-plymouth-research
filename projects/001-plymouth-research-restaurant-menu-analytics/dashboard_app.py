@@ -2520,24 +2520,14 @@ def main():
             # Get menu items for this restaurant
             restaurant_menu = menu_df[menu_df['restaurant_name'] == selected_restaurant]
 
-            # Get reviews for this restaurant
-            conn = get_database_connection()
-
+            # Get reviews for this restaurant (using cached data)
             # Trustpilot reviews
-            trustpilot_reviews = pd.read_sql_query("""
-                SELECT * FROM trustpilot_reviews
-                WHERE restaurant_id = ?
-                ORDER BY review_date DESC
-                LIMIT 10
-            """, conn, params=(restaurant_id,))
+            all_trustpilot = load_trustpilot_reviews()
+            trustpilot_reviews = all_trustpilot[all_trustpilot['restaurant_id'] == restaurant_id].head(10)
 
             # Google reviews
-            google_reviews = pd.read_sql_query("""
-                SELECT * FROM google_reviews
-                WHERE restaurant_id = ?
-                ORDER BY review_date DESC
-                LIMIT 10
-            """, conn, params=(restaurant_id,))
+            all_google = load_google_reviews()
+            google_reviews = all_google[all_google['restaurant_id'] == restaurant_id].head(10)
 
             # ================================================================
             # Header Section
