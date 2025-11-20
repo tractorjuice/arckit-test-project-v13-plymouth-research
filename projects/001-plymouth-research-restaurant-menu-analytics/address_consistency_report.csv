@@ -1,0 +1,158 @@
+restaurant_id,name,fsa_business_name,company_name,fsa_address,scraped_address,ch_address,fsa_vs_scraped,fsa_vs_ch,scraped_vs_ch,avg_similarity,category,hygiene_rating
+246,A Taskinha,A Taskinha,A TASK INHA LTD,"53 Union Street, Plymouth, PL1 3LU","53 Union St, Stonehouse, Plymouth PL1 3LU, UK","53 Union Street, Plymouth, England, PL1 3LU",73.1%,82.6%,70.0%,75.2%,Good,5
+279,Almanac Cafe,Almanac Cafe,N/A,"32-33 Batter Street, Plymouth, PL4 0EF","First Floor, 32 Batter St, Plymouth PL4 0EN, UK",,65.5%,0.0%,0.0%,65.5%,Poor,5
+11,Armado Lounge,Armado Lounge,N/A,"20 The Barbican, Plymouth, PL1 2LS",,,0.0%,0.0%,0.0%,0.0%,Mismatch,5
+130,Arribas Mexican Restaurant,Arribas Restaurant,N/A,"58 Notte Street, Plymouth, PL1 2AG","58 Notte Street, Plymouth, PL1 2AG",,100.0%,0.0%,0.0%,100.0%,Perfect,4
+345,B-Bar,B Bar,N/A,"Barbican TheatreThai Noodle Bar, 95 Castle Street, Plymouth, PL1 2NJ","The Barbican Theatre, Castle St, Plymouth PL1 2NJ, UK",,73.1%,0.0%,0.0%,73.1%,Good,5
+252,Bamo Restaurant,Bamo Restaurant,BAMO GRILL HOUSE LTD,"61 Cornwall Street, City Centre, Plymouth, PL1 1NS","61 Cornwall St, Plymouth PL1 1NS, UK","104 Cornwall Street, Plymouth, United Kingdom, PL1 1NF",74.6%,69.4%,63.5%,69.2%,Poor,5
+310,Bar Rakuda,Rakuda Kitchen and Cocktail,N/A,"10-11 Quay Road, Plymouth, PL1 2JZ","11 Quay Rd, Plymouth PL1 2JZ, UK",,85.7%,0.0%,0.0%,85.7%,Good,5
+6,Barbican Kitchen (Original),Barbican Kitchen Brasserie,BARBICAN KITCHEN LIMITED,"The Plymouth Gin Distillery, 60 Southside Street, Plymouth, PL1 2LA",60 Southside Street Plymouth PL1 2LQ,"60 Southside Street, Plymouth, PL1 2LQ",67.7%,67.7%,100.0%,78.5%,Good,5
+125,Barbican Kitchen Bar,Barbican Kitchen Brasserie,BARBICAN KITCHEN LIMITED,"The Plymouth Gin Distillery, 60 Southside Street, Plymouth, PL1 2LA",60 Southside Street Plymouth PL1 2LQ,"60 Southside Street, Plymouth, PL1 2LQ",67.7%,67.7%,100.0%,78.5%,Good,5
+250,Bentley’s Brasserie,50 Degrees North Brasserie and Bar,N/A,"The Copthorne Hotel, Armada Way, Plymouth, PL1 1AR","Armada Way, Plymouth PL1 1AR, UK",,61.0%,0.0%,0.0%,61.0%,Poor,5
+71,Bistrot Pierre Plymouth,Bistrot Pierre,N/A,"New Cooperage, Royal William Yard, Plymouth, PL1 3RP",,,0.0%,0.0%,0.0%,0.0%,Mismatch,5
+226,Bonne Santé restaurant & cocktail bar,Bonne Sante,LOST IN RIO RESTAURANT & COCKTAIL BAR LIMITED,"Customs House, Parade, Plymouth, PL1 2JP","Right side entrance, Custom house, The Barbican, Plymouth PL1 2JP, UK","Lost In Rio Restaurant And Cocktail Bar 8 The Parade Barbican, Plymouth, England, PL1 2JL",57.1%,40.0%,45.1%,47.4%,Mismatch,5
+309,Boom Battle Bar Plymouth,Zizzi also trading at Coco Di Mama,N/A,"Unit 4 The Barcode, 11 Bretonside, Plymouth, PL4 0FE","Unit 6, The Barcode, Charles Cross Roundabout, Drake Circus, Plymouth PL4 0FE, UK",,57.9%,0.0%,0.0%,57.9%,Poor,5
+27,Boston Tea Party Plymouth,Boston Tea Party,THE GREAT BRITISH TEA PARTY LIMITED,"82-84 Vauxhall Street, Plymouth, PL4 0EX",,"C/O Oakleys Accountants, 117 North Hill, Plymouth, Devon, England, PL4 8JY",0.0%,30.6%,0.0%,30.6%,Mismatch,5
+330,BrewDog Plymouth,Nando's,BREWDOG PLC,"Unit 8 The Barcode, 11 Bretonside, PL4 0FE","Unit 10, the barcode, 11 Bretonside, Plymouth PL4 0FE, UK","Brewdog, Balmacassie Commercial Park, Ellon, Aberdeenshire, Scotland, AB41 8BX",92.9%,23.0%,22.2%,46.0%,Mismatch,5
+92,Burger King Plymouth,Burger King,BURGERKING LIMITED,"97-99 New George Street, Plymouth, PL1 1RQ",,"2 Atlantic Square, 31 York Street, Glasgow, Scotland, G2 8AS",0.0%,30.4%,0.0%,30.4%,Mismatch,5
+270,"Cafe Local, Plymouth Station",Cafe Local,GOSS (PLYMOUTH STATION) LIMITED,"Plymouth Railway Station, Unit 1North Road, North Road East, Plymouth, PL4 6AB","Plymouth Railway Station, Plymouth PL4 6AB, UK","55 Whitleigh Avenue, Plymouth, England, PL5 3AU",59.0%,31.0%,34.5%,41.5%,Mismatch,5
+268,Cafe Plus,Cafe Plus,CAFE PLUS MUTLEY LTD,"64 Mutley Plain, Plymouth, PL4 6LF","64 Mutley Plain, Mutley, Plymouth PL4 6LF, UK","64 Mutley Plain, Plymouth, England, PL4 6LF",82.1%,85.2%,78.1%,81.8%,Good,4
+98,Caffe Nero Plymouth,Caffe Nero,N/A,"23 Cornwall Street, City Centre, Plymouth, PL1 1NW",,,0.0%,0.0%,0.0%,0.0%,Mismatch,5
+287,Café Bené,Port O Call,N/A,"23 Bishops Place, West Hoe Road, Plymouth, Plymouth, PL1 3BW","17 Bishops Place, Plymouth PL1 3BW, UK",,69.8%,0.0%,0.0%,69.8%,Poor,4
+265,Café Olympus,Olympus,N/A,"Cambridge Road, PL2 1PU","Pantheon, Ford, Plymouth PL2 1PU, UK",,59.1%,0.0%,0.0%,59.1%,Poor,5
+326,Capital DC Tiki Bar & Lounge,Capital DC,N/A,"33a Derrys Cross, Plymouth, Plymouth, PL1 2SW","3 Derrys Cross, Plymouth PL1 2SW, UK",,89.8%,0.0%,0.0%,89.8%,Good,5
+278,Coffee Shark,Coffee Shark,N/A,"59A Hyde Park Road, Plymouth, PL3 4JN","59 Hyde Park Rd, Peverell, Plymouth PL3 4JN, UK",,78.0%,0.0%,0.0%,78.0%,Good,5
+274,Coffee time,Coffee Time,COFFEE TIME LTD,"Library, Horn Cross Road, Plymouth, PL9 9BU","134 Cornwall St, Plymouth PL1 1NJ, UK","4 Cossack Street, Rochester, England, ME1 2EF",40.0%,29.9%,37.5%,35.8%,Mismatch,4
+301,Coffee#1 Plymouth,Coffee#1,COFFEE #1 LTD,"25-27 Cornwall Street, City Centre, Plymouth, PL1 1NW","25-27 Cornwall St, Plymouth PL1 1NW, UK","9-15 Neal Street, London, WC2H 9QL",76.9%,36.9%,46.4%,53.4%,Poor,5
+231,Cosmic Kitchen,Cosmic Kitchen,COSMIC KITCHEN LIMITED,"Sir John Hawkins Square, Palace Street, Plymouth, PL1 2AY","Palace St, Plymouth PL1 2AY, UK","St Thomas Hall, Palace Street, Plymouth, Devon, England, PL1 2AY",55.7%,55.2%,51.5%,54.1%,Poor,5
+74,Costa Coffee Plymouth,Costa Coffee,COSTA COFFEE LIMITED,"2 Bravo Way, Plymouth, PL6 5GA",,"3-5 London Road, Rainham, Gillingham, Kent, England, ME8 7RG",0.0%,25.0%,0.0%,25.0%,Mismatch,5
+37,Cosy Club Plymouth,Cosy Club Plymouth,N/A,"Unit 2 The Barcode, 11 Bretonside, Plymouth, PL4 0FE",,,0.0%,0.0%,0.0%,0.0%,Mismatch,5
+245,Crown & Anchor,Capn Jaspers,N/A,"The Whitehouse, Whitehouse Pier, Barbican, Plymouth, PL1 2LS","10 The Barbican, Plymouth PL1 2LS, UK",,54.8%,0.0%,0.0%,54.8%,Poor,5
+340,Dolphin Hotel,Armado Lounge,DOLPHIN HOTEL PROPERTY LIMITED,"20 The Barbican, Plymouth, PL1 2LS","14 The Barbican, Plymouth PL1 2LS, UK","5 Block 23 Melville Royal William Yard, Plymouth, England, PL1 3RP",85.7%,33.8%,30.0%,49.8%,Mismatch,5
+307,Downtown Cafe,Downtown Coffee Shop,N/A,"Plymouth Market, Market Avenue, Plymouth, PL1 1PS","Pannier Market, The Market, Plymouth PL1 1PS, UK",,65.6%,0.0%,0.0%,65.6%,Poor,5
+232,Dunya Restaurant Turkish Cuisine,Dunya Restaurants Ltd,DUNYA RESTAURANTS LTD,"10 Derrys Cross, Plymouth, PL1 2SH","10 Derrys Cross, Plymouth PL1 2SH, UK","Gnd Flr 10 Derrys Cross Plymouth, England, PL1 2SH",93.9%,74.2%,70.8%,79.6%,Good,5
+298,Elvira’s Café,Elviras Cafe,N/A,"7 Admirals Hard, Plymouth, PL1 3RJ","7 Admiral's Hard, Stonehouse, Plymouth PL1 3RJ, UK",,75.4%,0.0%,0.0%,75.4%,Good,5
+343,Fever Clubrooms - Plymouth,Grosvenor Casino,N/A,"15 Derrys Cross, Plymouth, PL1 2SW","33 Derrys Cross, Plymouth PL1 2SW, UK",,85.7%,0.0%,0.0%,85.7%,Good,4
+242,Fig & Thyme Kitchen,Fig and Thyme Kitchen,FIG AND THYME LTD,"58 Southside Street, Plymouth, PL1 2LA","58 Southside St, Plymouth PL1 2LA, UK","58 Southside Street, Plymouth, Devon, United Kingdom, PL1 2LA",93.9%,68.7%,65.7%,76.1%,Good,5
+194,Five Guys Plymouth,Five Guys,FIVE GUYS LTD,"Unit 9 The Barcode, 11 Bretonside, Plymouth, PL4 0FE",,"10 John Street, London, WC1N 2EB",0.0%,21.2%,0.0%,21.2%,Mismatch,5
+3,Fletcher's Restaurant,Platters Restaurant,N/A,"12 The Barbican, Plymouth, PL1 2LS",,,0.0%,0.0%,0.0%,0.0%,Mismatch,4
+45,Frankie & Benny's Plymouth,Frankie & Benny's,N/A,"Barbican Leisure Park, 5a Barbican Approach, Plymouth, PL4 0LG",,,0.0%,0.0%,0.0%,0.0%,Mismatch,5
+281,Ground Coffee,Monty's Coffee Shop,N/A,"13 The Barbican, Plymouth, PL1 2LS","Barbican, Plymouth PL1 2LS, UK",,76.2%,0.0%,0.0%,76.2%,Good,2
+120,Himalayan Spice,Himalayan Spice,HIMALAYAN SPICE PLYMOUTH LTD,"31 New Street, Plymouth, PL1 2NA",,"31 New Street, Plymouth, England, PL1 2NA",0.0%,81.0%,0.0%,81.0%,Good,2
+7,Honky Tonk Wine Library,HonkyTonk Wine Library,HONKYTONK WINE LIBRARY LIMITED,"1 Pinnacle Quay, Harbour Avenue, Sutton Harbour, Plymouth, PL4 0BJ",,"2 North East Quay, Plymouth, England, PL4 0BN",0.0%,43.4%,0.0%,43.4%,Mismatch,1
+275,Irene's Pantry,Irenes Pantry,N/A,"Upper Floor Stall 147 Plymouth Market, Market Avenue, Plymouth, PL1 1PS","Market Ave, Plymouth PL1 1PR, UK",,50.0%,0.0%,0.0%,50.0%,Poor,4
+41,Jacka Bakery,N/A,N/A,,,,0.0%,0.0%,0.0%,0.0%,Mismatch,4
+306,Jasmin's,Jasmins Cafe,N/A,"81/83 Ridgeway, Plympton, Plymouth, PL7 2AA","The Hair Loft, 81-83 Ridgeway, Plympton, Plymouth PL7 2AA, UK",,78.5%,0.0%,0.0%,78.5%,Good,5
+15,Jolly Jacks,Jolly Jacks,N/A,"Mayflower Marina, Richmond Walk, Plymouth, PL1 4LS",,,0.0%,0.0%,0.0%,0.0%,Mismatch,4
+33,KFC Plymouth,KFC,KFC LIMITED,"33 Mutley Plain, Plymouth, PL4 6JG","Anson Road, Martlesham Heath , IP5 3RA","Unit 56 Wimbledon Stadium Business Centre, Riverside Road, London, England, SW17 0BE",28.6%,19.8%,16.2%,21.5%,Mismatch,4
+256,KYOWA,KYOWA,KYOWA LTD,"58 Ebrington Street, Plymouth, PL4 9AF","58 Ebrington St, Plymouth PL4 9AF, UK","58 Ebrington Street, Plymouth, England, PL4 9AF",93.9%,85.2%,80.7%,86.6%,Good,5
+244,Karak Chaii Plymouth,Karak Chaii Plymouth,KARAK CHAII PLYMOUTH LTD,"101 Armada Way, Plymouth, PL1 1HH","101 Armada Way, Plymouth PL1 1HH, UK","101 Armada Way, Plymouth, England, PL1 1HH",93.6%,84.6%,80.0%,86.1%,Good,5
+2,Knead Pizza Plymouth,Knead Pizza,KNEAD PIZZA LTD,"Prysten House, Finewell Street, Plymouth, Devon, PL1 2AE","Prysten House, Finewell St, Plymouth, PL1 2AE","Wadstray House, Blackawton, Totnes, United Kingdom, TQ9 7DE",91.7%,34.0%,27.3%,51.0%,Poor,4
+119,Koishii Sushi Bar,Oishi Sushi,N/A,"49 Mayflower Street, Plymouth, Devon, PL1 1QL","101 Mayflower St, Plymouth",,57.8%,0.0%,0.0%,57.8%,Poor,3
+228,Lanterns Restaurant,Lanterns,N/A,"88 Cornwall Street, City Centre, Plymouth, PL1 1LR","88 Cornwall St, Plymouth PL1 1LR, UK",,74.6%,0.0%,0.0%,74.6%,Good,3
+283,Lisbon Bakery and Restaurant,Lisbon Bakery and Restaurant,N/A,"22 Frankfort Gate, Plymouth, PL1 1QD","22, 22-24 Frankfort Gate, Plymouth PL1 1QD, UK",,84.7%,0.0%,0.0%,84.7%,Good,5
+229,Lost in Rio Restaurant & Cocktail Bar,Lost In Rio,LOST IN RIO RESTAURANT & COCKTAIL BAR LIMITED,"8 Parade, Plymouth, PL1 2JL","8 Parade, Plymouth PL1 2JL, UK","Lost In Rio Restaurant And Cocktail Bar 8 The Parade Barbican, Plymouth, England, PL1 2JL",91.4%,34.4%,33.3%,53.1%,Poor,0
+247,Marco Pierre White,Marco Pierre Whites Steakhouse Bar and Grill,N/A,"Crowne Plaza, Armada Way, Plymouth, PL1 2HJ","Armada Way, Plymouth PL1 2HJ, UK",,69.2%,0.0%,0.0%,69.2%,Poor,5
+344,Marina Bar,Sunday Best at The Marina,MARINA LTD,"The Marina Bar, Sutton Harbour, Plymouth, PL4 0DN","Sutton Harbour, Plymouth PL4 0DN, UK","20 Wenlock Road, London, England, N1 7GU",71.0%,25.0%,16.7%,37.5%,Mismatch,
+32,McDonald's Plymouth,McDonalds,N/A,"1 Pomphlett Road, Plymouth, PL9 7BH",,,0.0%,0.0%,0.0%,0.0%,Mismatch,5
+253,Meze Grill,The Cozy Grain,MEZE GRILL TAKEAWAY LTD,"47 Southside Street, Plymouth, PL1 2LD","48 Southside St, Plymouth PL1 2LD, UK","48 Southside Street, Plymouth, England, PL1 2LD",89.8%,81.5%,80.7%,84.0%,Good,
+352,Millbridge Inn,Amigos Coffee,N/A,"24 Molesworth Road, Stoke, Plymouth, PL1 5LZ","23 Molesworth Rd, Stoke, Plymouth PL1 5LZ, UK",,92.1%,0.0%,0.0%,92.1%,Perfect,5
+14,Miller & Carter Plymouth,Miller and Carter Plymouth,N/A,"Marrowbone Slip, Plymouth, Devon, PL4 0DW","Sutton Wharf, PL4 0HJ",,32.7%,0.0%,0.0%,32.7%,Mismatch,5
+305,Moments Café and Memory Matters Hub,Moments Cafe & Dementia Hub,MEMORY MATTERS CIC,"69a New George Street, Plymouth, PL1 1RB","69a New George St, Plymouth PL1 1RJ, UK","Moments,, 69a New George Street, Plymouth, England, PL1 1RJ",90.6%,72.7%,72.5%,78.6%,Good,5
+269,Monty's Café,Monty's Coffee Shop,N/A,"13 The Barbican, Plymouth, PL1 2LS","13 The Barbican, Plymouth PL1 2LS, UK",,93.9%,0.0%,0.0%,93.9%,Perfect,2
+239,NORA'S,Noras,N/A,"38-40 Drake Circus, Plymouth, PL4 8AB","40 Drake Circus, North Hill, Plymouth PL4 8AB, UK",,73.0%,0.0%,0.0%,73.0%,Good,5
+69,Nando's Barbican,Nando's,NANDO'S LIMITED,"Barbican Leisure Park, Barbican Approach, Coxside, Plymouth, PL4 0LG","6-7, The High Parade, Streatham High Rd, Streatham, London, SW16 1EX","St Mary's House, 42 Vicarage Crescent, London, SW11 3LD",18.6%,16.8%,45.2%,26.9%,Mismatch,5
+91,Nando's Plymouth,Nando's,NANDO'S LIMITED,"Barbican Leisure Park, Barbican Approach, Coxside, Plymouth, PL4 0LG","Plymouth Barbican, Plymouth, UK","St Mary's House, 42 Vicarage Crescent, London, SW11 3LD",33.3%,16.8%,22.2%,24.1%,Mismatch,5
+259,Nawroz Restaurant,Nawroz Restaurant,NAWROZ LIMITED,"142 King Street, Plymouth, PL1 5JE","142 King St, Stonehouse, Plymouth PL1 5JE, UK","20 Peacock Lane, Plymouth, England, PL4 0DQ",73.1%,36.0%,31.2%,46.8%,Mismatch,3
+297,News Cafe Plymouth,News Cafe,N/A,"16/17 Mill Bakery, Royal William Yard, PL1 3GE","16/17, Mills Bakery, Royal William Rd, Stonehouse, Plymouth PL1 3RP, UK",,79.2%,0.0%,0.0%,79.2%,Good,5
+273,North Street No 7 Cafe and Bar,Cafe Kiss,N/A,"7 North Street, Plymouth, PL4 0BW","7 North St, Plymouth PL4 0BW, UK",,92.3%,0.0%,0.0%,92.3%,Perfect,5
+222,Ocean View at The Dome,Ocean View at the Dome,N/A,"Hoe Road, Plymouth, PL1 2NZ","Hoe Rd, Plymouth PL1 2NZ, UK",,90.3%,0.0%,0.0%,90.3%,Perfect,5
+313,Old Town Tiki Bar,Olive and Twist,N/A,"7-9 Old Town Street, Plymouth, PL1 1DA","1 Old Town St, Plymouth PL1 1DA, UK",,85.1%,0.0%,0.0%,85.1%,Good,5
+272,Olive & Twist - Plymouth City Centre,Olive and Twist,N/A,"7-9 Old Town Street, Plymouth, PL1 1DA","9 Old Town St, Plymouth PL1 1DD, UK",,85.1%,0.0%,0.0%,85.1%,Good,5
+5,Pier One,Pier One,PIER ONE (SW) LTD,"Pier One, 135 Hoe Road, Plymouth, PL1 3DE",,"135 Hoe Road, Plymouth, England, PL1 3DE",0.0%,67.9%,0.0%,67.9%,Poor,4
+46,Pizza Express Plymouth,Pizza Express,PIZZAEXPRESS LIMITED,"Plymouth Theatre Royal Pilgrim's House, 17 Derrys Cross, Plymouth, PL1 2SW","Pilgrims House, 17 Derry's Cross, Plymouth, PL1 2SW","Building 01 Arc Uxbridge, Sanderson Road, Uxbridge, Middlesex, United Kingdom, UB8 1DH",82.6%,21.9%,28.1%,44.2%,Mismatch,5
+243,Plates Fusion Pub,Plates Fusion Pub,N/A,"Morley Arms, 4 Billacombe Road, Plymouth, PL9 7HP","4 Billacombe Rd, Plymouth PL9 7HP, UK",,75.4%,0.0%,0.0%,75.4%,Good,
+254,Platters,Platters Restaurant,N/A,"12 The Barbican, Plymouth, PL1 2LS","12 The Barbican, Plymouth PL1 2LS, UK",,93.9%,0.0%,0.0%,93.9%,Perfect,4
+122,Plymouth Arts Centre Cafe,Plymouth Arts Centre Food,PLYMOUTH ARTS CINEMA,"38 Looe Street, Plymouth, PL4 0EB",,"C/O Arts University Plymouth, Tavistock Place, Plymouth, England, PL4 8AT",0.0%,26.1%,0.0%,26.1%,Mismatch,5
+70,Plymouth Arts Centre Café,Plymouth Arts Centre Food,"PLYMOUTH RADIO, MEDIA AND ARTS CIC","38 Looe Street, Plymouth, PL4 0EB",,"The Old Morgue, 14-17 Manor Street, Plymouth, Devon, England, PL1 1TL",0.0%,31.9%,0.0%,31.9%,Mismatch,5
+257,Plymouth Jollof Kitchen,Plymouth Jollof Kitchen CIC,PLYMOUTH JOLLOF KITCHEN COMMUNITY INTEREST COMPANY,"65 Union Street, Plymouth, PL1 3LU","65 Union St, Stonehouse, Plymouth PL1 3LU, UK","65 The Clipper Union Street, Plymouth, Devon, England, PL1 3LU",73.1%,59.4%,59.0%,63.8%,Poor,5
+323,Portico Cocktail Bar and Cafe,The Portico,N/A,"33 Notte Street, Plymouth, PL1 2AZ","33 Notte St, Plymouth PL1 2AZ, UK",,92.7%,0.0%,0.0%,92.7%,Perfect,2
+227,Positano,Positano Restaurant,POSITANO LIMITED,"36-38 Mayflower Street, Plymouth, Devon, PL1 1QX","36-38 Mayflower St, Plymouth PL1 1QX, UK","Unit A11 Setters Farm, Mount Pleasant Lane, Lymington, England, SO41 8LS",85.2%,26.0%,20.6%,44.0%,Mismatch,5
+303,Rhubarb & Mustard,Rhubarb & Mustard Coffee & Kitchen,RHUBARB & MUSTARD SW LTD,"Studio 5-11, Millbay Road, Plymouth, PL1 3LF","studio 5/11, 7a Millbay Rd, Plymouth PL1 3LF, UK","7a Millbay Road, Studio 5-11, Plymouth, England, PL1 3LF",90.9%,64.8%,54.5%,70.1%,Good,5
+262,Rise and Grind Plymouth,Rise and Grind,RISE AND GRIND LIMITED,"10 Commercial Wharf, Madeira Road, Plymouth, PL1 2NX","10 Commercial Wharf, Plymouth PL1 2NX, UK","10 10 Commercial Wharf, Madeira Road, Plymouth, Devon, United Kingdom, PL1 2NX",79.4%,76.0%,58.7%,71.4%,Good,5
+300,Rockets and Rascals,Rockets and Rascals,N/A,"7 Parade, Plymouth, PL1 2JL","7 Parade, Plymouth PL1 2JL, UK",,91.4%,0.0%,0.0%,91.4%,Perfect,5
+4,Rockfish Plymouth,Rockfish Plymouth,N/A,"3 Rope Walk, Plymouth, PL4 0LB","3 Rope Walk, Plymouth, PL4 0LB",,100.0%,0.0%,0.0%,100.0%,Perfect,5
+214,Roundabout Plymouth,Mr Woks Thai Noodle & Street Food limited,ROUNDABOUT LIMITED,"10 Drake Circus, Plymouth, PL4 8AQ","2-4 Drake Circus, Plymouth, PL4 8AQ","13-17 St Barnabas Road, Sheffield, South Yorkshire, S2 4TF",89.4%,26.3%,7.8%,41.2%,Mismatch,5
+322,Rust & Royal,Rust & Royal,N/A,"8-9 Quay Road, Plymouth, PL1 2JZ","PL1, 7-8 Quay Rd, Plymouth PL1 2JZ, UK",,75.6%,0.0%,0.0%,75.6%,Good,5
+224,Rwandz Restaurant,Nawroz Restaurant,RWANDZ DELIVERY LTD,"142 King Street, Plymouth, PL1 5JE","12 Cornwall St, Plymouth PL1 1LP, UK","12 Cornwall Street, Plymouth, United Kingdom, PL1 1LP",54.5%,42.9%,71.0%,56.1%,Poor,3
+299,SATO by Minerva Cafe,Sato by Minerva plymouth,MINERVA CAFE LTD,"29 Candlewick Lane, Plymouth, PL4 0FF","1-29, candlewick road, Alma Yard, Plymouth PL4 0FF, UK","26 Providence Street, Plymouth, Devon, United Kingdom, PL4 8JQ",73.8%,33.8%,28.6%,45.4%,Mismatch,
+266,Salt and Pepper Kitchen Plymouth,Salt and Pepper Kitchen,SALT & PEPPER KITCHEN PLYMOUTH LTD,"65-66 High Street, Barbican, Plymouth, PL1 2AW","65 High St, Plymouth PL1 2AW, UK","65 High Street, Plymouth, England, PL1 2AW",70.6%,75.0%,76.6%,74.1%,Good,4
+205,Salumi Bar & Eatery,Salumi Bar & Eatery,N/A,"18 Millbay Road, Plymouth, PL1 3LH","18 Millbay Road, Millbay, Plymouth, PL1 3LH",,84.0%,0.0%,0.0%,84.0%,Good,5
+157,Seco Lounge,Seco lounge,N/A,"Mill Bakery, Royal William Yard, Plymouth, PL1 3RP",,,0.0%,0.0%,0.0%,0.0%,Mismatch,4
+292,Sonnys coffee shop,Sonny's Coffee Shop,SONNY’S COFFEE SHOP LIMITED,"65 Hyde Park Road, Plymouth, PL3 4JN","65 Hyde Park Rd, Peverell, Plymouth PL3 4JN, UK","65 Hyde Park Road, Peverell, Plymouth, Devon, United Kingdom, PL3 4JN",79.3%,60.5%,72.7%,70.9%,Good,4
+336,Spinners Plymouth,Cineworld Cinemas,SPINNERS LTD,"Unit 17 The Barcode, 11 Bretonside, Plymouth, PL4 0FE","Unit 12, The Barcode, Plymouth PL4 0FE, UK","126 Petersfield Road, Bournemouth, Dorset, BH7 6QN",73.2%,16.3%,13.3%,34.3%,Mismatch,5
+73,Starbucks Drake Circus,Starbucks,N/A,"67 Mutley Plain, Plymouth, PL4 6JH",,,0.0%,0.0%,0.0%,0.0%,Mismatch,5
+240,Steak & Omelette,Steak & Omelette Bar,N/A,"116-118 Cornwall Street, City Centre, Plymouth, PL1 1NF","116-118 Cornwall St, Plymouth PL1 1NF, UK",,78.3%,0.0%,0.0%,78.3%,Good,5
+363,Stoke Inn,Stoke Village Cafe,N/A,"55 Devonport Road, Plymouth, PL3 4DL","43 Devonport Rd, Stoke, Plymouth PL3 4DL, UK",,76.4%,0.0%,0.0%,76.4%,Good,4
+284,Stoke Village Cafe,Stoke Village Cafe,STOKE VILLAGE CAFE LTD,"55 Devonport Road, Plymouth, PL3 4DL","55 Devonport Rd, Stoke, Plymouth PL3 4DL, UK","C/O Businessvision Unit 4, Sandy Court, Ashleigh Way Plympton, Plymouth, Devon, England, PL7 5JX",83.6%,23.1%,21.2%,42.7%,Mismatch,4
+34,Subway Plymouth,Subway,SUBWAY LIMITED,"6-7 Derrys Cross, Plymouth, PL1 2SN",,"45 New Bedford Road, Luton, England, LU1 1SE",0.0%,28.6%,0.0%,28.6%,Mismatch,5
+186,Taco Bell Plymouth,Taco Bell,N/A,"19 New George Street, Plymouth, PL1 1QZ",,,0.0%,0.0%,0.0%,0.0%,Mismatch,5
+277,Tasties cafe,Tasties Cafe,TASTIES LIMITED,"Upper Floor Stall 150 Plymouth Market, Market Avenue, Plymouth, PL1 1PS","1 Cornwall St, Plymouth PL1 1DH, UK","63 Nutfield Road, Merstham, Redhill, England, RH1 3ER",39.4%,27.7%,25.4%,30.8%,Mismatch,4
+267,Terra Nova Café,Terra Nova Cafe,N/A,"41 Chapel Street, PL1 4DP","41 Chapel St, Devonport, Plymouth PL1 4DP, UK",,75.5%,0.0%,0.0%,75.5%,Good,4
+145,The Bank Restaurant & Bar,The Park Restaurant,N/A,"Saltram House Saltram, Merafield Road, Plymouth, PL7 1UH",,,0.0%,0.0%,0.0%,0.0%,Mismatch,5
+234,The Boathouse Plymouth,The Boathouse Cafe,THE BOATHOUSE CHINESE LTD,"2-5 Commercial Wharf, Madeira Road, Plymouth, PL1 2NX","2-5 Commercial Wharf, Plymouth PL1 2NX, UK","50 Southern Terrace, Plymouth, England, PL4 7LT",80.0%,37.8%,30.3%,49.4%,Mismatch,5
+238,The Bottling Plant Ltd,The Bottling Plant,THE BOTTLING PLANT LIMITED,"5 Southside Street, Barbican, Plymouth, PL1 3LA","5 Southside St, Plymouth PL1 2LA, UK","24 Cornwall Road, Dorchester, England, DT1 1RX",75.0%,33.3%,30.3%,46.2%,Mismatch,5
+308,The Box Kitchen & Bar,The Box Kitchen & Bar,N/A,"The Box, Tavistock Place, Plymouth, PL4 8AX","Tavistock Pl, Plymouth PL4 8AX, UK",,74.1%,0.0%,0.0%,74.1%,Good,5
+141,The Bread & Roses,Bread and Roses,N/A,"62 Ebrington Street, Plymouth, PL4 9AF",,,0.0%,0.0%,0.0%,0.0%,Mismatch,5
+183,The Breakfast Club Plymouth,The Big Breakfast,N/A,"184 Albert Road, Plymouth, PL2 1AL","303 The Westgate, Queen St, Oxford OX1 1PG",,32.8%,0.0%,0.0%,32.8%,Mismatch,4
+241,The Bridge,The Bridge Bar and Restaurant,THE BRIDGE,"Shaw Way, Mountbatten, Plymouth, PL9 9XH","The Bridge Bar & Restaurant, 55 Shaw Way, Mount Batten, Plymouth PL9 9XH, UK",,62.9%,0.0%,0.0%,62.9%,Poor,4
+285,The Caffeine Club,Caffeine Club,THE CAFFEINE CLUB LIMITED,"46 Tavistock Place, Plymouth, PL4 8AX","46 Tavistock Pl, Plymouth PL4 8AX, UK","C/O Oakleys Accountants, 117 North Hill, Plymouth, Devon, England, PL4 8JY",88.5%,32.6%,30.2%,50.4%,Poor,5
+263,The Climbing Hangar Plymouth Café,Climbing Hangar Plymouth,N/A,"Unit 9, 6 Burrington Road, Plymouth, Plymouth, PL5 3LX","Unit 9 Burrington Business Pk, Plymouth PL5 3LX, UK",,74.3%,0.0%,0.0%,74.3%,Good,5
+237,The Clippy,The Cornish Bakery,N/A,"20 The Barbican, Plymouth, PL1 2LS","Plymouth PL1 2LS, UK",,42.4%,0.0%,0.0%,42.4%,Mismatch,5
+286,The Coffee Shack,The Coffee Shack,N/A,"Hoe Road, Plymouth, PL1 3DE","91 W Hoe Rd, Plymouth PL1 3DE, UK",,77.8%,0.0%,0.0%,77.8%,Good,5
+304,The Discovery Café,Discovery Cafe (PMCH Developments),N/A,"Methodist Central Hall, Eastlake Street, Plymouth, Devon, PL1 1BA","Methodist Central Hall, Eastlake St, Plymouth PL1 1BA, UK",,90.3%,0.0%,0.0%,90.3%,Perfect,5
+50,The Dock,The Dock,N/A,"King Point Marina, Brunel Way, Millbay Road, Plymouth, PL1 3EF",,,0.0%,0.0%,0.0%,0.0%,Mismatch,2
+335,The Eagle,The Stable Plymouth,N/A,"Little Vauxhall Street, The Barbican, PL4 0EY","156 Cornwall St, Plymouth PL1 1NJ, UK",,33.8%,0.0%,0.0%,33.8%,Mismatch,5
+295,The Early Bird,The Earlybird,THE EARLY BIRD CAFE LTD,"51 Mutley Plain, Plymouth, PL4 6JH","51 Mutley Plain, Mutley, Plymouth PL4 6JH, UK","51 Mutley Plain, Mutley, Plymouth, Devon, England, PL4 6JH",82.1%,68.7%,77.9%,76.2%,Good,3
+146,The Early Bird Cafe,The Early Bird,THE EARLY BIRD CAFE (OTW) LTD,"34 Mayflower Street, Plymouth, PL1 1QX",,"34 Mayflower Street, Plymouth, England, PL1 1QX",0.0%,85.2%,0.0%,85.2%,Good,5
+233,The Fig Tree @ 36,The Fig Tree @36,N/A,"Restaurant, 36 Admiralty Street, Stonehouse, Plymouth, PL1 3RU","36 Admiralty St, Stonehouse, Plymouth PL1 3RU, UK",,82.9%,0.0%,0.0%,82.9%,Good,5
+264,The Flower Cafe,The Flower Cafe,THE FLOWER CAFE LTD,"46 Southside Street, Plymouth, PL1 2LD","46 Southside St, Plymouth PL1 2LD, UK","46 Southside Street, Plymouth, England, PL1 2LD",93.9%,85.2%,80.7%,86.6%,Good,5
+351,The Fortescue,Goodbody's # propercafe,N/A,"49 Mutley Plain, Plymouth, PL4 6JQ","37 Mutley Plain, Mutley, Plymouth PL4 6JQ, UK",,75.0%,0.0%,0.0%,75.0%,Good,3
+258,The Funky Panda Restaurant & Cocktail Bar,Funky Panda,LOST IN RIO RESTAURANT & COCKTAIL BAR LIMITED,"5 Old Town Street, Plymouth, PL1 1DA","5 Old Town St, Plymouth PL1 1DA, UK","Lost In Rio Restaurant And Cocktail Bar 8 The Parade Barbican, Plymouth, England, PL1 2JL",93.3%,24.5%,23.8%,47.2%,Mismatch,1
+341,The Gog and Magog - JD Wetherspoon,The Legends Lair,N/A,"The House That Jack Built, 10 Southside Street, Plymouth, Plymouth, PL1 2LA","57-59 Southside St, Plymouth PL1 2LA, UK",,56.4%,0.0%,0.0%,56.4%,Poor,
+260,The Ground Coffee House,The Ground Coffee House,N/A,"192 Armada Way, Plymouth, PL1 1LD","Beckley Court, 192 Armada Way, Plymouth PL1 1LD, UK",,72.1%,0.0%,0.0%,72.1%,Good,5
+235,The Harbour Seafood Restaurant & Takeaway,Platters Restaurant,N/A,"12 The Barbican, Plymouth, PL1 2LS","Sutton Harbour, 21 The Barbican, Plymouth PL1 2LS, UK",,68.8%,0.0%,0.0%,68.8%,Poor,4
+294,The Hideaway Cafe,Hideaway Cafe,THE HIDEAWAY CAFE PLYMOUTH LTD,"Unit 24-25 Faraday Mill Business Park, Cattewater Road, Plymouth, PL4 0ST","25, Faraday Mill Business Park, Faraday Rd, Cattedown, Plymouth PL4 0ST, UK","120 Hooe Road, Plymouth, England, PL9 9NJ",73.3%,20.9%,29.5%,41.3%,Mismatch,5
+255,The Hook & Line,The Hook and Line,THE HOOK AND LINE PLYMOUTH LTD,"Unit A & B Slaughterhouse Unit, Royal William Yard, Plymouth, PL1 3GE","Royal William Rd, Stonehouse, Plymouth PL1 3QQ, UK","4-5 Russell Court, Palace Street, Plymouth, Devon, England, PL1 2AS",47.3%,28.8%,36.8%,37.6%,Mismatch,5
+291,The Hutong Bagel Co.,The Hutong Cafe,THE HUTONG BAGEL COMPANY LIMITED,"Butchers Arms, 160 Cremyll Street, Plymouth, PL1 3RB","160 Cremyll St, Stonehouse, Plymouth PL1 3RB, UK","Abacus House, 129 North Hill, Plymouth, Devon, England, PL4 8JY",61.1%,37.6%,23.5%,40.8%,Mismatch,5
+354,The Kings Head,Uno Street Foods Co / Babawok,N/A,"35 Bretonside, Plymouth, PL4 0BB","21 Bretonside, Plymouth PL4 0BB, UK",,84.4%,0.0%,0.0%,84.4%,Good,3
+220,The Leandra,Leandra,N/A,"19 Frankfort Gate, Plymouth, PL1 1QA","19-21 Frankfort Gate, Plymouth PL1 1QA, UK",,89.3%,0.0%,0.0%,89.3%,Good,5
+293,The Library Café,The Container Café,N/A,"Roland Levinsky Building University Of Plymouth, Drake Circus, Plymouth, PL4 8AA","1st Floor Charles Seale-Library 18 Drake's Circus, 18 Drake Circus, Plymouth PL4 8AA, UK",,51.9%,0.0%,0.0%,51.9%,Poor,5
+302,The Little Kitchen - TLK Plymouth,The Little Kitchen,THE PLYMOUTH KITCHEN COMPANY LTD,"40 Mutley Plain, Plymouth, PL4 6LE","40 Mutley Plain, Mutley, Plymouth PL4 6LE, UK","Unit 41e Valley Road, Plympton, Plymouth, United Kingdom, PL7 1RF",82.1%,30.1%,28.9%,47.1%,Mismatch,4
+288,The Mad Merchants Coffee House,The Mad Merchant Coffee House,N/A,"37 New Street, Plymouth, PL1 2NA","37 New St, Plymouth PL1 2NE, UK",,86.5%,0.0%,0.0%,86.5%,Good,5
+147,The Mannamead,N/A,MANNAMEAD CARS LTD,,,"C/O Oakleys Accountants, 117 North Hill, Plymouth, Devon, England, PL4 8JY",0.0%,0.0%,0.0%,0.0%,Mismatch,5
+350,The Maritime Inn,The Cozy Grain,N/A,"47 Southside Street, Plymouth, PL1 2LD","19 Southside St, Plymouth PL1 2LD, UK",,85.7%,0.0%,0.0%,85.7%,Good,
+280,The Mess Room,The Mess Room,N/A,"Plymouth Yacht Haven, Breakwater Road, Plymouth, PL9 7HJ","Breakwater Rd, Plymouth PL9 7HJ, UK",,73.7%,0.0%,0.0%,73.7%,Good,5
+362,The Miners Arms,The Mess Room,THE MINERS ARMS (HEMERDON) LIMITED,"Plymouth Yacht Haven, Breakwater Road, Plymouth, PL9 7HJ","Hemerdon Ln, Hemerdon, Plymouth PL7 5BU, UK","Plym House 3 Longbridge Road Marsh Mills, Plymouth, PL6 8LT",34.4%,38.0%,28.6%,33.6%,Mismatch,5
+329,The Navy Inn,Stavros,THE NAVY INN LIMITED,"37 Southside Street, Plymouth, PL1 2LE","34 Southside St, Plymouth PL1 2LE, UK","211 Manchester New Road Middleton, Manchester, England, M24 1JT",89.8%,29.6%,7.1%,42.2%,Mismatch,3
+320,The Pit and Pendulum,Bread and Roses,PIT & PENDULUM LTD,"62 Ebrington Street, Plymouth, PL4 9AF","50 Ebrington St, Plymouth PL4 9AF, UK","50 Ebrington Street, Plymouth, United Kingdom, PL4 9AF",85.7%,68.9%,71.9%,75.5%,Good,5
+282,The Promenade Cafe Bar,Promenade Cafe,N/A,"Hoe Lodge, Hoe Gardens, Plymouth Hoe, Plymouth, PL1 2PA","The Lodge, Plymouth PL1 2PA, UK",,60.4%,0.0%,0.0%,60.4%,Poor,5
+325,The Queens Arms,The Legends Lair,THE QUEEN'S ARMS LIMITED,"The House That Jack Built, 10 Southside Street, Plymouth, Plymouth, PL1 2LA","55 Southside St, Plymouth PL1 2LA, UK","Manor Barn 24 Norlinton Close Orlingbury, Kettering, England, NN14 1FD",56.0%,22.4%,19.4%,32.6%,Mismatch,
+36,The Stable Plymouth,The Stable Plymouth,N/A,"Little Vauxhall Street, The Barbican, PL4 0EY",,,0.0%,0.0%,0.0%,0.0%,Mismatch,5
+107,The Terrace Cafe,The Terrace,THE TERRACE APPAREL LIMITED,"Madeira Road, The Hoe, Plymouth, PL1 2NY","The Duke of Cornwall Hotel, Plymouth","12 Deeble Close, Plymouth, England, PL7 4BR",30.8%,35.1%,21.1%,29.0%,Mismatch,4
+347,The Three Crowns,The Custom House,N/A,"The Custom House, 10 Parade, Plymouth, PL1 2JL","11 The Parade, Plymouth PL1 2JL, UK",,62.1%,0.0%,0.0%,62.1%,Poor,5
+357,The Trawlerman,Trawlerman,THE TRAWLERMAN,"51-53 Bretonside, Plymouth, PL4 0BD","51-53 Bretonside, Plymouth PL4 0BD, UK","Skipton Road, Keighley, Cross Hills, BD20 7BQ",94.1%,25.0%,26.9%,48.7%,Mismatch,5
+249,The Treasury Cafe-Bar-Restaurant,Treasury Bar,N/A,"Catherine Street, Plymouth, Devon, PL1 2AD","Catherine St, Plymouth PL1 2AD, UK",,81.6%,0.0%,0.0%,81.6%,Good,5
+10,The Village Restaurant,The Village Restaurant,THE NEW VILLAGE RESTAURANT LTD,"31A Southside Street, Plymouth, PL1 2LE",,"32 Southside Street, Plymouth, England, PL1 2LE",0.0%,80.0%,0.0%,80.0%,Good,4
+221,"The Waterfront, Plymouth",The Waterfront,N/A,"9 Grand Parade, Plymouth, PL1 3DF","9 Grand Parade, Plymouth PL1 3DQ, UK",,89.4%,0.0%,0.0%,89.4%,Good,5
+355,The West Hoe,Port O Call,WEST HOE HOLDINGS LIMITED,"23 Bishops Place, West Hoe Road, Plymouth, Plymouth, PL1 3BW","24 Bishops Place, Plymouth PL1 3BW, UK","Barbican House, 36 New Street, Plymouth, Devon, United Kingdom, PL1 2NA",73.0%,44.9%,30.0%,49.3%,Mismatch,4
+314,Tigermilk,Pizza Express,TIGERMILK LLP,"Plymouth Theatre Royal Pilgrim's House, 17 Derrys Cross, Plymouth, PL1 2SW","Pilgrim House, 17 Derrys Cross, Plymouth PL1 2SW, UK","Unit 4, Sandy Court Ashleigh Way, Plympton, Plymouth, Devon, United Kingdom, PL7 5JX",79.6%,31.1%,29.4%,46.7%,Mismatch,5
+225,Toot,Toot,N/A,"46 Mayflower Street, Plymouth, PL1 1QX","46 Mayflower St, Plymouth PL1 1QX, UK",,93.9%,0.0%,0.0%,93.9%,Perfect,3
+80,Turtle Bay Plymouth,Turtle Bay,TURTLE BAY LIMITED,"5 St Andrews Cross, Plymouth, PL1 1AB",,"67 Chorley Old Road, Bolton, England, BL1 3AJ",0.0%,33.3%,0.0%,33.3%,Mismatch,5
+16,Wagamama Plymouth,Wagamama,WAGAMAMA LIMITED,"Unit 2 Brewhouse, Royal William Yard, Plymouth, PL1 3QQ",,"5-7 Marshalsea Road, London, England, SE1 1EP",0.0%,31.3%,0.0%,31.3%,Mismatch,5
+132,Wagamama Royal William Yard,Wagamama,WAGAMAMA LIMITED,"Unit 2 Brewhouse, Royal William Yard, Plymouth, PL1 3QQ",,"5-7 Marshalsea Road, London, England, SE1 1EP",0.0%,31.3%,0.0%,31.3%,Mismatch,5
+97,Wildwood Plymouth,Wildwood,WILDWOOD LIMITED,"The Slaughter House, Royal William Yard, PL1 3RP",,"Jayar House Motorway Industrial Estate, Forstal, Aylesford, Kent, ME20 7AF",0.0%,34.5%,0.0%,34.5%,Mismatch,5
+248,Wingstop Plymouth,WINGSTOP UK,N/A,"2 Old Town Street, Plymouth, PL1 1DP","2 Old Town St, Plymouth PL1 1DP, UK",,93.3%,0.0%,0.0%,93.3%,Perfect,5
+84,Yo! Sushi Plymouth,Yo! Sushi,YO! SUSHI LIMITED,"Kiosk A Drake Circus Shopping Mall, 1 Charles Street, Plymouth, PL1 1EA",,"Fourth Floor, 69 Wilson Street, London, United Kingdom, EC2A 2BB",0.0%,19.8%,0.0%,19.8%,Mismatch,4
+251,Zephyr Burgers,Zephyr Burgers,ZEPHYR BURGERS LTD,"8 Drake Circus, Plymouth, PL4 8AQ","8 Drake Circus, Plymouth PL4 8AQ, UK","8 Dundonald Street, 8 Dundonald Street, Plymouth, England, PL2 1EJ",93.6%,26.9%,25.7%,48.7%,Mismatch,5
+236,Zeus,Zeus,N/A,"150-152 Cornwall Street, City Centre, Plymouth, PL1 1NJ","150-152 Cornwall St, Plymouth PL1 1NJ, UK",,78.3%,0.0%,0.0%,78.3%,Good,3
