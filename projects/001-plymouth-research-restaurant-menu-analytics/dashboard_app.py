@@ -2240,20 +2240,25 @@ def main():
                 'fsa_longitude': 'lon'
             })
 
-            # Add jitter to prevent overlapping markers
+            # Spread overlapping markers in a circle pattern
             # Group by coordinates to find duplicates
             coord_groups = map_data.groupby(['lat', 'lon']).size()
             duplicate_coords = coord_groups[coord_groups > 1].index
 
-            # Apply jitter to duplicate coordinates
+            # Apply circular spread to duplicate coordinates
             import numpy as np
             for coord in duplicate_coords:
                 mask = (map_data['lat'] == coord[0]) & (map_data['lon'] == coord[1])
-                n_duplicates = mask.sum()
-                # Add significant random offset (0.0015 degrees ≈ 150 meters) for clear visibility
-                np.random.seed(hash(coord) % 2**32)  # Consistent jitter for same coordinates
-                map_data.loc[mask, 'lat'] += np.random.uniform(-0.0015, 0.0015, n_duplicates)
-                map_data.loc[mask, 'lon'] += np.random.uniform(-0.0015, 0.0015, n_duplicates)
+                duplicate_rows = map_data[mask].copy()
+                n_duplicates = len(duplicate_rows)
+
+                # Spread in a circle (0.0015 degrees ≈ 150 meters radius)
+                radius = 0.0015
+                for i, (idx, row) in enumerate(duplicate_rows.iterrows()):
+                    # Use restaurant_id for consistent angle assignment
+                    angle = (2 * np.pi * hash(row['restaurant_id']) / (2**32)) + (2 * np.pi * i / n_duplicates)
+                    map_data.loc[idx, 'lat'] = coord[0] + radius * np.sin(angle)
+                    map_data.loc[idx, 'lon'] = coord[1] + radius * np.cos(angle)
 
             # Create color mapping for hygiene ratings
             def get_rating_color(rating):
