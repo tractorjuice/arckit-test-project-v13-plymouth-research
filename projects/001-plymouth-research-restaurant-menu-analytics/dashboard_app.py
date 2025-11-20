@@ -3164,37 +3164,42 @@ def main():
                 if has_prior:
                     st.markdown("#### 📊 Year-over-Year Comparison")
 
-                    # Create comparison table
-                    comparison_col1, comparison_col2, comparison_col3 = st.columns(3)
+                    # Build comparison data
+                    period_end = pd.to_datetime(restaurant['accounts_period_end']) if pd.notna(restaurant.get('accounts_period_end')) else None
+                    current_year = period_end.year if period_end else "Current"
+                    prior_year = current_year - 1 if isinstance(current_year, int) else "Prior"
 
-                    with comparison_col1:
-                        st.markdown("**Metric**")
-                        st.markdown("Net Assets")
-                        if pd.notna(restaurant.get('employees')):
-                            st.markdown("Employees")
-                        if pd.notna(restaurant.get('total_assets_gbp')):
-                            st.markdown("Total Assets")
+                    # Build rows - always show all metrics, use N/A for missing data
+                    comparison_data = []
 
-                    with comparison_col2:
-                        period_end = pd.to_datetime(restaurant['accounts_period_end']) if pd.notna(restaurant.get('accounts_period_end')) else None
-                        current_year = period_end.year if period_end else "Current"
-                        st.markdown(f"**{current_year}**")
-                        st.markdown(format_currency(restaurant.get('net_assets_gbp')))
-                        if pd.notna(restaurant.get('employees')):
-                            emp = int(restaurant['employees'])
-                            st.markdown(f"{emp} staff")
-                        if pd.notna(restaurant.get('total_assets_gbp')):
-                            st.markdown(format_currency(restaurant.get('total_assets_gbp')))
+                    # Net Assets (always present)
+                    comparison_data.append({
+                        'Metric': 'Net Assets',
+                        str(current_year): format_currency(restaurant.get('net_assets_gbp')),
+                        str(prior_year): format_currency(restaurant.get('net_assets_gbp_prior'))
+                    })
 
-                    with comparison_col3:
-                        prior_year = current_year - 1 if isinstance(current_year, int) else "Prior"
-                        st.markdown(f"**{prior_year}**")
-                        st.markdown(format_currency(restaurant.get('net_assets_gbp_prior')))
-                        if pd.notna(restaurant.get('employees_prior')):
-                            emp_prior = int(restaurant['employees_prior'])
-                            st.markdown(f"{emp_prior} staff")
-                        if pd.notna(restaurant.get('total_assets_gbp_prior')):
-                            st.markdown(format_currency(restaurant.get('total_assets_gbp_prior')))
+                    # Employees (show if either year has data)
+                    if pd.notna(restaurant.get('employees')) or pd.notna(restaurant.get('employees_prior')):
+                        current_emp = f"{int(restaurant['employees'])} staff" if pd.notna(restaurant.get('employees')) else "N/A"
+                        prior_emp = f"{int(restaurant['employees_prior'])} staff" if pd.notna(restaurant.get('employees_prior')) else "N/A"
+                        comparison_data.append({
+                            'Metric': 'Employees',
+                            str(current_year): current_emp,
+                            str(prior_year): prior_emp
+                        })
+
+                    # Total Assets (show if either year has data)
+                    if pd.notna(restaurant.get('total_assets_gbp')) or pd.notna(restaurant.get('total_assets_gbp_prior')):
+                        comparison_data.append({
+                            'Metric': 'Total Assets',
+                            str(current_year): format_currency(restaurant.get('total_assets_gbp')),
+                            str(prior_year): format_currency(restaurant.get('total_assets_gbp_prior'))
+                        })
+
+                    # Display as DataFrame for better alignment
+                    comparison_df = pd.DataFrame(comparison_data)
+                    st.dataframe(comparison_df, hide_index=True, use_container_width=True)
 
                     # Year-over-year changes
                     st.markdown("#### 📈 Performance Metrics")
