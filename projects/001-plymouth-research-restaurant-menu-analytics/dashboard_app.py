@@ -3124,7 +3124,7 @@ def main():
                     color=category_counts.values,
                     color_continuous_scale=['green', 'lightgreen', 'orange', 'red']
                 )
-                st.plotly_chart(fig_addr_bar, use_container_width=True)
+                st.plotly_chart(fig_addr_bar, width='stretch')
 
             with chart_col2:
                 fig_addr_pie = px.pie(
@@ -3133,7 +3133,7 @@ def main():
                     title="Address Match Quality Breakdown",
                     color_discrete_sequence=['green', 'lightgreen', 'orange', 'red']
                 )
-                st.plotly_chart(fig_addr_pie, use_container_width=True)
+                st.plotly_chart(fig_addr_pie, width='stretch')
 
             # Problematic restaurants table
             if poor_count + mismatch_count > 0:
