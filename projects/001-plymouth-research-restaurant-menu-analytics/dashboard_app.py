@@ -2503,192 +2503,199 @@ def main():
         st.markdown("---")
         st.header("💰 Financial Analysis")
 
-        # Filter restaurants with financial data
-        financial_df = restaurants_df[restaurants_df['net_assets_gbp'].notna()].copy()
+        # Check if financial data columns exist
+        has_financial_data = 'net_assets_gbp' in restaurants_df.columns
 
-        if len(financial_df) > 0:
-            # Overview metrics
-            fin_metric_col1, fin_metric_col2, fin_metric_col3, fin_metric_col4 = st.columns(4)
+        if not has_financial_data:
+            st.info("💼 Financial data is not yet available in this deployment. Financial data is fetched from Companies House for UK-registered companies.")
+            st.caption("To add financial data, run the `fetch_balance_sheets.py` script to populate the database with Companies House data.")
+        else:
+            # Filter restaurants with financial data
+            financial_df = restaurants_df[restaurants_df['net_assets_gbp'].notna()].copy()
 
-            with fin_metric_col1:
-                st.metric("Companies with Financial Data", len(financial_df))
+            if len(financial_df) > 0:
+                # Overview metrics
+                fin_metric_col1, fin_metric_col2, fin_metric_col3, fin_metric_col4 = st.columns(4)
 
-            with fin_metric_col2:
-                avg_net_assets = financial_df['net_assets_gbp'].mean()
-                if avg_net_assets >= 1_000_000:
-                    st.metric("Average Net Assets", f"£{avg_net_assets/1_000_000:.2f}M")
-                elif avg_net_assets >= 1_000:
-                    st.metric("Average Net Assets", f"£{avg_net_assets/1_000:.1f}k")
-                else:
-                    st.metric("Average Net Assets", f"£{avg_net_assets:,.0f}")
+                with fin_metric_col1:
+                    st.metric("Companies with Financial Data", len(financial_df))
 
-            with fin_metric_col3:
-                companies_with_employees = financial_df[financial_df['employees'].notna() & (financial_df['employees'] > 0)]
-                if len(companies_with_employees) > 0:
-                    avg_employees = companies_with_employees['employees'].mean()
-                    st.metric("Average Employees", f"{avg_employees:.0f}")
-                else:
-                    st.metric("Average Employees", "N/A")
+                with fin_metric_col2:
+                    avg_net_assets = financial_df['net_assets_gbp'].mean()
+                    if avg_net_assets >= 1_000_000:
+                        st.metric("Average Net Assets", f"£{avg_net_assets/1_000_000:.2f}M")
+                    elif avg_net_assets >= 1_000:
+                        st.metric("Average Net Assets", f"£{avg_net_assets/1_000:.1f}k")
+                    else:
+                        st.metric("Average Net Assets", f"£{avg_net_assets:,.0f}")
 
-            with fin_metric_col4:
-                total_employees = financial_df['employees'].sum()
-                if pd.notna(total_employees) and total_employees > 0:
-                    st.metric("Total Employees", f"{int(total_employees)}")
-                else:
-                    st.metric("Total Employees", "N/A")
+                with fin_metric_col3:
+                    companies_with_employees = financial_df[financial_df['employees'].notna() & (financial_df['employees'] > 0)]
+                    if len(companies_with_employees) > 0:
+                        avg_employees = companies_with_employees['employees'].mean()
+                        st.metric("Average Employees", f"{avg_employees:.0f}")
+                    else:
+                        st.metric("Average Employees", "N/A")
 
-            st.markdown("")
+                with fin_metric_col4:
+                    total_employees = financial_df['employees'].sum()
+                    if pd.notna(total_employees) and total_employees > 0:
+                        st.metric("Total Employees", f"{int(total_employees)}")
+                    else:
+                        st.metric("Total Employees", "N/A")
 
-            # Net Assets Distribution
-            st.subheader("📊 Net Assets Distribution")
+                st.markdown("")
 
-            # Create bins for net assets
-            financial_df['asset_category'] = pd.cut(
-                financial_df['net_assets_gbp'],
-                bins=[-float('inf'), 0, 50000, 100000, 500000, 1000000, float('inf')],
-                labels=['Negative', '£0-50k', '£50k-100k', '£100k-500k', '£500k-1M', '£1M+']
-            )
+                # Net Assets Distribution
+                st.subheader("📊 Net Assets Distribution")
 
-            asset_dist = financial_df['asset_category'].value_counts().sort_index()
-
-            fig_assets = px.bar(
-                x=asset_dist.index.astype(str),
-                y=asset_dist.values,
-                title=f"Net Assets Distribution ({len(financial_df)} companies)",
-                labels={'x': 'Net Assets Range', 'y': 'Number of Companies'},
-                color=asset_dist.values,
-                color_continuous_scale='Blues'
-            )
-            st.plotly_chart(fig_assets, use_container_width=True)
-
-            # Two column layout for additional charts
-            chart_col1, chart_col2 = st.columns(2)
-
-            with chart_col1:
-                # Employees vs Hygiene Rating
-                st.subheader("👥 Employees vs Hygiene Rating")
-
-                hygiene_financial = financial_df[
-                    (financial_df['hygiene_rating'].notna()) &
-                    (financial_df['employees'].notna()) &
-                    (financial_df['employees'] > 0)
-                ].copy()
-
-                if len(hygiene_financial) > 0:
-                    fig_hygiene_emp = px.scatter(
-                        hygiene_financial,
-                        x='employees',
-                        y='hygiene_rating',
-                        hover_data=['name', 'net_assets_gbp'],
-                        title=f"Employees vs Hygiene Rating ({len(hygiene_financial)} companies)",
-                        labels={'employees': 'Number of Employees', 'hygiene_rating': 'Hygiene Rating'},
-                        color='hygiene_rating',
-                        color_continuous_scale='RdYlGn',
-                        size='net_assets_gbp',
-                        size_max=20
-                    )
-                    st.plotly_chart(fig_hygiene_emp, use_container_width=True)
-                else:
-                    st.info("Not enough data to show correlation between employees and hygiene ratings.")
-
-            with chart_col2:
-                # Net Assets vs Review Scores
-                st.subheader("💷 Net Assets vs Customer Reviews")
-
-                review_financial = financial_df[
-                    (financial_df['trustpilot_avg_rating'].notna()) |
-                    (financial_df['google_avg_rating'].notna())
-                ].copy()
-
-                if len(review_financial) > 0:
-                    # Calculate average rating from available sources
-                    review_financial['avg_rating'] = review_financial[['trustpilot_avg_rating', 'google_avg_rating']].mean(axis=1, skipna=True)
-
-                    fig_assets_reviews = px.scatter(
-                        review_financial,
-                        x='net_assets_gbp',
-                        y='avg_rating',
-                        hover_data=['name', 'employees'],
-                        title=f"Net Assets vs Review Scores ({len(review_financial)} companies)",
-                        labels={'net_assets_gbp': 'Net Assets (£)', 'avg_rating': 'Average Rating'},
-                        color='avg_rating',
-                        color_continuous_scale='RdYlGn',
-                        size='employees' if 'employees' in review_financial.columns else None
-                    )
-                    st.plotly_chart(fig_assets_reviews, use_container_width=True)
-                else:
-                    st.info("Not enough data to show correlation between net assets and review scores.")
-
-            # Top Restaurants Table
-            st.subheader("🏆 Top Restaurants by Financial Metrics")
-
-            # Create tabs for different rankings
-            rank_tab1, rank_tab2, rank_tab3 = st.tabs(["By Net Assets", "By Employees", "By Total Assets"])
-
-            with rank_tab1:
-                top_assets = financial_df.nlargest(10, 'net_assets_gbp')[
-                    ['name', 'net_assets_gbp', 'employees', 'hygiene_rating']
-                ].copy()
-
-                top_assets['net_assets_gbp'] = top_assets['net_assets_gbp'].apply(
-                    lambda x: f"£{x/1_000_000:.2f}M" if x >= 1_000_000 else f"£{x/1_000:.1f}k" if x >= 1_000 else f"£{x:,.0f}"
-                )
-                top_assets['employees'] = top_assets['employees'].apply(
-                    lambda x: f"{int(x)}" if pd.notna(x) and x > 0 else "N/A"
-                )
-                top_assets['hygiene_rating'] = top_assets['hygiene_rating'].apply(
-                    lambda x: f"{int(x)}★" if pd.notna(x) else "N/A"
+                # Create bins for net assets
+                financial_df['asset_category'] = pd.cut(
+                    financial_df['net_assets_gbp'],
+                    bins=[-float('inf'), 0, 50000, 100000, 500000, 1000000, float('inf')],
+                    labels=['Negative', '£0-50k', '£50k-100k', '£100k-500k', '£500k-1M', '£1M+']
                 )
 
-                top_assets.columns = ['Restaurant', 'Net Assets', 'Employees', 'Hygiene Rating']
-                st.dataframe(top_assets, hide_index=True, use_container_width=True)
+                asset_dist = financial_df['asset_category'].value_counts().sort_index()
 
-            with rank_tab2:
-                top_employees = financial_df[financial_df['employees'].notna() & (financial_df['employees'] > 0)].nlargest(10, 'employees')[
-                    ['name', 'employees', 'net_assets_gbp', 'hygiene_rating']
-                ].copy()
+                fig_assets = px.bar(
+                    x=asset_dist.index.astype(str),
+                    y=asset_dist.values,
+                    title=f"Net Assets Distribution ({len(financial_df)} companies)",
+                    labels={'x': 'Net Assets Range', 'y': 'Number of Companies'},
+                    color=asset_dist.values,
+                    color_continuous_scale='Blues'
+                )
+                st.plotly_chart(fig_assets, use_container_width=True)
 
-                if len(top_employees) > 0:
-                    top_employees['employees'] = top_employees['employees'].apply(lambda x: f"{int(x)}")
-                    top_employees['net_assets_gbp'] = top_employees['net_assets_gbp'].apply(
+                # Two column layout for additional charts
+                chart_col1, chart_col2 = st.columns(2)
+
+                with chart_col1:
+                    # Employees vs Hygiene Rating
+                    st.subheader("👥 Employees vs Hygiene Rating")
+
+                    hygiene_financial = financial_df[
+                        (financial_df['hygiene_rating'].notna()) &
+                        (financial_df['employees'].notna()) &
+                        (financial_df['employees'] > 0)
+                    ].copy()
+
+                    if len(hygiene_financial) > 0:
+                        fig_hygiene_emp = px.scatter(
+                            hygiene_financial,
+                            x='employees',
+                            y='hygiene_rating',
+                            hover_data=['name', 'net_assets_gbp'],
+                            title=f"Employees vs Hygiene Rating ({len(hygiene_financial)} companies)",
+                            labels={'employees': 'Number of Employees', 'hygiene_rating': 'Hygiene Rating'},
+                            color='hygiene_rating',
+                            color_continuous_scale='RdYlGn',
+                            size='net_assets_gbp',
+                            size_max=20
+                        )
+                        st.plotly_chart(fig_hygiene_emp, use_container_width=True)
+                    else:
+                        st.info("Not enough data to show correlation between employees and hygiene ratings.")
+
+                with chart_col2:
+                    # Net Assets vs Review Scores
+                    st.subheader("💷 Net Assets vs Customer Reviews")
+
+                    review_financial = financial_df[
+                        (financial_df['trustpilot_avg_rating'].notna()) |
+                        (financial_df['google_avg_rating'].notna())
+                    ].copy()
+
+                    if len(review_financial) > 0:
+                        # Calculate average rating from available sources
+                        review_financial['avg_rating'] = review_financial[['trustpilot_avg_rating', 'google_avg_rating']].mean(axis=1, skipna=True)
+
+                        fig_assets_reviews = px.scatter(
+                            review_financial,
+                            x='net_assets_gbp',
+                            y='avg_rating',
+                            hover_data=['name', 'employees'],
+                            title=f"Net Assets vs Review Scores ({len(review_financial)} companies)",
+                            labels={'net_assets_gbp': 'Net Assets (£)', 'avg_rating': 'Average Rating'},
+                            color='avg_rating',
+                            color_continuous_scale='RdYlGn',
+                            size='employees' if 'employees' in review_financial.columns else None
+                        )
+                        st.plotly_chart(fig_assets_reviews, use_container_width=True)
+                    else:
+                        st.info("Not enough data to show correlation between net assets and review scores.")
+
+                # Top Restaurants Table
+                st.subheader("🏆 Top Restaurants by Financial Metrics")
+
+                # Create tabs for different rankings
+                rank_tab1, rank_tab2, rank_tab3 = st.tabs(["By Net Assets", "By Employees", "By Total Assets"])
+
+                with rank_tab1:
+                    top_assets = financial_df.nlargest(10, 'net_assets_gbp')[
+                        ['name', 'net_assets_gbp', 'employees', 'hygiene_rating']
+                    ].copy()
+
+                    top_assets['net_assets_gbp'] = top_assets['net_assets_gbp'].apply(
                         lambda x: f"£{x/1_000_000:.2f}M" if x >= 1_000_000 else f"£{x/1_000:.1f}k" if x >= 1_000 else f"£{x:,.0f}"
                     )
-                    top_employees['hygiene_rating'] = top_employees['hygiene_rating'].apply(
+                    top_assets['employees'] = top_assets['employees'].apply(
+                        lambda x: f"{int(x)}" if pd.notna(x) and x > 0 else "N/A"
+                    )
+                    top_assets['hygiene_rating'] = top_assets['hygiene_rating'].apply(
                         lambda x: f"{int(x)}★" if pd.notna(x) else "N/A"
                     )
 
-                    top_employees.columns = ['Restaurant', 'Employees', 'Net Assets', 'Hygiene Rating']
-                    st.dataframe(top_employees, hide_index=True, use_container_width=True)
-                else:
-                    st.info("No employee data available.")
+                    top_assets.columns = ['Restaurant', 'Net Assets', 'Employees', 'Hygiene Rating']
+                    st.dataframe(top_assets, hide_index=True, use_container_width=True)
 
-            with rank_tab3:
-                top_total_assets = financial_df[financial_df['total_assets_gbp'].notna()].nlargest(10, 'total_assets_gbp')[
-                    ['name', 'total_assets_gbp', 'net_assets_gbp', 'employees']
-                ].copy()
+                with rank_tab2:
+                    top_employees = financial_df[financial_df['employees'].notna() & (financial_df['employees'] > 0)].nlargest(10, 'employees')[
+                        ['name', 'employees', 'net_assets_gbp', 'hygiene_rating']
+                    ].copy()
 
-                if len(top_total_assets) > 0:
-                    top_total_assets['total_assets_gbp'] = top_total_assets['total_assets_gbp'].apply(
-                        lambda x: f"£{x/1_000_000:.2f}M" if x >= 1_000_000 else f"£{x/1_000:.1f}k" if x >= 1_000 else f"£{x:,.0f}"
-                    )
-                    top_total_assets['net_assets_gbp'] = top_total_assets['net_assets_gbp'].apply(
-                        lambda x: f"£{x/1_000_000:.2f}M" if x >= 1_000_000 else f"£{x/1_000:.1f}k" if x >= 1_000 else f"£{x:,.0f}"
-                    )
-                    top_total_assets['employees'] = top_total_assets['employees'].apply(
-                        lambda x: f"{int(x)}" if pd.notna(x) and x > 0 else "N/A"
-                    )
+                    if len(top_employees) > 0:
+                        top_employees['employees'] = top_employees['employees'].apply(lambda x: f"{int(x)}")
+                        top_employees['net_assets_gbp'] = top_employees['net_assets_gbp'].apply(
+                            lambda x: f"£{x/1_000_000:.2f}M" if x >= 1_000_000 else f"£{x/1_000:.1f}k" if x >= 1_000 else f"£{x:,.0f}"
+                        )
+                        top_employees['hygiene_rating'] = top_employees['hygiene_rating'].apply(
+                            lambda x: f"{int(x)}★" if pd.notna(x) else "N/A"
+                        )
 
-                    top_total_assets.columns = ['Restaurant', 'Total Assets', 'Net Assets', 'Employees']
-                    st.dataframe(top_total_assets, hide_index=True, use_container_width=True)
-                else:
-                    st.info("No total assets data available.")
+                        top_employees.columns = ['Restaurant', 'Employees', 'Net Assets', 'Hygiene Rating']
+                        st.dataframe(top_employees, hide_index=True, use_container_width=True)
+                    else:
+                        st.info("No employee data available.")
 
-            # Data quality note
-            st.markdown("---")
-            st.caption(f"💼 Financial data from Companies House. Coverage: {len(financial_df)}/{len(restaurants_df)} restaurants ({len(financial_df)/len(restaurants_df)*100:.1f}%). Most restaurants file as micro-entities with limited disclosure.")
+                with rank_tab3:
+                    top_total_assets = financial_df[financial_df['total_assets_gbp'].notna()].nlargest(10, 'total_assets_gbp')[
+                        ['name', 'total_assets_gbp', 'net_assets_gbp', 'employees']
+                    ].copy()
 
-        else:
-            st.info("No financial data available. Financial data is fetched from Companies House for UK-registered companies.")
+                    if len(top_total_assets) > 0:
+                        top_total_assets['total_assets_gbp'] = top_total_assets['total_assets_gbp'].apply(
+                            lambda x: f"£{x/1_000_000:.2f}M" if x >= 1_000_000 else f"£{x/1_000:.1f}k" if x >= 1_000 else f"£{x:,.0f}"
+                        )
+                        top_total_assets['net_assets_gbp'] = top_total_assets['net_assets_gbp'].apply(
+                            lambda x: f"£{x/1_000_000:.2f}M" if x >= 1_000_000 else f"£{x/1_000:.1f}k" if x >= 1_000 else f"£{x:,.0f}"
+                        )
+                        top_total_assets['employees'] = top_total_assets['employees'].apply(
+                            lambda x: f"{int(x)}" if pd.notna(x) and x > 0 else "N/A"
+                        )
+
+                        top_total_assets.columns = ['Restaurant', 'Total Assets', 'Net Assets', 'Employees']
+                        st.dataframe(top_total_assets, hide_index=True, use_container_width=True)
+                    else:
+                        st.info("No total assets data available.")
+
+                # Data quality note
+                st.markdown("---")
+                st.caption(f"💼 Financial data from Companies House. Coverage: {len(financial_df)}/{len(restaurants_df)} restaurants ({len(financial_df)/len(restaurants_df)*100:.1f}%). Most restaurants file as micro-entities with limited disclosure.")
+
+            else:
+                st.info("No financial data available. Financial data is fetched from Companies House for UK-registered companies.")
 
     # ------------------------------------------------------------------------
     # Tab 1: Restaurant Profiles
@@ -3078,7 +3085,7 @@ def main():
             # ================================================================
             # Financial Overview Section
             # ================================================================
-            if pd.notna(restaurant.get('net_assets_gbp')):
+            if 'net_assets_gbp' in restaurant.index and pd.notna(restaurant.get('net_assets_gbp')):
                 st.markdown("---")
                 st.subheader("💰 Financial Overview")
 
