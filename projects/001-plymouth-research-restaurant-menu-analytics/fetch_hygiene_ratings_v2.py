@@ -87,10 +87,13 @@ def parse_fsa_xml(xml_path: Path) -> List[Dict]:
         business_type = est_elem.find('BusinessType')
         business_type_text = business_type.text if business_type is not None else ''
 
-        # Filter for restaurants/cafes/canteens
+        # Filter for restaurants/cafes/canteens/pubs/bars
         if 'restaurant' not in business_type_text.lower() and \
            'cafe' not in business_type_text.lower() and \
-           'canteen' not in business_type_text.lower():
+           'canteen' not in business_type_text.lower() and \
+           'pub' not in business_type_text.lower() and \
+           'bar' not in business_type_text.lower() and \
+           'nightclub' not in business_type_text.lower():
             continue
 
         # Extract data
@@ -164,7 +167,7 @@ def parse_fsa_xml(xml_path: Path) -> List[Dict]:
 
         establishments.append(establishment)
 
-    print(f"  Found {len(establishments):,} restaurants/cafes/canteens")
+    print(f"  Found {len(establishments):,} restaurants/cafes/canteens/pubs/bars")
     print()
 
     return establishments

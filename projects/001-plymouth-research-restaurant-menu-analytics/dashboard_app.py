@@ -2996,6 +2996,193 @@ def main():
             else:
                 st.info("No financial data available. Financial data is fetched from Companies House for UK-registered companies.")
 
+        # ------------------------------------------------------------------------
+        # Address Data Quality Section
+        # ------------------------------------------------------------------------
+        st.markdown("---")
+        st.markdown("")
+        st.subheader("📍 Address Data Quality")
+        st.markdown("Cross-reference validation of addresses from FSA, scraped data, and Companies House.")
+
+        # Filter restaurants with FSA data
+        restaurants_with_fsa = restaurants_df[restaurants_df['fsa_id'].notna()].copy()
+
+        if len(restaurants_with_fsa) == 0:
+            st.warning("⚠️ No FSA hygiene data available to validate addresses.")
+        else:
+            # Helper function for address normalization
+            def normalize_address_for_comparison(address):
+                if not address or pd.isna(address):
+                    return ""
+                normalized = str(address).lower()
+                normalized = normalized.replace("street", "st").replace("road", "rd").replace("avenue", "ave")
+                normalized = normalized.replace("building", "bldg").replace("limited", "ltd").replace("plymouth", "")
+                normalized = ''.join(c if c.isalnum() or c.isspace() else ' ' for c in normalized)
+                normalized = ' '.join(normalized.split())
+                return normalized
+
+            # Helper function for similarity calculation
+            def calculate_address_similarity(str1, str2):
+                from difflib import SequenceMatcher
+                norm1 = normalize_address_for_comparison(str1)
+                norm2 = normalize_address_for_comparison(str2)
+                if not norm1 or not norm2:
+                    return 0.0
+                return SequenceMatcher(None, norm1, norm2).ratio()
+
+            # Build FSA address from components
+            def build_fsa_full_address(row):
+                parts = []
+                for col in ['fsa_address_line1', 'fsa_address_line2', 'fsa_address_line3', 'fsa_address_line4', 'fsa_postcode']:
+                    if col in row and pd.notna(row[col]) and row[col]:
+                        parts.append(str(row[col]))
+                return ', '.join(parts)
+
+            # Calculate similarities
+            consistency_data = []
+            for idx, row in restaurants_with_fsa.iterrows():
+                fsa_address = build_fsa_full_address(row)
+                scraped_address = row['address'] if pd.notna(row['address']) else ""
+                ch_address = row['company_registered_address'] if pd.notna(row.get('company_registered_address')) else ""
+
+                # Calculate similarities
+                fsa_vs_scraped = calculate_address_similarity(fsa_address, scraped_address) if fsa_address and scraped_address else 0.0
+                fsa_vs_ch = calculate_address_similarity(fsa_address, ch_address) if fsa_address and ch_address else 0.0
+                scraped_vs_ch = calculate_address_similarity(scraped_address, ch_address) if scraped_address and ch_address else 0.0
+
+                # Average similarity
+                valid_similarities = [s for s in [fsa_vs_scraped, fsa_vs_ch, scraped_vs_ch] if s > 0]
+                avg_similarity = sum(valid_similarities) / len(valid_similarities) if valid_similarities else 0.0
+
+                # Categorize
+                if avg_similarity >= 0.9:
+                    category = "Perfect"
+                elif avg_similarity >= 0.7:
+                    category = "Good"
+                elif avg_similarity >= 0.5:
+                    category = "Poor"
+                else:
+                    category = "Mismatch"
+
+                consistency_data.append({
+                    'name': row['name'],
+                    'fsa_business_name': row['fsa_business_name'] if pd.notna(row.get('fsa_business_name')) else 'N/A',
+                    'company_name': row['company_name'] if pd.notna(row.get('company_name')) else 'N/A',
+                    'fsa_address': fsa_address,
+                    'scraped_address': scraped_address,
+                    'ch_address': ch_address,
+                    'fsa_vs_scraped': fsa_vs_scraped,
+                    'fsa_vs_ch': fsa_vs_ch,
+                    'scraped_vs_ch': scraped_vs_ch,
+                    'avg_similarity': avg_similarity,
+                    'category': category,
+                    'hygiene_rating': row['hygiene_rating'] if pd.notna(row.get('hygiene_rating')) else None
+                })
+
+            consistency_df = pd.DataFrame(consistency_data)
+
+            # Overview metrics
+            total_checked = len(consistency_df)
+            perfect_count = len(consistency_df[consistency_df['category'] == 'Perfect'])
+            good_count = len(consistency_df[consistency_df['category'] == 'Good'])
+            poor_count = len(consistency_df[consistency_df['category'] == 'Poor'])
+            mismatch_count = len(consistency_df[consistency_df['category'] == 'Mismatch'])
+
+            # Display metrics
+            addr_col1, addr_col2, addr_col3, addr_col4, addr_col5 = st.columns(5)
+
+            with addr_col1:
+                st.metric("Checked", total_checked)
+
+            with addr_col2:
+                st.metric("✅ Perfect", f"{perfect_count} ({perfect_count/total_checked*100:.0f}%)")
+
+            with addr_col3:
+                st.metric("✓ Good", f"{good_count} ({good_count/total_checked*100:.0f}%)")
+
+            with addr_col4:
+                st.metric("⚠️ Poor", f"{poor_count} ({poor_count/total_checked*100:.0f}%)")
+
+            with addr_col5:
+                st.metric("❌ Mismatch", f"{mismatch_count} ({mismatch_count/total_checked*100:.0f}%)")
+
+            st.markdown("")
+
+            # Visual distribution
+            chart_col1, chart_col2 = st.columns(2)
+
+            with chart_col1:
+                category_counts = consistency_df['category'].value_counts()
+                category_order = ['Perfect', 'Good', 'Poor', 'Mismatch']
+                category_counts = category_counts.reindex(category_order, fill_value=0)
+
+                fig_addr_bar = px.bar(
+                    x=category_counts.index,
+                    y=category_counts.values,
+                    title=f"Address Match Quality Distribution ({total_checked} restaurants)",
+                    labels={'x': 'Match Category', 'y': 'Number of Restaurants'},
+                    color=category_counts.values,
+                    color_continuous_scale=['green', 'lightgreen', 'orange', 'red']
+                )
+                st.plotly_chart(fig_addr_bar, use_container_width=True)
+
+            with chart_col2:
+                fig_addr_pie = px.pie(
+                    values=category_counts.values,
+                    names=category_counts.index,
+                    title="Address Match Quality Breakdown",
+                    color_discrete_sequence=['green', 'lightgreen', 'orange', 'red']
+                )
+                st.plotly_chart(fig_addr_pie, use_container_width=True)
+
+            # Problematic restaurants table
+            if poor_count + mismatch_count > 0:
+                st.markdown("")
+                st.subheader("🔍 Restaurants Requiring Review")
+                st.markdown(f"Showing {poor_count + mismatch_count} restaurants with address inconsistencies.")
+
+                problematic = consistency_df[consistency_df['category'].isin(['Poor', 'Mismatch'])].copy()
+                problematic = problematic.sort_values('avg_similarity')
+
+                # Display as expandable rows
+                for idx, row in problematic.iterrows():
+                    emoji = "⚠️" if row['category'] == "Poor" else "❌"
+                    with st.expander(f"{emoji} {row['name']} ({row['avg_similarity']*100:.0f}% match - {row['category']})"):
+                        exp_col1, exp_col2 = st.columns(2)
+
+                        with exp_col1:
+                            st.markdown(f"**Our Name:** {row['name']}")
+                            st.markdown(f"**FSA Name:** {row['fsa_business_name']}")
+                            st.markdown(f"**Company Name:** {row['company_name']}")
+
+                            if pd.notna(row['hygiene_rating']):
+                                stars = "⭐" * int(row['hygiene_rating'])
+                                st.markdown(f"**Hygiene Rating:** {stars} ({int(row['hygiene_rating'])})")
+
+                        with exp_col2:
+                            st.markdown("**Similarity Scores:**")
+                            st.markdown(f"FSA ↔ Scraped: {row['fsa_vs_scraped']*100:.0f}%")
+                            st.markdown(f"FSA ↔ Companies House: {row['fsa_vs_ch']*100:.0f}%")
+                            st.markdown(f"Scraped ↔ Companies House: {row['scraped_vs_ch']*100:.0f}%")
+                            st.markdown(f"**Average: {row['avg_similarity']*100:.0f}%**")
+
+                        st.markdown("**Addresses:**")
+                        st.markdown(f"**FSA:** {row['fsa_address']}")
+                        st.markdown(f"**Scraped:** {row['scraped_address'] if row['scraped_address'] else 'N/A'}")
+                        st.markdown(f"**Companies House:** {row['ch_address'] if row['ch_address'] else 'N/A'}")
+
+            # Download option
+            st.markdown("")
+            csv_data = consistency_df.to_csv(index=False)
+            st.download_button(
+                label="📥 Download Full Address Consistency Report (CSV)",
+                data=csv_data,
+                file_name="address_consistency_report.csv",
+                mime="text/csv"
+            )
+
+            st.caption("💡 Perfect (≥90%), Good (70-89%), Poor (50-69%), Mismatch (<50%). Lower scores may indicate incorrect FSA matches or address data issues.")
+
     # ------------------------------------------------------------------------
     # Tab 1: Restaurant Profiles
     # ------------------------------------------------------------------------
