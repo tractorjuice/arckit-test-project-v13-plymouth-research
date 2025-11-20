@@ -2055,8 +2055,20 @@ def main():
                         st.markdown(f"{row.name}")
 
                     with cols[1]:
-                        stars = "⭐" * int(row.hygiene_rating)
-                        st.markdown(stars)
+                        rating = int(row.hygiene_rating)
+                        # Color-code the rating
+                        if rating == 5:
+                            st.markdown(f"🟢 **{rating}**")
+                        elif rating == 4:
+                            st.markdown(f"🟢 **{rating}**")
+                        elif rating == 3:
+                            st.markdown(f"🟡 **{rating}**")
+                        elif rating == 2:
+                            st.markdown(f"🟠 **{rating}**")
+                        elif rating == 1:
+                            st.markdown(f"🔴 **{rating}**")
+                        else:
+                            st.markdown(f"❌ **{rating}**")
 
                     with cols[2]:
                         st.markdown(format_score(row.hygiene_score_hygiene))
