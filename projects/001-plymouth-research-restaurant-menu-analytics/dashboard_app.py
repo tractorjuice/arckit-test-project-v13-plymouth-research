@@ -76,6 +76,19 @@ def load_restaurants() -> pd.DataFrame:
             hygiene_score_structural,
             hygiene_score_confidence,
             fsa_business_type,
+            fsa_business_name,
+            fsa_address_line1,
+            fsa_address_line2,
+            fsa_address_line3,
+            fsa_address_line4,
+            fsa_postcode,
+            fsa_latitude,
+            fsa_longitude,
+            fsa_local_authority_business_id,
+            fsa_rating_key,
+            fsa_scheme_type,
+            fsa_local_authority_website,
+            fsa_new_rating_pending,
             trustpilot_review_count,
             trustpilot_avg_rating,
             google_review_count,
@@ -738,7 +751,7 @@ def main():
     # ========================================================================
     # Tabs
     # ========================================================================
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([
         "🏢 Restaurant Profiles",
         "🍽️ Browse Menus",
         "📊 Price Analytics",
@@ -746,6 +759,7 @@ def main():
         "🎯 Competitor Analysis",
         "🍹 Drinks Analysis",
         "⭐ Hygiene Ratings",
+        "🗺️ Map View",
         "💬 Reviews",
         "📈 Statistics"
     ])
@@ -2005,9 +2019,10 @@ def main():
             """)
 
             # Show restaurants with detailed scores
-            score_df = rated_restaurants[['name', 'hygiene_rating', 'hygiene_score_hygiene',
+            score_df = rated_restaurants[['name', 'fsa_business_name', 'fsa_postcode',
+                                         'hygiene_rating', 'hygiene_score_hygiene',
                                          'hygiene_score_structural', 'hygiene_score_confidence',
-                                         'hygiene_rating_date']].copy()
+                                         'hygiene_rating_date', 'fsa_new_rating_pending']].copy()
 
             # Format scores with color coding
             def format_score(score):
@@ -2032,14 +2047,17 @@ def main():
             st.markdown("**📋 Detailed Scores - Click 👁️ to view restaurant profile**")
 
             # Header row
-            header_cols = st.columns([3, 1.5, 1, 1, 1, 1.2, 0.8])
+            header_cols = st.columns([2.5, 2, 1.2, 1.2, 1, 1, 1, 1.2, 0.8, 0.8])
             header_cols[0].markdown("**Restaurant**")
-            header_cols[1].markdown("**Rating**")
-            header_cols[2].markdown("**Hygiene**")
-            header_cols[3].markdown("**Structural**")
-            header_cols[4].markdown("**Management**")
-            header_cols[5].markdown("**Inspection**")
-            header_cols[6].markdown("**View**")
+            header_cols[1].markdown("**FSA Name**")
+            header_cols[2].markdown("**Postcode**")
+            header_cols[3].markdown("**Rating**")
+            header_cols[4].markdown("**Hygiene**")
+            header_cols[5].markdown("**Structural**")
+            header_cols[6].markdown("**Management**")
+            header_cols[7].markdown("**Inspection**")
+            header_cols[8].markdown("**Pending**")
+            header_cols[9].markdown("**View**")
 
             st.markdown("---")
 
@@ -2050,12 +2068,20 @@ def main():
                     if idx >= 50:  # Limit display for performance
                         break
 
-                    cols = st.columns([3, 1.5, 1, 1, 1, 1.2, 0.8])
+                    cols = st.columns([2.5, 2, 1.2, 1.2, 1, 1, 1, 1.2, 0.8, 0.8])
 
                     with cols[0]:
                         st.markdown(f"{row.name}")
 
                     with cols[1]:
+                        fsa_name = row.fsa_business_name if pd.notna(row.fsa_business_name) else "N/A"
+                        st.markdown(f"{fsa_name}")
+
+                    with cols[2]:
+                        postcode = row.fsa_postcode if pd.notna(row.fsa_postcode) else "N/A"
+                        st.markdown(f"{postcode}")
+
+                    with cols[3]:
                         rating = int(row.hygiene_rating)
                         # Color-code the rating
                         if rating == 5:
@@ -2071,20 +2097,26 @@ def main():
                         else:
                             st.markdown(f"❌ **{rating}**")
 
-                    with cols[2]:
+                    with cols[4]:
                         st.markdown(format_score(row.hygiene_score_hygiene))
 
-                    with cols[3]:
+                    with cols[5]:
                         st.markdown(format_score(row.hygiene_score_structural))
 
-                    with cols[4]:
+                    with cols[6]:
                         st.markdown(format_score(row.hygiene_score_confidence))
 
-                    with cols[5]:
+                    with cols[7]:
                         inspection_date = pd.to_datetime(row.hygiene_rating_date, format='ISO8601').strftime('%Y-%m-%d')
                         st.markdown(f"`{inspection_date}`")
 
-                    with cols[6]:
+                    with cols[8]:
+                        if pd.notna(row.fsa_new_rating_pending) and str(row.fsa_new_rating_pending).lower() == 'true':
+                            st.markdown("⏳")
+                        else:
+                            st.markdown("✓")
+
+                    with cols[9]:
                         if st.button("👁️", key=f"view_profile_{idx}", help=f"View profile for {row.name}"):
                             st.session_state['selected_restaurant_profile'] = row.name
                             st.rerun()
@@ -2155,9 +2187,159 @@ def main():
             """)
 
     # ------------------------------------------------------------------------
-    # Tab 8: Reviews (Trustpilot + Google)
+    # Tab 8: Map View
     # ------------------------------------------------------------------------
     with tab8:
+        st.header("🗺️ Restaurant Map")
+        st.markdown("Interactive map showing restaurant locations based on FSA GPS coordinates.")
+
+        # Filter restaurants with GPS coordinates
+        restaurants_with_gps = filtered_restaurants[
+            filtered_restaurants['fsa_latitude'].notna() &
+            filtered_restaurants['fsa_longitude'].notna()
+        ].copy()
+
+        if restaurants_with_gps.empty:
+            st.warning("⚠️ No restaurants have GPS coordinates available.")
+        else:
+            # Display count
+            st.info(f"📍 Showing {len(restaurants_with_gps)} restaurants with GPS coordinates")
+
+            # Filtering options
+            col_filter1, col_filter2, col_filter3 = st.columns(3)
+
+            with col_filter1:
+                show_hygiene_filter = st.checkbox("Color by Hygiene Rating", value=True)
+
+            with col_filter2:
+                if show_hygiene_filter:
+                    min_hygiene = st.selectbox(
+                        "Minimum Hygiene Rating",
+                        options=[1, 2, 3, 4, 5],
+                        index=0,
+                        help="Show only restaurants with this minimum rating"
+                    )
+                    restaurants_with_gps = restaurants_with_gps[restaurants_with_gps['hygiene_rating'] >= min_hygiene]
+
+            with col_filter3:
+                map_style = st.selectbox(
+                    "Map Style",
+                    options=["Open Street Map", "Satellite"],
+                    index=0
+                )
+
+            # Prepare map data
+            map_data = restaurants_with_gps[['name', 'fsa_latitude', 'fsa_longitude', 'hygiene_rating',
+                                             'fsa_business_name', 'fsa_address_line1', 'fsa_address_line2',
+                                             'fsa_postcode', 'cuisine_type', 'price_range']].copy()
+
+            # Rename columns for pydeck
+            map_data = map_data.rename(columns={
+                'fsa_latitude': 'lat',
+                'fsa_longitude': 'lon'
+            })
+
+            # Create color mapping for hygiene ratings
+            def get_rating_color(rating):
+                if pd.isna(rating):
+                    return [150, 150, 150, 200]  # Gray
+                rating = int(rating)
+                if rating == 5:
+                    return [0, 200, 0, 200]  # Green
+                elif rating == 4:
+                    return [100, 220, 0, 200]  # Light green
+                elif rating == 3:
+                    return [255, 200, 0, 200]  # Yellow
+                elif rating == 2:
+                    return [255, 100, 0, 200]  # Orange
+                else:
+                    return [200, 0, 0, 200]  # Red
+
+            map_data['color'] = map_data['hygiene_rating'].apply(get_rating_color)
+
+            # Create tooltip
+            map_data['tooltip_text'] = map_data.apply(
+                lambda row: f"{row['name']}\n" +
+                           f"FSA: {row['fsa_business_name'] if pd.notna(row['fsa_business_name']) else 'N/A'}\n" +
+                           f"Rating: {'⭐' * int(row['hygiene_rating']) if pd.notna(row['hygiene_rating']) else 'N/A'}\n" +
+                           f"Address: {row['fsa_address_line1'] if pd.notna(row['fsa_address_line1']) else ''}, " +
+                           f"{row['fsa_postcode'] if pd.notna(row['fsa_postcode']) else ''}\n" +
+                           f"Cuisine: {row['cuisine_type'] if pd.notna(row['cuisine_type']) else 'N/A'}\n" +
+                           f"Price: {row['price_range'] if pd.notna(row['price_range']) else 'N/A'}",
+                axis=1
+            )
+
+            # Calculate center of map
+            center_lat = map_data['lat'].mean()
+            center_lon = map_data['lon'].mean()
+
+            # Create pydeck layer
+            layer = {
+                "type": "ScatterplotLayer",
+                "data": map_data,
+                "getPosition": ["lon", "lat"],
+                "getColor": "color",
+                "getRadius": 100,
+                "radiusMinPixels": 5,
+                "radiusMaxPixels": 20,
+                "pickable": True,
+            }
+
+            # Set map style
+            if map_style == "Satellite":
+                map_style_url = "mapbox://styles/mapbox/satellite-v9"
+            else:
+                map_style_url = None  # Default to Open Street Map
+
+            # Create view state
+            view_state = {
+                "latitude": center_lat,
+                "longitude": center_lon,
+                "zoom": 12,
+                "pitch": 0,
+            }
+
+            # Display map
+            st.pydeck_chart({
+                "layers": [layer],
+                "initialViewState": view_state,
+                "mapStyle": map_style_url,
+                "tooltip": {
+                    "text": "{tooltip_text}"
+                }
+            })
+
+            # Legend
+            st.markdown("### 🎨 Map Legend")
+            legend_cols = st.columns(5)
+            legend_cols[0].markdown("🟢 **5 Stars** (Very Good)")
+            legend_cols[1].markdown("🟢 **4 Stars** (Good)")
+            legend_cols[2].markdown("🟡 **3 Stars** (Satisfactory)")
+            legend_cols[3].markdown("🟠 **2 Stars** (Improvement Necessary)")
+            legend_cols[4].markdown("🔴 **1 Star** (Major Improvement)")
+
+            # Statistics
+            st.divider()
+            st.subheader("📊 Map Statistics")
+            stat_col1, stat_col2, stat_col3, stat_col4 = st.columns(4)
+
+            with stat_col1:
+                st.metric("Total Mapped", len(map_data))
+
+            with stat_col2:
+                avg_rating = map_data['hygiene_rating'].mean()
+                st.metric("Avg Rating", f"{avg_rating:.2f}⭐")
+
+            with stat_col3:
+                if not map_data.empty:
+                    top_area = map_data['fsa_postcode'].mode()[0] if len(map_data['fsa_postcode'].mode()) > 0 else "N/A"
+                    st.metric("Top Area", top_area)
+
+            with stat_col4:
+                coverage_pct = (len(restaurants_with_gps) / len(filtered_restaurants) * 100) if len(filtered_restaurants) > 0 else 0
+                st.metric("GPS Coverage", f"{coverage_pct:.1f}%")
+
+    with tab9:
         st.header("💬 Customer Reviews")
 
         # Load both Trustpilot and Google data
@@ -2505,9 +2687,15 @@ def main():
             st.caption("💚 Trustpilot data from [Trustpilot.com](https://www.trustpilot.com) • 🔍 Google data from [Google Places API](https://developers.google.com/maps/documentation/places/web-service/overview) • For internal research use only")
 
     # ------------------------------------------------------------------------
-    # Tab 9: Statistics
     # ------------------------------------------------------------------------
-    with tab9:
+    # Tab 9: Reviews (Trustpilot + Google)
+    # ------------------------------------------------------------------------
+    # (content already added above)
+
+    # ------------------------------------------------------------------------
+    # Tab 10: Statistics
+    # ------------------------------------------------------------------------
+    with tab10:
         st.header("Database Statistics")
 
         col1, col2 = st.columns(2)
@@ -2994,6 +3182,71 @@ def main():
                 st.markdown(badges_html, unsafe_allow_html=True)
             else:
                 st.info("No service information available")
+
+            # ================================================================
+            # FSA Food Hygiene Data Section
+            # ================================================================
+            if pd.notna(restaurant.get('fsa_id')):
+                st.subheader("🔍 FSA Food Hygiene Data")
+
+                fsa_col1, fsa_col2 = st.columns(2)
+
+                with fsa_col1:
+                    # FSA Business Name
+                    if pd.notna(restaurant.get('fsa_business_name')):
+                        st.markdown(f"**FSA Business Name:** {restaurant['fsa_business_name']}")
+
+                    # FSA Address
+                    fsa_address_parts = []
+                    if pd.notna(restaurant.get('fsa_address_line1')):
+                        fsa_address_parts.append(restaurant['fsa_address_line1'])
+                    if pd.notna(restaurant.get('fsa_address_line2')):
+                        fsa_address_parts.append(restaurant['fsa_address_line2'])
+                    if pd.notna(restaurant.get('fsa_address_line3')):
+                        fsa_address_parts.append(restaurant['fsa_address_line3'])
+                    if pd.notna(restaurant.get('fsa_address_line4')):
+                        fsa_address_parts.append(restaurant['fsa_address_line4'])
+                    if pd.notna(restaurant.get('fsa_postcode')):
+                        fsa_address_parts.append(restaurant['fsa_postcode'])
+
+                    if fsa_address_parts:
+                        fsa_full_address = ", ".join(fsa_address_parts)
+                        st.markdown(f"**FSA Address:** {fsa_full_address}")
+
+                    # FSA GPS Coordinates
+                    if pd.notna(restaurant.get('fsa_latitude')) and pd.notna(restaurant.get('fsa_longitude')):
+                        lat = restaurant['fsa_latitude']
+                        lon = restaurant['fsa_longitude']
+                        st.markdown(f"**FSA GPS:** {lat:.6f}, {lon:.6f}")
+                        # Google Maps link using FSA coordinates
+                        maps_link = f"https://www.google.com/maps?q={lat},{lon}"
+                        st.markdown(f"[🗺️ View FSA Location on Map]({maps_link})")
+
+                with fsa_col2:
+                    # Rating Key
+                    if pd.notna(restaurant.get('fsa_rating_key')):
+                        st.markdown(f"**Rating Key:** `{restaurant['fsa_rating_key']}`")
+
+                    # Scheme Type
+                    if pd.notna(restaurant.get('fsa_scheme_type')):
+                        st.markdown(f"**Scheme:** {restaurant['fsa_scheme_type']}")
+
+                    # New Rating Pending
+                    if pd.notna(restaurant.get('fsa_new_rating_pending')):
+                        pending = restaurant['fsa_new_rating_pending']
+                        if pending == 'True' or pending == '1':
+                            st.warning("⏳ **New rating pending** - Re-inspection scheduled")
+                        else:
+                            st.success("✓ **No pending inspection**")
+
+                    # Local Authority Website
+                    if pd.notna(restaurant.get('fsa_local_authority_website')):
+                        la_website = restaurant['fsa_local_authority_website']
+                        st.markdown(f"[🏛️ Local Authority Website]({la_website})")
+
+                    # Local Authority Business ID
+                    if pd.notna(restaurant.get('fsa_local_authority_business_id')):
+                        st.markdown(f"**LA Business ID:** {restaurant['fsa_local_authority_business_id']}")
 
             # ================================================================
             # Menu Summary Section
