@@ -2706,9 +2706,15 @@ def main():
 
         # Restaurant selector
         restaurant_names = sorted(restaurants_df['name'].unique())
+
+        # Default to Honky Tonk Wine Library if it exists
+        default_restaurant = "Honky Tonk Wine Library"
+        default_index = restaurant_names.index(default_restaurant) if default_restaurant in restaurant_names else 0
+
         selected_restaurant = st.selectbox(
             "Select a Restaurant",
             restaurant_names,
+            index=default_index,
             help="Choose a restaurant to view its detailed profile"
         )
 
