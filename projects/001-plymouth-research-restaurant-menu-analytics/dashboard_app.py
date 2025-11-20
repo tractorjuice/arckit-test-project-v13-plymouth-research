@@ -2040,8 +2040,29 @@ def main():
                 display_score_df,
                 hide_index=True,
                 width="stretch",
-                height=600
+                height=400
             )
+
+            # Add "View Profile" buttons for selected restaurants
+            st.markdown("**🔗 View Restaurant Profiles:**")
+            st.markdown("Click a restaurant name below to view its full profile in the 🏢 Restaurant Profiles tab.")
+
+            # Create columns for restaurant buttons (5 per row)
+            restaurant_names_sorted = display_score_df['Restaurant'].tolist()
+            cols_per_row = 5
+            for i in range(0, len(restaurant_names_sorted), cols_per_row):
+                cols = st.columns(cols_per_row)
+                for j, col in enumerate(cols):
+                    idx = i + j
+                    if idx < len(restaurant_names_sorted):
+                        resto_name = restaurant_names_sorted[idx]
+                        with col:
+                            if st.button(f"📍 {resto_name[:20]}{'...' if len(resto_name) > 20 else ''}",
+                                       key=f"hygiene_profile_{idx}",
+                                       help=f"View profile for {resto_name}"):
+                                st.session_state['selected_restaurant_profile'] = resto_name
+                                st.success(f"✅ Selected: {resto_name}")
+                                st.info("👆 Now go to the **🏢 Restaurant Profiles** tab to see the full profile!")
 
             st.divider()
 
@@ -2051,7 +2072,8 @@ def main():
             if not low_rated_restos.empty:
                 st.subheader("🚨 Restaurants Requiring Attention (≤2★)")
 
-                for _, resto in low_rated_restos.iterrows():
+                for idx, resto in enumerate(low_rated_restos.iterrows()):
+                    _, resto = resto
                     rating = int(resto['hygiene_rating'])
                     stars = "⭐" * rating if rating > 0 else "❌"
 
@@ -2086,6 +2108,12 @@ def main():
                                 st.error("🔴 Urgent improvement required (50+ points)")
                             elif total >= 35:
                                 st.warning("🟠 Improvement necessary (35-40 points)")
+
+                        # Add "View Profile" button
+                        if st.button(f"📍 View Full Profile for {resto['name']}", key=f"low_rated_profile_{idx}"):
+                            st.session_state['selected_restaurant_profile'] = resto['name']
+                            st.success(f"✅ Selected: {resto['name']}")
+                            st.info("👆 Now go to the **🏢 Restaurant Profiles** tab to see the full profile!")
 
             st.divider()
 
@@ -2760,8 +2788,15 @@ def main():
         # Restaurant selector
         restaurant_names = sorted(restaurants_df['name'].unique())
 
-        # Default to Honky Tonk Wine Library if it exists
-        default_restaurant = "Honky Tonk Wine Library"
+        # Check if a restaurant was selected from another tab (e.g., Hygiene Ratings)
+        if 'selected_restaurant_profile' in st.session_state and st.session_state['selected_restaurant_profile'] in restaurant_names:
+            default_restaurant = st.session_state['selected_restaurant_profile']
+            # Clear session state after using it
+            del st.session_state['selected_restaurant_profile']
+        else:
+            # Default to Honky Tonk Wine Library if it exists
+            default_restaurant = "Honky Tonk Wine Library"
+
         default_index = restaurant_names.index(default_restaurant) if default_restaurant in restaurant_names else 0
 
         # Pre-load all reviews once (cached, outside selection block for better performance)
