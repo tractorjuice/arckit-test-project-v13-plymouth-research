@@ -2624,6 +2624,9 @@ def main():
                         # Calculate average rating from available sources
                         review_financial['avg_rating'] = review_financial[['trustpilot_avg_rating', 'google_avg_rating']].mean(axis=1, skipna=True)
 
+                        # Only use size if we have valid employee data
+                        has_employee_data = 'employees' in review_financial.columns and review_financial['employees'].notna().any()
+
                         fig_assets_reviews = px.scatter(
                             review_financial,
                             x='net_assets_gbp',
@@ -2633,7 +2636,7 @@ def main():
                             labels={'net_assets_gbp': 'Net Assets (£)', 'avg_rating': 'Average Rating'},
                             color='avg_rating',
                             color_continuous_scale='RdYlGn',
-                            size='employees' if 'employees' in review_financial.columns else None
+                            size='employees' if has_employee_data else None
                         )
                         st.plotly_chart(fig_assets_reviews, use_container_width=True)
                     else:
