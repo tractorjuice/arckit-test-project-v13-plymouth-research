@@ -2250,10 +2250,10 @@ def main():
             for coord in duplicate_coords:
                 mask = (map_data['lat'] == coord[0]) & (map_data['lon'] == coord[1])
                 n_duplicates = mask.sum()
-                # Add larger random offset (0.0005 degrees ≈ 55 meters) for better visibility
+                # Add significant random offset (0.0015 degrees ≈ 150 meters) for clear visibility
                 np.random.seed(hash(coord) % 2**32)  # Consistent jitter for same coordinates
-                map_data.loc[mask, 'lat'] += np.random.uniform(-0.0005, 0.0005, n_duplicates)
-                map_data.loc[mask, 'lon'] += np.random.uniform(-0.0005, 0.0005, n_duplicates)
+                map_data.loc[mask, 'lat'] += np.random.uniform(-0.0015, 0.0015, n_duplicates)
+                map_data.loc[mask, 'lon'] += np.random.uniform(-0.0015, 0.0015, n_duplicates)
 
             # Create color mapping for hygiene ratings
             def get_rating_color(rating):
