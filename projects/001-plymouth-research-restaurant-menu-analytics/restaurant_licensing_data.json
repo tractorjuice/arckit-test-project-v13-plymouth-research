@@ -1,0 +1,5329 @@
+[
+  {
+    "restaurant_id": 246,
+    "name": "A Taskinha",
+    "address": "53 Union St, Stonehouse, Plymouth PL1 3LU, UK",
+    "cuisine_type": "Breakfast Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "878",
+      "licensing_name": "A Taskinha",
+      "licensing_address": "55 Union Street, Plymouth, Devon, PL1 3LU",
+      "scraped_at": "2025-11-20T23:34:28.151781",
+      "license_number": "PA0854",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/878/Detail?LIC_ID=10244",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "09:00",
+          "time_to": "22:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "12:00",
+          "time_to": "22:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "878",
+        "name": "A Taskinha",
+        "address": "55 Union Street, Plymouth, Devon, PL1 3LU"
+      },
+      {
+        "premises_id": "3458",
+        "name": "A Taskinha",
+        "address": "53 Union Street, Plymouth, Devon, PL1 3LU"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 21,
+    "name": "ASK Italian Plymouth",
+    "address": "",
+    "cuisine_type": "Italian",
+    "price_range": "£5.95-15.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 349,
+    "name": "Admiral MacBride",
+    "address": "1 The Barbican, Plymouth PL1 2LR, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "373",
+      "licensing_name": "Admiral Macbride",
+      "licensing_address": "1 The Barbican, Plymouth, Devon, PL1 2LR",
+      "scraped_at": "2025-11-20T23:34:38.233595",
+      "license_number": "PA0308",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/373/Detail?LIC_ID=1954",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "an indoor sporting event",
+        "a performance of live music",
+        "any playing of recorded music",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "19:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "19:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "373",
+        "name": "Admiral Macbride",
+        "address": "1 The Barbican, Plymouth, Devon, PL1 2LR"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 86,
+    "name": "All Bar One Plymouth",
+    "address": "",
+    "cuisine_type": "Bar & Grill",
+    "price_range": "£5.95-17.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 279,
+    "name": "Almanac Cafe",
+    "address": "First Floor, 32 Batter St, Plymouth PL4 0EN, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "4428",
+      "licensing_name": "Almanac Cafe",
+      "licensing_address": "32 Batter Street, Plymouh, PL4 0EN",
+      "scraped_at": "2025-11-20T23:34:48.175874",
+      "license_number": "TEN(L)001089",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/4428/Detail?LIC_ID=23402",
+      "licensable_activities": [
+        "",
+        ""
+      ],
+      "opening_hours": [
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "21:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "4428",
+        "name": "Almanac Cafe",
+        "address": "32 Batter Street, Plymouh, PL4 0EN"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 11,
+    "name": "Armado Lounge",
+    "address": "",
+    "cuisine_type": "All-Day Cafe Bar",
+    "price_range": "£2.50-14.50",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 130,
+    "name": "Arribas Mexican Restaurant",
+    "address": "58 Notte Street, Plymouth, PL1 2AG",
+    "cuisine_type": "Mexican",
+    "price_range": "£4.50-16.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 345,
+    "name": "B-Bar",
+    "address": "The Barbican Theatre, Castle St, Plymouth PL1 2NJ, UK",
+    "cuisine_type": "Thai Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 252,
+    "name": "Bamo Restaurant",
+    "address": "61 Cornwall St, Plymouth PL1 1NS, UK",
+    "cuisine_type": "Middle Eastern Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 310,
+    "name": "Bar Rakuda",
+    "address": "11 Quay Rd, Plymouth PL1 2JZ, UK",
+    "cuisine_type": "Wine Bar",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "623",
+      "licensing_name": "Bar Rakuda",
+      "licensing_address": "10 & 11 Quay Road, The Barbican, Plymouth, Devon, PL1 2JZ",
+      "scraped_at": "2025-11-20T23:35:06.827985",
+      "license_number": "PA0703",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/623/Detail?LIC_ID=2710",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "any playing of recorded music",
+        "a performance of a play",
+        "an exhibition of a film",
+        "an indoor sporting event",
+        "a boxing or wrestling entertainment",
+        "a performance of live music",
+        "a performance of dance",
+        "entertainment of a similar description to that falling within a performance of live music, any playing of recorded music or a performance of dance",
+        "provision of late night refreshment",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "09:00",
+          "time_to": "02:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "09:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "11:00",
+          "time_to": "22:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "09:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "23:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "09:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "623",
+        "name": "Bar Rakuda",
+        "address": "10 & 11 Quay Road, The Barbican, Plymouth, Devon, PL1 2JZ"
+      },
+      {
+        "premises_id": "2451",
+        "name": "Land adjacent to Bar Rakuda and Captain Jaspers",
+        "address": "Quay Road, Barbican, Plymouth, Devon, PL1 2JZ"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 6,
+    "name": "Barbican Kitchen (Original)",
+    "address": "60 Southside Street Plymouth PL1 2LQ",
+    "cuisine_type": "Modern British",
+    "price_range": "£4.00-28.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 125,
+    "name": "Barbican Kitchen Bar",
+    "address": "60 Southside Street Plymouth PL1 2LQ",
+    "cuisine_type": "Contemporary",
+    "price_range": "£5.00-32.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 93,
+    "name": "Barburrito Plymouth",
+    "address": "",
+    "cuisine_type": "Mexican Fast Food",
+    "price_range": "£1.50-12.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 88,
+    "name": "Beefeater Plymouth",
+    "address": "",
+    "cuisine_type": "British Grill",
+    "price_range": "£5.49-17.99",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 155,
+    "name": "Bella Italia Plymouth",
+    "address": "",
+    "cuisine_type": "Italian",
+    "price_range": "£2.50-15.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 250,
+    "name": "Bentley’s Brasserie",
+    "address": "Armada Way, Plymouth PL1 1AR, UK",
+    "cuisine_type": "Night Club",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 23,
+    "name": "Bill's Plymouth",
+    "address": "",
+    "cuisine_type": "British Brasserie",
+    "price_range": "£5.00-35.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 71,
+    "name": "Bistrot Pierre Plymouth",
+    "address": "",
+    "cuisine_type": "French Bistro",
+    "price_range": "£6.50-19.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 290,
+    "name": "Black Cat Surf Club",
+    "address": "31 The Broadway, Plymstock, Plymouth PL9 7AG, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "4698",
+      "licensing_name": "Black Cat Surf Club",
+      "licensing_address": "31 The Broadway, Plymouth, Devon, PL9 7AF",
+      "scraped_at": "2025-11-20T23:35:33.315129",
+      "license_number": "PA1285",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/4698/Detail?LIC_ID=23421",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "08:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "4698",
+        "name": "Black Cat Surf Club",
+        "address": "31 The Broadway, Plymouth, Devon, PL9 7AF"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 226,
+    "name": "Bonne Santé restaurant & cocktail bar",
+    "address": "Right side entrance, Custom house, The Barbican, Plymouth PL1 2JP, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 309,
+    "name": "Boom Battle Bar Plymouth",
+    "address": "Unit 6, The Barcode, Charles Cross Roundabout, Drake Circus, Plymouth PL4 0FE, UK",
+    "cuisine_type": "Night Club",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 361,
+    "name": "Boringdon Arms",
+    "address": "Boringdon Terrace, Turnchapel, Plymouth PL9 9TQ, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "377",
+      "licensing_name": "Boringdon Arms",
+      "licensing_address": "Turnchapel, Plymouth, Devon, PL9 9TQ",
+      "scraped_at": "2025-11-20T23:35:45.506674",
+      "license_number": "PA0313",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/377/Detail?LIC_ID=1952",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "an indoor sporting event",
+        "a performance of live music",
+        "any playing of recorded music",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "07:30",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "07:30",
+          "time_to": "01:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "07:30",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "10:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "07:30",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "07:30",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "10:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "377",
+        "name": "Boringdon Arms",
+        "address": "Turnchapel, Plymouth, Devon, PL9 9TQ"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 27,
+    "name": "Boston Tea Party Plymouth",
+    "address": "",
+    "cuisine_type": "Cafe",
+    "price_range": "£1.50-12.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 318,
+    "name": "Brass Monkey",
+    "address": "12-14 Royal Parade, Plymouth PL1 1DS, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "439",
+      "licensing_name": "Brass Monkey, The",
+      "licensing_address": "12 - 14 Royal Parade, Plymouth, Devon, PL1 1DS",
+      "scraped_at": "2025-11-20T23:35:55.902891",
+      "license_number": "PA0361",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/439/Detail?LIC_ID=2051",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "an exhibition of a film",
+        "an indoor sporting event",
+        "a performance of live music",
+        "any playing of recorded music",
+        "a performance of dance",
+        "provision of late night refreshment",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Thursday",
+          "time_from": "07:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "07:00",
+          "time_to": "01:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "07:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Thursday",
+          "time_from": "07:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "07:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "07:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Thursday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "09:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Thursday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "09:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Thursday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "09:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Thursday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "09:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Thursday",
+          "time_from": "23:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "23:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "23:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Thursday",
+          "time_from": "09:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "09:00",
+          "time_to": "01:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "09:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "439",
+        "name": "Brass Monkey, The",
+        "address": "12 - 14 Royal Parade, Plymouth, Devon, PL1 1DS"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 330,
+    "name": "BrewDog Plymouth",
+    "address": "Unit 10, the barcode, 11 Bretonside, Plymouth PL4 0FE, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 89,
+    "name": "Brewers Fayre Plymouth",
+    "address": "",
+    "cuisine_type": "Family Pub & Grill",
+    "price_range": "£4.49-12.99",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 92,
+    "name": "Burger King Plymouth",
+    "address": "",
+    "cuisine_type": "Fast Food",
+    "price_range": "£1.99-6.99",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 47,
+    "name": "Byron Burger Plymouth",
+    "address": "",
+    "cuisine_type": "American Burgers",
+    "price_range": "£1.50-13.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 270,
+    "name": "Cafe Local, Plymouth Station",
+    "address": "Plymouth Railway Station, Plymouth PL4 6AB, UK",
+    "cuisine_type": "Convenience Store",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 268,
+    "name": "Cafe Plus",
+    "address": "64 Mutley Plain, Mutley, Plymouth PL4 6LF, UK",
+    "cuisine_type": "Brunch Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 276,
+    "name": "Cafe and Bistro Tio Leo",
+    "address": "17 Bishops Pl, Plymouth PL1 3BW, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "4595",
+      "licensing_name": "Cafe and Bistro Tio Leo",
+      "licensing_address": "17 Bishops Place, Plymouth, Devon, PL1 3BW",
+      "scraped_at": "2025-11-20T23:36:17.734594",
+      "license_number": "PA1273",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/4595/Detail?LIC_ID=22820",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "08:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "08:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "4595",
+        "name": "Cafe and Bistro Tio Leo",
+        "address": "17 Bishops Place, Plymouth, Devon, PL1 3BW"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 98,
+    "name": "Caffe Nero Plymouth",
+    "address": "",
+    "cuisine_type": "Coffee Shop",
+    "price_range": "£2.85-5.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 287,
+    "name": "Café Bené",
+    "address": "17 Bishops Place, Plymouth PL1 3BW, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 261,
+    "name": "Café Momus",
+    "address": "14-17 Manor St, Stonehouse, Plymouth PL1 1TL, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 265,
+    "name": "Café Olympus",
+    "address": "Pantheon, Ford, Plymouth PL2 1PU, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 44,
+    "name": "Café Rouge Plymouth",
+    "address": "",
+    "cuisine_type": "French Brasserie",
+    "price_range": "£2.50-18.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 326,
+    "name": "Capital DC Tiki Bar & Lounge",
+    "address": "3 Derrys Cross, Plymouth PL1 2SW, UK",
+    "cuisine_type": "Wine Bar",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 63,
+    "name": "Carluccio's Plymouth",
+    "address": "",
+    "cuisine_type": "Italian",
+    "price_range": "£7.50-16.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 81,
+    "name": "Chiquito Plymouth",
+    "address": "",
+    "cuisine_type": "Mexican",
+    "price_range": "£2.50-15.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 278,
+    "name": "Coffee Shark",
+    "address": "59 Hyde Park Rd, Peverell, Plymouth PL3 4JN, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 274,
+    "name": "Coffee time",
+    "address": "134 Cornwall St, Plymouth PL1 1NJ, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "4385",
+      "licensing_name": "Coffee Time",
+      "licensing_address": "134 Cornwall Street, Plylmouth, Devon, PL11NJ",
+      "scraped_at": "2025-11-20T23:36:46.824797",
+      "license_number": "TE4363",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/4385/Detail?LIC_ID=21608",
+      "licensable_activities": [
+        "The sale by retail of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Saturday",
+          "time_from": "11:00",
+          "time_to": "20:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "4385",
+        "name": "Coffee Time",
+        "address": "134 Cornwall Street, Plylmouth, Devon, PL11NJ"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 301,
+    "name": "Coffee#1 Plymouth",
+    "address": "25-27 Cornwall St, Plymouth PL1 1NW, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "3174",
+      "licensing_name": "Amigos Coffee",
+      "licensing_address": "24 Molesworth Road, Stoke, Plymouth, Devon, PL1 5LZ",
+      "scraped_at": "2025-11-20T23:36:54.563119",
+      "license_number": "PA1082",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/3174/Detail?LIC_ID=18619",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "07:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "09:00",
+          "time_to": "22:30",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "3174",
+        "name": "Amigos Coffee",
+        "address": "24 Molesworth Road, Stoke, Plymouth, Devon, PL1 5LZ"
+      },
+      {
+        "premises_id": "2172",
+        "name": "Coffee Shack",
+        "address": "Hoe Road, Plymouth, Devon, PL1 3DE"
+      },
+      {
+        "premises_id": "726",
+        "name": "Coffee Shop, Bistro, Dining Hall and Conservatory",
+        "address": "The College of St Mark and St John, Derriford Road, Plymouth, Devon, PL6 8BH"
+      },
+      {
+        "premises_id": "4385",
+        "name": "Coffee Time",
+        "address": "134 Cornwall Street, Plylmouth, Devon, PL11NJ"
+      },
+      {
+        "premises_id": "2150",
+        "name": "Costa Coffee",
+        "address": "Unit 1-3, New George Street, Plymouth, Devon"
+      },
+      {
+        "premises_id": "618",
+        "name": "Daisy's Tea Rooms and Coffee shop",
+        "address": "Unit 2 Pinnacle Quay, Sutton Harbour, Plymouth, Devon, PL4 0BJ"
+      },
+      {
+        "premises_id": "3257",
+        "name": "Finla Coffee Limited",
+        "address": "12-13 St Stephens Place, Plympton, Plymouth, Devon, PL7 2ZN"
+      },
+      {
+        "premises_id": "4514",
+        "name": "Flavour Fest 2024 - Jungle Coffee - Stand 55",
+        "address": "Armada Way, Plymouth, Devon"
+      },
+      {
+        "premises_id": "283",
+        "name": "Hobbs Chocolate and Coffee House",
+        "address": "34 Mayflower Street, Plymouth, Devon, PL1 1QX"
+      },
+      {
+        "premises_id": "893",
+        "name": "Hudsons Coffee House",
+        "address": "Royal Building, St Andrews Cross, Plymouth, Devon, PL1 2EF"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 231,
+    "name": "Cosmic Kitchen",
+    "address": "Palace St, Plymouth PL1 2AY, UK",
+    "cuisine_type": "Vegan Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "1592",
+      "licensing_name": "Cosmic Kitchen",
+      "licensing_address": "Palace Street, Plymouth, Devon, PL1 2AY",
+      "scraped_at": "2025-11-20T23:37:02.226679",
+      "license_number": "PA0753",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/1592/Detail?LIC_ID=6334",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol",
+        "provision of late night refreshment",
+        "any playing of recorded music",
+        "a performance of live music"
+      ],
+      "opening_hours": [
+        {
+          "days": "Sunday to Thursday",
+          "time_from": "08:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "08:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday to Thursday",
+          "time_from": "23:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "23:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday to Thursday",
+          "time_from": "23:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "23:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday to Thursday",
+          "time_from": "08:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "08:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "1592",
+        "name": "Cosmic Kitchen",
+        "address": "Palace Street, Plymouth, Devon, PL1 2AY"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 74,
+    "name": "Costa Coffee Plymouth",
+    "address": "",
+    "cuisine_type": "Coffee Shop",
+    "price_range": "£2.95-12.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 37,
+    "name": "Cosy Club Plymouth",
+    "address": "",
+    "cuisine_type": "All-Day Dining",
+    "price_range": "£6.95-15.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 245,
+    "name": "Crown & Anchor",
+    "address": "10 The Barbican, Plymouth PL1 2LS, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 62,
+    "name": "Côte Brasserie Plymouth",
+    "address": "",
+    "cuisine_type": "French",
+    "price_range": "£7.50-21.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 340,
+    "name": "Dolphin Hotel",
+    "address": "14 The Barbican, Plymouth PL1 2LS, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "454",
+      "licensing_name": "Dolphin Hotel",
+      "licensing_address": "14 The Barbican, Plymouth, Devon, PL1 2LS",
+      "scraped_at": "2025-11-20T23:37:20.576641",
+      "license_number": "PA0375",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/454/Detail?LIC_ID=2077",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "a performance of live music",
+        "sale and supply of alcohol",
+        "any playing of recorded music",
+        "provision of late night refreshment"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Saturday",
+          "time_from": "09:00",
+          "time_to": "00:20",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "11:00",
+          "time_to": "23:20",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "11:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "11:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "454",
+        "name": "Dolphin Hotel",
+        "address": "14 The Barbican, Plymouth, Devon, PL1 2LS"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 65,
+    "name": "Domino's Pizza Plymouth",
+    "address": "",
+    "cuisine_type": "Pizza Delivery",
+    "price_range": "£2.50-16.99",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 307,
+    "name": "Downtown Cafe",
+    "address": "Pannier Market, The Market, Plymouth PL1 1PS, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 232,
+    "name": "Dunya Restaurant Turkish Cuisine",
+    "address": "10 Derrys Cross, Plymouth PL1 2SH, UK",
+    "cuisine_type": "Turkish Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 298,
+    "name": "Elvira’s Café",
+    "address": "7 Admiral's Hard, Stonehouse, Plymouth PL1 3RJ, UK",
+    "cuisine_type": "Breakfast Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 343,
+    "name": "Fever Clubrooms - Plymouth",
+    "address": "33 Derrys Cross, Plymouth PL1 2SW, UK",
+    "cuisine_type": "Night Club",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 242,
+    "name": "Fig & Thyme Kitchen",
+    "address": "58 Southside St, Plymouth PL1 2LA, UK",
+    "cuisine_type": "Brunch Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 194,
+    "name": "Five Guys Plymouth",
+    "address": "",
+    "cuisine_type": "American Burgers",
+    "price_range": "£4.95-12.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 3,
+    "name": "Fletcher's Restaurant",
+    "address": "",
+    "cuisine_type": "Fine Dining (Michelin Recommended)",
+    "price_range": "£4-70",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 230,
+    "name": "Foodie",
+    "address": "72 Cornwall St, Plymouth PL1 1LR, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "2858",
+      "licensing_name": "Foodie",
+      "licensing_address": "72 Cornwall Street, Plymouth, Devon, PL1 1LR",
+      "scraped_at": "2025-11-20T23:37:47.917800",
+      "license_number": "PA0962",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/2858/Detail?LIC_ID=13937",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "provision of late night refreshment",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "11:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "23:00",
+          "time_to": "01:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "11:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "2858",
+        "name": "Foodie",
+        "address": "72 Cornwall Street, Plymouth, Devon, PL1 1LR"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 45,
+    "name": "Frankie & Benny's Plymouth",
+    "address": "",
+    "cuisine_type": "American-Italian",
+    "price_range": "£2.50-14.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 101,
+    "name": "Giggling Squid Plymouth",
+    "address": "",
+    "cuisine_type": "Thai",
+    "price_range": "£3.50-15.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 359,
+    "name": "Golden Hind",
+    "address": "260 Mannamead Rd, Plymouth PL3 5RJ, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "328",
+      "licensing_name": "Golden Hind",
+      "licensing_address": "260 Mannamead Road, Plymouth, Devon, PL3 5RJ",
+      "scraped_at": "2025-11-20T23:38:00.795841",
+      "license_number": "PA0371",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/328/Detail?LIC_ID=2039",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol",
+        "any playing of recorded music",
+        "provision of late night refreshment",
+        "a performance of live music",
+        "entertainment of a similar description to that falling within a performance of live music, any playing of recorded music or a performance of dance"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Thursday",
+          "time_from": "10:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "10:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "10:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Seasonal Variations:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "11:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "11:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Seasonal Variations:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Thursday",
+          "time_from": "11:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "11:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "11:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Seasonal Variations:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "11:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "11:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Thursday",
+          "time_from": "23:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "23:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "23:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Seasonal Variations:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Thursday",
+          "time_from": "11:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "11:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "11:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Seasonal Variations:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "328",
+        "name": "Golden Hind",
+        "address": "260 Mannamead Road, Plymouth, Devon, PL3 5RJ"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 57,
+    "name": "Gourmet Burger Kitchen Plymouth",
+    "address": "",
+    "cuisine_type": "Burger Restaurant",
+    "price_range": "£4.50-13.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 35,
+    "name": "Greggs Plymouth",
+    "address": "",
+    "cuisine_type": "Bakery",
+    "price_range": "£0.95-3.50",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 281,
+    "name": "Ground Coffee",
+    "address": "Barbican, Plymouth PL1 2LS, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 60,
+    "name": "Harvester Plymouth",
+    "address": "",
+    "cuisine_type": "British Family Dining",
+    "price_range": "£6.49-17.99",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 120,
+    "name": "Himalayan Spice",
+    "address": "",
+    "cuisine_type": "Nepalese/Indian",
+    "price_range": "£3.50-14.95",
+    "licensing": {
+      "premises_id": "644",
+      "licensing_name": "Himalayan Spice",
+      "licensing_address": "31 New Street, Plymouth, Devon, PL1 2NA",
+      "scraped_at": "2025-11-20T23:38:17.920712",
+      "license_number": "PA0518",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/644/Detail?LIC_ID=1640",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "644",
+        "name": "Himalayan Spice",
+        "address": "31 New Street, Plymouth, Devon, PL1 2NA"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 7,
+    "name": "Honky Tonk Wine Library",
+    "address": "",
+    "cuisine_type": "Wine Bar & Small Plates",
+    "price_range": "£6.95-134.00",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 95,
+    "name": "Hubbox Plymouth",
+    "address": "",
+    "cuisine_type": "Gourmet Burgers",
+    "price_range": "£2.50-13.50",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 223,
+    "name": "In Seoul",
+    "address": "10, 12 Market Ave, Plymouth PL1 1PQ, UK",
+    "cuisine_type": "Korean Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "4507",
+      "licensing_name": "In Seoul BBQ and Hot Pot",
+      "licensing_address": "10-12 Market Avenue, Plymouth, Devon, PL1 1PQ",
+      "scraped_at": "2025-11-20T23:38:30.109892",
+      "license_number": "PA1256",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/4507/Detail?LIC_ID=22329",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "12:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "12:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "4507",
+        "name": "In Seoul BBQ and Hot Pot",
+        "address": "10-12 Market Avenue, Plymouth, Devon, PL1 1PQ"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 275,
+    "name": "Irene's Pantry",
+    "address": "Market Ave, Plymouth PL1 1PR, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 41,
+    "name": "Jacka Bakery",
+    "address": "",
+    "cuisine_type": "Bakery",
+    "price_range": "£1.50-14.50",
+    "licensing": {
+      "premises_id": "4288",
+      "licensing_name": "Jacka Bakery",
+      "licensing_address": "38 Southside Street, Barbican, Plymouth, Devon, PL1 2LE",
+      "scraped_at": "2025-11-20T23:38:40.688752",
+      "license_number": "PA1213",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/4288/Detail?LIC_ID=21187",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "08:30",
+          "time_to": "14:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "08:30",
+          "time_to": "14:30",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "4288",
+        "name": "Jacka Bakery",
+        "address": "38 Southside Street, Barbican, Plymouth, Devon, PL1 2LE"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 327,
+    "name": "James Street Vaults (JSV)",
+    "address": "24 James St, Plymouth PL4 6EQ, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 306,
+    "name": "Jasmin's",
+    "address": "The Hair Loft, 81-83 Ridgeway, Plympton, Plymouth PL7 2AA, UK",
+    "cuisine_type": "Breakfast Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "628",
+      "licensing_name": "Jasmin's",
+      "licensing_address": "81-83 Ridgeway, Plympton, Plymouth, Devon, PL7 2AA",
+      "scraped_at": "2025-11-20T23:38:50.649746",
+      "license_number": "PA0505",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/628/Detail?LIC_ID=2559",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "09:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "09:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "628",
+        "name": "Jasmin's",
+        "address": "81-83 Ridgeway, Plympton, Plymouth, Devon, PL7 2AA"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 15,
+    "name": "Jolly Jacks",
+    "address": "",
+    "cuisine_type": "Waterside Dining",
+    "price_range": "£7-18",
+    "licensing": {
+      "premises_id": "234",
+      "licensing_name": "Jolly Jacks",
+      "licensing_address": "Mayflower Marina, Richmond Walk, Plymouth, Devon, PL1 4LS",
+      "scraped_at": "2025-11-20T23:38:58.304866",
+      "license_number": "PA1216",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/234/Detail?LIC_ID=21259",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "234",
+        "name": "Jolly Jacks",
+        "address": "Mayflower Marina, Richmond Walk, Plymouth, Devon, PL1 4LS"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 33,
+    "name": "KFC Plymouth",
+    "address": "Anson Road, Martlesham Heath , IP5 3RA",
+    "cuisine_type": "Fast Food Chicken",
+    "price_range": "£1.99-12.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 256,
+    "name": "KYOWA",
+    "address": "58 Ebrington St, Plymouth PL4 9AF, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "4075",
+      "licensing_name": "Kyowa",
+      "licensing_address": "58 Ebrington Street, Plymouth, Devon, PL4 9AF",
+      "scraped_at": "2025-11-20T23:39:08.201541",
+      "license_number": "PA1175",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/4075/Detail?LIC_ID=20209",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "08:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "08:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "4075",
+        "name": "Kyowa",
+        "address": "58 Ebrington Street, Plymouth, Devon, PL4 9AF"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 244,
+    "name": "Karak Chaii Plymouth",
+    "address": "101 Armada Way, Plymouth PL1 1HH, UK",
+    "cuisine_type": "Indian Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 316,
+    "name": "Kitty O'Hanlons Plymouth",
+    "address": "5 St Andrew St, Plymouth PL1 2AH, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 2,
+    "name": "Knead Pizza Plymouth",
+    "address": "Prysten House, Finewell St, Plymouth, PL1 2AE",
+    "cuisine_type": "Neapolitan Pizza",
+    "price_range": "£5.00-16.20",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 119,
+    "name": "Koishii Sushi Bar",
+    "address": "101 Mayflower St, Plymouth",
+    "cuisine_type": "Japanese",
+    "price_range": "£1.71-28.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 171,
+    "name": "Kuku Indian Restaurant",
+    "address": "",
+    "cuisine_type": "Indian",
+    "price_range": "£3.50-15.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 228,
+    "name": "Lanterns Restaurant",
+    "address": "88 Cornwall St, Plymouth PL1 1LR, UK",
+    "cuisine_type": "Mediterranean Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 19,
+    "name": "Las Iguanas Plymouth",
+    "address": "",
+    "cuisine_type": "Latin American",
+    "price_range": "£1.00-26.75",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 283,
+    "name": "Lisbon Bakery and Restaurant",
+    "address": "22, 22-24 Frankfort Gate, Plymouth PL1 1QD, UK",
+    "cuisine_type": "Breakfast Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "3204",
+      "licensing_name": "Lisbon Bakery and Restaurant",
+      "licensing_address": "22-24 Frankfort Gate, Plymouth, Devon, PL1 1QD",
+      "scraped_at": "2025-11-20T23:39:31.998123",
+      "license_number": "PA1005",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/3204/Detail?LIC_ID=16133",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "08:00",
+          "time_to": "22:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "11:00",
+          "time_to": "22:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "3204",
+        "name": "Lisbon Bakery and Restaurant",
+        "address": "22-24 Frankfort Gate, Plymouth, Devon, PL1 1QD"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 356,
+    "name": "Lockyers Quay Cookhouse + Pub",
+    "address": "1 Lockyers Quay, Plymouth PL4 0DX, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 348,
+    "name": "Lord High Admiral",
+    "address": "33 Stonehouse St, Stonehouse, Plymouth PL1 3PE, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "619",
+      "licensing_name": "Lord High Admiral",
+      "licensing_address": "33 Stonehouse Street, Stonehouse, Plymouth, Devon, PL1 3PE",
+      "scraped_at": "2025-11-20T23:39:42.228757",
+      "license_number": "PA0500",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/619/Detail?LIC_ID=2613",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "an indoor sporting event",
+        "a performance of live music",
+        "any playing of recorded music",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Saturday",
+          "time_from": "09:00",
+          "time_to": "02:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "19:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "19:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "15:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "15:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "09:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "10:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "09:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "10:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "619",
+        "name": "Lord High Admiral",
+        "address": "33 Stonehouse Street, Stonehouse, Plymouth, Devon, PL1 3PE"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 229,
+    "name": "Lost in Rio Restaurant & Cocktail Bar",
+    "address": "8 Parade, Plymouth PL1 2JL, UK",
+    "cuisine_type": "Brazilian Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 51,
+    "name": "Loungers - Seco",
+    "address": "",
+    "cuisine_type": "All-Day Dining",
+    "price_range": "£4.00-14.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 296,
+    "name": "M&S Café",
+    "address": "1 Cornwall St, Plymouth PL1 1DH, UK",
+    "cuisine_type": "Cafeteria",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 247,
+    "name": "Marco Pierre White",
+    "address": "Armada Way, Plymouth PL1 2HJ, UK",
+    "cuisine_type": "Steak House",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 344,
+    "name": "Marina Bar",
+    "address": "Sutton Harbour, Plymouth PL4 0DN, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 32,
+    "name": "McDonald's Plymouth",
+    "address": "",
+    "cuisine_type": "Fast Food",
+    "price_range": "£1.99-4.99",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 337,
+    "name": "Melbourne Inn",
+    "address": "224 Cecil St, Stonehouse, Plymouth PL1 5HP, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "621",
+      "licensing_name": "Melbourne Inn",
+      "licensing_address": "224 Cecil Street, Stonehouse, Plymouth, Devon, PL1 5HP",
+      "scraped_at": "2025-11-20T23:40:06.044509",
+      "license_number": "PA0501",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/621/Detail?LIC_ID=2240",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "a performance of live music",
+        "any playing of recorded music",
+        "entertainment of a similar description to that falling within a performance of live music, any playing of recorded music or a performance of dance",
+        "provision of late night refreshment",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Saturday",
+          "time_from": "07:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "07:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "07:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "07:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "07:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "07:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "23:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "23:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "07:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "07:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "621",
+        "name": "Melbourne Inn",
+        "address": "224 Cecil Street, Stonehouse, Plymouth, Devon, PL1 5HP"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 253,
+    "name": "Meze Grill",
+    "address": "48 Southside St, Plymouth PL1 2LD, UK",
+    "cuisine_type": "Greek Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "1824",
+      "licensing_name": "Meze Grill",
+      "licensing_address": "Sutton Wharf, Barbican, Plymouth, Devon, PL4 0DW",
+      "scraped_at": "2025-11-20T23:40:15.442409",
+      "license_number": "PA0804",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/1824/Detail?LIC_ID=8159",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "10:00",
+          "time_to": "22:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "10:00",
+          "time_to": "22:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "1824",
+        "name": "Meze Grill",
+        "address": "Sutton Wharf, Barbican, Plymouth, Devon, PL4 0DW"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 352,
+    "name": "Millbridge Inn",
+    "address": "23 Molesworth Rd, Stoke, Plymouth PL1 5LZ, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "645",
+      "licensing_name": "Millbridge Inn",
+      "licensing_address": "23 Molesworth Road, Stoke, Plymouth, Devon, PL1 5LZ",
+      "scraped_at": "2025-11-20T23:40:23.157933",
+      "license_number": "PA0520",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/645/Detail?LIC_ID=2652",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "a performance of live music",
+        "any playing of recorded music",
+        "a performance of dance",
+        "entertainment of a similar description to that falling within a performance of live music, any playing of recorded music or a performance of dance",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "08:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "08:00",
+          "time_to": "01:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "08:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Thursday",
+          "time_from": "12:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday to Sunday",
+          "time_from": "12:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "12:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "12:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "12:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "12:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "12:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "12:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "08:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "08:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "08:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "645",
+        "name": "Millbridge Inn",
+        "address": "23 Molesworth Road, Stoke, Plymouth, Devon, PL1 5LZ"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 14,
+    "name": "Miller & Carter Plymouth",
+    "address": "Sutton Wharf, PL4 0HJ",
+    "cuisine_type": "Steakhouse",
+    "price_range": "£2.50-38.00",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 339,
+    "name": "Minerva Inn",
+    "address": "31 Looe St, Plymouth PL4 0EA, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "423",
+      "licensing_name": "Minerva Inn",
+      "licensing_address": "31 Looe Street, Plymouth, Devon, PL4 0EA",
+      "scraped_at": "2025-11-20T23:40:33.931902",
+      "license_number": "PA0349",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/423/Detail?LIC_ID=2011",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "a performance of live music",
+        "any playing of recorded music",
+        "entertainment of a similar description to that falling within a performance of live music, any playing of recorded music or a performance of dance",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Saturday",
+          "time_from": "11:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "16:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "16:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "11:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "11:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "423",
+        "name": "Minerva Inn",
+        "address": "31 Looe Street, Plymouth, Devon, PL4 0EA"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 305,
+    "name": "Moments Café and Memory Matters Hub",
+    "address": "69a New George St, Plymouth PL1 1RJ, UK",
+    "cuisine_type": "Event Venue",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 269,
+    "name": "Monty's Café",
+    "address": "13 The Barbican, Plymouth PL1 2LS, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 239,
+    "name": "NORA'S",
+    "address": "40 Drake Circus, North Hill, Plymouth PL4 8AB, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "199",
+      "licensing_name": "Nora's Restaurant",
+      "licensing_address": "38-40 Drake Circus, Plymouth, Devon, PL4 8AB",
+      "scraped_at": "2025-11-20T23:40:49.839099",
+      "license_number": "PA0158",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/199/Detail?LIC_ID=1498",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "a performance of live music",
+        "a performance of dance",
+        "entertainment of a similar description to that falling within a performance of live music, any playing of recorded music or a performance of dance",
+        "sale and supply of alcohol",
+        "provision of late night refreshment",
+        "any playing of recorded music"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "04:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "04:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "04:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "04:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "04:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "23:00",
+          "time_to": "04:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "04:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "199",
+        "name": "Nora's Restaurant",
+        "address": "38-40 Drake Circus, Plymouth, Devon, PL4 8AB"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 69,
+    "name": "Nando's Barbican",
+    "address": "6-7, The High Parade, Streatham High Rd, Streatham, London, SW16 1EX",
+    "cuisine_type": "Portuguese Chicken",
+    "price_range": "£2.50-13.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 91,
+    "name": "Nando's Plymouth",
+    "address": "Plymouth Barbican, Plymouth, UK",
+    "cuisine_type": "Portuguese Chicken",
+    "price_range": "£3.25-13.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 259,
+    "name": "Nawroz Restaurant",
+    "address": "142 King St, Stonehouse, Plymouth PL1 5JE, UK",
+    "cuisine_type": "Middle Eastern Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 297,
+    "name": "News Cafe Plymouth",
+    "address": "16/17, Mills Bakery, Royal William Rd, Stonehouse, Plymouth PL1 3RP, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 321,
+    "name": "Noahs Ark",
+    "address": "32A Courtenay St, Plymouth PL1 1EP, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 273,
+    "name": "North Street No 7 Cafe and Bar",
+    "address": "7 North St, Plymouth PL4 0BW, UK",
+    "cuisine_type": "Food Store",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 332,
+    "name": "Number 10",
+    "address": "197 North Rd W, Stonehouse, Plymouth PL1 5DG, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 222,
+    "name": "Ocean View at The Dome",
+    "address": "Hoe Rd, Plymouth PL1 2NZ, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 313,
+    "name": "Old Town Tiki Bar",
+    "address": "1 Old Town St, Plymouth PL1 1DA, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "4349",
+      "licensing_name": "Old Town Tiki Bar",
+      "licensing_address": "1 Old Town Street, Plymouth, Devon, PL1 1DA",
+      "scraped_at": "2025-11-20T23:41:16.566663",
+      "license_number": "PA1236",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/4349/Detail?LIC_ID=21979",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "a performance of live music",
+        "any playing of recorded music",
+        "provision of late night refreshment",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Sunday to Thursday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "09:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "23:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "23:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "23:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "23:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday to Thursday",
+          "time_from": "23:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "23:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday to Thursday",
+          "time_from": "09:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Friday and Saturday",
+          "time_from": "09:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "4349",
+        "name": "Old Town Tiki Bar",
+        "address": "1 Old Town Street, Plymouth, Devon, PL1 1DA"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 272,
+    "name": "Olive & Twist - Plymouth City Centre",
+    "address": "9 Old Town St, Plymouth PL1 1DD, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 271,
+    "name": "Ope",
+    "address": "15 Looe St, Plymouth PL4 0DY, UK",
+    "cuisine_type": "Bakery",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "1927",
+      "licensing_name": "Citadel Ope (Adjacent to 19 the Parade)",
+      "licensing_address": "The Barbican, Plymouth, Devon",
+      "scraped_at": "2025-11-20T23:41:27.531579",
+      "license_number": "TENN0205",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/1927/Detail?LIC_ID=8468",
+      "licensable_activities": [
+        "The provision of regulated entertainment"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday",
+          "time_from": "10:00",
+          "time_to": "18:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "1927",
+        "name": "Citadel Ope (Adjacent to 19 the Parade)",
+        "address": "The Barbican, Plymouth, Devon"
+      },
+      {
+        "premises_id": "601",
+        "name": "Cooperage (The)",
+        "address": "134 Vauxhall Street, The Barbican, Plymouth, Devon, PL4 0DE"
+      },
+      {
+        "premises_id": "111",
+        "name": "Co-operative",
+        "address": "The Broadway, Plymstock, Plymouth, Devon, PL9 7AS"
+      },
+      {
+        "premises_id": "292",
+        "name": "Co-operative",
+        "address": "54-56 Mutley Plain, Mutley Plain, Plymouth, Devon, PL4 6LF"
+      },
+      {
+        "premises_id": "1983",
+        "name": "Co-operative",
+        "address": "26 - 34 Hornchurch Road, Ernesettle, Plymouth, Devon, PL5 2TG"
+      },
+      {
+        "premises_id": "3735",
+        "name": "Co-operative",
+        "address": "Part of 26-34 Hornchurch Road, Plymouth, Devon, PL5 2TG"
+      },
+      {
+        "premises_id": "3038",
+        "name": "Co-operative Food",
+        "address": "15 Frogmore Avenue, Eggbuckland, Plymouth, Devon, PL6 5HX"
+      },
+      {
+        "premises_id": "4314",
+        "name": "Domestic property",
+        "address": "470 Budshead Road, Plymouth, Devon, PL5 4DF"
+      },
+      {
+        "premises_id": "2859",
+        "name": "Factory Cooperage",
+        "address": "Royal William Yard, Stonehouse, Plymouth"
+      },
+      {
+        "premises_id": "1164",
+        "name": "Lipson Co-operative Academy",
+        "address": "Bernice Terrace, Lipson, Plymouth, Devon, PL4 7PG"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 56,
+    "name": "Panchos Burritos",
+    "address": "",
+    "cuisine_type": "Mexican",
+    "price_range": "£1.50-12.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 66,
+    "name": "Papa John's Plymouth",
+    "address": "",
+    "cuisine_type": "Pizza Delivery",
+    "price_range": "£1.49-16.99",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 162,
+    "name": "Pasta Remoli",
+    "address": "Ealing Broadway, London",
+    "cuisine_type": "Italian Pasta",
+    "price_range": "£3.50-14.00",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 144,
+    "name": "Pho Plymouth",
+    "address": "102 Baker St, London W1U 6TL",
+    "cuisine_type": "Vietnamese",
+    "price_range": "£3.50-12.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 5,
+    "name": "Pier One",
+    "address": "",
+    "cuisine_type": "Contemporary Seafood",
+    "price_range": "£3.50-32.95",
+    "licensing": {
+      "premises_id": "2333",
+      "licensing_name": "Pier One",
+      "licensing_address": "135 Hoe Road, The Hoe, Plymouth, Devon, PL1 3DE",
+      "scraped_at": "2025-11-20T23:41:44.378732",
+      "license_number": "PA1017",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/2333/Detail?LIC_ID=16423",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "a performance of live music",
+        "any playing of recorded music",
+        "provision of late night refreshment",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "09:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "11:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "11:00",
+          "time_to": "01:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "23:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "09:00",
+          "time_to": "01:30",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "2333",
+        "name": "Pier One",
+        "address": "135 Hoe Road, The Hoe, Plymouth, Devon, PL1 3DE"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 46,
+    "name": "Pizza Express Plymouth",
+    "address": "Pilgrims House, 17 Derry's Cross, Plymouth, PL1 2SW",
+    "cuisine_type": "Italian",
+    "price_range": "£2.00-14.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 102,
+    "name": "Pizza Hut Plymouth",
+    "address": "Gapton Hall Road\nGreat Yarmouth, Norfolk\nNR31 0NL",
+    "cuisine_type": "Pizza Chain",
+    "price_range": "£1.50-14.99",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 243,
+    "name": "Plates Fusion Pub",
+    "address": "4 Billacombe Rd, Plymouth PL9 7HP, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 254,
+    "name": "Platters",
+    "address": "12 The Barbican, Plymouth PL1 2LS, UK",
+    "cuisine_type": "Seafood Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "116",
+      "licensing_name": "Platters Restaurant",
+      "licensing_address": "12 The Barbican, Plymouth, Devon, PL1 2LS",
+      "scraped_at": "2025-11-20T23:41:58.757286",
+      "license_number": "PA0083",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/116/Detail?LIC_ID=1568",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "116",
+        "name": "Platters Restaurant",
+        "address": "12 The Barbican, Plymouth, Devon, PL1 2LS"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 122,
+    "name": "Plymouth Arts Centre Cafe",
+    "address": "",
+    "cuisine_type": "Vegetarian Cafe",
+    "price_range": "£2.80-10.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 70,
+    "name": "Plymouth Arts Centre Café",
+    "address": "",
+    "cuisine_type": "Café/Vegetarian",
+    "price_range": "£2.00-12.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 257,
+    "name": "Plymouth Jollof Kitchen",
+    "address": "65 Union St, Stonehouse, Plymouth PL1 3LU, UK",
+    "cuisine_type": "Meal Takeaway",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 323,
+    "name": "Portico Cocktail Bar and Cafe",
+    "address": "33 Notte St, Plymouth PL1 2AZ, UK",
+    "cuisine_type": "Wine Bar",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 227,
+    "name": "Positano",
+    "address": "36-38 Mayflower St, Plymouth PL1 1QX, UK",
+    "cuisine_type": "Italian Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "228",
+      "licensing_name": "Positano Restaurant",
+      "licensing_address": "36-38 Mayflower Street, Plymouth, Devon, PL1 1QX",
+      "scraped_at": "2025-11-20T23:42:16.425219",
+      "license_number": "PA0187",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/228/Detail?LIC_ID=1601",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "228",
+        "name": "Positano Restaurant",
+        "address": "36-38 Mayflower Street, Plymouth, Devon, PL1 1QX"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 75,
+    "name": "Pret A Manger Plymouth",
+    "address": "",
+    "cuisine_type": "Coffee & Sandwiches",
+    "price_range": "£1-153",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 76,
+    "name": "Prezzo Plymouth",
+    "address": "",
+    "cuisine_type": "Italian",
+    "price_range": "£5.50-13.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 49,
+    "name": "Revolution Plymouth",
+    "address": "",
+    "cuisine_type": "Bar & Restaurant",
+    "price_range": "£0.50-18.50",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 303,
+    "name": "Rhubarb & Mustard",
+    "address": "studio 5/11, 7a Millbay Rd, Plymouth PL1 3LF, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 262,
+    "name": "Rise and Grind Plymouth",
+    "address": "10 Commercial Wharf, Plymouth PL1 2NX, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 53,
+    "name": "River Cottage Canteen Plymouth",
+    "address": "",
+    "cuisine_type": "British Farm-to-Table",
+    "price_range": "£4.50-18.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 300,
+    "name": "Rockets and Rascals",
+    "address": "7 Parade, Plymouth PL1 2JL, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "2532",
+      "licensing_name": "Rockets and Rascals",
+      "licensing_address": "7 Parade, The Barbican, Plymouth, Devon, PL1 2JL",
+      "scraped_at": "2025-11-20T23:42:38.877134",
+      "license_number": "PA0987",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/2532/Detail?LIC_ID=15435",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "08:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "2532",
+        "name": "Rockets and Rascals",
+        "address": "7 Parade, The Barbican, Plymouth, Devon, PL1 2JL"
+      },
+      {
+        "premises_id": "3078",
+        "name": "Rockets and Rascals",
+        "address": "9-10 Mills Bakery, Firestone Arches, Royal William Yard, Plymouth, Devon, PL1 3QQ"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 4,
+    "name": "Rockfish Plymouth",
+    "address": "3 Rope Walk, Plymouth, PL4 0LB",
+    "cuisine_type": "Seafood & Fish",
+    "price_range": "£1.95-26.00",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 214,
+    "name": "Roundabout Plymouth",
+    "address": "2-4 Drake Circus, Plymouth, PL4 8AQ",
+    "cuisine_type": "Pub Food",
+    "price_range": "£4.50-11.00",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 322,
+    "name": "Rust & Royal",
+    "address": "PL1, 7-8 Quay Rd, Plymouth PL1 2JZ, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 224,
+    "name": "Rwandz Restaurant",
+    "address": "12 Cornwall St, Plymouth PL1 1LP, UK",
+    "cuisine_type": "Middle Eastern Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 299,
+    "name": "SATO by Minerva Cafe",
+    "address": "1-29, candlewick road, Alma Yard, Plymouth PL4 0FF, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 266,
+    "name": "Salt and Pepper Kitchen Plymouth",
+    "address": "65 High St, Plymouth PL1 2AW, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 205,
+    "name": "Salumi Bar & Eatery",
+    "address": "18 Millbay Road, Millbay, Plymouth, PL1 3LH",
+    "cuisine_type": "Modern British",
+    "price_range": "£4-30",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 157,
+    "name": "Seco Lounge",
+    "address": "",
+    "cuisine_type": "All Day Dining",
+    "price_range": "£2-15",
+    "licensing": {
+      "premises_id": "1857",
+      "licensing_name": "Seco Lounge Cafe/bar",
+      "licensing_address": "Units 12-14 Ground Floor, Mills Bakery, Royal William Yard, Plymouth, Devon, PL1 3GD",
+      "scraped_at": "2025-11-20T23:43:03.983299",
+      "license_number": "PA0806",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/1857/Detail?LIC_ID=8219",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "provision of late night refreshment",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "08:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday and Friday",
+          "time_from": "08:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Saturday",
+          "time_from": "09:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "09:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "23:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "10:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "10:00",
+          "time_to": "23:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "1857",
+        "name": "Seco Lounge Cafe/bar",
+        "address": "Units 12-14 Ground Floor, Mills Bakery, Royal William Yard, Plymouth, Devon, PL1 3GD"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 48,
+    "name": "Slug & Lettuce Plymouth",
+    "address": "5–6 Edgar Buildings George Street, Bath, BA1 2EE",
+    "cuisine_type": "British Bar & Grill",
+    "price_range": "£5.00-14.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 292,
+    "name": "Sonnys coffee shop",
+    "address": "65 Hyde Park Rd, Peverell, Plymouth PL3 4JN, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 336,
+    "name": "Spinners Plymouth",
+    "address": "Unit 12, The Barcode, Plymouth PL4 0FE, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 73,
+    "name": "Starbucks Drake Circus",
+    "address": "",
+    "cuisine_type": "Coffee Shop",
+    "price_range": "£2.50-12.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 240,
+    "name": "Steak & Omelette",
+    "address": "116-118 Cornwall St, Plymouth PL1 1NF, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 363,
+    "name": "Stoke Inn",
+    "address": "43 Devonport Rd, Stoke, Plymouth PL3 4DL, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "400",
+      "licensing_name": "Stoke Inn",
+      "licensing_address": "43 Devonport Road, Stoke, Plymouth, Devon, PL3 4DL",
+      "scraped_at": "2025-11-20T23:43:23.930381",
+      "license_number": "PA0331",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/400/Detail?LIC_ID=1996",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "an indoor sporting event",
+        "a performance of live music",
+        "any playing of recorded music",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "08:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "08:00",
+          "time_to": "01:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "10:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "10:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "08:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "08:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Wednesday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "10:00",
+          "time_to": "01:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "400",
+        "name": "Stoke Inn",
+        "address": "43 Devonport Road, Stoke, Plymouth, Devon, PL3 4DL"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 284,
+    "name": "Stoke Village Cafe",
+    "address": "55 Devonport Rd, Stoke, Plymouth PL3 4DL, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 34,
+    "name": "Subway Plymouth",
+    "address": "",
+    "cuisine_type": "Sandwich Chain",
+    "price_range": "£1.29-6.99",
+    "licensing": {
+      "premises_id": "1588",
+      "licensing_name": "Subway Plymouth Limited",
+      "licensing_address": "64 Mutley Plain, Plymouth, Devon, PL4 6LF",
+      "scraped_at": "2025-11-20T23:43:34.506987",
+      "license_number": "PNA0113",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/1588/Detail?LIC_ID=6245",
+      "licensable_activities": [
+        "provision of late night refreshment"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "00:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "23:00",
+          "time_to": "05:00",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "1588",
+        "name": "Subway Plymouth Limited",
+        "address": "64 Mutley Plain, Plymouth, Devon, PL4 6LF"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 312,
+    "name": "Switch & A I R",
+    "address": "2 Sherwell Ln, Plymouth PL4 8LH, UK",
+    "cuisine_type": "Night Club",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 59,
+    "name": "TGI Fridays Plymouth",
+    "address": "",
+    "cuisine_type": "American",
+    "price_range": "£7.95-18.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 186,
+    "name": "Taco Bell Plymouth",
+    "address": "",
+    "cuisine_type": "Mexican Fast Food",
+    "price_range": "£1.99-6.99",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 277,
+    "name": "Tasties cafe",
+    "address": "1 Cornwall St, Plymouth PL1 1DH, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 267,
+    "name": "Terra Nova Café",
+    "address": "41 Chapel St, Devonport, Plymouth PL1 4DP, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 353,
+    "name": "The Artillery Arms",
+    "address": "6 Pound St, Stonehouse, Plymouth PL1 3RH, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 145,
+    "name": "The Bank Restaurant & Bar",
+    "address": "",
+    "cuisine_type": "Contemporary",
+    "price_range": "£2.50-28.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 150,
+    "name": "The Blockhouse",
+    "address": "",
+    "cuisine_type": "Bar & Grill",
+    "price_range": "£5.50-19.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 234,
+    "name": "The Boathouse Plymouth",
+    "address": "2-5 Commercial Wharf, Plymouth PL1 2NX, UK",
+    "cuisine_type": "Seafood Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 238,
+    "name": "The Bottling Plant Ltd",
+    "address": "5 Southside St, Plymouth PL1 2LA, UK",
+    "cuisine_type": "Wine Bar",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 308,
+    "name": "The Box Kitchen & Bar",
+    "address": "Tavistock Pl, Plymouth PL4 8AX, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 141,
+    "name": "The Bread & Roses",
+    "address": "",
+    "cuisine_type": "Vegetarian Pub",
+    "price_range": "£3.00-12.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 183,
+    "name": "The Breakfast Club Plymouth",
+    "address": "303 The Westgate, Queen St, Oxford OX1 1PG",
+    "cuisine_type": "All Day Breakfast",
+    "price_range": "£3.95-11.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 241,
+    "name": "The Bridge",
+    "address": "The Bridge Bar & Restaurant, 55 Shaw Way, Mount Batten, Plymouth PL9 9XH, UK",
+    "cuisine_type": "Breakfast Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 285,
+    "name": "The Caffeine Club",
+    "address": "46 Tavistock Pl, Plymouth PL4 8AX, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 342,
+    "name": "The Clarence Plymouth",
+    "address": "31 Clarence Pl, Stonehouse, Plymouth PL1 3JP, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 263,
+    "name": "The Climbing Hangar Plymouth Café",
+    "address": "Unit 9 Burrington Business Pk, Plymouth PL5 3LX, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 237,
+    "name": "The Clippy",
+    "address": "Plymouth PL1 2LS, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 286,
+    "name": "The Coffee Shack",
+    "address": "91 W Hoe Rd, Plymouth PL1 3DE, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 304,
+    "name": "The Discovery Café",
+    "address": "Methodist Central Hall, Eastlake St, Plymouth PL1 1BA, UK",
+    "cuisine_type": "Breakfast Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 50,
+    "name": "The Dock",
+    "address": "",
+    "cuisine_type": "Modern British",
+    "price_range": "£5.50-58.00",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 333,
+    "name": "The Duchy Pub",
+    "address": "The Duchy, 14 Anstis St, Stonehouse, Plymouth PL1 5JT, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 335,
+    "name": "The Eagle",
+    "address": "156 Cornwall St, Plymouth PL1 1NJ, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 295,
+    "name": "The Early Bird",
+    "address": "51 Mutley Plain, Mutley, Plymouth PL4 6JH, UK",
+    "cuisine_type": "Bakery",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 146,
+    "name": "The Early Bird Cafe",
+    "address": "",
+    "cuisine_type": "Breakfast Cafe",
+    "price_range": "£3.50-10.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 179,
+    "name": "The Edgcumbe Arms",
+    "address": "The Edgcumbe Arms, Cremyll, Cornwall",
+    "cuisine_type": "Waterside Pub",
+    "price_range": "£2.50-23.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 233,
+    "name": "The Fig Tree @ 36",
+    "address": "36 Admiralty St, Stonehouse, Plymouth PL1 3RU, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 360,
+    "name": "The Firkin Scholar",
+    "address": "Paradise Rd, Stoke, Plymouth PL1 5QU, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "515",
+      "licensing_name": "The Firkin Scholar",
+      "licensing_address": "1 Paradise Place, Stoke, Plymouth, Devon, PL1 5QU",
+      "scraped_at": "2025-11-20T23:44:44.674488",
+      "license_number": "PA0420",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/515/Detail?LIC_ID=2320",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "an indoor sporting event",
+        "a performance of live music",
+        "any playing of recorded music",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "00:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "19:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "19:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Saturday",
+          "time_from": "20:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "19:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "515",
+        "name": "The Firkin Scholar",
+        "address": "1 Paradise Place, Stoke, Plymouth, Devon, PL1 5QU"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 319,
+    "name": "The Fishermans Arms",
+    "address": "31 Lambhay St, Plymouth PL1 2NN, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 264,
+    "name": "The Flower Cafe",
+    "address": "46 Southside St, Plymouth PL1 2LD, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 351,
+    "name": "The Fortescue",
+    "address": "37 Mutley Plain, Mutley, Plymouth PL4 6JQ, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 258,
+    "name": "The Funky Panda Restaurant & Cocktail Bar",
+    "address": "5 Old Town St, Plymouth PL1 1DA, UK",
+    "cuisine_type": "Mexican Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 341,
+    "name": "The Gog and Magog - JD Wetherspoon",
+    "address": "57-59 Southside St, Plymouth PL1 2LA, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 110,
+    "name": "The Greedy Goose",
+    "address": "",
+    "cuisine_type": "Contemporary British",
+    "price_range": "£6.50-24.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 260,
+    "name": "The Ground Coffee House",
+    "address": "Beckley Court, 192 Armada Way, Plymouth PL1 1LD, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 235,
+    "name": "The Harbour Seafood Restaurant & Takeaway",
+    "address": "Sutton Harbour, 21 The Barbican, Plymouth PL1 2LS, UK",
+    "cuisine_type": "Seafood Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 294,
+    "name": "The Hideaway Cafe",
+    "address": "25, Faraday Mill Business Park, Faraday Rd, Cattedown, Plymouth PL4 0ST, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 255,
+    "name": "The Hook & Line",
+    "address": "Royal William Rd, Stonehouse, Plymouth PL1 3QQ, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 99,
+    "name": "The Hungry Horse - Plymouth",
+    "address": "10 Victoria Square, Wolverhampton, West Midlands",
+    "cuisine_type": "Family Pub",
+    "price_range": "£4.49-16.99",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 291,
+    "name": "The Hutong Bagel Co.",
+    "address": "160 Cremyll St, Stonehouse, Plymouth PL1 3RB, UK",
+    "cuisine_type": "Bagel Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 331,
+    "name": "The Hyde Park",
+    "address": "88 Mutley Plain, Mutley, Plymouth PL4 6LG, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 354,
+    "name": "The Kings Head",
+    "address": "21 Bretonside, Plymouth PL4 0BB, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 220,
+    "name": "The Leandra",
+    "address": "19-21 Frankfort Gate, Plymouth PL1 1QA, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 293,
+    "name": "The Library Café",
+    "address": "1st Floor Charles Seale-Library 18 Drake's Circus, 18 Drake Circus, Plymouth PL4 8AA, UK",
+    "cuisine_type": "Cafeteria",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 302,
+    "name": "The Little Kitchen - TLK Plymouth",
+    "address": "40 Mutley Plain, Mutley, Plymouth PL4 6LE, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 364,
+    "name": "The London Inn",
+    "address": "8 Church Rd, Plympton, Plymouth PL7 1NH, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 288,
+    "name": "The Mad Merchants Coffee House",
+    "address": "37 New St, Plymouth PL1 2NE, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 147,
+    "name": "The Mannamead",
+    "address": "",
+    "cuisine_type": "Community Pub",
+    "price_range": "£4.25-14.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 350,
+    "name": "The Maritime Inn",
+    "address": "19 Southside St, Plymouth PL1 2LD, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 280,
+    "name": "The Mess Room",
+    "address": "Breakwater Rd, Plymouth PL9 7HJ, UK",
+    "cuisine_type": "Breakfast Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 362,
+    "name": "The Miners Arms",
+    "address": "Hemerdon Ln, Hemerdon, Plymouth PL7 5BU, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 329,
+    "name": "The Navy Inn",
+    "address": "34 Southside St, Plymouth PL1 2LE, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 346,
+    "name": "The Newmarket Tavern",
+    "address": "The Newmarket, 2 Market Way, Plymouth PL1 1PB, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 317,
+    "name": "The Nowhere Inn",
+    "address": "21 Gilwell St, Greenbank, Plymouth PL4 8BU, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 320,
+    "name": "The Pit and Pendulum",
+    "address": "50 Ebrington St, Plymouth PL4 9AF, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 282,
+    "name": "The Promenade Cafe Bar",
+    "address": "The Lodge, Plymouth PL1 2PA, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 325,
+    "name": "The Queens Arms",
+    "address": "55 Southside St, Plymouth PL1 2LA, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 315,
+    "name": "The Refectory Bar",
+    "address": "Black Friars Distillery, 60 Southside St, Plymouth PL1 2LQ, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 174,
+    "name": "The Ship & Castle",
+    "address": "",
+    "cuisine_type": "Historic Pub",
+    "price_range": "£4.50-14.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 328,
+    "name": "The Skiving Scholar",
+    "address": "1 Tavistock Pl, Plymouth PL4 8AU, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 36,
+    "name": "The Stable Plymouth",
+    "address": "",
+    "cuisine_type": "Pizza & Cider",
+    "price_range": "£1.75-17.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 324,
+    "name": "The Tap and Barrel",
+    "address": "Ashford Cres, Mannamead, Plymouth PL3 5AA, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 107,
+    "name": "The Terrace Cafe",
+    "address": "The Duke of Cornwall Hotel, Plymouth",
+    "cuisine_type": "Cafe",
+    "price_range": "£3.20-21.50",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 124,
+    "name": "The Terrace Restaurant & Bar",
+    "address": "",
+    "cuisine_type": "Modern British",
+    "price_range": "£7.50-24.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 106,
+    "name": "The Thistle Park Brewers Fayre",
+    "address": "",
+    "cuisine_type": "Family Pub Chain",
+    "price_range": "£4.49-16.99",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 347,
+    "name": "The Three Crowns",
+    "address": "11 The Parade, Plymouth PL1 2JL, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "1916",
+      "licensing_name": "Land outside The Three Crowns & Customs House",
+      "licensing_address": "12 The Parade, Plymouth, Devon, PL1 2JL",
+      "scraped_at": "2025-11-20T23:46:18.935502",
+      "license_number": "TE1835",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/1916/Detail?LIC_ID=11378",
+      "licensable_activities": [
+        "The sale by retail of alcohol",
+        "The provision of regulated entertainment"
+      ],
+      "opening_hours": [
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "22:30",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "1916",
+        "name": "Land outside The Three Crowns & Customs House",
+        "address": "12 The Parade, Plymouth, Devon, PL1 2JL"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 357,
+    "name": "The Trawlerman",
+    "address": "51-53 Bretonside, Plymouth PL4 0BD, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 249,
+    "name": "The Treasury Cafe-Bar-Restaurant",
+    "address": "Catherine St, Plymouth PL1 2AD, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 338,
+    "name": "The Union Rooms - JD Wetherspoon",
+    "address": "19 Union St, Plymouth PL1 2SU, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 8,
+    "name": "The VOT",
+    "address": "",
+    "cuisine_type": "Tapas & Craft Bar",
+    "price_range": "£4.00-12.50",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 10,
+    "name": "The Village Restaurant",
+    "address": "",
+    "cuisine_type": "Seafood & Mediterranean (Greek)",
+    "price_range": "£3.00-35.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 334,
+    "name": "The Walrus Pub",
+    "address": "Athenaeum St, Plymouth PL1 2RH, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 221,
+    "name": "The Waterfront, Plymouth",
+    "address": "9 Grand Parade, Plymouth PL1 3DQ, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 355,
+    "name": "The West Hoe",
+    "address": "24 Bishops Place, Plymouth PL1 3BW, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 358,
+    "name": "The Woodside",
+    "address": "12 Gasking St, Plymouth PL4 8DQ, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 314,
+    "name": "Tigermilk",
+    "address": "Pilgrim House, 17 Derrys Cross, Plymouth PL1 2SW, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "3877",
+      "licensing_name": "Tigermilk",
+      "licensing_address": "Part Ground and First Floor, Pilgrim House, 17/19 Derrys Cross, Plymouth, Devon, PL1 2SW",
+      "scraped_at": "2025-11-20T23:46:48.006579",
+      "license_number": "PA1125",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/3877/Detail?LIC_ID=19313",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "a performance of a play",
+        "a performance of live music",
+        "any playing of recorded music",
+        "a performance of dance",
+        "entertainment of a similar description to that falling within a performance of live music, any playing of recorded music or a performance of dance",
+        "provision of late night refreshment",
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "02:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "23:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "23:00",
+          "time_to": "02:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "02:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "02:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "23:00",
+          "time_to": "02:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "10:00",
+          "time_to": "02:30",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "3877",
+        "name": "Tigermilk",
+        "address": "Part Ground and First Floor, Pilgrim House, 17/19 Derrys Cross, Plymouth, Devon, PL1 2SW"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 61,
+    "name": "Toby Carvery Plymouth",
+    "address": "",
+    "cuisine_type": "Carvery",
+    "price_range": "£5.99-13.49",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 225,
+    "name": "Toot",
+    "address": "46 Mayflower St, Plymouth PL1 1QX, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "3336",
+      "licensing_name": "Toot",
+      "licensing_address": "46 Mayflower Street, Plymouth, Devon, PL1 1QX",
+      "scraped_at": "2025-11-20T23:46:57.895061",
+      "license_number": "PA1023",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/3336/Detail?LIC_ID=16738",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "11:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "11:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "3336",
+        "name": "Toot",
+        "address": "46 Mayflower Street, Plymouth, Devon, PL1 1QX"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 80,
+    "name": "Turtle Bay Plymouth",
+    "address": "",
+    "cuisine_type": "Caribbean",
+    "price_range": "£2.50-16.00",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 165,
+    "name": "Urban Reef",
+    "address": "",
+    "cuisine_type": "Beach Bar",
+    "price_range": "£2-23",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 105,
+    "name": "Viva Brazil",
+    "address": "",
+    "cuisine_type": "Brazilian Churrascaria",
+    "price_range": "£5.50-32.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 16,
+    "name": "Wagamama Plymouth",
+    "address": "",
+    "cuisine_type": "Japanese",
+    "price_range": "£4.50-14.50",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 132,
+    "name": "Wagamama Royal William Yard",
+    "address": "",
+    "cuisine_type": "Japanese",
+    "price_range": "£5.50-14.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 311,
+    "name": "Walkabout - Plymouth",
+    "address": "5 Union St, Plymouth PL1 2SU, UK",
+    "cuisine_type": "Pub",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 289,
+    "name": "Well Brewed",
+    "address": "2-4 Frontfield Cres, Southway, Plymouth PL6 6RY, UK",
+    "cuisine_type": "Coffee Shop",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 67,
+    "name": "Wetherspoons - The Gipsy Moth",
+    "address": "",
+    "cuisine_type": "Pub",
+    "price_range": "£1.50-12.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 97,
+    "name": "Wildwood Plymouth",
+    "address": "",
+    "cuisine_type": "Italian",
+    "price_range": "£1.75-21.00",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 248,
+    "name": "Wingstop Plymouth",
+    "address": "2 Old Town St, Plymouth PL1 1DP, UK",
+    "cuisine_type": "Restaurant",
+    "price_range": null,
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 84,
+    "name": "Yo! Sushi Plymouth",
+    "address": "",
+    "cuisine_type": "Japanese",
+    "price_range": "£3.95-13.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 218,
+    "name": "Yukisan Ramen Bar",
+    "address": "",
+    "cuisine_type": "Japanese",
+    "price_range": "£2-29",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 219,
+    "name": "Zaika Indian Cuisine",
+    "address": "7 CHALVEDON SQUARE, BASILDON SS13 3QX",
+    "cuisine_type": "Indian",
+    "price_range": "£0.03-10.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 251,
+    "name": "Zephyr Burgers",
+    "address": "8 Drake Circus, Plymouth PL4 8AQ, UK",
+    "cuisine_type": "Hamburger Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "353",
+      "licensing_name": "Zephyr Burgers",
+      "licensing_address": "8 Drake Circus, Plymouth, Devon, PL4 8AQ",
+      "scraped_at": "2025-11-20T23:47:36.409946",
+      "license_number": "PA0837",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/353/Detail?LIC_ID=9667",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "any playing of recorded music",
+        "an exhibition of a film",
+        "provision of late night refreshment",
+        "sale and supply of alcohol",
+        "a performance of live music"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Sunday",
+          "time_from": "00:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "00:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "23:00",
+          "time_to": "02:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "00:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Monday to Sunday",
+          "time_from": "23:00",
+          "time_to": "05:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday to Wednesday",
+          "time_from": "10:00",
+          "time_to": "03:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Thursday to Saturday",
+          "time_from": "10:00",
+          "time_to": "05:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "10:00",
+          "time_to": "06:00",
+          "non_standard": "Bank Holiday Sunday and New Years Eve"
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "353",
+        "name": "Zephyr Burgers",
+        "address": "8 Drake Circus, Plymouth, Devon, PL4 8AQ"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 236,
+    "name": "Zeus",
+    "address": "150-152 Cornwall St, Plymouth PL1 1NJ, UK",
+    "cuisine_type": "Greek Restaurant",
+    "price_range": null,
+    "licensing": {
+      "premises_id": "417",
+      "licensing_name": "Zeus Restaurant",
+      "licensing_address": "150 Cornwall Street, Plymouth, Devon, PL1 1NJ",
+      "scraped_at": "2025-11-20T23:47:44.170930",
+      "license_number": "PA0343",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/417/Detail?LIC_ID=1616",
+      "dps_name": "Copyright © 2004 - 2025 Idox Group Version 1.9.0.15\r\n                \nTerms and Conditions",
+      "licensable_activities": [
+        "sale and supply of alcohol"
+      ],
+      "opening_hours": [
+        {
+          "days": "Monday to Saturday",
+          "time_from": "10:00",
+          "time_to": "00:00",
+          "non_standard": ""
+        },
+        {
+          "days": "Sunday",
+          "time_from": "12:00",
+          "time_to": "23:30",
+          "non_standard": ""
+        },
+        {
+          "days": "Non Standard Timings:",
+          "time_from": "",
+          "time_to": "",
+          "non_standard": ""
+        }
+      ],
+      "activity_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    },
+    "all_matches": [
+      {
+        "premises_id": "417",
+        "name": "Zeus Restaurant",
+        "address": "150 Cornwall Street, Plymouth, Devon, PL1 1NJ"
+      }
+    ]
+  },
+  {
+    "restaurant_id": 20,
+    "name": "Zizzi Plymouth",
+    "address": "",
+    "cuisine_type": "Italian",
+    "price_range": "£5.95-14.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 96,
+    "name": "Zizzi Plymouth Barbican",
+    "address": "",
+    "cuisine_type": "Italian",
+    "price_range": "£5.50-15.95",
+    "licensing": null,
+    "all_matches": []
+  },
+  {
+    "restaurant_id": 12,
+    "name": "Àclèaf at Boringdon Hall",
+    "address": "Boringdon Hall Hotel, Boringdon Hill, Colebrook, Plymouth PL7 4DP, UK",
+    "cuisine_type": "Fine Dining (1 Michelin Star)",
+    "price_range": "£2.50-75.00",
+    "licensing": null,
+    "all_matches": []
+  }
+]
