@@ -725,10 +725,10 @@ def main():
     show_only_with_rates = st.sidebar.checkbox(
         "Show Only Restaurants with Business Rates Data",
         value=False,
-        help="Filter to show only the 41 restaurants with business rates information"
+        help="Filter to show only the 60 restaurants with business rates information"
     )
 
-    st.sidebar.caption("💷 Rates data from Plymouth Business Rates Register (Nov 2025) - 41 matched")
+    st.sidebar.caption("💷 Rates data from Plymouth Business Rates Register (Nov 2025) - 60 matched")
 
     # Apply filters
     filtered_menu = filter_menu_items(
