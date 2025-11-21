@@ -136,11 +136,21 @@ def load_restaurants() -> pd.DataFrame:
             licensing_premises_address,
             licensing_number,
             licensing_url,
-            licensing_dps_name,
             licensing_activities,
             licensing_opening_hours,
             licensing_scraped_at,
-            licensing_match_confidence
+            licensing_match_confidence,
+            business_rates_propref,
+            business_rates_account_holder,
+            business_rates_address,
+            business_rates_postcode,
+            business_rates_rateable_value,
+            business_rates_net_charge,
+            business_rates_category,
+            business_rates_vo_description,
+            business_rates_match_score,
+            business_rates_match_reason,
+            business_rates_matched_at
         FROM restaurants
         WHERE is_active = 1
         ORDER BY name
@@ -710,6 +720,16 @@ def main():
 
     st.sidebar.caption("🌐 Service data from Google Places API")
 
+    # Business rates filter
+    st.sidebar.subheader("💷 Business Rates")
+    show_only_with_rates = st.sidebar.checkbox(
+        "Show Only Restaurants with Business Rates Data",
+        value=False,
+        help="Filter to show only the 41 restaurants with business rates information"
+    )
+
+    st.sidebar.caption("💷 Rates data from Plymouth Business Rates Register (Nov 2025) - 41 matched")
+
     # Apply filters
     filtered_menu = filter_menu_items(
         menu_df,
@@ -780,6 +800,14 @@ def main():
         # Update menu items to match filtered restaurants
         filtered_menu = filtered_menu[filtered_menu['restaurant_name'].isin(filtered_restaurants['name'])]
 
+    # Apply business rates filter
+    if show_only_with_rates and 'business_rates_rateable_value' in filtered_restaurants.columns:
+        filtered_restaurants = filtered_restaurants[
+            filtered_restaurants['business_rates_rateable_value'].notna()
+        ]
+        # Update menu items to match filtered restaurants
+        filtered_menu = filtered_menu[filtered_menu['restaurant_name'].isin(filtered_restaurants['name'])]
+
     # ========================================================================
     # Key Metrics
     # ========================================================================
@@ -814,6 +842,46 @@ def main():
             st.metric("⭐ Avg Hygiene", f"{avg_rating:.1f}/5", help=f"{len(rated_restos)} of {len(filtered_restaurants)} restaurants rated")
         else:
             st.metric("⭐ Avg Hygiene", "N/A", help="No hygiene ratings available")
+
+    # Business rates summary row
+    if 'business_rates_rateable_value' in filtered_restaurants.columns:
+        rates_restos = filtered_restaurants[filtered_restaurants['business_rates_rateable_value'].notna()]
+        if len(rates_restos) > 0:
+            st.markdown("##### 💷 Business Rates Summary")
+            rates_col1, rates_col2, rates_col3, rates_col4 = st.columns(4)
+
+            with rates_col1:
+                st.metric(
+                    "📊 With Rates Data",
+                    f"{len(rates_restos)}/{len(filtered_restaurants)}",
+                    help="Restaurants with business rates information"
+                )
+
+            with rates_col2:
+                avg_rv = rates_restos['business_rates_rateable_value'].mean()
+                st.metric(
+                    "💷 Avg Rateable Value",
+                    f"£{int(avg_rv):,}",
+                    help="Average property valuation"
+                )
+
+            with rates_col3:
+                if 'business_rates_net_charge' in rates_restos.columns:
+                    avg_charge = rates_restos['business_rates_net_charge'].mean()
+                    st.metric(
+                        "💰 Avg Annual Rates",
+                        f"£{int(avg_charge):,}",
+                        help="Average annual business rates (2025-26)"
+                    )
+
+            with rates_col4:
+                max_rv = rates_restos['business_rates_rateable_value'].max()
+                max_resto = rates_restos.loc[rates_restos['business_rates_rateable_value'] == max_rv, 'name'].iloc[0]
+                st.metric(
+                    "🏆 Highest RV",
+                    f"£{int(max_rv):,}",
+                    help=f"{max_resto}"
+                )
 
     st.divider()
 
@@ -2309,11 +2377,13 @@ def main():
                     index=0
                 )
 
-            # Prepare map data (include licensing columns)
+            # Prepare map data (include licensing and business rates columns)
             map_data = restaurants_with_gps[['restaurant_id', 'name', 'fsa_latitude', 'fsa_longitude', 'hygiene_rating',
                                              'fsa_business_name', 'fsa_address_line1', 'fsa_address_line2',
                                              'fsa_postcode', 'cuisine_type', 'price_range',
-                                             'licensing_number', 'licensing_activities', 'licensing_dps_name']].copy()
+                                             'licensing_number', 'licensing_activities',
+                                             'business_rates_rateable_value', 'business_rates_net_charge',
+                                             'business_rates_category']].copy()
 
             # Rename columns for pydeck
             map_data = map_data.rename(columns={
@@ -2383,13 +2453,6 @@ def main():
                 if pd.notna(row.get('licensing_number')):
                     tooltip += f"📜 License: {row['licensing_number']}\n"
 
-                    # Add DPS if available
-                    if pd.notna(row.get('licensing_dps_name')):
-                        dps = str(row['licensing_dps_name'])
-                        # Clean DPS name (remove footer text)
-                        if 'Copyright' not in dps and 'Idox' not in dps:
-                            tooltip += f"DPS: {dps}\n"
-
                     # Add activities if available
                     if pd.notna(row.get('licensing_activities')) and row.get('licensing_activities') != '[]':
                         try:
@@ -2403,6 +2466,19 @@ def main():
                             pass
                 else:
                     tooltip += "📜 No license data\n"
+
+                # Add business rates info if available
+                if pd.notna(row.get('business_rates_rateable_value')):
+                    rv = int(row['business_rates_rateable_value'])
+                    tooltip += f"💷 Rateable Value: £{rv:,}\n"
+
+                    if pd.notna(row.get('business_rates_net_charge')):
+                        charge = float(row['business_rates_net_charge'])
+                        tooltip += f"💷 Annual Rates: £{charge:,.0f}\n"
+
+                    if pd.notna(row.get('business_rates_category')):
+                        category = str(row['business_rates_category'])
+                        tooltip += f"Category: {category}\n"
 
                 return tooltip.rstrip()
 
@@ -3790,12 +3866,6 @@ def main():
                     if pd.notna(restaurant.get('licensing_url')):
                         st.markdown(f"**Official License**: [View on Plymouth Council]({restaurant['licensing_url']})")
 
-                    if pd.notna(restaurant.get('licensing_dps_name')):
-                        # Clean up DPS name (sometimes has footer text)
-                        dps = restaurant['licensing_dps_name']
-                        if 'Copyright' not in dps and 'Idox' not in dps:
-                            st.markdown(f"**Designated Premises Supervisor**: {dps}")
-
                     if pd.notna(restaurant.get('licensing_match_confidence')):
                         confidence = restaurant['licensing_match_confidence'] * 100
                         st.markdown(f"**Match Confidence**: {confidence:.0f}%")
@@ -3823,6 +3893,56 @@ def main():
                 if pd.notna(restaurant.get('licensing_scraped_at')):
                     scraped_date = pd.to_datetime(restaurant['licensing_scraped_at'], format='ISO8601').strftime('%Y-%m-%d')
                     st.caption(f"Data from Plymouth City Council Licensing Register (Scraped: {scraped_date})")
+
+            # ================================================================
+            # Business Rates Section
+            # ================================================================
+            if pd.notna(restaurant.get('business_rates_rateable_value')):
+                st.markdown("---")
+                st.subheader("💷 Business Rates Information")
+
+                rates_col1, rates_col2, rates_col3 = st.columns(3)
+
+                with rates_col1:
+                    st.metric(
+                        label="Rateable Value",
+                        value=f"£{int(restaurant['business_rates_rateable_value']):,}",
+                        help="Property valuation for business rates calculation"
+                    )
+
+                with rates_col2:
+                    if pd.notna(restaurant.get('business_rates_net_charge')):
+                        annual_charge = float(restaurant['business_rates_net_charge'])
+                        st.metric(
+                            label="Annual Business Rates (2025-26)",
+                            value=f"£{annual_charge:,.0f}",
+                            help="Total business rates payable for the year"
+                        )
+                    else:
+                        st.metric(label="Annual Business Rates", value="N/A")
+
+                with rates_col3:
+                    if pd.notna(restaurant.get('business_rates_category')):
+                        st.markdown("**Property Category**")
+                        st.info(restaurant['business_rates_category'])
+
+                # Additional details
+                rates_detail_col1, rates_detail_col2 = st.columns(2)
+
+                with rates_detail_col1:
+                    if pd.notna(restaurant.get('business_rates_vo_description')):
+                        st.markdown("**Valuation Office Description**")
+                        st.text(restaurant['business_rates_vo_description'])
+
+                with rates_detail_col2:
+                    if pd.notna(restaurant.get('business_rates_address')):
+                        st.markdown("**Rates Register Address**")
+                        st.text(restaurant['business_rates_address'])
+
+                # Match quality
+                if pd.notna(restaurant.get('business_rates_match_score')):
+                    match_score = float(restaurant['business_rates_match_score'])
+                    st.caption(f"📊 Match Confidence: {match_score:.0f}% | Data from Plymouth Business Rates Register (November 2025)")
 
             # ================================================================
             # Company Information Section
