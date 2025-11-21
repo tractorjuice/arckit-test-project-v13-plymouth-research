@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 import json
 import time
 import re
+import glob
 from typing import Dict, List, Optional
 from datetime import datetime
 
@@ -261,7 +262,26 @@ def scrape_license_details(premises_id: str) -> Optional[Dict]:
 
     return details
 
-def scrape_all_premises_details(premises_list: List[Dict]) -> List[Dict]:
+def load_checkpoint() -> Optional[List[Dict]]:
+    """Load the most recent checkpoint file if it exists."""
+    checkpoint_files = glob.glob('plymouth_licensing_partial_*.json')
+
+    if not checkpoint_files:
+        return None
+
+    # Get the most recent checkpoint (highest number)
+    checkpoint_files.sort(key=lambda x: int(re.search(r'partial_(\d+)', x).group(1)))
+    latest_checkpoint = checkpoint_files[-1]
+
+    print(f"\n✓ Found checkpoint: {latest_checkpoint}")
+
+    with open(latest_checkpoint, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    print(f"  Loaded {len(data)} previously scraped premises")
+    return data
+
+def scrape_all_premises_details(premises_list: List[Dict], resume: bool = True) -> List[Dict]:
     """Scrape detailed license information for all premises."""
     print("=" * 80)
     print("PHASE 2: Scraping detailed license information")
@@ -269,8 +289,19 @@ def scrape_all_premises_details(premises_list: List[Dict]) -> List[Dict]:
 
     total = len(premises_list)
     results = []
+    start_idx = 1
 
-    for idx, premises in enumerate(premises_list, 1):
+    # Try to resume from checkpoint
+    if resume:
+        checkpoint_data = load_checkpoint()
+        if checkpoint_data:
+            results = checkpoint_data
+            start_idx = len(results) + 1
+            print(f"  Resuming from index {start_idx}/{total}")
+            print("=" * 80)
+
+    for idx in range(start_idx, total + 1):
+        premises = premises_list[idx - 1]  # Convert to 0-indexed
         premises_id = premises['premises_id']
         name = premises['name']
 
@@ -293,10 +324,10 @@ def scrape_all_premises_details(premises_list: List[Dict]) -> List[Dict]:
             print(f"Progress: {idx}/{total} ({idx/total*100:.1f}%) - {len(results)} premises processed")
             print(f"{'=' * 80}")
 
-        # Save intermediate results every 100 premises
-        if idx % 100 == 0:
+        # Save checkpoint every 50 premises
+        if idx % 50 == 0:
             save_to_json(results, f'plymouth_licensing_partial_{idx}.json')
-            print(f"  ✓ Intermediate save: plymouth_licensing_partial_{idx}.json")
+            print(f"  ✓ Checkpoint saved: plymouth_licensing_partial_{idx}.json")
 
     print(f"\n{'=' * 80}")
     print(f"PHASE 2 COMPLETE: Scraped {len(results)} premises with details")
@@ -317,17 +348,33 @@ def main():
     print("PLYMOUTH LICENSING DATABASE SCRAPER")
     print("=" * 80)
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print()
+    print("ℹ️  CHECKPOINT SYSTEM:")
+    print("   - Saves every 50 premises to plymouth_licensing_partial_N.json")
+    print("   - Automatically resumes from last checkpoint if run is interrupted")
+    print("   - Safe for Codespaces (run in ~45-minute chunks)")
+    print("   - Estimated time per 50 premises: ~3-4 minutes")
+    print("   - Total estimated time for 2,232 premises: ~2.5-3.5 hours")
     print("=" * 80 + "\n")
 
-    # Phase 1: Get all premises from search results
-    premises_list = scrape_all_premises_list()
+    # Phase 1: Get all premises from search results (or load existing)
+    import os
+    premises_file = 'plymouth_licensing_premises_list.json'
 
-    if not premises_list:
-        print("ERROR: No premises found. Exiting.")
-        return
+    if os.path.exists(premises_file):
+        print(f"✓ Found existing premises list: {premises_file}")
+        with open(premises_file, 'r', encoding='utf-8') as f:
+            premises_list = json.load(f)
+        print(f"  Loaded {len(premises_list)} premises (skipping Phase 1)\n")
+    else:
+        premises_list = scrape_all_premises_list()
 
-    # Save premises list
-    save_to_json(premises_list, 'plymouth_licensing_premises_list.json')
+        if not premises_list:
+            print("ERROR: No premises found. Exiting.")
+            return
+
+        # Save premises list
+        save_to_json(premises_list, premises_file)
 
     # Phase 2: Get detailed license information for each premises
     all_data = scrape_all_premises_details(premises_list)

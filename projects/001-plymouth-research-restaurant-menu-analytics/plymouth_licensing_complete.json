@@ -1,0 +1,203 @@
+[
+  {
+    "premises_id": "2645",
+    "name": "Pitch No 3 The Fresh Lemonade Co.",
+    "address": "Piazza, Armada Way, Plymouth",
+    "scraped_at": "2025-11-20T16:43:27.695007",
+    "details": {
+      "license_number": "TEN(L)000137",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/2645/Detail?LIC_ID=12719",
+      "licensable_activities": [
+        ""
+      ],
+      "opening_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    }
+  },
+  {
+    "premises_id": "2933",
+    "name": "16 Wharf",
+    "address": "Weston Mill, HMNB, Plymouth",
+    "scraped_at": "2025-11-20T16:43:32.588340",
+    "details": {
+      "license_number": "TE2504",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/2933/Detail?LIC_ID=14205",
+      "licensable_activities": [
+        "The sale by retail of alcohol"
+      ],
+      "opening_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    }
+  },
+  {
+    "premises_id": "3843",
+    "name": "17 The Birches",
+    "address": "17 The Birches, Glenholt, Plymouth, Devon, PL6 7LP",
+    "scraped_at": "2025-11-20T16:43:37.444422",
+    "details": {
+      "license_number": "TE3789",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/3843/Detail?LIC_ID=19136",
+      "licensable_activities": [
+        "The sale by retail of alcohol"
+      ],
+      "opening_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    }
+  },
+  {
+    "premises_id": "877",
+    "name": "1st Crownhill Scout Group",
+    "address": "Endeavour Hall, Crownhill, Plymouth, Devon",
+    "scraped_at": "2025-11-20T16:43:42.160779",
+    "details": {
+      "license_number": "TE2545",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/877/Detail?LIC_ID=14402",
+      "licensable_activities": [
+        "The sale by retail of alcohol"
+      ],
+      "opening_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    }
+  },
+  {
+    "premises_id": "2506",
+    "name": "1st Floor (North) Melville Building",
+    "address": "Royal William Yard, Stonehouse, Plymouth, Devon, PL1 3RP",
+    "scraped_at": "2025-11-20T16:43:47.066755",
+    "details": {
+      "license_number": "TE2032",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/2506/Detail?LIC_ID=12032",
+      "licensable_activities": [
+        "The sale by retail of alcohol"
+      ],
+      "opening_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    }
+  },
+  {
+    "premises_id": "4036",
+    "name": "1st Plympton Scout Group",
+    "address": "Cottle Lodge Scout Hut, Glen Road, Plympton, Plymouth, PL7 2AU",
+    "scraped_at": "2025-11-20T16:43:51.818428",
+    "details": {
+      "license_number": "TE4451",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/4036/Detail?LIC_ID=21828",
+      "licensable_activities": [
+        "The sale by retail of alcohol"
+      ],
+      "opening_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    }
+  },
+  {
+    "premises_id": "3092",
+    "name": "2 Derriford Business Park",
+    "address": "2 Derriford Business park, Derriford, Plymouth, Devon, PL6 5QZ",
+    "scraped_at": "2025-11-20T16:43:56.539519",
+    "details": {
+      "license_number": "TE2707",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/3092/Detail?LIC_ID=15379",
+      "licensable_activities": [
+        "The sale by retail of alcohol"
+      ],
+      "opening_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    }
+  },
+  {
+    "premises_id": "4505",
+    "name": "2 Southview Close",
+    "address": "Plympton, Plymouth, Devon, PL7 4JF",
+    "scraped_at": "2025-11-20T16:44:02.238228",
+    "details": {
+      "license_number": "TE4546",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/4505/Detail?LIC_ID=22220",
+      "licensable_activities": [
+        "The sale by retail of alcohol"
+      ],
+      "opening_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    }
+  },
+  {
+    "premises_id": "3991",
+    "name": "22 Whiteford Road",
+    "address": "22 Whiteford Road, Plymouth, Devon, PL3 5LX",
+    "scraped_at": "2025-11-20T16:44:06.971988",
+    "details": {
+      "license_number": "TEN(L)000769",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/3991/Detail?LIC_ID=19618",
+      "licensable_activities": [
+        "",
+        ""
+      ],
+      "opening_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    }
+  },
+  {
+    "premises_id": "3654",
+    "name": "28 Twickenham Street",
+    "address": "Beacon Park, Plymouth, Devon, PL2 3FA",
+    "scraped_at": "2025-11-20T16:44:11.647720",
+    "details": {
+      "license_number": "TE3495",
+      "license_url": "https://licensing.plymouth.gov.uk/1/LicensingActPremises/Search/3654/Detail?LIC_ID=18215",
+      "licensable_activities": [
+        "The sale by retail of alcohol"
+      ],
+      "opening_hours": [],
+      "conditions": {
+        "mandatory": [],
+        "operational": [],
+        "post_hearing": [],
+        "cctv": []
+      }
+    }
+  }
+]

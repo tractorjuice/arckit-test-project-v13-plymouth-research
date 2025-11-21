@@ -2272,7 +2272,7 @@ def main():
     # ------------------------------------------------------------------------
     with tab1:
         st.header("🗺️ Restaurant Map")
-        st.markdown("Interactive map showing restaurant locations based on FSA GPS coordinates.")
+        st.markdown("Interactive map showing restaurant locations with hygiene ratings and licensing information. Hover over markers for details.")
 
         # Filter restaurants with GPS coordinates
         restaurants_with_gps = filtered_restaurants[
@@ -2309,10 +2309,11 @@ def main():
                     index=0
                 )
 
-            # Prepare map data
+            # Prepare map data (include licensing columns)
             map_data = restaurants_with_gps[['restaurant_id', 'name', 'fsa_latitude', 'fsa_longitude', 'hygiene_rating',
                                              'fsa_business_name', 'fsa_address_line1', 'fsa_address_line2',
-                                             'fsa_postcode', 'cuisine_type', 'price_range']].copy()
+                                             'fsa_postcode', 'cuisine_type', 'price_range',
+                                             'licensing_number', 'licensing_activities', 'licensing_dps_name']].copy()
 
             # Rename columns for pydeck
             map_data = map_data.rename(columns={
@@ -2368,17 +2369,44 @@ def main():
 
             map_data['color'] = map_data['hygiene_rating'].apply(get_rating_color)
 
-            # Create tooltip
-            map_data['tooltip_text'] = map_data.apply(
-                lambda row: f"{row['name']}\n" +
-                           f"FSA: {row['fsa_business_name'] if pd.notna(row['fsa_business_name']) else 'N/A'}\n" +
-                           f"Rating: {'⭐' * int(row['hygiene_rating']) if pd.notna(row['hygiene_rating']) else 'N/A'}\n" +
-                           f"Address: {row['fsa_address_line1'] if pd.notna(row['fsa_address_line1']) else ''}, " +
-                           f"{row['fsa_postcode'] if pd.notna(row['fsa_postcode']) else ''}\n" +
-                           f"Cuisine: {row['cuisine_type'] if pd.notna(row['cuisine_type']) else 'N/A'}\n" +
-                           f"Price: {row['price_range'] if pd.notna(row['price_range']) else 'N/A'}",
-                axis=1
-            )
+            # Create tooltip with licensing info
+            def create_tooltip(row):
+                tooltip = f"{row['name']}\n"
+                tooltip += f"FSA: {row['fsa_business_name'] if pd.notna(row['fsa_business_name']) else 'N/A'}\n"
+                tooltip += f"Rating: {'⭐' * int(row['hygiene_rating']) if pd.notna(row['hygiene_rating']) else 'N/A'}\n"
+                tooltip += f"Address: {row['fsa_address_line1'] if pd.notna(row['fsa_address_line1']) else ''}, " + \
+                          f"{row['fsa_postcode'] if pd.notna(row['fsa_postcode']) else ''}\n"
+                tooltip += f"Cuisine: {row['cuisine_type'] if pd.notna(row['cuisine_type']) else 'N/A'}\n"
+                tooltip += f"Price: {row['price_range'] if pd.notna(row['price_range']) else 'N/A'}\n"
+
+                # Add licensing info if available
+                if pd.notna(row.get('licensing_number')):
+                    tooltip += f"📜 License: {row['licensing_number']}\n"
+
+                    # Add DPS if available
+                    if pd.notna(row.get('licensing_dps_name')):
+                        dps = str(row['licensing_dps_name'])
+                        # Clean DPS name (remove footer text)
+                        if 'Copyright' not in dps and 'Idox' not in dps:
+                            tooltip += f"DPS: {dps}\n"
+
+                    # Add activities if available
+                    if pd.notna(row.get('licensing_activities')) and row.get('licensing_activities') != '[]':
+                        try:
+                            import json
+                            activities = json.loads(row['licensing_activities'])
+                            if activities and len(activities) > 0:
+                                # Show first 2 activities
+                                activities_display = ', '.join(activities[:2])
+                                tooltip += f"Activities: {activities_display}\n"
+                        except:
+                            pass
+                else:
+                    tooltip += "📜 No license data\n"
+
+                return tooltip.rstrip()
+
+            map_data['tooltip_text'] = map_data.apply(create_tooltip, axis=1)
 
             # Calculate center of map
             center_lat = map_data['lat'].mean()
