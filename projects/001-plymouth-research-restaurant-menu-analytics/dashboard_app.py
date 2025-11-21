@@ -130,7 +130,17 @@ def load_restaurants() -> pd.DataFrame:
             employee_change,
             financial_health_score,
             financial_rating,
-            rating_description
+            rating_description,
+            licensing_premises_id,
+            licensing_premises_name,
+            licensing_premises_address,
+            licensing_number,
+            licensing_url,
+            licensing_dps_name,
+            licensing_activities,
+            licensing_opening_hours,
+            licensing_scraped_at,
+            licensing_match_confidence
         FROM restaurants
         WHERE is_active = 1
         ORDER BY name
@@ -476,6 +486,64 @@ def get_trustpilot_badge(rating: float, review_count: int = None) -> str:
     return f'<span style="background: {bg_color}; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.85em;">{stars} {rating:.1f}/5 {label}{review_text}</span>'
 
 
+def get_licensing_badge(has_licensing: bool) -> str:
+    """Get colored badge for licensing status."""
+    if has_licensing:
+        return '<span style="background: #4CAF50; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.85em;">✓ Licensed</span>'
+    else:
+        return '<span style="background: #9E9E9E; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.85em;">No License Data</span>'
+
+
+def format_opening_hours(hours_json: str) -> str:
+    """Format opening hours from JSON."""
+    if not hours_json or hours_json == '[]':
+        return "Not available"
+
+    try:
+        import json
+        hours = json.loads(hours_json)
+        if not hours:
+            return "Not available"
+
+        formatted = []
+        for period in hours:
+            days = period.get('days', '')
+            time_from = period.get('time_from', '')
+            time_to = period.get('time_to', '')
+
+            if days and time_from and time_to:
+                formatted.append(f"**{days}**: {time_from} - {time_to}")
+
+        return "<br>".join(formatted) if formatted else "Not available"
+    except:
+        return "Error parsing hours"
+
+
+def format_licensing_activities(activities_json: str) -> str:
+    """Format licensing activities from JSON."""
+    if not activities_json or activities_json == '[]':
+        return "Not specified"
+
+    try:
+        import json
+        activities = json.loads(activities_json)
+        if not activities:
+            return "Not specified"
+
+        # Clean up empty strings
+        activities = [a.strip() for a in activities if a and a.strip()]
+
+        if not activities:
+            return "Not specified"
+
+        # Capitalize first letter
+        activities = [a[0].upper() + a[1:] if a else a for a in activities]
+
+        return "<br>• " + "<br>• ".join(activities)
+    except:
+        return "Error parsing activities"
+
+
 def filter_menu_items(
     menu_df: pd.DataFrame,
     dietary_tags_df: pd.DataFrame,
@@ -807,6 +875,18 @@ def main():
                         if pd.notna(hygiene_date):
                             date_str = str(hygiene_date)[:10]
                             badge_html += f" <small style='color: #666;'>(Inspected: {date_str})</small>"
+
+                    # Add licensing badge
+                    licensing_number = restaurant_info.get('licensing_number')
+                    if pd.notna(licensing_number):
+                        licensing_badge = get_licensing_badge(True)
+                        badge_html += " " + licensing_badge
+
+                        # Add license number with link
+                        licensing_url = restaurant_info.get('licensing_url')
+                        if pd.notna(licensing_url):
+                            match_confidence = restaurant_info.get('licensing_match_confidence', 0) * 100
+                            badge_html += f" <small style='color: #666;'>(<a href='{licensing_url}' target='_blank'>{licensing_number}</a>, {match_confidence:.0f}% match)</small>"
 
                     st.markdown(badge_html, unsafe_allow_html=True)
                     st.markdown("")  # Spacer
@@ -3213,6 +3293,46 @@ def main():
 
             st.caption("💡 Perfect (≥90%), Good (70-89%), Poor (50-69%), Mismatch (<50%). Lower scores may indicate incorrect FSA matches or address data issues.")
 
+        # ============================================================
+        # Licensing Data Statistics
+        # ============================================================
+        st.markdown("---")
+        st.markdown("### 📜 Licensing Data Coverage")
+
+        col1, col2, col3, col4 = st.columns(4)
+
+        with col1:
+            licensed_count = restaurants_df['licensing_number'].notna().sum()
+            st.metric("Licensed Restaurants", licensed_count)
+
+        with col2:
+            license_coverage = (licensed_count / len(restaurants_df) * 100) if len(restaurants_df) > 0 else 0
+            st.metric("License Coverage", f"{license_coverage:.1f}%")
+
+        with col3:
+            import json
+            avg_hours = 0
+            hours_count = 0
+            for hours_json in restaurants_df[restaurants_df['licensing_opening_hours'].notna()]['licensing_opening_hours']:
+                if hours_json and hours_json != '[]':
+                    try:
+                        hours = json.loads(hours_json)
+                        avg_hours += len(hours)
+                        hours_count += 1
+                    except:
+                        pass
+            avg_hours = avg_hours / hours_count if hours_count > 0 else 0
+            st.metric("Avg Opening Periods", f"{avg_hours:.1f}")
+
+        with col4:
+            alcohol_licenses = 0
+            for activities_json in restaurants_df[restaurants_df['licensing_activities'].notna()]['licensing_activities']:
+                if activities_json and 'alcohol' in str(activities_json).lower():
+                    alcohol_licenses += 1
+            st.metric("Alcohol Licenses", alcohol_licenses)
+
+        st.caption("Licensing data from Plymouth City Council Licensing Register. Unmatched restaurants available in unmatched_licensing.json for manual review.")
+
     # ------------------------------------------------------------------------
     # Tab 8: Restaurant Profiles
     # ------------------------------------------------------------------------
@@ -3622,6 +3742,59 @@ def main():
                     if score_data:
                         score_df = pd.DataFrame(score_data)
                         st.dataframe(score_df, hide_index=True, width="stretch")
+
+            # ================================================================
+            # Licensing Information Section
+            # ================================================================
+            if pd.notna(restaurant.get('licensing_number')):
+                st.markdown("---")
+                st.subheader("📜 Licensing Information")
+
+                lic_col1, lic_col2 = st.columns(2)
+
+                with lic_col1:
+                    st.markdown("**License Details**")
+                    st.markdown(f"**License Number**: {restaurant['licensing_number']}")
+
+                    if pd.notna(restaurant.get('licensing_premises_id')):
+                        st.markdown(f"**Premises ID**: {restaurant['licensing_premises_id']}")
+
+                    if pd.notna(restaurant.get('licensing_url')):
+                        st.markdown(f"**Official License**: [View on Plymouth Council]({restaurant['licensing_url']})")
+
+                    if pd.notna(restaurant.get('licensing_dps_name')):
+                        # Clean up DPS name (sometimes has footer text)
+                        dps = restaurant['licensing_dps_name']
+                        if 'Copyright' not in dps and 'Idox' not in dps:
+                            st.markdown(f"**Designated Premises Supervisor**: {dps}")
+
+                    if pd.notna(restaurant.get('licensing_match_confidence')):
+                        confidence = restaurant['licensing_match_confidence'] * 100
+                        st.markdown(f"**Match Confidence**: {confidence:.0f}%")
+
+                with lic_col2:
+                    st.markdown("**Licensable Activities**")
+                    activities_html = format_licensing_activities(
+                        restaurant.get('licensing_activities', '[]')
+                    )
+                    st.markdown(activities_html, unsafe_allow_html=True)
+
+                # Opening Hours (full width)
+                st.markdown("**Official Opening Hours**")
+                hours_html = format_opening_hours(
+                    restaurant.get('licensing_opening_hours', '[]')
+                )
+                st.markdown(hours_html, unsafe_allow_html=True)
+
+                # Official address
+                if pd.notna(restaurant.get('licensing_premises_address')):
+                    st.markdown("**Official Registered Address**")
+                    st.info(restaurant['licensing_premises_address'])
+
+                # Data attribution
+                if pd.notna(restaurant.get('licensing_scraped_at')):
+                    scraped_date = pd.to_datetime(restaurant['licensing_scraped_at'], format='ISO8601').strftime('%Y-%m-%d')
+                    st.caption(f"Data from Plymouth City Council Licensing Register (Scraped: {scraped_date})")
 
             # ================================================================
             # Company Information Section
