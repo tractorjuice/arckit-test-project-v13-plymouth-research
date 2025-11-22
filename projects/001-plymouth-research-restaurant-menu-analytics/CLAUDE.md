@@ -19,6 +19,58 @@ This file provides guidance for working with the Plymouth Research Restaurant Me
 - Meal time filtering (breakfast, lunch, dinner)
 - Contact information display (phone, website, Google Maps links)
 
+**Recent Changes (2025-11-22)**:
+- ✅ **Complete project reorganization** - 197 files organized into clean structure
+- ✅ **Data directory** - 125 files moved to data/raw, data/processed, data/sample, data/manual_matches
+- ✅ **Scripts directory** - 39 Python scripts organized by function (fetchers, matchers, importers, utilities, scrapers)
+- ✅ **Docs directory** - 27 documentation files organized into guides, reports, governance
+- ✅ **Logs directory** - 13 log files separated and gitignored
+- ✅ **Path updates** - All script references updated to new locations
+- ✅ **Zero downtime** - Both Streamlit apps remained operational throughout reorganization
+- ✅ **96% reduction** in root directory clutter (203+ files → 8 essential files)
+
+## Project Structure
+
+The project is organized into a clean directory structure following data science and software engineering best practices:
+
+```
+plymouth-research/
+├── CLAUDE.md                          # This file
+├── README.md                          # User-facing documentation
+├── requirements.txt                   # Python dependencies
+├── dashboard_app.py                   # Main Streamlit dashboard
+├── interactive_matcher_app.py         # Interactive data matcher UI
+├── plymouth_research.db               # SQLite database (20 MB)
+│
+├── data/                              # All data files (247 MB, gitignored)
+│   ├── raw/                          # 86 source files (XML, JSON, CSV)
+│   ├── processed/                    # 35 matcher outputs, unmatched records
+│   ├── sample/                       # Test/synthetic data
+│   └── manual_matches/               # Human-verified matches
+│
+├── scripts/                           # Python scripts organized by function
+│   ├── fetchers/                     # 9 data fetching scripts
+│   ├── matchers/                     # 4 data matching scripts
+│   ├── importers/                    # 7 database import scripts
+│   ├── utilities/                    # 8 utility scripts
+│   └── scrapers/                     # 2 menu scraping scripts
+│
+├── docs/                              # Documentation
+│   ├── guides/                       # 7 integration and setup guides
+│   ├── reports/                      # 13 analysis reports and summaries
+│   └── governance/                   # 7 architecture governance artifacts
+│
+├── logs/                              # Application logs (gitignored)
+└── archive/
+    └── obsolete_scripts/             # 9 old versions (v1, v2, POCs)
+```
+
+**Organization Benefits**:
+- 96% reduction in root directory clutter (203+ → 8 files)
+- Clear data lineage (raw → processed → manual verification)
+- Scripts organized by purpose (fetch → match → import)
+- Easy navigation with README files in every directory
+
 ## Quick Start
 
 ### Running the Dashboard
@@ -37,31 +89,31 @@ streamlit run dashboard_app.py
 
 ```bash
 # Download latest FSA Plymouth data
-curl -o plymouth_fsa_data.xml https://ratings.food.gov.uk/api/open-data-files/FHRS891en-GB.xml
+curl -o data/raw/plymouth_fsa_data.xml https://ratings.food.gov.uk/api/open-data-files/FHRS891en-GB.xml
 
 # Run matcher
-python fetch_hygiene_ratings_v2.py
+python scripts/fetchers/fetch_hygiene_ratings_v2.py
 
 # Review unmatched restaurants
-cat unmatched_hygiene_ratings.csv
+cat data/processed/unmatched_hygiene_ratings.csv
 ```
 
 ### Refreshing Trustpilot Reviews
 
 ```bash
 # Incremental update (fetch only new reviews)
-python fetch_trustpilot_reviews.py --update
+python scripts/fetchers/fetch_trustpilot_reviews.py --update
 
 # Full refresh of specific restaurant
-python fetch_trustpilot_reviews.py --restaurant-id 4 --max-pages 50
+python scripts/fetchers/fetch_trustpilot_reviews.py --restaurant-id 4 --max-pages 50
 
 # Discover Trustpilot URLs for new restaurants
-python discover_trustpilot_urls.py --discover-all --auto-update
+python scripts/fetchers/discover_trustpilot_urls.py --discover-all --auto-update
 ```
 
 ## Key Files
 
-### Core Application
+### Core Applications (Root Directory)
 - **dashboard_app.py** (2,053 lines) - Main Streamlit dashboard application
   - 8 tabs: Overview, Browse Menus, Price Analysis, Cuisine Comparison, Dietary Options, Hygiene Ratings, Reviews, About
   - Caches data with 5-minute TTL
@@ -69,57 +121,89 @@ python discover_trustpilot_urls.py --discover-all --auto-update
   - Hygiene rating filters and badges
   - Trustpilot review display and correlation analysis
 
-### Database
-- **plymouth_research.db** - SQLite database (excluded from git)
-  - `restaurants` table: 98 rows, 29 columns (inc. 9 hygiene + 5 Trustpilot columns)
+- **interactive_matcher_app.py** - Interactive data matching UI
+  - Streamlit application for manual data matching
+  - Supports FSA hygiene, licensing, and business rates matching
+  - Visual comparison interface
+  - Export matches to CSV
+
+### Database (Root Directory)
+- **plymouth_research.db** - SQLite database (20 MB, excluded from git)
+  - `restaurants` table: 243 rows, 52 columns (inc. 9 hygiene + 5 Trustpilot + 16 Google columns)
   - `menu_items` table: 2,625 rows, 13 columns
   - `drinks` table: Beverage data with categories
   - `trustpilot_reviews` table: 9,410 rows, 13 columns
+  - `google_reviews` table: 481 rows
   - `restaurant_trustpilot_summary` view: Pre-aggregated review statistics
   - Full-text search indexes
 
-### Schema Management
+### Schema Management (Root Directory)
 - **add_hygiene_columns.sql** - Database schema for FSA hygiene ratings
-  - 9 new columns added to `restaurants` table
-  - Indexed for performance
-- **add_trustpilot_schema.sql** - Database schema for Trustpilot reviews
-  - 5 new columns added to `restaurants` table
-  - New `trustpilot_reviews` table with 13 columns
-  - New `restaurant_trustpilot_summary` view
-  - 5 indexes for query performance
-  - 2 triggers for automatic stat updates
+- **add_trustpilot_schema.sql** - Trustpilot reviews schema
+- **add_google_reviews_schema.sql** - Google Places reviews schema
+- **add_google_extended_schema.sql** - Google extended metadata
+- **add_licensing_columns.sql** - Licensing data schema
+- **add_business_rates_schema.sql** - Business rates schema
 
-### Data Fetching
+### Data Fetchers (scripts/fetchers/)
 - **fetch_hygiene_ratings_v2.py** - FSA data matcher (XML-based)
   - Parses 1,841 establishments from FSA Plymouth XML
   - Multi-factor matching: name similarity + postcode + address
   - 70+ confidence threshold for auto-matching
-  - Exports matched/unmatched CSVs
+  - Exports to `data/processed/matched_hygiene_ratings.csv`
+
 - **fetch_trustpilot_reviews.py** (591 lines) - Trustpilot review scraper
   - Scrapes Trustpilot's __NEXT_DATA__ JSON structure
   - Rate limiting: 2.5s between pages, 5s between restaurants
   - Incremental updates (only fetch new reviews)
   - Automatic deduplication
-  - Batch processing support
+
 - **discover_trustpilot_urls.py** (533 lines) - Trustpilot URL discovery
   - Multi-strategy: domain-based + direct search
   - Confidence scoring with SequenceMatcher
-  - CSV export for manual verification
   - Auto-update for high-confidence matches (95%+)
 
-### Documentation
-- **HYGIENE_RATINGS_GUIDE.md** - Complete FSA rating system documentation
+- **fetch_google_reviews.py** - Google Places API integration
+- **fetch_companies_house_data.py** - Companies House API data
+- **scrape_plymouth_licensing_fixed.py** - Plymouth licensing scraper
+
+### Data Matchers (scripts/matchers/)
+- **match_business_rates_v3.py** - Business rates matching (latest)
+- **match_fsa_hygiene_v2.py** - FSA hygiene matching (latest)
+- **match_licensing_data.py** - Licensing data matching
+- **interactive_matcher.py** - CLI matcher (deprecated, use interactive_matcher_app.py)
+
+### Data Importers (scripts/importers/)
+- **import_fsa_manual_matches.py** - Import manual FSA hygiene matches
+- **import_licensing_matches.py** - Import licensing matches
+- **import_business_rates.py** - Import business rates data
+- **import_companies_house_data.py** - Import Companies House data
+
+### Documentation (docs/)
+- **docs/guides/HYGIENE_RATINGS_GUIDE.md** - Complete FSA rating system documentation
   - Scoring methodology (0-25 in 3 categories)
   - Final rating calculation (0-5 stars)
   - Plymouth data analysis (49 restaurants)
   - Dashboard display guidelines
-- **TRUSTPILOT_INTEGRATION_GUIDE.md** (632 lines) - Comprehensive Trustpilot integration guide
+
+- **docs/guides/TRUSTPILOT_INTEGRATION_GUIDE.md** (632 lines) - Comprehensive Trustpilot integration guide
   - Implementation overview (Phases 1-4)
   - Database schema documentation
   - Tool usage examples and workflows
   - Data quality checks
   - Legal & ethical compliance notes
-  - Troubleshooting guide
+
+- **docs/guides/GOOGLE_REVIEWS_SETUP.md** - Google Places API setup
+- **docs/guides/COMPANIES_HOUSE_GUIDE.md** - Companies House integration
+- **docs/guides/LICENSING_SCRAPER_GUIDE.md** - Licensing scraper guide
+- **docs/guides/INTERACTIVE_MATCHER_GUIDE.md** - Interactive matcher usage
+
+### Reports (docs/reports/)
+- **DATA_ORGANIZATION_SUMMARY.md** - Data organization details (125 files)
+- **CODE_ORGANIZATION_SUMMARY.md** - Code organization details (39 files)
+- **DOCS_LOGS_ORGANIZATION_SUMMARY.md** - Documentation organization (33 files)
+- **BALANCE_SHEET_RESULTS.md** - Financial data analysis
+- **SCRAPING_RESULTS.md** - Menu scraping statistics
 
 ## Database Schema
 
@@ -236,7 +320,7 @@ python discover_trustpilot_urls.py --discover-all --auto-update
 - **Extract Date**: 2025-11-15
 - **Total Establishments in XML**: 1,841 (443 restaurants/cafes)
 
-## Matching Algorithm (fetch_hygiene_ratings_v2.py)
+## Matching Algorithm (scripts/fetchers/fetch_hygiene_ratings_v2.py)
 
 ### Scoring System
 1. **Name Similarity** (0-100 points)
@@ -257,7 +341,7 @@ python discover_trustpilot_urls.py --discover-all --auto-update
 
 ### Results (as of 2025-11-18)
 - **Matched**: 49 restaurants (50%)
-- **Unmatched**: 49 restaurants (exported to CSV)
+- **Unmatched**: 49 restaurants (exported to `data/processed/unmatched_hygiene_ratings.csv`)
 - **High Confidence Matches**: 23 exact names (100% confidence)
 - **Low Confidence**: 5 matches between 70-80% (manual review recommended)
 
@@ -420,7 +504,7 @@ sqlite3 plymouth_research.db "SELECT COUNT(*) FROM restaurants WHERE hygiene_rat
 # Should return: 49
 
 # If 0, re-run fetch script
-python fetch_hygiene_ratings_v2.py
+python scripts/fetchers/fetch_hygiene_ratings_v2.py
 ```
 
 ### Date Parsing Errors
@@ -428,9 +512,16 @@ python fetch_hygiene_ratings_v2.py
 - Use `pd.to_datetime(date, format='ISO8601')` not `format="%Y-%m-%d"`
 
 ### Matching Issues
-- Edit matching thresholds in `fetch_hygiene_ratings_v2.py`
+- Edit matching thresholds in `scripts/fetchers/fetch_hygiene_ratings_v2.py`
 - Lower confidence threshold from 70 to 60 for more matches
-- Review `unmatched_hygiene_ratings.csv` for manual matching
+- Review `data/processed/unmatched_hygiene_ratings.csv` for manual matching
+
+### File Not Found Errors After Reorganization
+If scripts can't find data files after the 2025-11-22 reorganization:
+- Data files moved from root to `data/raw/` and `data/processed/`
+- Scripts moved from root to `scripts/fetchers/`, `scripts/matchers/`, etc.
+- Check the project structure section above for new file locations
+- See organization summaries in `docs/reports/` for complete file mappings
 
 ## Legal & Ethical Notes
 
@@ -485,13 +576,32 @@ Analysis of the 26 restaurants with BOTH hygiene ratings AND Trustpilot reviews 
 
 ## References
 
+### External APIs and Data Sources
 - **FSA FHRS Homepage**: https://www.food.gov.uk/safety-hygiene/food-hygiene-rating-scheme
 - **FSA API Documentation**: https://api.ratings.food.gov.uk/help
 - **Plymouth FSA Data**: https://ratings.food.gov.uk/api/open-data-files/FHRS891en-GB.xml
 - **OGL License**: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
-- **Trustpilot Integration Guide**: TRUSTPILOT_INTEGRATION_GUIDE.md
+
+### Internal Documentation
+- **Trustpilot Integration Guide**: docs/guides/TRUSTPILOT_INTEGRATION_GUIDE.md
+- **Hygiene Ratings Guide**: docs/guides/HYGIENE_RATINGS_GUIDE.md
+- **Google Reviews Setup**: docs/guides/GOOGLE_REVIEWS_SETUP.md
+- **Companies House Guide**: docs/guides/COMPANIES_HOUSE_GUIDE.md
+- **Interactive Matcher Guide**: docs/guides/INTERACTIVE_MATCHER_GUIDE.md
+- **Licensing Scraper Guide**: docs/guides/LICENSING_SCRAPER_GUIDE.md
+
+### Organization Documentation
+- **Data Organization**: docs/reports/DATA_ORGANIZATION_SUMMARY.md (125 files)
+- **Code Organization**: docs/reports/CODE_ORGANIZATION_SUMMARY.md (39 files)
+- **Docs Organization**: docs/reports/DOCS_LOGS_ORGANIZATION_SUMMARY.md (33 files)
+
+### Analysis Reports
+- **Financial Data**: docs/reports/BALANCE_SHEET_RESULTS.md
+- **Scraping Results**: docs/reports/SCRAPING_RESULTS.md
+- **Data Consistency**: docs/reports/data-consistency-report.md
 
 ---
 
-*Last Updated: 2025-11-19*
-*Dashboard Version: 1.2.0 (with FSA hygiene ratings + Trustpilot reviews)*
+*Last Updated: 2025-11-22*
+*Dashboard Version: 1.2.0 (with FSA hygiene ratings + Trustpilot reviews + Google Places)*
+*Project Organization: v2.0 (data/code/docs reorganization completed 2025-11-22)*

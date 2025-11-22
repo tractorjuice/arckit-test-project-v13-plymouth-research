@@ -5,13 +5,10 @@
 *.sqlite
 *.sqlite3
 
-# Large data files
-plymouth_fsa_data.xml
-
-# CSV export files (generated data)
-matched_hygiene_ratings.csv
-unmatched_hygiene_ratings.csv
-companies_*.csv
+# Data directory (organized data files)
+# Keep only the README, exclude all data files
+data/
+!data/README.md
 
 # Python cache
 __pycache__/

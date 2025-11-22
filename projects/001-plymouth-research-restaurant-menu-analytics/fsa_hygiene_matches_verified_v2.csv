@@ -1,9 +1,0 @@
-restaurant_id,restaurant_name,restaurant_address,restaurant_postcode,match_score,match_reason,fsa_id,fsa_business_name,fsa_business_type,fsa_address_line1,fsa_address_line2,fsa_postcode,hygiene_rating,hygiene_rating_date,hygiene_score_hygiene,hygiene_score_structural,hygiene_score_confidence
-65,Domino's Pizza Plymouth,"65-67 Exeter St, Plymouth PL4 0AH, UK",,50.0,exact_name(100%),507835,Domino's Pizza,Takeaway/sandwich shop,,616 Wolseley Road,PL5 1TE,5.0,2017-07-13,0.0,5.0,0.0
-66,Papa John's Plymouth,"35 Mutley Plain, Mutley, Plymouth PL4 6JG, UK",,50.0,exact_name(100%),131083,Papa John's,Takeaway/sandwich shop,,608-610 Wolseley Road,PL5 1TE,5.0,2025-08-27,5.0,5.0,5.0
-102,Pizza Hut Plymouth,"Gapton Hall Road
-Great Yarmouth, Norfolk
-NR31 0NL",,50.0,exact_name(100%),456559,Pizza Hut,Takeaway/sandwich shop,,642 Wolseley Road,PL5 1TE,5.0,2025-09-24,0.0,5.0,0.0
-223,In Seoul,"10, 12 Market Ave, Plymouth PL1 1PQ, UK",,50.0,exact_name(100%),1719329,In Seoul,Takeaway/sandwich shop,,10-12 Market Avenue,PL1 1PA,5.0,2024-08-16,0.0,0.0,5.0
-243,Plates Fusion Pub,Morley Arms,PL9 7HP,90.0,exact_name(100%)+exact_postcode,507863,Plates Fusion Pub,Restaurant/Cafe/Canteen,Morley Arms,4 Billacombe Road,PL9 7HP,,,,,
-299,SATO by Minerva Cafe,"1-29, candlewick road, Alma Yard, Plymouth PL4 0FF, UK",PL4 0FF,72.86,similar_name(86%)+exact_postcode,1885809,Sato by Minerva plymouth,Restaurant/Cafe/Canteen,,29 Candlewick Lane,PL4 0FF,,,,,

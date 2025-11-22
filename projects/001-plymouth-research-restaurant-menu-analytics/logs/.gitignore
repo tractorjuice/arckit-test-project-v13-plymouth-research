@@ -1,0 +1,6 @@
+# Exclude all logs from git
+*.log
+*.txt
+
+# But keep README
+!README.md
