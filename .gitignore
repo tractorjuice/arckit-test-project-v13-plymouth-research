@@ -57,3 +57,4 @@ cache/
 
 # direnv
 .envrc.local
+**/.backup/
