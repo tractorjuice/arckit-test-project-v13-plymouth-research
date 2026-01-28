@@ -1,15 +1,18 @@
 {
-  "generated": "2026-01-22T14:30:00Z",
+  "generated": "2026-01-28T21:32:15Z",
   "repository": {
     "owner": "tractorjuice",
     "name": "arckit-test-project-v13-plymouth-research",
     "branch": "main"
   },
+  "defaultDocument": "projects/000-global/ARC-000-PRIN-v1.0.md",
   "global": [
     {
-      "path": ".arckit/memory/architecture-principles.md",
+      "path": "projects/000-global/ARC-000-PRIN-v1.0.md",
       "title": "Architecture Principles",
-      "category": "Architecture"
+      "category": "Architecture",
+      "documentId": "ARC-000-PRIN-v1.0",
+      "isDefault": true
     }
   ],
   "projects": [
@@ -18,48 +21,60 @@
       "name": "Plymouth Research Restaurant Menu Analytics",
       "documents": [
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/requirements.md",
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-REQ-v1.0.md",
           "title": "Requirements",
-          "category": "Discovery"
+          "category": "Discovery",
+          "documentId": "ARC-001-REQ-v1.0"
         },
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/stakeholder-drivers.md",
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-STKE-v1.0.md",
           "title": "Stakeholder Drivers",
-          "category": "Discovery"
+          "category": "Discovery",
+          "documentId": "ARC-001-STKE-v1.0"
         },
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/data-model.md",
-          "title": "Data Model",
-          "category": "Architecture"
-        },
-        {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/backlog.md",
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-BLOG-v1.0.md",
           "title": "Product Backlog",
-          "category": "Planning"
+          "category": "Planning",
+          "documentId": "ARC-001-BLOG-v1.0"
         },
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/risk-register.md",
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-DATA-v1.0.md",
+          "title": "Data Model",
+          "category": "Architecture",
+          "documentId": "ARC-001-DATA-v1.0"
+        },
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-RISK-v1.0.md",
           "title": "Risk Register",
-          "category": "Governance"
+          "category": "Governance",
+          "documentId": "ARC-001-RISK-v1.0"
         },
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/dpia.md",
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-DPIA-v1.0.md",
           "title": "Data Protection Impact Assessment",
-          "category": "Compliance"
+          "category": "Compliance",
+          "documentId": "ARC-001-DPIA-v1.0"
         },
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/analysis-report.md",
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-ANAL-v1.0.md",
           "title": "Analysis Report",
-          "category": "Other"
-        },
-        {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/README.md",
-          "title": "Project README",
-          "category": "Other"
+          "category": "Other",
+          "documentId": "ARC-001-ANAL-v1.0"
         }
       ],
       "diagrams": [],
       "decisions": [],
+      "wardleyMaps": [],
+      "dataContracts": [],
+      "reviews": [],
+      "research": [
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/research/ARC-001-RSCH-001-v1.0.md",
+          "title": "Sprint 2 Research Findings: Plymouth Restaurant Websites",
+          "documentId": "ARC-001-RSCH-001-v1.0"
+        }
+      ],
       "vendors": []
     }
   ]
