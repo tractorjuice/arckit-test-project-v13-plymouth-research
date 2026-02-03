@@ -83,18 +83,19 @@ Database is SQLite (`plymouth_research.db`, ~20 MB). Core tables: `restaurants`,
 
 ## ArcKit Governance
 
-Run ArcKit commands via `/arckit.<command>` in Claude Code. Key commands:
+Run ArcKit commands via `/arckit.<command>` in Claude Code, Gemini CLI, or Codex CLI. 43 commands available:
 
 | Category | Commands |
 |----------|----------|
 | Planning | `plan`, `principles`, `stakeholders`, `risk`, `sobc` |
-| Requirements | `requirements`, `data-model`, `backlog` |
+| Requirements | `requirements`, `data-model`, `adr`, `backlog` |
 | Research | `research`, `azure-research`, `aws-research`, `datascout`, `wardley` |
 | Procurement | `sow`, `dos`, `gcloud-search`, `gcloud-clarify`, `evaluate` |
-| Design | `diagram`, `hld-review`, `dld-review` |
-| Compliance | `secure`, `tcop`, `service-assessment`, `dpia`, `ai-playbook` |
-| Operations | `devops`, `finops`, `servicenow`, `operationalize` |
+| Design | `diagram`, `hld-review`, `dld-review`, `roadmap`, `platform-design` |
+| Compliance | `secure`, `mod-secure`, `tcop`, `service-assessment`, `dpia`, `ai-playbook`, `atrs`, `jsp-936` |
+| Operations | `devops`, `finops`, `mlops`, `servicenow`, `operationalize`, `data-mesh-contract` |
 | Quality | `traceability`, `analyze`, `principles-compliance` |
+| Reporting | `story`, `pages` |
 
 See [DEPENDENCY-MATRIX.md](DEPENDENCY-MATRIX.md) for command execution order and critical paths.
 
