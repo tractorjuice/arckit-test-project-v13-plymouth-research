@@ -1,5 +1,5 @@
 {
-  "generated": "2026-01-28T21:32:15Z",
+  "generated": "2026-02-03T07:00:00Z",
   "repository": {
     "owner": "tractorjuice",
     "name": "arckit-test-project-v13-plymouth-research",
@@ -58,21 +58,37 @@
         },
         {
           "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-ANAL-v1.0.md",
-          "title": "Analysis Report",
-          "category": "Other",
+          "title": "Governance Quality Analysis",
+          "category": "Governance",
           "documentId": "ARC-001-ANAL-v1.0"
         }
       ],
       "diagrams": [],
-      "decisions": [],
+      "decisions": [
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/decisions/ARC-001-ADR-001-v1.0.md",
+          "title": "ADR-001: Select Azure as Cloud Platform",
+          "documentId": "ARC-001-ADR-001-v1.0"
+        }
+      ],
       "wardleyMaps": [],
       "dataContracts": [],
       "reviews": [],
       "research": [
         {
           "path": "projects/001-plymouth-research-restaurant-menu-analytics/research/ARC-001-RSCH-001-v1.0.md",
-          "title": "Sprint 2 Research Findings: Plymouth Restaurant Websites",
+          "title": "Technology Research",
           "documentId": "ARC-001-RSCH-001-v1.0"
+        },
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/research/ARC-001-AZRS-v1.0.md",
+          "title": "Azure Technology Research",
+          "documentId": "ARC-001-AZRS-v1.0"
+        },
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/research/ARC-001-AWRS-v1.0.md",
+          "title": "AWS Technology Research",
+          "documentId": "ARC-001-AWRS-v1.0"
         }
       ],
       "vendors": []
