@@ -1,7 +1,7 @@
-description = """
-Create strategic Wardley Maps for architecture decisions and build vs buy analysis
-"""
-prompt = """
+---
+description: Create strategic Wardley Maps for architecture decisions and build vs buy analysis
+---
+
 # ArcKit: Wardley Mapping for Strategic Architecture
 
 You are an expert enterprise architect and Wardley Mapping strategist helping create strategic maps for architecture decisions, build vs buy analysis, vendor evaluation, and UK Government procurement strategy.
@@ -26,7 +26,7 @@ Wardley Mapping is a strategic situational awareness technique that maps:
 ## User Input
 
 ```text
-{{args}}
+$ARGUMENTS
 ```
 
 ## Step 1: Read Available Documents
@@ -80,7 +80,7 @@ Scan for external (non-ArcKit) documents the user may have provided:
 - **Examples**: `current-wardley-map.png`, `strategic-analysis.pdf`, `wardley-map.owm`
 
 **User prompt**: If no external Wardley maps found but they would improve strategic context, ask:
-\"Do you have any existing Wardley maps (images or OWM syntax) or strategic analysis documents? I can read images and PDFs directly. Place them in `projects/{project-dir}/external/` and re-run, or skip.\"
+"Do you have any existing Wardley maps (images or OWM syntax) or strategic analysis documents? I can read images and PDFs directly. Place them in `projects/{project-dir}/external/` and re-run, or skip."
 
 **Important**: This command works without external documents. They enhance output quality but are never blocking.
 
@@ -169,15 +169,15 @@ From requirements and architecture context, identify components and classify by:
 **Example: Benefits Eligibility Chatbot (UK Government)**
 
 ```
-User Need: \"Check benefits eligibility\" [0.95, 0.20] (Genesis - novel user need)
-Capability: \"Conversational AI\" [0.85, 0.35] (Custom - emerging capability)
-Component: \"GPT-4 Integration\" [0.68, 0.72] (Product - commercial LLM)
-Component: \"Human Review Queue\" [0.65, 0.45] (Custom - bespoke workflow)
-Component: \"Benefits Rules Engine\" [0.55, 0.42] (Custom - domain-specific)
-Component: \"GOV.UK Notify\" [0.45, 0.92] (Commodity - government utility)
-Component: \"Authentication (GOV.UK Verify)\" [0.38, 0.68] (Product - government product)
-Component: \"Cloud Hosting (AWS)\" [0.22, 0.95] (Commodity - cloud utility)
-Component: \"Database (RDS)\" [0.18, 0.92] (Commodity - cloud utility)
+User Need: "Check benefits eligibility" [0.95, 0.20] (Genesis - novel user need)
+Capability: "Conversational AI" [0.85, 0.35] (Custom - emerging capability)
+Component: "GPT-4 Integration" [0.68, 0.72] (Product - commercial LLM)
+Component: "Human Review Queue" [0.65, 0.45] (Custom - bespoke workflow)
+Component: "Benefits Rules Engine" [0.55, 0.42] (Custom - domain-specific)
+Component: "GOV.UK Notify" [0.45, 0.92] (Commodity - government utility)
+Component: "Authentication (GOV.UK Verify)" [0.38, 0.68] (Product - government product)
+Component: "Cloud Hosting (AWS)" [0.22, 0.95] (Commodity - cloud utility)
+Component: "Database (RDS)" [0.18, 0.92] (Commodity - cloud utility)
 ```
 
 ### Map Code Generation
@@ -223,7 +223,7 @@ For each component, determine:
    - Skills inertia (team expertise in legacy tech)
    - Process inertia (established workflows)
    - Vendor lock-in (contractual/technical dependencies)
-   - Cultural inertia (\"we've always done it this way\")
+   - Cultural inertia ("we've always done it this way")
 
 3. **Evolution Velocity**:
    - Fast (moving 0.2+ in next 12 months): Monitor market closely
@@ -304,63 +304,6 @@ Create the Wardley Map document using the template:
 > **Note**: Read the `VERSION` file and update the version in the template metadata line when generating.
 > **Tip**: Users can customize templates with `/arckit.customize wardley`
 
-
----
-
-**CRITICAL - Auto-Populate Document Control Fields**:
-
-Before completing the document, populate ALL document control fields in the header:
-
-**Generate Document ID**:
-```bash
-# Use the ArcKit document ID generation script
-DOC_ID=$(.arckit/scripts/bash/generate-document-id.sh \"${PROJECT_ID}\" \"WARD\" \"${VERSION}\")
-# Example output: ARC-001-WARD-v1.0
-```
-
-**Populate Required Fields**:
-
-*Auto-populated fields* (populate these automatically):
-- `[PROJECT_ID]` → Extract from project path (e.g., \"001\" from \"projects/001-project-name\")
-- `[VERSION]` → \"1.0\" (or increment if previous version exists)
-- `[DATE]` / `[YYYY-MM-DD]` → Current date in YYYY-MM-DD format
-- `[DOCUMENT_TYPE_NAME]` → \"Wardley Map\"
-- `ARC-[PROJECT_ID]-WARD-v[VERSION]` → Use generated DOC_ID
-- `[COMMAND]` → \"arckit.wardley\"
-
-*User-provided fields* (extract from project metadata or user input):
-- `[PROJECT_NAME]` → Full project name from project metadata or user input
-- `[OWNER_NAME_AND_ROLE]` → Document owner (prompt user if not in metadata)
-- `[CLASSIFICATION]` → Default to \"OFFICIAL\" for UK Gov, \"PUBLIC\" otherwise (or prompt user)
-
-*Calculated fields*:
-- `[YYYY-MM-DD]` for Review Date → Current date + 30 days
-
-*Pending fields* (leave as [PENDING] until manually updated):
-- `[REVIEWER_NAME]` → [PENDING]
-- `[APPROVER_NAME]` → [PENDING]
-- `[DISTRIBUTION_LIST]` → Default to \"Project Team, Architecture Team\" or [PENDING]
-
-**Populate Revision History**:
-
-```markdown
-| 1.0 | {DATE} | ArcKit AI | Initial creation from `/arckit.wardley` command | [PENDING] | [PENDING] |
-```
-
-**Populate Generation Metadata Footer**:
-
-The footer should be populated with:
-```markdown
-**Generated by**: ArcKit `/arckit.wardley` command
-**Generated on**: {DATE} {TIME} GMT
-**ArcKit Version**: [Read from VERSION file]
-**Project**: {PROJECT_NAME} (Project {PROJECT_ID})
-**AI Model**: [Use actual model name, e.g., \"claude-sonnet-4-5-20250929\"]
-**Generation Context**: [Brief note about source documents used]
-```
-
----
-
 ### Output Contents
 
 The Wardley Map document must include:
@@ -421,10 +364,10 @@ If required artifacts don't exist, recommend creating them first:
 
 ```bash
 # If no requirements exist
-\"I recommend running `/arckit.requirements` first to establish requirements before creating a Wardley Map.\"
+"I recommend running `/arckit.requirements` first to establish requirements before creating a Wardley Map."
 
 # If no architecture principles exist
-\"I recommend running `/arckit.principles` first to establish architecture principles.\"
+"I recommend running `/arckit.principles` first to establish architecture principles."
 ```
 
 ### After Map Creation
@@ -432,23 +375,23 @@ Recommend next steps based on map insights:
 
 ```bash
 # If map shows many commodity components
-\"Based on your Wardley Map, I recommend running `/arckit.sow` to create an RFP for vendor procurement.\"
+"Based on your Wardley Map, I recommend running `/arckit.sow` to create an RFP for vendor procurement."
 
 # If map shows build vs buy decisions needed
-\"Your map identifies several build vs buy decisions. Consider running `/arckit.evaluate` to compare vendor options.\"
+"Your map identifies several build vs buy decisions. Consider running `/arckit.evaluate` to compare vendor options."
 
 # If map shows UK Government project
-\"As a UK Government project, I recommend running `/arckit.tcop` to assess Technology Code of Practice compliance.\"
+"As a UK Government project, I recommend running `/arckit.tcop` to assess Technology Code of Practice compliance."
 
 # If map shows AI components with HIGH-RISK
-\"Your map includes HIGH-RISK AI components. I recommend running `/arckit.ai-playbook` and `/arckit.atrs`.\"
+"Your map includes HIGH-RISK AI components. I recommend running `/arckit.ai-playbook` and `/arckit.atrs`."
 ```
 
 ### Integrate with Design Review
 When HLD/DLD review is requested, reference the Wardley Map:
 
 ```bash
-\"/arckit.hld-review Review HLD against Wardley Map strategic positioning\"
+"/arckit.hld-review Review HLD against Wardley Map strategic positioning"
 ```
 
 The design review should validate:
@@ -469,7 +412,7 @@ The `/arckit.analyze` command should include Wardley Map validation:
 
 ## Example: UK Government Benefits Chatbot
 
-**User Request**: \"Create a Wardley Map for the DWP Benefits Eligibility Chatbot showing current state and procurement strategy\"
+**User Request**: "Create a Wardley Map for the DWP Benefits Eligibility Chatbot showing current state and procurement strategy"
 
 **Context**:
 - HIGH-RISK AI system (affects access to benefits)
@@ -588,8 +531,8 @@ style wardley
 ### Common Mistakes to Avoid
 
 2. **Misclassifying Evolution Stage**:
-   - ❌ Positioning cloud services as \"Custom\" (they're Commodity 0.90+)
-   - ❌ Positioning novel AI models as \"Product\" (they're Genesis if truly novel)
+   - ❌ Positioning cloud services as "Custom" (they're Commodity 0.90+)
+   - ❌ Positioning novel AI models as "Product" (they're Genesis if truly novel)
 
 3. **Ignoring Dependencies**:
    - ❌ Not mapping component dependencies
@@ -620,7 +563,7 @@ style wardley
 
 Always remind users:
 
-**\"View this map by pasting the code into https://create.wardleymaps.ai\"**
+**"View this map by pasting the code into https://create.wardleymaps.ai"**
 
 The visualization helps:
 - Spot strategic patterns
@@ -682,4 +625,3 @@ After creating the map, provide a summary to the user:
 ---
 
 **Remember**: Wardley Mapping is about situational awareness and strategic decision-making. The map quality matters less than the strategic insights and decisions it enables.
-"""
