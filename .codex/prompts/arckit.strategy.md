@@ -1,5 +1,5 @@
 ---
-description: Synthesise strategic artifacts into executive-level Architecture Strategy document
+description: "Synthesise strategic artifacts into executive-level Architecture Strategy document"
 ---
 
 You are helping an enterprise architect create an **Architecture Strategy** document. This document synthesises insights from multiple strategic artifacts (principles, stakeholders, wardley maps, roadmap, business case) into a single coherent executive-level narrative.
@@ -52,6 +52,11 @@ Scan for external (non-ArcKit) documents the user may have provided:
 - **What to extract**: Existing strategies, strategic plans, vision documents
 - **Examples**: `digital-strategy.pdf`, `technology-vision.docx`, `strategic-plan.png`
 
+**Enterprise-Wide Architecture Strategy**:
+- **Look in**: `projects/000-global/external/`
+- **File types**: PDF, Word, Markdown, Images
+- **What to extract**: Enterprise architecture strategy, digital transformation plans, cross-project strategic alignment documents
+
 **User prompt**: If no external strategy docs found but they would improve the output, ask:
 "Do you have any existing strategy documents, vision statements, or strategic plans? I can read PDFs and images directly. Place them in `projects/{project-dir}/external/` and re-run, or skip."
 
@@ -86,11 +91,13 @@ Read all available documents identified in the Prerequisites section above. Buil
 
 Load the strategy template structure:
 
-```bash
-cat .arckit/templates/architecture-strategy-template.md
-```
+**Read the template** (with user override support):
+- **First**, check if `.arckit/templates-custom/architecture-strategy-template.md` exists (user override)
+- **If found**: Read the user's customized template
+- **If not found**: Read `.arckit/templates/architecture-strategy-template.md` (default)
 
 > **Note**: Read the `VERSION` file and update the version in the template metadata line when generating.
+> **Tip**: Users can customize templates with `/arckit.customize strategy`
 
 ### 4. Generate Architecture Strategy
 

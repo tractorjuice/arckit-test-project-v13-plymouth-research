@@ -1,6 +1,5 @@
 ---
-description: Export product backlog to Trello - create board, lists, cards with labels and checklists from backlog JSON
-alwaysShow: true
+description: "Export product backlog to Trello - create board, lists, cards with labels and checklists from backlog JSON"
 ---
 
 # Export Backlog to Trello
