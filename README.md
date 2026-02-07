@@ -64,8 +64,6 @@ Database is SQLite (`plymouth_research.db`, ~20 MB). Core tables: `restaurants`,
 
 ```
 ├── .arckit/                  # Governance framework (templates, scripts, memory)
-├── .claude/commands/         # ArcKit slash command definitions
-├── .claude/agents/           # Agent configs (AWS, Azure, DataScout, research)
 ├── projects/
 │   ├── 000-global/           # Global architecture principles
 │   └── 001-plymouth-research-restaurant-menu-analytics/
