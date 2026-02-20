@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-20T12:00:00Z",
+  "generated": "2026-02-20T16:00:00Z",
   "repository": {
     "owner": "tractorjuice",
     "name": "arckit-test-project-v13-plymouth-research",
@@ -134,6 +134,12 @@
       "status": "alpha"
     },
     {
+      "path": "docs/guides/c4-layout-science.md",
+      "title": "C4 Layout Science Guide",
+      "category": "Architecture",
+      "status": "beta"
+    },
+    {
       "path": "docs/guides/risk.md",
       "title": "Risk Register Playbook",
       "category": "Governance",
@@ -160,6 +166,24 @@
     {
       "path": "docs/guides/analyze.md",
       "title": "Project Analysis Playbook",
+      "category": "Governance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/artifact-health.md",
+      "title": "Artifact Health Guide",
+      "category": "Governance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/data-quality-framework.md",
+      "title": "UK Government Data Quality Framework — ArcKit Reference Guide",
+      "category": "Governance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/knowledge-compounding.md",
+      "title": "Knowledge Compounding Guide",
       "category": "Governance",
       "status": "beta"
     },
@@ -208,6 +232,30 @@
     {
       "path": "docs/guides/service-assessment.md",
       "title": "GDS Service Assessment Guide",
+      "category": "Compliance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/govs-007-security.md",
+      "title": "GovS 007: Security — ArcKit Reference Guide",
+      "category": "Compliance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/national-data-strategy.md",
+      "title": "UK National Data Strategy — ArcKit Reference Guide",
+      "category": "Compliance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/codes-of-practice.md",
+      "title": "UK Government Codes of Practice — ArcKit Reference Guide",
+      "category": "Compliance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/security-hooks.md",
+      "title": "Security Hooks Guide",
       "category": "Compliance",
       "status": "beta"
     },
@@ -290,6 +338,12 @@
       "status": "experimental"
     },
     {
+      "path": "docs/guides/gcp-research.md",
+      "title": "Google Cloud Technology Research Guide",
+      "category": "Research",
+      "status": "experimental"
+    },
+    {
       "path": "docs/guides/pages.md",
       "title": "GitHub Pages Generator Playbook",
       "category": "Other",
@@ -300,6 +354,12 @@
       "title": "Project Story Guide",
       "category": "Other",
       "status": "live"
+    },
+    {
+      "path": "docs/guides/presentation.md",
+      "title": "Presentation Guide",
+      "category": "Other",
+      "status": "beta"
     },
     {
       "path": "docs/guides/trello.md",
@@ -323,6 +383,54 @@
       "path": "docs/guides/upgrading.md",
       "title": "Upgrading ArcKit",
       "category": "Other",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/pinecone-mcp.md",
+      "title": "Pinecone MCP Integration Guide",
+      "category": "Other",
+      "status": "experimental"
+    },
+    {
+      "path": "docs/guides/uk-government/technology-code-of-practice.md",
+      "title": "Technology Code of Practice (TCoP) Guide",
+      "category": "Compliance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/uk-government/secure-by-design.md",
+      "title": "UK Government Secure by Design Guide",
+      "category": "Compliance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/uk-government/ai-playbook.md",
+      "title": "UK Government AI Playbook Guide",
+      "category": "Compliance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/uk-government/algorithmic-transparency.md",
+      "title": "Algorithmic Transparency Recording Standard (ATRS) Guide",
+      "category": "Compliance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/uk-government/digital-marketplace.md",
+      "title": "Digital Marketplace Procurement Guide",
+      "category": "Procurement",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/uk-government/standards-map.md",
+      "title": "UK Government Digital Policy & Standards Map",
+      "category": "Compliance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/uk-mod/secure-by-design.md",
+      "title": "MOD Secure by Design Guide",
+      "category": "Compliance",
       "status": "beta"
     }
   ],
