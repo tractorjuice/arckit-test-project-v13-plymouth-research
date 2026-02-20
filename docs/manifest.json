@@ -29,7 +29,7 @@
       "path": "docs/guides/research.md",
       "title": "Technology Research Guide",
       "category": "Discovery",
-      "status": "beta"
+      "status": "live"
     },
     {
       "path": "docs/guides/datascout.md",
@@ -47,7 +47,7 @@
       "path": "docs/guides/business-case.md",
       "title": "Strategic Outline Business Case (SOBC) Guide",
       "category": "Planning",
-      "status": "beta"
+      "status": "live"
     },
     {
       "path": "docs/guides/plan.md",
@@ -143,7 +143,7 @@
       "path": "docs/guides/risk-management.md",
       "title": "Risk Management Guide",
       "category": "Governance",
-      "status": "beta"
+      "status": "live"
     },
     {
       "path": "docs/guides/traceability.md",
@@ -245,13 +245,13 @@
       "path": "docs/guides/sow.md",
       "title": "Statement of Work Playbook",
       "category": "Procurement",
-      "status": "experimental"
+      "status": "live"
     },
     {
       "path": "docs/guides/evaluate.md",
       "title": "Vendor Evaluation Playbook",
       "category": "Procurement",
-      "status": "experimental"
+      "status": "live"
     },
     {
       "path": "docs/guides/dos.md",
@@ -275,7 +275,7 @@
       "path": "docs/guides/procurement.md",
       "title": "Vendor Procurement Guide",
       "category": "Procurement",
-      "status": "experimental"
+      "status": "beta"
     },
     {
       "path": "docs/guides/aws-research.md",
@@ -293,7 +293,7 @@
       "path": "docs/guides/pages.md",
       "title": "GitHub Pages Generator Playbook",
       "category": "Other",
-      "status": "beta"
+      "status": "alpha"
     },
     {
       "path": "docs/guides/story.md",
@@ -317,7 +317,7 @@
       "path": "docs/guides/customize.md",
       "title": "Template Customization Guide",
       "category": "Other",
-      "status": "experimental"
+      "status": "live"
     },
     {
       "path": "docs/guides/upgrading.md",
@@ -329,7 +329,7 @@
   "global": [
     {
       "path": "projects/000-global/ARC-000-PRIN-v1.0.md",
-      "title": "Architecture Principles",
+      "title": "Plymouth Research Enterprise Architecture Principles",
       "category": "Architecture",
       "documentId": "ARC-000-PRIN-v1.0",
       "isDefault": true
@@ -343,28 +343,22 @@
       "name": "Plymouth Research Restaurant Menu Analytics",
       "documents": [
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-REQ-v1.0.md",
-          "title": "Requirements v1.0",
-          "category": "Discovery",
-          "documentId": "ARC-001-REQ-v1.0"
-        },
-        {
           "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-REQ-v2.0.md",
           "title": "Requirements v2.0",
           "category": "Discovery",
           "documentId": "ARC-001-REQ-v2.0"
         },
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-STKE-v1.0.md",
-          "title": "Stakeholder Drivers",
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-REQ-v1.0.md",
+          "title": "Requirements v1.0",
           "category": "Discovery",
-          "documentId": "ARC-001-STKE-v1.0"
+          "documentId": "ARC-001-REQ-v1.0"
         },
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-DSCT-v1.0.md",
-          "title": "Data Source Discovery",
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-STKE-v1.0.md",
+          "title": "Stakeholder Drivers & Goals Analysis",
           "category": "Discovery",
-          "documentId": "ARC-001-DSCT-v1.0"
+          "documentId": "ARC-001-STKE-v1.0"
         },
         {
           "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-RSCH-v1.0.md",
@@ -373,16 +367,10 @@
           "documentId": "ARC-001-RSCH-v1.0"
         },
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-BKLG-v1.0.md",
-          "title": "Product Backlog",
-          "category": "Planning",
-          "documentId": "ARC-001-BKLG-v1.0"
-        },
-        {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-DATA-v1.0.md",
-          "title": "Data Model",
-          "category": "Architecture",
-          "documentId": "ARC-001-DATA-v1.0"
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-DSCT-v1.0.md",
+          "title": "Data Source Discovery",
+          "category": "Discovery",
+          "documentId": "ARC-001-DSCT-v1.0"
         },
         {
           "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-RISK-v1.0.md",
@@ -391,19 +379,48 @@
           "documentId": "ARC-001-RISK-v1.0"
         },
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-ANAL-v1.0.md",
-          "title": "Architecture Governance Analysis Report",
-          "category": "Governance",
-          "documentId": "ARC-001-ANAL-v1.0"
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-DATA-v1.0.md",
+          "title": "Data Model",
+          "category": "Architecture",
+          "documentId": "ARC-001-DATA-v1.0"
         },
         {
           "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-DPIA-v1.0.md",
-          "title": "Data Protection Impact Assessment",
+          "title": "Data Protection Impact Assessment (DPIA)",
           "category": "Compliance",
           "documentId": "ARC-001-DPIA-v1.0"
+        },
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-BKLG-v1.0.md",
+          "title": "Product Backlog",
+          "category": "Planning",
+          "documentId": "ARC-001-BKLG-v1.0"
+        },
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-ANAL-v1.0.md",
+          "title": "Architecture Governance Analysis Report",
+          "category": "Other",
+          "documentId": "ARC-001-ANAL-v1.0"
         }
       ],
       "diagrams": [],
+      "research": [
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/research/ARC-001-RSCH-001-v1.0.md",
+          "title": "Sprint 2 Research Findings: Plymouth Restaurant Websites",
+          "documentId": "ARC-001-RSCH-001-v1.0"
+        },
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/research/ARC-001-AWRS-v1.0.md",
+          "title": "AWS Technology Research",
+          "documentId": "ARC-001-AWRS-v1.0"
+        },
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/research/ARC-001-AZRS-v1.0.md",
+          "title": "Azure Technology Research",
+          "documentId": "ARC-001-AZRS-v1.0"
+        }
+      ],
       "decisions": [
         {
           "path": "projects/001-plymouth-research-restaurant-menu-analytics/decisions/ARC-001-ADR-001-v1.0.md",
@@ -429,10 +446,6 @@
           "title": "Scrapy"
         },
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/vendors/plotly-dash-profile.md",
-          "title": "Plotly Dash"
-        },
-        {
           "path": "projects/001-plymouth-research-restaurant-menu-analytics/vendors/uptimerobot-profile.md",
           "title": "UptimeRobot"
         },
@@ -445,16 +458,20 @@
           "title": "Render"
         },
         {
-          "path": "projects/001-plymouth-research-restaurant-menu-analytics/vendors/github-actions-profile.md",
-          "title": "GitHub Actions"
-        },
-        {
           "path": "projects/001-plymouth-research-restaurant-menu-analytics/vendors/google-places-api-profile.md",
           "title": "Google Places API"
         },
         {
           "path": "projects/001-plymouth-research-restaurant-menu-analytics/vendors/postcodes-io-profile.md",
           "title": "Postcodes.io"
+        },
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/vendors/github-actions-profile.md",
+          "title": "GitHub Actions"
+        },
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/vendors/plotly-dash-profile.md",
+          "title": "Plotly Dash"
         }
       ],
       "techNotes": [
