@@ -66,6 +66,18 @@ Mermaid diagrams (Gantt, pie, C4, quadrant) render natively in MARP.
 
 ---
 
+## Mermaid Compatibility
+
+Mermaid's parser has strict label requirements — especially for `quadrantChart`:
+
+- **ASCII only**: No accented characters (é, í, ó, ñ, ü). Replace with plain equivalents (e→e, i→i).
+- **No hyphens in data point labels**: Use spaces — e.g., `DST Cybersecurity` not `DST-Cybersecurity`.
+- **No special characters**: Avoid colons, parentheses, brackets, or quotes in labels.
+
+If a chart fails to render, check labels for non-ASCII characters or hyphens first.
+
+---
+
 ## Review Checklist
 
 - Content matches latest artefact versions (not stale data).
@@ -94,6 +106,7 @@ Mermaid diagrams (Gantt, pie, C4, quadrant) render natively in MARP.
 ## Rendering the Presentation
 
 **VS Code** (recommended for previewing):
+
 ```bash
 # Install the MARP extension
 code --install-extension marp-team.marp-vscode
@@ -101,6 +114,7 @@ code --install-extension marp-team.marp-vscode
 ```
 
 **MARP CLI** (for export):
+
 ```bash
 # Install
 npm install -g @marp-team/marp-cli

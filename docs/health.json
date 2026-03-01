@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-20T12:00:00Z",
+  "generated": "2026-03-01T16:59:46.963Z",
   "scanned": {
     "projects": 1,
     "artifacts": 14
@@ -14,6 +14,7 @@
     "STALE-RSCH": 0,
     "FORGOTTEN-ADR": 0,
     "UNRESOLVED-COND": 0,
+    "STALE-EXT": 0,
     "ORPHAN-REQ": 1,
     "MISSING-TRACE": 0,
     "VERSION-DRIFT": 0
@@ -26,8 +27,8 @@
         {
           "severity": "MEDIUM",
           "rule": "ORPHAN-REQ",
-          "file": "ARC-001-REQ-v2.0.md",
-          "message": "47 of 57 requirements not referenced by any ADR. Referenced by ADR-001: BR-003, BR-007, FR-010, NFR-A-001, NFR-C-002, NFR-M-001, NFR-P-001, NFR-Q-003, NFR-S-002, NFR-SEC-001. Examples of orphaned: BR-001, BR-002, BR-004, BR-005, BR-006",
+          "file": "ARC-001-REQ-v1.0.md",
+          "message": "Total requirements: 49\n  Requirements not referenced by any ADR: 1\n  Examples: NFR-I-003",
           "action": "Review whether these requirements need architectural decisions documented as ADRs"
         }
       ]
