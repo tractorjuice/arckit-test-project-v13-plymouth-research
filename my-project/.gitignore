@@ -1,4 +1,0 @@
-# Codex CLI
-.codex/*
-!.codex/agents/
-!.codex/config.toml
