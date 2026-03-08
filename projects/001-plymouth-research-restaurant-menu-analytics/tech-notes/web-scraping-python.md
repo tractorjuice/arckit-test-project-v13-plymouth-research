@@ -11,7 +11,7 @@
 | **Project** | Plymouth Research Restaurant Menu Analytics (Project 001) |
 | **Classification** | PUBLIC |
 | **Status** | PUBLISHED |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 | **Created Date** | 2026-02-20 |
 | **Last Modified** | 2026-03-08 |
 | **Review Cycle** | On-Demand |
@@ -20,7 +20,7 @@
 | **Reviewed By** | PENDING |
 | **Approved By** | PENDING |
 | **Distribution** | Development Team |
-| **Source Research** | ARC-001-RSCH-v1.0, ARC-001-RSCH-v2.0 |
+| **Source Research** | ARC-001-RSCH-v1.0, ARC-001-RSCH-v2.0, ARC-001-RSCH-v2.1 |
 
 ## Revision History
 
@@ -28,6 +28,7 @@
 |---------|------|--------|---------|-------------|---------------|
 | 1.0 | 2026-02-20 | AI Agent | Initial creation from `/arckit:research` command. | PENDING | PENDING |
 | 1.1 | 2026-03-08 | AI Agent | Updated and validated against `ARC-001-RSCH-v2.0`. Refined summary and strengthened compliance recommendations. | PENDING | PENDING |
+| 1.2 | 2026-03-08 | AI Agent | Refreshed against `ARC-001-RSCH-v2.1`. Reconfirmed Scrapy as the preferred default for recurring collection workloads. | PENDING | PENDING |
 
 ---
 
@@ -60,7 +61,7 @@ These are non-negotiable constraints based on Principle #3 and requirement NFR-C
 
 ## Relevance to Projects
 
-- **Project 001 — Plymouth Research Restaurant Menu Analytics**: The project currently uses BeautifulSoup. The v2.0 research strongly recommends migrating to Scrapy to better enforce ethical scraping requirements and mitigate critical compliance risks (R-001, R-004). Scrapy provides a more robust and maintainable foundation as the number of scraped sites grows.
+- **Project 001 — Plymouth Research Restaurant Menu Analytics**: The project currently uses BeautifulSoup in places. The v2.1 research keeps the same recommendation: migrate recurring collection and compliance-sensitive collectors to Scrapy, while retaining simple libraries only for trivial cases.
 
 ## Related Technologies
 
@@ -74,4 +75,4 @@ These are non-negotiable constraints based on Principle #3 and requirement NFR-C
 **Generated on**: 2026-03-08
 **ArcKit Version**: 4.0.1
 **Project**: Plymouth Research Restaurant Menu Analytics (Project 001)
-**Model**: gemini-1.5-pro-001
+**Model**: GPT-5 Codex

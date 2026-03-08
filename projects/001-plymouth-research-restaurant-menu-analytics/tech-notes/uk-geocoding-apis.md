@@ -4,7 +4,7 @@
 |-------|-------|
 | **Topic** | UK Geocoding, Postcode Lookup, and Geographic Enrichment APIs |
 | **Category** | Geographic Data / APIs |
-| **Last Updated** | 2026-02-20 |
+| **Last Updated** | 2026-03-08 |
 | **Relevance to Projects** | Project 001 — Plymouth Research Restaurant Menu Analytics |
 
 ## Summary
@@ -77,7 +77,7 @@ for result in response.json()["result"]:
 
 ## Relevance to Projects
 
-**Project 001**: Implements INT-005 (ONS Postcode Directory), INT-006 (Postcodes.io), FR-011 (ONS geography enrichment), BR-008 (geographic intelligence). All implemented as of commit e08ca94. Requires Google Places API migration to new API endpoints.
+**Project 001**: Implements INT-005 (ONS Postcode Directory), INT-006 (Postcodes.io), FR-011 (ONS geography enrichment), BR-008 (geographic intelligence). All implemented as of commit e08ca94. The v2.1 research reconfirms that this mixed model remains the best economic fit and still requires Google Places API migration to the newer endpoints.
 
 ## References
 

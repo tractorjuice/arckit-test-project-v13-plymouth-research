@@ -11,7 +11,7 @@
 | **Project** | Plymouth Research Restaurant Menu Analytics (Project 001) |
 | **Classification** | PUBLIC |
 | **Status** | PUBLISHED |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 | **Created Date** | 2026-02-20 |
 | **Last Modified** | 2026-03-08 |
 | **Review Cycle** | On-Demand |
@@ -20,7 +20,7 @@
 | **Reviewed By** | PENDING |
 | **Approved By** | PENDING |
 | **Distribution** | Development Team |
-| **Source Research** | ARC-001-RSCH-v1.0, ARC-001-RSCH-v2.0 |
+| **Source Research** | ARC-001-RSCH-v1.0, ARC-001-RSCH-v2.0, ARC-001-RSCH-v2.1 |
 | **Confidence** | High |
 
 ## Revision History
@@ -29,6 +29,7 @@
 |---------|------|--------|---------|-------------|---------------|
 | 1.0 | 2026-02-20 | AI Agent | Initial creation from `/arckit:research` command. | PENDING | PENDING |
 | 1.1 | 2026-03-08 | AI Agent | Updated and validated against `ARC-001-RSCH-v2.0`. Confirmed pricing and features are current. | PENDING | PENDING |
+| 1.2 | 2026-03-08 | AI Agent | Refreshed against `ARC-001-RSCH-v2.1`. Reconfirmed Streamlit as the primary dashboard and hosting choice. | PENDING | PENDING |
 
 ---
 

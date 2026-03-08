@@ -6,7 +6,7 @@
 | **Category** | Geocoding / Location Data / Business Data API |
 | **Website** | https://developers.google.com/maps/documentation/places |
 | **Confidence** | High |
-| **Last Researched** | 2026-02-20 |
+| **Last Researched** | 2026-03-08 |
 | **Projects Referenced In** | Project 001 — Plymouth Research Restaurant Menu Analytics |
 
 ## Overview
@@ -96,6 +96,8 @@ Not applicable — global commercial API. No G-Cloud listing or Crown Commercial
 
 ## Decision Notes
 
-**Recommended**: Retain Google Places API and migrate from legacy Places API to Places API (New) to ensure compatibility with March 2025 pricing model and access to best free tier limits. Current usage (243 requests/month) is well within the 5,000/month Pro free threshold. No cost change expected for Phase 1 or Phase 2.
+**Recommended**: Retain Google Places API and migrate from legacy Places API to Places API (New) to ensure compatibility with the March 2025 pricing model and access to the current free usage caps. Current usage (243 requests/month) remains comfortably within the free monthly allowances relevant to Project 001.
 
 **Action required**: Update `fetch_google_reviews.py` to use Places API (New) endpoints and field masks.
+
+**Updated 2026-03-08**: Revalidated during `ARC-001-RSCH-v2.1`; no change to the recommendation.

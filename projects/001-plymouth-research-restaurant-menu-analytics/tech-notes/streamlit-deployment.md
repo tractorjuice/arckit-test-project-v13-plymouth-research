@@ -4,7 +4,7 @@
 |-------|-------|
 | **Topic** | Streamlit: Deployment Options, Limits, and Best Practices |
 | **Category** | Hosting / Deployment / Dashboard Framework |
-| **Last Updated** | 2026-02-20 |
+| **Last Updated** | 2026-03-08 |
 | **Relevance to Projects** | Project 001 — Plymouth Research Restaurant Menu Analytics |
 
 ## Summary
@@ -73,7 +73,7 @@ Render detects Python apps and Dockerfiles automatically. Deploy from same GitHu
 
 ## Relevance to Projects
 
-**Project 001**: Streamlit Community Cloud is current deployment. Provides immediate HTTPS (NFR-SEC-001 gap resolution). Sleep behaviour acceptable for Phase 1 internal use. Render Starter recommended trigger: when public launch drives consistent daily traffic requiring reliable availability.
+**Project 001**: Streamlit Community Cloud is current deployment. Provides immediate HTTPS (NFR-SEC-001 gap resolution). Sleep behaviour remains acceptable for Phase 1 internal use. Render Starter is still the recommended trigger-based fallback when public launch drives consistent daily traffic requiring reliable availability.
 
 ## References
 
