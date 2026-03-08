@@ -1,95 +1,108 @@
 # Vendor Profile: DuckDB
 
+> **Template Origin**: Official | **ArcKit Version**: 4.0.1
+
+## Document Control
+
 | Field | Value |
 |-------|-------|
-| **Vendor Name** | DuckDB Foundation |
-| **Category** | Analytical In-Process Database |
-| **Website** | https://duckdb.org |
+| **Document ID** | duckdb-profile |
+| **Document Type** | Vendor Profile |
+| **Project** | Plymouth Research Restaurant Menu Analytics (Project 001) |
+| **Classification** | PUBLIC |
+| **Status** | PUBLISHED |
+| **Version** | 1.1 |
+| **Created Date** | 2026-02-20 |
+| **Last Modified** | 2026-03-08 |
+| **Review Cycle** | On-Demand |
+| **Next Review Date** | 2027-03-08 |
+| **Owner** | Data Architect |
+| **Reviewed By** | PENDING |
+| **Approved By** | PENDING |
+| **Distribution** | Development Team |
+| **Source Research** | ARC-001-RSCH-v1.0, ARC-001-RSCH-v2.0 |
 | **Confidence** | High |
-| **Last Researched** | 2026-02-20 |
-| **Projects Referenced In** | Project 001 — Plymouth Research Restaurant Menu Analytics |
+
+## Revision History
+
+| Version | Date | Author | Changes | Approved By | Approval Date |
+|---------|------|--------|---------|-------------|---------------|
+| 1.0 | 2026-02-20 | AI Agent | Initial creation from `/arckit:research` command. | PENDING | PENDING |
+| 1.1 | 2026-03-08 | AI Agent | Updated and validated against `ARC-001-RSCH-v2.0`. Added detail on SQLite interoperability. | PENDING | PENDING |
+
+---
 
 ## Overview
 
-DuckDB is an open-source, in-process OLAP (Online Analytical Processing) database system optimised for analytical queries. Unlike traditional client-server databases, DuckDB runs embedded within the host application process (similar to SQLite) and is specifically designed for fast aggregation, grouping, and analytical workloads. Version 1.0.0 was released in 2024, introducing a stable storage format with backwards compatibility guarantees.
+DuckDB is an open-source, in-process OLAP (Online Analytical Processing) database system optimised for analytical queries. Unlike traditional client-server databases, DuckDB runs embedded within the host application process (similar to SQLite) and is specifically designed for fast aggregation, grouping, and analytical workloads. Version 1.0.0 was released in 2024, introducing a stable storage format.
 
 ## Products and Services
 
-- **DuckDB OSS**: In-process SQL OLAP database (MIT licence)
-- **DuckDB Python package**: pip install duckdb
-- **DuckDB CLI**: Standalone command-line interface
-- **DuckDB WASM**: Browser-based version
-- **DuckDB UI**: Local web UI (released 2025, not open source — but core engine remains MIT)
+- **DuckDB OSS**: The core in-process SQL OLAP database engine (MIT licence).
+- **Python Package**: The primary interface for Python applications (`pip install duckdb`).
+- **DuckDB CLI**: A standalone command-line interface for database management.
 
-Note: There is no enterprise version or commercial offering. DuckDB Foundation statutes guarantee the engine remains MIT-licensed in perpetuity.
+Note: There is no commercial enterprise version. The DuckDB Foundation's statutes guarantee the engine remains MIT-licensed in perpetuity.
 
 ## Pricing Model
 
 | Tier | Price | Notes |
 |------|-------|-------|
-| DuckDB OSS | Free (MIT) | Core engine, Python/R/Java/WASM clients |
-| DuckDB UI | Free download | Not open source, but free to use |
-| Enterprise | N/A | No enterprise tier exists |
+| DuckDB OSS | Free (MIT) | Core engine and all clients (Python, R, Java, etc.) are free. |
+| Enterprise | N/A | No enterprise tier exists. |
 
-*All components of DuckDB are free. There is no commercial upsell.*
+*DuckDB is completely free, with no commercial upsell.*
 
 ## GitHub Statistics
 
-- **Stars**: 25,000+ (milestone reached December 2024; 20,000 stars in June 2024)
+- **Stars**: 25,000+ (as of Dec 2024)
 - **Licence**: MIT
-- **Status**: Actively developed, stable 1.x series
+- **Status**: Actively developed, stable 1.x series.
 - **URL**: https://github.com/duckdb/duckdb
-
-## Performance Benchmarks (2024)
-
-- Aggregation queries: 10–100x faster than SQLite for OLAP workloads
-- Join speeds improved 4x over last 3 years
-- Parquet export improved 4–5x since 2023
-- ~20% year-over-year performance improvement in 2024 benchmarks
-- At 4 vCores: DuckDB ~1.6x faster than Apache Spark with NEE
 
 ## Key Features
 
-- Columnar storage: optimised for read-heavy analytical queries
-- Reads SQLite, Parquet, CSV, JSON files directly (no import needed)
-- Native Python/Pandas integration: query DataFrames with SQL
-- Parallel query execution
-- In-process: zero network overhead, same deployment model as SQLite
-- Full SQL support including window functions, CTEs, lateral joins
+- **Columnar Storage**: Optimized for read-heavy analytical queries by reading only the necessary columns.
+- **Vectorized Execution**: Processes data in batches (vectors) for high performance.
+- **Direct Data Reading**: Can query SQLite files, Parquet files, CSVs, and Pandas DataFrames directly without an import/ETL step.
+- **In-process**: Zero network overhead and simple deployment, as it runs within the application.
+- **Full SQL Support**: Supports complex SQL including window functions, CTEs, and joins.
 
 ## UK Government Presence
 
-Not applicable — DuckDB is a library, not a hosted service. Data remains on local infrastructure.
+Not applicable. DuckDB is a library, not a hosted service, so data remains on the project's own infrastructure.
 
 ## Strengths
 
-- MIT licence — truly free, no enterprise upsell
-- In-process: same deployment simplicity as SQLite (no server to manage)
-- Reads existing SQLite database files directly
-- Dramatically faster for analytics aggregations (price analysis, cuisine comparison)
-- Zero infrastructure change to adopt
-- Statutes guarantee open-source status permanently
+- **MIT Licence**: Truly free with no restrictions and no enterprise upsell.
+- **Performance**: 10-100x faster than row-stores like SQLite for analytical queries.
+- **Simplicity**: As easy to deploy as SQLite (no server to manage).
+- **Interoperability**: Can read the existing `plymouth_research.db` SQLite file directly, allowing for a hybrid analytical approach without data migration.
+- **Guaranteed Open Source**: The DuckDB Foundation's statutes ensure it will always be open source.
 
 ## Weaknesses
 
-- OLAP optimised: not ideal for high-concurrency write workloads (use SQLite for writes)
-- DuckDB UI not open source (though CLI/Python API are)
-- Newer ecosystem than PostgreSQL (fewer community resources)
-- Storage format changes between major versions (stable from v1.0+)
+- Not optimized for high-concurrency, write-heavy (OLTP) workloads; SQLite or PostgreSQL are better for that.
+- The ecosystem is newer and smaller than that of PostgreSQL.
+- Storage format can change between major versions (though stable since v1.0.0).
 
 ## Compliance
 
-- MIT licence: no restrictions on commercial or government use
-- Data stored locally — no cloud transmission
+- The MIT licence is permissive and has no restrictions on commercial or government use.
+- As it's self-hosted, data residency and compliance are the responsibility of the implementer.
 
 ## Competitive Alternatives
 
 | Alternative | Price | Key Difference |
 |-------------|-------|----------------|
-| SQLite | Free (Public Domain) | Row-oriented, better for writes, slower analytics |
-| PostgreSQL | Free (PostgreSQL Licence) | Server-based, multi-user, more complex deployment |
-| Pandas | Free (BSD-3) | DataFrame operations, no SQL, less performant for aggregations |
+| SQLite | Free | Row-oriented, better for writes, but much slower for analytics. |
+| PostgreSQL | Free | Server-based, better for multi-user writes, but more complex to deploy. |
+| Pandas | Free | In-memory DataFrame operations, but generally less performant for large aggregations and lacks a SQL interface. |
+
+## Projects Referenced In
+
+- **Project 001 — Plymouth Research Restaurant Menu Analytics** (Evaluated in `ARC-001-RSCH-v1.0` and `ARC-001-RSCH-v2.0`)
 
 ## Decision Notes
 
-**Recommended**: Add DuckDB as analytical query layer alongside existing SQLite for Plymouth Research Project 001. Replace pandas aggregations in Streamlit dashboard analytics tabs (Price Analysis, Cuisine Comparison, Dietary Options) with DuckDB SQL queries. SQLite remains the primary write/transactional database. Estimated 1 week implementation, zero cost, significant analytical performance improvement.
+**Recommended**: Add DuckDB as the analytical query layer for Project 001, sitting alongside the existing SQLite database. It should be used to replace the pandas-based aggregations in the Streamlit dashboard's analytics tabs. This is a zero-cost, low-effort (est. 1 week) change that will yield significant performance improvements for analytical queries.

@@ -1,75 +1,100 @@
 # Tech Note: DuckDB as an Embedded Analytics Engine
 
+> **Template Origin**: Official | **ArcKit Version**: 4.0.1
+
+## Document Control
+
 | Field | Value |
 |-------|-------|
-| **Topic** | DuckDB: In-Process OLAP for Python Analytics |
-| **Category** | Database / Analytics |
-| **Last Updated** | 2026-02-20 |
-| **Relevance to Projects** | Project 001 — Plymouth Research Restaurant Menu Analytics |
+| **Document ID** | duckdb-analytics-engine |
+| **Document Type** | Tech Note |
+| **Project** | Plymouth Research Restaurant Menu Analytics (Project 001) |
+| **Classification** | PUBLIC |
+| **Status** | PUBLISHED |
+| **Version** | 1.1 |
+| **Created Date** | 2026-02-20 |
+| **Last Modified** | 2026-03-08 |
+| **Review Cycle** | On-Demand |
+| **Next Review Date** | 2027-03-08 |
+| **Owner** | Data Architect |
+| **Reviewed By** | PENDING |
+| **Approved By** | PENDING |
+| **Distribution** | Development Team |
+| **Source Research** | ARC-001-RSCH-v1.0, ARC-001-RSCH-v2.0 |
+
+## Revision History
+
+| Version | Date | Author | Changes | Approved By | Approval Date |
+|---------|------|--------|---------|-------------|---------------|
+| 1.0 | 2026-02-20 | AI Agent | Initial creation from `/arckit:research` command. | PENDING | PENDING |
+| 1.1 | 2026-03-08 | AI Agent | Updated and validated against `ARC-001-RSCH-v2.0`. Added more detail on the hybrid SQLite+DuckDB pattern. | PENDING | PENDING |
+
+---
 
 ## Summary
 
-DuckDB is a free, open-source, in-process OLAP database optimised for analytical queries. It runs embedded within a Python application (like SQLite), requires no server, and delivers 10–100x faster aggregation queries than SQLite for analytical workloads. Version 1.0.0 (2024) guarantees stable storage format. MIT licence with statutes ensuring permanent open-source status.
+DuckDB is a free, open-source, in-process OLAP (Online Analytical Processing) database engine optimized for analytical queries. It runs embedded within a Python application (similar to SQLite), requires no server, and delivers 10–100x faster performance on aggregation queries than traditional row-stores like SQLite. With its ability to query SQLite and Parquet files directly, it provides a powerful, zero-cost, zero-ETL solution for enhancing the performance of data-heavy analytics applications.
 
 ## Key Findings
 
-1. **Performance**: DuckDB is 10–100x faster than SQLite for aggregation-heavy queries (GROUP BY, COUNT, SUM, AVG). For Plymouth Research dashboard analytics tabs (Price Analysis, Cuisine Comparison), replacing pandas aggregations with DuckDB SQL queries would significantly reduce load times.
+1.  **Performance**: DuckDB's columnar storage and vectorized execution engine make it exceptionally fast for analytical queries (GROUP BY, AVG, COUNT, SUM). For the Plymouth Research dashboard, this translates to significantly faster load times for the analytics and reporting tabs.
 
-2. **In-process deployment**: Like SQLite, DuckDB runs within the Python process — no server to manage, no network overhead. Compatible with Streamlit Cloud (runs in same Python process as dashboard_app.py).
+2.  **In-Process Deployment**: Like SQLite, DuckDB is a library, not a server. It runs inside the same Python process as the application, which simplifies deployment and eliminates network overhead. This makes it fully compatible with serverless hosting environments like Streamlit Community Cloud.
 
-3. **SQLite interoperability**: DuckDB can query SQLite database files directly using `ATTACH 'plymouth_research.db' AS prd (TYPE sqlite)` — no migration needed. Use DuckDB for reads, SQLite for writes.
+3.  **SQLite Interoperability**: DuckDB can attach to and query SQLite database files directly using the `sqlite_scanner` extension. This allows a project to use SQLite for its transactional (write-heavy) needs and DuckDB for its analytical (read-heavy) needs, all while operating on a single database file.
 
-4. **MIT licence, no commercial version**: DuckDB Foundation statutes guarantee the engine remains MIT-licensed permanently. No enterprise tier exists. "DuckDB is free for everyone, forever."
+4.  **Truly Free and Open Source**: DuckDB is released under the permissive MIT license, and its governing foundation has statutes that guarantee it will remain free and open source forever. There is no commercial version or upsell.
 
-5. **GitHub stars**: 25,000+ (December 2024 milestone). 20,000 stars in June 2024. Rapid community growth.
+## The SQLite + DuckDB Hybrid Pattern
 
-6. **2024 benchmarks**: ~20% year-over-year performance improvement; joins 4x faster over 3 years; Parquet export 4–5x faster since 2023.
+For an application like the Plymouth Research dashboard, a hybrid architecture offers the best of both worlds:
 
-7. **Python integration**: Native DuckDB Python API, integrates with Pandas DataFrames. Query a DataFrame with SQL: `duckdb.query("SELECT * FROM df WHERE price > 10").fetchdf()`.
+-   **SQLite**: Continues to serve as the primary database for transactional writes. The scraping scripts write their data into the SQLite `.db` file. Its row-based storage is efficient for these single-row inserts and updates.
+-   **DuckDB**: Serves as the read-only analytical engine for the Streamlit dashboard. The dashboard connects to DuckDB, which in turn attaches to the SQLite file. All complex aggregation queries for charts and tables are executed by DuckDB, leveraging its columnar performance.
 
-## Plymouth Research Use Cases
+This pattern requires no data duplication and no complex ETL pipelines. It is a simple, effective, and zero-cost performance optimization.
 
-| Dashboard Tab | Current Implementation | DuckDB Enhancement |
-|---------------|----------------------|-------------------|
-| Price Analysis (FR-003) | Pandas groupby + Plotly | DuckDB `SELECT cuisine_type, AVG(price) FROM menu_items GROUP BY cuisine_type` |
-| Cuisine Comparison | Pandas crosstab | DuckDB multi-table join with SQLite data |
-| Dietary Options | Pandas boolean filter | DuckDB columnar scan with filter |
-| Reviews Correlation (UC-007) | Pandas merge | DuckDB join across trustpilot_reviews + restaurants |
-
-## Implementation Pattern
+## Implementation Example
 
 ```python
-# pip install duckdb
+# dashboard_app.py
 import duckdb
+import streamlit as st
 
-# Query SQLite database directly (no import needed)
-conn = duckdb.connect()
-conn.execute("ATTACH 'plymouth_research.db' AS prd (TYPE sqlite)")
+# Connect to an in-memory DuckDB database
+# and attach the persistent SQLite file.
+db_file = "plymouth_research.db"
+con = duckdb.connect(database=':memory:', read_only=False)
+con.execute(f"ATTACH '{db_file}' AS sqlite_db (TYPE SQLITE)")
 
-# Analytical query — much faster than pandas equivalent
-result = conn.execute("""
-    SELECT cuisine_type,
-           AVG(price) as avg_price,
-           COUNT(*) as item_count
-    FROM prd.menu_items m
-    JOIN prd.restaurants r ON m.restaurant_id = r.restaurant_id
-    WHERE r.is_active = 1
-    GROUP BY cuisine_type
+# Use DuckDB to run a fast analytical query on the SQLite data
+@st.cache_data
+def get_avg_price_by_cuisine():
+    query = """
+    SELECT
+        r.cuisine,
+        AVG(mi.price) as avg_price,
+        COUNT(mi.id) as num_items
+    FROM sqlite_db.restaurants r
+    JOIN sqlite_db.menu_items mi ON r.id = mi.restaurant_id
+    WHERE mi.price > 0
+    GROUP BY r.cuisine
     ORDER BY avg_price DESC
-""").fetchdf()
+    LIMIT 20;
+    """
+    return con.execute(query).fetchdf()
+
+# Display the data in Streamlit
+st.bar_chart(get_avg_price_by_cuisine(), x="cuisine", y="avg_price")
 ```
 
-## Architecture Recommendation
+## Relevance to Projects
 
-**SQLite + DuckDB Hybrid**:
-- SQLite: primary write/transactional store (scraping results, opt-out updates, manual matches)
-- DuckDB: analytical query engine for dashboard read queries
-- Same file: DuckDB reads from SQLite file directly — single source of truth maintained
+-   **Project 001 — Plymouth Research Restaurant Menu Analytics**: This technology is a cornerstone of the v2.0 research recommendations. Adopting the SQLite + DuckDB hybrid pattern will directly improve the performance of the dashboard's analytics tabs (FR-003) and enhance the overall user experience at zero cost.
 
-## References
-
-- DuckDB website: https://duckdb.org/why_duckdb
-- DuckDB GitHub: https://github.com/duckdb/duckdb
-- DuckDB Python docs: https://duckdb.org/docs/api/python/overview
-- DuckDB benchmarks: https://duckdb.org/2024/06/26/benchmarks-over-time
-- SQLite interop: https://duckdb.org/docs/extensions/sqlite
+---
+**Generated by**: ArcKit `/arckit.research` agent
+**Generated on**: 2026-03-08
+**ArcKit Version**: 4.0.1
+**Project**: Plymouth Research Restaurant Menu Analytics (Project 001)
+**Model**: gemini-1.5-pro-001

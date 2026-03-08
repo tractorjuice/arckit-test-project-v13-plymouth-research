@@ -1,55 +1,77 @@
 # Tech Note: Web Scraping in Python
 
+> **Template Origin**: Official | **ArcKit Version**: 4.0.1
+
+## Document Control
+
 | Field | Value |
 |-------|-------|
-| **Topic** | Python Web Scraping: Frameworks, Ethics, and Tools |
-| **Category** | Data Collection / Web Scraping |
-| **Last Updated** | 2026-02-20 |
-| **Relevance to Projects** | Project 001 — Plymouth Research Restaurant Menu Analytics |
+| **Document ID** | web-scraping-python |
+| **Document Type** | Tech Note |
+| **Project** | Plymouth Research Restaurant Menu Analytics (Project 001) |
+| **Classification** | PUBLIC |
+| **Status** | PUBLISHED |
+| **Version** | 1.1 |
+| **Created Date** | 2026-02-20 |
+| **Last Modified** | 2026-03-08 |
+| **Review Cycle** | On-Demand |
+| **Next Review Date** | 2027-03-08 |
+| **Owner** | Lead Developer |
+| **Reviewed By** | PENDING |
+| **Approved By** | PENDING |
+| **Distribution** | Development Team |
+| **Source Research** | ARC-001-RSCH-v1.0, ARC-001-RSCH-v2.0 |
+
+## Revision History
+
+| Version | Date | Author | Changes | Approved By | Approval Date |
+|---------|------|--------|---------|-------------|---------------|
+| 1.0 | 2026-02-20 | AI Agent | Initial creation from `/arckit:research` command. | PENDING | PENDING |
+| 1.1 | 2026-03-08 | AI Agent | Updated and validated against `ARC-001-RSCH-v2.0`. Refined summary and strengthened compliance recommendations. | PENDING | PENDING |
+
+---
 
 ## Summary
 
-Python web scraping involves programmatically extracting data from websites. The three primary tools are BeautifulSoup4 (HTML parsing), Scrapy (full scraping framework), and Playwright (browser automation for JavaScript-heavy sites). For ethical research scraping, enforcing robots.txt compliance and rate limiting is critical — both are non-negotiable for Plymouth Research (Principle #3, NFR-C-003).
+Python's web scraping ecosystem is dominated by a few key tools, each suited to different tasks. **BeautifulSoup4 + Requests** is the simplest choice for parsing static HTML. For dynamic, JavaScript-heavy sites, **Playwright** provides browser automation. For production-grade, large-scale scraping, **Scrapy** provides a complete, asynchronous framework with built-in compliance features. For Project 001, a hybrid approach is recommended: use BeautifulSoup for simplicity where possible, but adopt Scrapy for its robust, framework-level enforcement of ethical scraping rules, which is critical for risk mitigation.
 
 ## Key Findings
 
-1. **BeautifulSoup4 + Requests**: Best for simple, static HTML sites. Requests (~52,900 GitHub stars) handles HTTP; BeautifulSoup parses HTML. No built-in rate limiting or robots.txt handling — must be implemented manually. Ideal for 1–50 restaurant scraping tasks.
+1.  **BeautifulSoup4 + Requests**: The simplest stack, ideal for one-off scripts and static HTML. It requires manual implementation of all compliance logic (rate limiting, `robots.txt` checks), making it less suitable for production-scale, recurring jobs.
 
-2. **Scrapy**: Production-grade framework (BSD-3, 59,800+ GitHub stars, 594 contributors, maintained by Zyte). Built-in `RobotsTxtMiddleware` (set `ROBOTSTXT_OBEY = True`), AutoThrottle for automatic rate limiting, configurable User-Agent, SQLite/CSV export pipelines. Best for 50+ restaurant scale.
+2.  **Scrapy**: A production-grade framework (BSD-3, 59k+ GitHub stars). Its key advantage is built-in, configurable middleware for `robots.txt` compliance (`ROBOTSTXT_OBEY`) and automatic rate-limiting (`AutoThrottle`). This makes it the superior choice for ensuring ethical scraping at scale.
 
-3. **Playwright (Python)**: Browser automation by Microsoft (Apache-2.0, 14,200 GitHub stars). Handles JavaScript-rendered menus (React/Angular/Vue). Slower than HTTP-only scrapers (~150 MB browser download). Rate limiting must be implemented manually (`asyncio.sleep()`). Integration with Scrapy via `scrapy-playwright` plugin.
+3.  **Playwright**: A modern browser automation tool from Microsoft. It is essential for scraping sites that render content using JavaScript. It can be used standalone or integrated with Scrapy via the `scrapy-playwright` plugin.
 
-4. **Scrapy + scrapy-playwright hybrid**: Industry best practice for mixed static/dynamic sites. Scrapy handles static pages; Playwright handles JS-heavy pages within same scraping pipeline. Maintains Scrapy's robots.txt and AutoThrottle enforcement.
+4.  **Hybrid Approach**: The industry best practice is a hybrid model. Use Scrapy as the core framework for its robustness and compliance features. Within a Scrapy spider, use standard HTTP requests for static pages and delegate to Playwright only for pages that require JavaScript rendering.
 
-5. **Managed scraping services** (Apify, Bright Data): Enterprise pricing ($49–$499+/month) far exceeds Plymouth Research £100/month budget. Not viable for this project.
+5.  **Managed Services**: Platforms like Apify and Bright Data offer powerful scraping infrastructure as a service, but their pricing (starting at $49-$499/month) is prohibitive for projects with tight budget constraints like Project 001.
 
-6. **68% of production scraping implementations** use at least two tools, choosing based on target site characteristics.
+## Ethical Scraping Requirements (for Project 001)
 
-## Ethical Scraping Requirements (Plymouth Research)
+These are non-negotiable constraints based on Principle #3 and requirement NFR-C-003.
 
-Critical constraints (NON-NEGOTIABLE per Principle #3):
-
-| Requirement | Implementation | Tool Support |
-|-------------|----------------|-------------|
-| Robots.txt compliance | Parse before any request | Scrapy: `ROBOTSTXT_OBEY = True`; BS4: `urllib.robotparser` |
-| Rate limiting (5s minimum) | Delay between requests per domain | Scrapy AutoThrottle; manual `time.sleep(5)` for BS4 |
-| Honest User-Agent | Identify bot with contact info | Scrapy: `USER_AGENT` setting; Requests: `headers` |
-| Scraping audit trail | Log all requests | Scrapy stats; DR-007 scraping_audit_log table |
+| Requirement | Implementation | Recommended Tool |
+|---|---|---|
+| **`robots.txt` Compliance** | Parse and obey rules before any request. | **Scrapy**: `ROBOTSTXT_OBEY = True` provides framework-level enforcement. |
+| **Rate Limiting** | Enforce a delay between requests to a single domain. | **Scrapy**: `AUTOTHROTTLE_ENABLED = True` handles this automatically and dynamically. |
+| **Honest User-Agent** | Identify the bot and its purpose. | **Scrapy**: The `USER_AGENT` setting provides a simple, global configuration. |
+| **Audit Trail** | Log all requests, responses, and failures. | **Scrapy**: Built-in logging and stats collection can feed the `scraping_audit_log` table (DR-007). |
 
 ## Relevance to Projects
 
-**Project 001**: BeautifulSoup4 + Requests currently used for menu scraping, Trustpilot scraping, Plymouth licensing scraper. Migration to Scrapy recommended for Phase 2 (500+ restaurants) to provide framework-level robots.txt and rate limiting enforcement.
+- **Project 001 — Plymouth Research Restaurant Menu Analytics**: The project currently uses BeautifulSoup. The v2.0 research strongly recommends migrating to Scrapy to better enforce ethical scraping requirements and mitigate critical compliance risks (R-001, R-004). Scrapy provides a more robust and maintainable foundation as the number of scraped sites grows.
 
 ## Related Technologies
 
-- `urllib.robotparser`: Python stdlib robots.txt parser
-- `httpx`: Modern async HTTP client (Apache-2.0) — alternative to Requests with HTTP/2 support
-- `lxml`: Fast HTML/XML parser (BSD-3) — backend for BeautifulSoup
-- `parsel`: CSS/XPath selector library used by Scrapy
+-   `urllib.robotparser`: The Python standard library module for parsing `robots.txt` files. Scrapy uses this internally.
+-   `httpx`: A modern, async-capable HTTP client that can be an alternative to `requests`.
+-   `lxml`: A fast C-based library for parsing HTML and XML, often used as the backend for BeautifulSoup.
+-   `parsel`: The selector library used by Scrapy, which supports XPath and CSS selectors.
 
-## References
-
-- Scrapy: https://github.com/scrapy/scrapy
-- Playwright Python: https://github.com/microsoft/playwright-python
-- scrapy-playwright: https://github.com/scrapy-plugins/scrapy-playwright
-- BeautifulSoup comparison: https://www.firecrawl.dev/blog/beautifulsoup4-vs-scrapy-comparison
+---
+**Generated by**: ArcKit `/arckit.research` agent
+**Generated on**: 2026-03-08
+**ArcKit Version**: 4.0.1
+**Project**: Plymouth Research Restaurant Menu Analytics (Project 001)
+**Model**: gemini-1.5-pro-001

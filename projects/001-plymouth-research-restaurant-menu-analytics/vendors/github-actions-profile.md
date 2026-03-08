@@ -1,25 +1,47 @@
 # Vendor Profile: GitHub Actions
 
+> **Template Origin**: Official | **ArcKit Version**: 4.0.1
+
+## Document Control
+
 | Field | Value |
 |-------|-------|
-| **Vendor Name** | GitHub (Microsoft) |
-| **Category** | CI/CD Automation Platform |
-| **Website** | https://github.com/features/actions |
+| **Document ID** | github-actions-profile |
+| **Document Type** | Vendor Profile |
+| **Project** | Plymouth Research Restaurant Menu Analytics (Project 001) |
+| **Classification** | PUBLIC |
+| **Status** | PUBLISHED |
+| **Version** | 1.1 |
+| **Created Date** | 2026-02-20 |
+| **Last Modified** | 2026-03-08 |
+| **Review Cycle** | On-Demand |
+| **Next Review Date** | 2027-03-08 |
+| **Owner** | Lead Developer |
+| **Reviewed By** | PENDING |
+| **Approved By** | PENDING |
+| **Distribution** | Development Team |
+| **Source Research** | ARC-001-RSCH-v1.0, ARC-001-RSCH-v2.0 |
 | **Confidence** | High |
-| **Last Researched** | 2026-02-20 |
-| **Projects Referenced In** | Project 001 — Plymouth Research Restaurant Menu Analytics |
+
+## Revision History
+
+| Version | Date | Author | Changes | Approved By | Approval Date |
+|---------|------|--------|---------|-------------|---------------|
+| 1.0 | 2026-02-20 | AI Agent | Initial creation from `/arckit:research` command. | PENDING | PENDING |
+| 1.1 | 2026-03-08 | AI Agent | Updated and validated against `ARC-001-RSCH-v2.0`. Confirmed pricing and features are current. | PENDING | PENDING |
+
+---
 
 ## Overview
 
-GitHub Actions is the native CI/CD automation platform built into GitHub. It enables workflows triggered by events (push, pull request, cron schedule) or manual dispatch. For public repositories, GitHub Actions is free with unlimited minutes on standard Linux runners. The project repository for Plymouth Research is on GitHub (confirmed by git status).
+GitHub Actions is the native CI/CD automation platform built into GitHub. It enables workflows triggered by repository events such as code pushes, pull requests, or on a schedule (cron). For public repositories, GitHub Actions is free with generous limits, making it the default choice for open-source projects or projects with public codebases.
 
 ## Products and Services
 
-- **GitHub Actions**: Core CI/CD (free for public repos)
-- **GitHub-hosted runners**: Managed Linux, Windows, macOS VMs
-- **Self-hosted runners**: Install on own infrastructure
-- **Dependabot**: Dependency vulnerability scanning (separate, bundled with GitHub)
-- **GitHub Packages**: Container registry for Docker images
+- **GitHub Actions**: The core CI/CD platform (free for public repos).
+- **GitHub-hosted runners**: Managed Linux, Windows, and macOS virtual machines for running jobs.
+- **Dependabot**: Integrated dependency vulnerability scanning and automated pull requests.
+- **GitHub Packages**: Integrated container registry for Docker images.
 
 ## Pricing Model
 
@@ -27,79 +49,52 @@ GitHub Actions is the native CI/CD automation platform built into GitHub. It ena
 |---------|-------|---------|
 | Public repositories | Free | Unlimited (standard Linux runners) |
 | Private repos — GitHub Free | Free | 2,000 min/month, then $0.008/min (Linux) |
-| Private repos — GitHub Pro | Free | 3,000 min/month |
-| Platform fee (from March 2026) | $0.002/min | Applies to public repos too |
+| Platform fee (from March 2026) | $0.002/min | A minor fee applicable to public repos. |
 
-**Plymouth Research impact**: Public repo → free unlimited minutes. New platform fee from March 2026: a 1-hour weekly scraping job costs $0.12/month (~£0.10) — negligible.
+**Impact for Plymouth Research**: As a public repository, usage is free and effectively unlimited. A weekly 1-hour scraping job would cost approximately £0.10/month, which is negligible.
 
-*Pricing verified February 2026 from https://docs.github.com/en/actions and https://resources.github.com/actions/2026-pricing-changes-for-github-actions/*
+*Pricing verified March 2026.*
 
 ## Key Features
 
-- **YAML workflow files**: `.github/workflows/*.yml` committed to repository
-- **Cron scheduling**: `schedule: - cron: '0 2 * * 0'` for weekly Sunday 2am runs
-- **Secrets management**: `${{ secrets.GOOGLE_API_KEY }}` for API keys (resolves hardcoded credential risk)
-- **Environment**: Ubuntu 22.04, Python 3.x available via `actions/setup-python@v5`
-- **Matrix strategy**: Test across multiple Python versions
-- **Artefact upload**: Store outputs (scraping logs, database backups)
-- **Status checks**: Block PRs if tests fail
-- **15+ GB SSD, 7 GB RAM**: Sufficient for scraping + data processing jobs
+- **YAML Workflows**: CI/CD pipelines are defined as code in `.github/workflows/*.yml`.
+- **Cron Scheduling**: `schedule: - cron: '0 2 * * 0'` enables automated weekly jobs, perfect for data refresh tasks.
+- **Secrets Management**: `${{ secrets.API_KEY }}` provides secure storage for API keys and other credentials.
+- **Standardized Environments**: GitHub-hosted runners provide consistent Ubuntu, Windows, and macOS environments with pre-installed software.
+- **Marketplace**: A vast marketplace of over 30,000 pre-built Actions for common tasks.
 
 ## UK Government Presence
 
-Not applicable — global developer platform. No G-Cloud listing.
-
-## Key Workflows for Plymouth Research
-
-```yaml
-# Weekly data refresh
-name: Weekly Data Refresh
-on:
-  schedule:
-    - cron: '0 2 * * 0'  # Sundays at 2am GMT
-jobs:
-  refresh:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: {python-version: '3.11'}
-      - run: pip install -r requirements.txt
-      - run: python run_collection.py hygiene
-      - run: python run_collection.py trustpilot
-      env:
-        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-```
+Not applicable. GitHub Actions is a global developer platform with no specific G-Cloud listing.
 
 ## Strengths
 
-- Zero cost for public repositories
-- Already in use (project is on GitHub)
-- No new platform to learn — YAML workflows are industry standard
-- Dependabot integration for automatic security updates
-- Secrets management for API keys (resolves NFR-SEC-001 risk)
-- 137% year-over-year adoption growth (2025 Octoverse)
-- Extensive marketplace: 30,000+ pre-built Actions
+- Zero cost for public repositories.
+- Natively integrated into the GitHub platform where the project code already resides.
+- Industry-standard YAML syntax for defining workflows.
+- Integrated secrets management resolves risks associated with hardcoded credentials.
+- Free and automatic dependency scanning via the integrated Dependabot service.
 
 ## Weaknesses
 
-- YAML syntax can be verbose for complex workflows
-- Platform fee introduced March 2026 (minimal impact at Plymouth Research scale)
-- Execution environment resets between jobs (no persistent file system — need to upload/download database)
-- 6-hour job timeout limit (sufficient for weekly scraping)
+- YAML syntax can become complex for very elaborate pipelines.
+- Runner environments are ephemeral; data does not persist between jobs without using artifacts.
+- Subject to a 6-hour timeout limit per job, though this is ample for most use cases.
 
 ## Compliance
 
-- Secrets stored encrypted in GitHub's key management
-- Workflow logs may contain non-sensitive operational data
-- Public repo: workflow results visible publicly (acceptable for operational scripts)
+- Secrets are stored encrypted within GitHub.
+- As the repository is public, workflow logs and results are also public, which is acceptable for this project's non-sensitive operational scripts.
+
+## Projects Referenced In
+
+- **Project 001 — Plymouth Research Restaurant Menu Analytics** (Evaluated in `ARC-001-RSCH-v1.0` and `ARC-001-RSCH-v2.0`)
 
 ## Decision Notes
 
-**Recommended**: Adopt GitHub Actions for Plymouth Research Project 001 for:
-1. Weekly cron data refresh (BR-006 high-priority gap — automated FSA, Trustpilot, Google Places refresh)
-2. pytest on pull requests (NFR-M-002 gap)
-3. pip-audit on schedule (NFR-SEC-003 gap)
-4. Dependabot enabled via `.github/dependabot.yml` (NFR-SEC-003 gap)
+**Recommended**: GitHub Actions is the definitive choice for CI/CD and automation for Project 001. It directly addresses three critical gaps identified in the requirements:
+1.  **BR-006**: Automates the weekly data refresh via cron scheduling.
+2.  **NFR-M-002**: Automates the execution of `pytest` on every pull request.
+3.  **NFR-SEC-003**: Automates dependency security scanning via Dependabot and `pip-audit`.
 
-Total implementation: 1–2 days. Total cost: £0 (plus ~£0.10/month platform fee from March 2026).
+The implementation is low-effort (1–2 days) and the cost is zero, making it a high-value addition to the project.
