@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-01T17:08:58.580Z",
+  "generated": "2026-03-09T12:10:11.130Z",
   "repository": {
     "name": "arckit-test-project-v13-plymouth-research"
   },
@@ -686,6 +686,12 @@
           "title": "Analysis Report",
           "documentId": "ARC-001-ANAL-v2.0",
           "category": "Governance"
+        },
+        {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-EVAL-v1.0.md",
+          "title": "Evaluation Criteria",
+          "documentId": "ARC-001-EVAL-v1.0",
+          "category": "Procurement"
         }
       ],
       "decisions": [

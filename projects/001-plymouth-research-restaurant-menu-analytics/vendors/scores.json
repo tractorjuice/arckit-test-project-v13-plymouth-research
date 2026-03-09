@@ -1,0 +1,74 @@
+{
+  "projectId": "001",
+  "lastUpdated": "2026-03-09T00:00:00Z",
+  "criteria": [
+    { "id": "C-001", "name": "Technical Fit", "weight": 0.25, "category": "Technical" },
+    { "id": "C-002", "name": "Cost & Licensing", "weight": 0.15, "category": "Commercial" },
+    { "id": "C-003", "name": "Community & Ecosystem", "weight": 0.10, "category": "Sustainability" },
+    { "id": "C-004", "name": "Performance & Scalability", "weight": 0.15, "category": "Technical" },
+    { "id": "C-005", "name": "Security & Compliance", "weight": 0.10, "category": "Governance" },
+    { "id": "C-006", "name": "Integration & Interoperability", "weight": 0.10, "category": "Technical" },
+    { "id": "C-007", "name": "Operational Simplicity", "weight": 0.10, "category": "Operational" },
+    { "id": "C-008", "name": "Data Quality Support", "weight": 0.05, "category": "Governance" }
+  ],
+  "vendors": {
+    "streamlit": {
+      "displayName": "Streamlit (+ Community Cloud)",
+      "scoredDate": "2026-03-09T00:00:00Z",
+      "scoredBy": "Architecture Team",
+      "scores": [
+        {
+          "criterionId": "C-001",
+          "score": 3,
+          "evidence": "Streamlit is fully implemented and operational as the project's dashboard framework (dashboard_app.py, 2,053 lines). Delivers 8 tabs covering all FR requirements: search/filter (FR-001), menu browsing (FR-002), price analysis (FR-003), dietary filtering (FR-004), hygiene ratings (FR-005), reviews (FR-007), Google Places integration (FR-008). Pure Python API integrates natively with Pandas, SQLite, Plotly, Pydeck. Built-in caching (@st.cache_data), component library, and tab system support the collect-process-present architecture. Extensible via custom components for future geographic expansion (BR-005).",
+          "risks": "Limited multi-page routing. Complex state management for advanced interactive features."
+        },
+        {
+          "criterionId": "C-002",
+          "score": 3,
+          "evidence": "Apache-2.0 licence (fully permissive, no restrictions). Community Cloud hosting is free for unlimited public apps. Zero cost contribution to the £100/month budget (BR-003). No licence fees, no usage-based charges. Clear exit strategy: standard Python web app can be containerised and deployed to any platform (Render, Railway, VPS). Snowflake enterprise tier exists but is not required.",
+          "risks": "Community Cloud requires public GitHub repository. If private repo needed in future, must migrate to Render (~£5.50/month) or self-host."
+        },
+        {
+          "criterionId": "C-003",
+          "score": 3,
+          "evidence": "43,600+ GitHub stars, 327+ contributors, Apache-2.0 licence, actively maintained with regular releases. Acquired by Snowflake (2022) providing corporate backing and long-term sustainability. Comprehensive documentation at docs.streamlit.io with tutorials, API reference, and deployment guides. Rich ecosystem of community components (streamlit-extras, streamlit-aggrid, streamlit-folium). Large Stack Overflow and Discourse community.",
+          "risks": "Snowflake acquisition could shift focus toward enterprise features. Community Cloud terms could change."
+        },
+        {
+          "criterionId": "C-004",
+          "score": 2,
+          "evidence": "Dashboard loads within 2s target (NFR-P-001) for current dataset (243 restaurants, 2,625 menu items, 20 MB SQLite). Built-in caching (@st.cache_data with 1-hour TTL) provides sub-500ms repeated queries (NFR-P-002). 20 MB database + Pandas + Plotly fits within ~1 GB Community Cloud RAM limit. Tech note confirms no memory constraint at Phase 1 scale.",
+          "risks": "Community Cloud apps auto-sleep on inactivity (5-10s cold start). ~1 GB RAM limit may constrain 10x growth (BR-005: 1,500 restaurants). No horizontal scaling on Community Cloud — single instance only. Migration to Render or self-hosting needed for always-on and scale."
+        },
+        {
+          "criterionId": "C-005",
+          "score": 2,
+          "evidence": "Automatic HTTPS/TLS on Community Cloud (resolves NFR-SEC-001). Streamlit secrets management via .streamlit/secrets.toml and Cloud Secrets UI for API keys. No unnecessary data collection from end users (Principle #4). No known critical CVEs in recent versions.",
+          "risks": "No built-in authentication for restricting access (public apps only on free tier). No encryption at rest for SQLite file on Community Cloud filesystem. Limited audit logging."
+        },
+        {
+          "criterionId": "C-006",
+          "score": 3,
+          "evidence": "Native Python integration with SQLite (via sqlite3), Pandas, Plotly, Pydeck — all currently used in dashboard_app.py. Supports reading CSV, JSON, XML via standard Python libraries. Connects to all external APIs (FSA, Google Places, Trustpilot, Companies House, ONS, Postcodes.io) through standard HTTP requests. GitHub push-to-deploy integration with Community Cloud.",
+          "risks": "No built-in database connector pool. SQLite connection management is manual (via @st.cache_resource)."
+        },
+        {
+          "criterionId": "C-007",
+          "score": 3,
+          "evidence": "Single command deployment: `streamlit run dashboard_app.py`. GitHub push-to-deploy on Community Cloud (2-3 minute deploy cycle). requirements.txt-based dependency management. No Docker, Kubernetes, or infrastructure configuration required. Built-in error display in browser during development. UptimeRobot integration for health monitoring (free tier, 5-min intervals).",
+          "risks": "Debug logging limited compared to full web frameworks. No built-in APM or distributed tracing."
+        },
+        {
+          "criterionId": "C-008",
+          "score": 1,
+          "evidence": "Streamlit provides display capabilities for data quality metrics (can show completeness/accuracy dashboards) but does not provide built-in data validation, schema enforcement, or quality monitoring. Data quality is handled by upstream Python scripts (fetchers, matchers) not by the dashboard framework itself. Streamlit's role is presentation, not data governance.",
+          "risks": "Data quality logic must be implemented entirely in application code. No framework-level support for data lineage or provenance tracking."
+        }
+      ],
+      "totalWeighted": 2.55,
+      "totalRaw": 20,
+      "maxPossible": 24
+    }
+  }
+}
