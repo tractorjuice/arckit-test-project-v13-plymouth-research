@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-09T12:35:48.500Z",
+  "generated": "2026-03-09T14:50:31.679Z",
   "repository": {
     "name": "arckit-test-project-v13-plymouth-research"
   },
@@ -889,6 +889,62 @@
         ],
         "vendors": [
           {
+            "name": "GitHub Actions",
+            "slug": "github-actions",
+            "totalWeighted": 2.8,
+            "totalRaw": 22,
+            "maxPossible": 24,
+            "categoryAverages": {
+              "Technical": 2.67,
+              "Commercial": 3,
+              "Sustainability": 3,
+              "Governance": 2.5,
+              "Operational": 3
+            }
+          },
+          {
+            "name": "Scrapy",
+            "slug": "scrapy",
+            "totalWeighted": 2.8,
+            "totalRaw": 22,
+            "maxPossible": 24,
+            "categoryAverages": {
+              "Technical": 2.67,
+              "Commercial": 3,
+              "Sustainability": 3,
+              "Governance": 3,
+              "Operational": 2
+            }
+          },
+          {
+            "name": "DuckDB",
+            "slug": "duckdb",
+            "totalWeighted": 2.7,
+            "totalRaw": 20,
+            "maxPossible": 24,
+            "categoryAverages": {
+              "Technical": 3,
+              "Commercial": 3,
+              "Sustainability": 2,
+              "Governance": 1.5,
+              "Operational": 3
+            }
+          },
+          {
+            "name": "Postcodes.io",
+            "slug": "postcodes-io",
+            "totalWeighted": 2.6,
+            "totalRaw": 20,
+            "maxPossible": 24,
+            "categoryAverages": {
+              "Technical": 2.67,
+              "Commercial": 3,
+              "Sustainability": 2,
+              "Governance": 2,
+              "Operational": 3
+            }
+          },
+          {
             "name": "Streamlit (+ Community Cloud)",
             "slug": "streamlit",
             "totalWeighted": 2.55,
@@ -900,6 +956,76 @@
               "Sustainability": 3,
               "Governance": 1.5,
               "Operational": 3
+            }
+          },
+          {
+            "name": "Google Places API",
+            "slug": "google-places-api",
+            "totalWeighted": 2.35,
+            "totalRaw": 18,
+            "maxPossible": 24,
+            "categoryAverages": {
+              "Technical": 2.67,
+              "Commercial": 2,
+              "Sustainability": 2,
+              "Governance": 2,
+              "Operational": 2
+            }
+          },
+          {
+            "name": "Sentry",
+            "slug": "sentry",
+            "totalWeighted": 2.2,
+            "totalRaw": 17,
+            "maxPossible": 24,
+            "categoryAverages": {
+              "Technical": 2,
+              "Commercial": 3,
+              "Sustainability": 2,
+              "Governance": 1.5,
+              "Operational": 3
+            }
+          },
+          {
+            "name": "UptimeRobot",
+            "slug": "uptimerobot",
+            "totalWeighted": 2.05,
+            "totalRaw": 15,
+            "maxPossible": 24,
+            "categoryAverages": {
+              "Technical": 2,
+              "Commercial": 3,
+              "Sustainability": 1,
+              "Governance": 1,
+              "Operational": 3
+            }
+          },
+          {
+            "name": "Plotly Dash",
+            "slug": "plotly-dash",
+            "totalWeighted": 1.85,
+            "totalRaw": 14,
+            "maxPossible": 24,
+            "categoryAverages": {
+              "Technical": 2,
+              "Commercial": 2,
+              "Sustainability": 2,
+              "Governance": 1.5,
+              "Operational": 1
+            }
+          },
+          {
+            "name": "Render",
+            "slug": "render",
+            "totalWeighted": 1.8,
+            "totalRaw": 13,
+            "maxPossible": 24,
+            "categoryAverages": {
+              "Technical": 2,
+              "Commercial": 2,
+              "Sustainability": 1,
+              "Governance": 1,
+              "Operational": 2
             }
           }
         ]

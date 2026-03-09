@@ -69,6 +69,528 @@
       "totalWeighted": 2.55,
       "totalRaw": 20,
       "maxPossible": 24
+    },
+    "duckdb": {
+      "displayName": "DuckDB",
+      "scoredDate": "2026-03-09T00:00:00Z",
+      "scoredBy": "Architecture Team",
+      "scores": [
+        {
+          "criterionId": "C-001",
+          "score": 3,
+          "evidence": "Columnar OLAP engine optimised for analytical queries (aggregation, grouping, window functions). Can query the existing plymouth_research.db SQLite file directly without data migration. Python-native via `pip install duckdb`. Fits the collect-process-present pipeline as an analytics accelerator layer. Extensible to Parquet and CSV for future data sources.",
+          "risks": "Not optimised for write-heavy OLTP workloads. Would supplement rather than replace SQLite for transactional operations."
+        },
+        {
+          "criterionId": "C-002",
+          "score": 3,
+          "evidence": "MIT licence with no restrictions. Completely free with no commercial upsell — the DuckDB Foundation statutes guarantee it remains MIT-licensed in perpetuity. Zero cost contribution to the £100/month budget. No enterprise tier exists.",
+          "risks": "None. Truly zero-cost with guaranteed open-source future."
+        },
+        {
+          "criterionId": "C-003",
+          "score": 2,
+          "evidence": "25,000+ GitHub stars, actively developed with stable 1.x series since 2024. Good documentation with tutorials and API reference. Growing ecosystem but newer than PostgreSQL or SQLite communities.",
+          "risks": "Ecosystem is newer and smaller than established databases. Fewer Stack Overflow answers and community plugins compared to SQLite/PostgreSQL."
+        },
+        {
+          "criterionId": "C-004",
+          "score": 3,
+          "evidence": "10-100x faster than SQLite for analytical queries via columnar storage and vectorized execution. Processes data in batches for high throughput. In-process with zero network overhead. Can handle the 10x growth target (BR-005: 1,500 restaurants, 100K menu items) without architecture changes.",
+          "risks": "Storage format changes between major versions (though stable since v1.0.0). Memory usage for very large analytical queries may need monitoring."
+        },
+        {
+          "criterionId": "C-005",
+          "score": 2,
+          "evidence": "In-process database with no network exposure — inherently secure with no attack surface. MIT licence has no compliance restrictions. Data remains on project infrastructure (no third-party data transfer). No known CVEs of significance.",
+          "risks": "No built-in encryption at rest (relies on filesystem-level encryption). No authentication layer (not needed for in-process use)."
+        },
+        {
+          "criterionId": "C-006",
+          "score": 3,
+          "evidence": "Reads SQLite files directly via sqlite_scan(). Native Pandas DataFrame interop. Supports CSV, JSON, Parquet natively. Full SQL compatibility including joins across different data sources (SQLite + CSV in same query).",
+          "risks": "No direct integration with external APIs (library scope is analytics, not data collection)."
+        },
+        {
+          "criterionId": "C-007",
+          "score": 3,
+          "evidence": "Single command install: `pip install duckdb`. In-process — no server to manage, configure, or monitor. As simple to deploy as SQLite. No Docker, infrastructure, or configuration required. Can be added to existing requirements.txt alongside current dependencies.",
+          "risks": "Developers need to learn DuckDB SQL extensions (minor). No built-in monitoring dashboard (use Sentry for application-level monitoring)."
+        },
+        {
+          "criterionId": "C-008",
+          "score": 1,
+          "evidence": "Supports SQL constraints (CHECK, NOT NULL) for basic data validation. Can run analytical quality checks (completeness counts, outlier detection) via SQL. However, no built-in data quality framework, schema enforcement beyond SQL constraints, or data lineage tracking.",
+          "risks": "Data quality monitoring must be implemented in application code or via separate tooling."
+        }
+      ],
+      "totalWeighted": 2.70,
+      "totalRaw": 20,
+      "maxPossible": 24
+    },
+    "plotly-dash": {
+      "displayName": "Plotly Dash",
+      "scoredDate": "2026-03-09T00:00:00Z",
+      "scoredBy": "Architecture Team",
+      "scores": [
+        {
+          "criterionId": "C-001",
+          "score": 2,
+          "evidence": "Full-featured Python dashboard framework with component-based architecture and reactive callbacks. Native multi-page routing (advantage over Streamlit for Phase 2). 100% Python with React.js frontend. Supports Plotly, Pandas, SQLite natively. More production-ready than Streamlit for complex applications.",
+          "risks": "Not currently implemented — would require full rewrite of dashboard_app.py (2,053 lines). Steeper learning curve with callback pattern vs Streamlit's script model. More code required for equivalent functionality."
+        },
+        {
+          "criterionId": "C-002",
+          "score": 2,
+          "evidence": "MIT licence for Dash OSS (fully permissive). However, no free managed hosting equivalent to Streamlit Community Cloud — requires Render Starter (~£5.50/month) or self-hosting. Dash Enterprise pricing ($10K-$50K+/year) far exceeds budget.",
+          "risks": "Migration from Streamlit incurs development cost (estimated 2-3 weeks). Ongoing hosting cost of ~£5.50/month minimum for always-on deployment."
+        },
+        {
+          "criterionId": "C-003",
+          "score": 2,
+          "evidence": "22,000+ GitHub stars, MIT licence, active community. Maintained by Plotly Inc. with corporate backing. Good documentation with examples. Bootstrap/Mantine/Ant Design theme ecosystem.",
+          "risks": "Smaller community than Streamlit for data science use cases. Enterprise focus may shift priorities away from OSS features."
+        },
+        {
+          "criterionId": "C-004",
+          "score": 2,
+          "evidence": "React.js rendering provides good frontend performance. Better than Streamlit for complex interactivity and concurrent users. Can handle 100+ concurrent users with proper deployment.",
+          "risks": "Requires self-hosting infrastructure for performance tuning. No free managed hosting with guaranteed resources."
+        },
+        {
+          "criterionId": "C-005",
+          "score": 2,
+          "evidence": "Standard web application security model. HTTPS via hosting provider. No unnecessary data collection. MIT licence with no compliance restrictions.",
+          "risks": "Security depends entirely on hosting configuration. No built-in secrets management equivalent to Streamlit Cloud Secrets."
+        },
+        {
+          "criterionId": "C-006",
+          "score": 2,
+          "evidence": "Python native, works with Plotly (same vendor), Pandas, SQLite. Supports standard HTTP requests for external APIs. Component ecosystem for additional integrations.",
+          "risks": "Migration from Streamlit requires rewriting all UI code. Dash components are not compatible with Streamlit components."
+        },
+        {
+          "criterionId": "C-007",
+          "score": 1,
+          "evidence": "Requires more boilerplate than Streamlit (callback decorators, layout definitions). No free managed hosting — must configure Docker/Render/VPS. More complex deployment pipeline.",
+          "risks": "Higher operational overhead than Streamlit for a solo developer project. Maintenance burden increases with self-hosted infrastructure."
+        },
+        {
+          "criterionId": "C-008",
+          "score": 1,
+          "evidence": "Presentation layer with no built-in data validation or quality monitoring. Can display data quality dashboards but does not enforce data quality at the framework level.",
+          "risks": "Same limitation as Streamlit — data quality must be handled by upstream code."
+        }
+      ],
+      "totalWeighted": 1.85,
+      "totalRaw": 14,
+      "maxPossible": 24
+    },
+    "github-actions": {
+      "displayName": "GitHub Actions",
+      "scoredDate": "2026-03-09T00:00:00Z",
+      "scoredBy": "Architecture Team",
+      "scores": [
+        {
+          "criterionId": "C-001",
+          "score": 3,
+          "evidence": "YAML-defined CI/CD workflows with cron scheduling for automated data refresh (BR-006). Secrets management for API keys (Google Places, Sentry DSN). 30,000+ marketplace actions for common tasks. Directly addresses three critical requirements: BR-006 (automated weekly refresh), NFR-M-002 (automated testing), NFR-SEC-003 (dependency security scanning via Dependabot).",
+          "risks": "YAML syntax complexity for elaborate pipelines. 6-hour timeout per job (sufficient for data refresh). Ephemeral runners require artifact management for data persistence."
+        },
+        {
+          "criterionId": "C-002",
+          "score": 3,
+          "evidence": "Free and unlimited for public repositories (standard Linux runners). Minor platform fee from March 2026 ($0.002/min) — a weekly 1-hour scraping job costs approximately £0.10/month. Negligible impact on £100/month budget (BR-003).",
+          "risks": "Private repo migration would consume 2,000 free minutes/month on GitHub Free, then $0.008/min. Platform fee may increase over time."
+        },
+        {
+          "criterionId": "C-003",
+          "score": 3,
+          "evidence": "30,000+ pre-built Actions in the GitHub Marketplace. Industry-standard CI/CD platform with massive community adoption. Excellent documentation with workflow templates for Python projects. Native integration with Dependabot for automated security updates.",
+          "risks": "Lock-in to GitHub platform (though YAML workflows are partially portable to other CI systems)."
+        },
+        {
+          "criterionId": "C-004",
+          "score": 2,
+          "evidence": "GitHub-hosted runners provide consistent Ubuntu environments with pre-installed Python. Sufficient compute for weekly scraping jobs (243 restaurants, expanding to 1,500). Parallel job execution available for faster runs.",
+          "risks": "Ephemeral runners — data does not persist between jobs without using artifacts or external storage. Cold start time for runner provisioning (30-60s)."
+        },
+        {
+          "criterionId": "C-005",
+          "score": 3,
+          "evidence": "Encrypted secrets storage (${{ secrets.API_KEY }}). Integrated Dependabot for automatic dependency vulnerability scanning (NFR-SEC-003). OIDC support for secure cloud authentication. pip-audit integration for Python package security.",
+          "risks": "Public workflow logs may expose non-sensitive operational details. Marketplace actions should be pinned to specific versions to prevent supply chain attacks."
+        },
+        {
+          "criterionId": "C-006",
+          "score": 3,
+          "evidence": "Native GitHub integration — triggers on push, PR, schedule, and manual dispatch. Supports any Python environment via setup-python action. Artifact sharing between jobs. Can deploy to Streamlit Cloud, Render, or any hosting platform. Integrates with Slack, email for notifications.",
+          "risks": "Cross-platform workflow portability is limited (GitHub-specific syntax)."
+        },
+        {
+          "criterionId": "C-007",
+          "score": 3,
+          "evidence": "Workflows defined as code (.github/workflows/*.yml) — version controlled and reviewable. Push-to-deploy model. Built-in workflow run logging with step-level detail. Status badges for README. Implementation estimated at 1-2 days.",
+          "risks": "Debugging failed workflows requires reading logs in GitHub UI. No local workflow execution without third-party tools (act)."
+        },
+        {
+          "criterionId": "C-008",
+          "score": 2,
+          "evidence": "Can run data validation scripts, pytest, and quality checks as workflow steps. Can enforce data quality gates (fail build if validation fails). Can generate and store data quality reports as artifacts.",
+          "risks": "Data quality logic must be implemented in Python scripts — GitHub Actions provides the execution environment, not the quality framework itself."
+        }
+      ],
+      "totalWeighted": 2.80,
+      "totalRaw": 22,
+      "maxPossible": 24
+    },
+    "google-places-api": {
+      "displayName": "Google Places API",
+      "scoredDate": "2026-03-09T00:00:00Z",
+      "scoredBy": "Architecture Team",
+      "scores": [
+        {
+          "criterionId": "C-001",
+          "score": 3,
+          "evidence": "Comprehensive business data: name, address, phone, website, business hours, service options (dine_in, takeout, delivery, reservations), price level, GPS coordinates, Google rating, reviews (up to 5). Directly implements FR-007 (service options display), FR-008 (Google Places integration). Already integrated with 98/98 restaurants matched, 481 reviews stored.",
+          "risks": "Limited to 5 reviews per place via API. Legacy to New API migration required for continued compatibility. ToS prohibits caching beyond stated limits."
+        },
+        {
+          "criterionId": "C-002",
+          "score": 2,
+          "evidence": "Free tier sufficient for current usage (243 requests/month within 5,000/month Pro threshold = £0). Phase 2 at 1,500 restaurants with weekly refresh (6,000 requests/month) slightly exceeds Pro free threshold — overage cost ~£0.01/month. Well within £100/month budget.",
+          "risks": "Google changed pricing model in March 2025 — further changes possible. Enterprise-level fields (reviews) have lower free threshold (1,000/month). API key management required."
+        },
+        {
+          "criterionId": "C-003",
+          "score": 2,
+          "evidence": "Excellent documentation at developers.google.com. Official Python client library (googlemaps). Massive developer community. Well-maintained with regular updates.",
+          "risks": "Proprietary API — not open source. Community cannot contribute to or fork the API. Google deprecation risk (legacy Places API already deprecated)."
+        },
+        {
+          "criterionId": "C-004",
+          "score": 2,
+          "evidence": "Google SLA provides reliable uptime and low-latency responses. Handles global-scale queries. Current usage (243 restaurants) well within rate limits.",
+          "risks": "Limited to 5 reviews per API response. ToS caching restrictions (30 days for some data types) may require frequent re-fetching. Rate limits apply at higher volumes."
+        },
+        {
+          "criterionId": "C-005",
+          "score": 2,
+          "evidence": "HTTPS/TLS for all API calls. API key authentication with referrer/IP restrictions available. No PII concerns (public business data only). Google infrastructure is SOC 2/ISO 27001 certified.",
+          "risks": "US-hosted data (no UK data residency guarantee). ToS attribution requirements ('Powered by Google'). API key must be secured (not committed to public repo)."
+        },
+        {
+          "criterionId": "C-006",
+          "score": 3,
+          "evidence": "JSON REST API with official Python client library. Integrates with all project components: data stored in SQLite restaurants table (16 Google columns), displayed in Streamlit dashboard, coordinates used with Pydeck maps. Place IDs provide stable cross-reference keys.",
+          "risks": "Migration from legacy to new Places API endpoints required. Field masks must be specified for cost control."
+        },
+        {
+          "criterionId": "C-007",
+          "score": 2,
+          "evidence": "API key setup via Google Cloud Console. Python client library simplifies integration. Existing fetch_google_reviews.py script handles data collection. Google Cloud monitoring available for usage tracking.",
+          "risks": "Requires migration from legacy to new API (development effort). Google Cloud Console can be complex for new users. ToS compliance requires ongoing attention."
+        },
+        {
+          "criterionId": "C-008",
+          "score": 2,
+          "evidence": "Structured JSON responses with consistent schema. Place IDs provide stable data provenance. Business status field (OPERATIONAL, CLOSED_TEMPORARILY, CLOSED_PERMANENTLY) enables data freshness tracking. google_last_fetched_at timestamp supports data lineage.",
+          "risks": "Limited review data (max 5 per place). Data freshness depends on Google's update frequency. No quality guarantees on user-contributed content (reviews, ratings)."
+        }
+      ],
+      "totalWeighted": 2.35,
+      "totalRaw": 18,
+      "maxPossible": 24
+    },
+    "postcodes-io": {
+      "displayName": "Postcodes.io",
+      "scoredDate": "2026-03-09T00:00:00Z",
+      "scoredBy": "Architecture Team",
+      "scores": [
+        {
+          "criterionId": "C-001",
+          "score": 3,
+          "evidence": "Full UK postcode lookup with ward, LSOA, MSOA, constituency, IMD decile/rank, and GPS coordinates. Bulk endpoint handles 100 postcodes per request. Validation endpoint confirms postcode format. Directly implements INT-006 (Postcodes.io API requirement) and FR-011 (ONS geography enrichment). IMD data enables deprivation-aware analysis (BR-008).",
+          "risks": "Quarterly data updates (not real-time). Newly created postcodes may have a lag before appearing."
+        },
+        {
+          "criterionId": "C-002",
+          "score": 3,
+          "evidence": "Completely free public API — no API key, no registration, no rate limit issues at project scale. MIT licence. Self-hostable via Docker for zero external dependency. Zero cost contribution to the £100/month budget.",
+          "risks": "No SLA for public API (community service). Self-hosting requires Docker infrastructure if public API becomes unavailable."
+        },
+        {
+          "criterionId": "C-003",
+          "score": 2,
+          "evidence": "1,400+ GitHub stars, MIT licence, actively maintained (v18.0.1 released February 2026). Maintained by Ideal Postcodes Ltd. Good API documentation with examples.",
+          "risks": "Smaller community than major platforms. Single corporate maintainer (Ideal Postcodes Ltd). Fewer third-party integrations."
+        },
+        {
+          "criterionId": "C-004",
+          "score": 2,
+          "evidence": "Bulk endpoint processes 100 postcodes per request — can enrich all 243 restaurants in 3 requests. Lightweight JSON responses. Self-hosted Docker option provides predictable performance.",
+          "risks": "No published SLA or rate limits for public API. Quarterly ONS data updates mean slight staleness. Potential throttling at very high volume."
+        },
+        {
+          "criterionId": "C-005",
+          "score": 2,
+          "evidence": "No PII involved (postcode-to-geography mapping only). Data sourced from ONS under OGL v3.0. HTTPS for API calls. No authentication required (reduces attack surface — no API keys to leak).",
+          "risks": "No formal security certifications for the public API service. Self-hosted option requires own security configuration."
+        },
+        {
+          "criterionId": "C-006",
+          "score": 3,
+          "evidence": "Simple REST API with JSON responses. No authentication overhead. Batch endpoints reduce API calls. Data integrates directly into SQLite restaurants table. Compatible with any Python HTTP library (requests, httpx).",
+          "risks": "UK-only coverage (not applicable for international expansion beyond UK)."
+        },
+        {
+          "criterionId": "C-007",
+          "score": 3,
+          "evidence": "No API key setup, no registration, no authentication configuration. Simple GET/POST requests. Self-hostable Docker image available as fallback. Already implemented in the project — no operational changes needed.",
+          "risks": "Dependency on third-party public API availability. Docker self-hosting adds minor infrastructure overhead if needed."
+        },
+        {
+          "criterionId": "C-008",
+          "score": 2,
+          "evidence": "Serves authoritative ONS Postcode Directory data (official UK Government statistics). Validation endpoint confirms postcode format and existence. Quarterly updates aligned with ONS release cycle ensure data currency. Clear data provenance (ONS, OGL v3.0).",
+          "risks": "No real-time data quality monitoring. Relies on ONS data quality (generally excellent)."
+        }
+      ],
+      "totalWeighted": 2.60,
+      "totalRaw": 20,
+      "maxPossible": 24
+    },
+    "render": {
+      "displayName": "Render",
+      "scoredDate": "2026-03-09T00:00:00Z",
+      "scoredBy": "Architecture Team",
+      "scores": [
+        {
+          "criterionId": "C-001",
+          "score": 2,
+          "evidence": "Supports Python and Docker deployment, custom domains, and health checks. Can host the Streamlit dashboard or a Dash migration. Cron jobs available for scheduled data refresh tasks. Designated fallback hosting platform for Phase 2.",
+          "risks": "Project currently uses Streamlit Community Cloud — Render is not the primary host. Migration required if switching. Free tier auto-sleeps after 15 min inactivity."
+        },
+        {
+          "criterionId": "C-002",
+          "score": 2,
+          "evidence": "Free tier available (512 MB RAM, auto-sleep, 750 hours/month). Starter plan at ~£5.50/month provides always-on service. Well within £100/month budget (BR-003). Custom domains on all tiers including free.",
+          "risks": "Free tier's auto-sleep makes it unsuitable for production (NFR-A-001). Must pay £5.50/month minimum for always-on. Free PostgreSQL deleted after 90 days."
+        },
+        {
+          "criterionId": "C-003",
+          "score": 1,
+          "evidence": "Proprietary commercial platform with decent documentation and growing developer community. Active blog and changelog. Founded 2018, established in the PaaS market.",
+          "risks": "No open-source community or codebase. Vendor lock-in risk (platform-specific configuration). Smaller ecosystem than AWS/GCP/Azure."
+        },
+        {
+          "criterionId": "C-004",
+          "score": 2,
+          "evidence": "Starter: 512 MB RAM, 0.5 vCPU (always-on). Standard: 2 GB RAM, 1 vCPU. Pro: 4 GB RAM, 2 vCPU. Clear scaling path from free to pro tiers. Supports the 10x growth target with Standard or Pro tier.",
+          "risks": "Free tier limited to 512 MB RAM — may be tight for Streamlit + Pandas + Plotly. Auto-sleep on free tier causes 15-30s cold starts."
+        },
+        {
+          "criterionId": "C-005",
+          "score": 2,
+          "evidence": "Automatic HTTPS/TLS on all tiers. SOC 2 Type II certified. GDPR compliance features. Health checks and automatic restarts. Environment variable management for secrets.",
+          "risks": "US-based infrastructure (no UK data residency option). Public workflow logs if using GitHub integration."
+        },
+        {
+          "criterionId": "C-006",
+          "score": 2,
+          "evidence": "Deploys directly from GitHub repository. Supports any Python/Docker application. Custom domains supported. Can integrate with external databases and APIs.",
+          "risks": "No native database that persists on free tier (PostgreSQL deleted after 90 days). Must use external SQLite file or upgrade to paid tier."
+        },
+        {
+          "criterionId": "C-007",
+          "score": 2,
+          "evidence": "Git push-to-deploy from GitHub. Health checks and automatic restarts. Zero-downtime deploys on paid tiers. Dashboard for service management. Logs available in UI.",
+          "risks": "More configuration required than Streamlit Community Cloud. Must manage environment variables, build commands, and start commands. No built-in APM."
+        },
+        {
+          "criterionId": "C-008",
+          "score": 0,
+          "evidence": "Render is a hosting platform — it provides compute infrastructure, not data quality features. No data validation, quality monitoring, or lineage tracking capabilities.",
+          "risks": "Data quality must be handled entirely by application code and other tools in the stack."
+        }
+      ],
+      "totalWeighted": 1.80,
+      "totalRaw": 13,
+      "maxPossible": 24
+    },
+    "scrapy": {
+      "displayName": "Scrapy",
+      "scoredDate": "2026-03-09T00:00:00Z",
+      "scoredBy": "Architecture Team",
+      "scores": [
+        {
+          "criterionId": "C-001",
+          "score": 3,
+          "evidence": "Production-grade web scraping framework with asynchronous architecture (Twisted). Built-in support for robots.txt compliance (ROBOTSTXT_OBEY), automatic rate limiting (AutoThrottle), and configurable download delays — directly implementing Principle #3 (Ethical Web Scraping) at the framework level. Data pipelines for validation, deduplication, and SQLite output. JavaScript rendering via scrapy-playwright plugin.",
+          "risks": "Steeper learning curve than BeautifulSoup (current implementation). Migration from existing BeautifulSoup scrapers requires development effort. Framework boilerplate for simple one-off tasks."
+        },
+        {
+          "criterionId": "C-002",
+          "score": 3,
+          "evidence": "BSD-3-Clause licence (fully permissive). scrapy-playwright plugin is MIT. Zero cost — no commercial services required. Zyte commercial services exist but are not needed for this project.",
+          "risks": "None. Completely free with no usage restrictions."
+        },
+        {
+          "criterionId": "C-003",
+          "score": 3,
+          "evidence": "59,800+ GitHub stars — the most popular Python scraping framework. 594+ contributors. Maintained by Zyte (formerly Scrapinghub) with strong corporate backing. Extensive documentation with tutorials and examples. Large Stack Overflow community. Active development.",
+          "risks": "Zyte commercial interests could theoretically influence development priorities, though the OSS project has strong community governance."
+        },
+        {
+          "criterionId": "C-004",
+          "score": 3,
+          "evidence": "Asynchronous architecture (Twisted) handles thousands of concurrent requests efficiently. Significantly faster than sequential BeautifulSoup + requests for large scraping jobs. Memory-efficient streaming processing via item pipelines. Can handle the 10x growth target (1,500 restaurants) with ease.",
+          "risks": "Asynchronous debugging can be complex. Memory usage needs monitoring for very large crawls."
+        },
+        {
+          "criterionId": "C-005",
+          "score": 3,
+          "evidence": "Built-in ROBOTSTXT_OBEY = True enforces robots.txt at framework level — the single most effective technical control for compliance risks R-001 and R-004. AUTOTHROTTLE_ENABLED = True prevents aggressive scraping. Configurable USER_AGENT for transparent identification. DOWNLOAD_DELAY as fallback rate limiter. These directly implement NFR-C-003 (ethical scraping compliance).",
+          "risks": "Developers must correctly configure settings. Default settings are compliant, but custom spiders could override protections."
+        },
+        {
+          "criterionId": "C-006",
+          "score": 2,
+          "evidence": "Python-native framework. Output pipelines support SQLite, CSV, JSON, and custom formats. Can feed data directly into the existing database schema. Middleware architecture allows custom request/response processing.",
+          "risks": "Migration from BeautifulSoup requires rewriting existing scrapers as Scrapy spiders. Different programming model (callbacks vs sequential)."
+        },
+        {
+          "criterionId": "C-007",
+          "score": 2,
+          "evidence": "Well-structured framework with conventions for spider organization, settings, and pipelines. Comprehensive logging system. Can be scheduled via GitHub Actions cron or Scrapy's built-in scheduling. scrapy crawl CLI for development and debugging.",
+          "risks": "Framework adds boilerplate compared to simple scripts. Learning curve for developers new to async programming. More complex debugging than sequential code."
+        },
+        {
+          "criterionId": "C-008",
+          "score": 3,
+          "evidence": "Item pipeline architecture provides built-in hooks for data validation (ValidatePipeline), deduplication (DuplicatesPipeline), and transformation before storage. Each item carries metadata (source URL, scrape timestamp) for data provenance tracking. Pipeline stages can reject or quarantine invalid data. Directly supports Principle #1 (Data Quality First).",
+          "risks": "Pipelines must be explicitly implemented — framework provides the architecture, developer writes the validation logic."
+        }
+      ],
+      "totalWeighted": 2.80,
+      "totalRaw": 22,
+      "maxPossible": 24
+    },
+    "sentry": {
+      "displayName": "Sentry",
+      "scoredDate": "2026-03-09T00:00:00Z",
+      "scoredBy": "Architecture Team",
+      "scores": [
+        {
+          "criterionId": "C-001",
+          "score": 2,
+          "evidence": "Application monitoring with error tracking, performance tracing, and alerting. Captures exceptions with full stack traces and request context. Tracks slow database queries and dashboard load times. Directly addresses NFR-O-002 (metrics/monitoring) gap. Issue grouping reduces alert noise.",
+          "risks": "Narrow scope — monitors application health, not business functionality. Does not address data collection, processing, or presentation requirements."
+        },
+        {
+          "criterionId": "C-002",
+          "score": 3,
+          "evidence": "Developer plan is free: 1 user, 5,000 errors/month, 30-day retention. More than sufficient for single-developer Plymouth Research project. Self-hosted AGPL-3.0 option available. Zero cost contribution to the £100/month budget.",
+          "risks": "1-user limit on free plan (sufficient for current team). Team/Business plans required for additional users ($23-71/month). Self-hosted AGPL-3.0 may have licence implications if modified."
+        },
+        {
+          "criterionId": "C-003",
+          "score": 2,
+          "evidence": "Well-established application monitoring platform. Mature Python SDK with comprehensive documentation. Integrations with GitHub, Slack, email, PagerDuty, Jira. Large user base across industry.",
+          "risks": "Proprietary SaaS — not an open-source community project (self-hosted version is AGPL). Fewer community contributions compared to fully open-source tools."
+        },
+        {
+          "criterionId": "C-004",
+          "score": 2,
+          "evidence": "Lightweight Python SDK with minimal performance overhead (configurable traces_sample_rate). 5,000 events/month free tier is well above expected error volume. 30-day retention sufficient for operational monitoring.",
+          "risks": "30-day retention on free plan limits historical analysis. High event volumes (e.g., scraping failures in bulk) could consume monthly quota."
+        },
+        {
+          "criterionId": "C-005",
+          "score": 2,
+          "evidence": "GDPR compliant. Processes only technical error data (stack traces, SQL queries, scraping failures) — no personal user data. Data processing agreement available. SOC 2 certified.",
+          "risks": "US-hosted data (not UK/EU). Stack traces may inadvertently capture sensitive data (API keys in error messages) — requires DSN configuration to scrub sensitive fields."
+        },
+        {
+          "criterionId": "C-006",
+          "score": 2,
+          "evidence": "Python SDK integrates with 3 lines of code. GitHub integration for issue linking. Slack/email notifications for alerts. Performance tracing covers database queries and HTTP requests automatically.",
+          "risks": "Limited to error/performance monitoring scope. Does not integrate with data collection or presentation layers beyond error tracking."
+        },
+        {
+          "criterionId": "C-007",
+          "score": 3,
+          "evidence": "Trivial setup: pip install sentry-sdk + 3 lines of init code. Automatic exception capture with zero additional instrumentation. Configurable alerting rules. Issue grouping and deduplication reduce operational noise. Browser UI for monitoring.",
+          "risks": "Free plan limited to email alerts (no Slack integration without Team plan). Requires Sentry account management."
+        },
+        {
+          "criterionId": "C-008",
+          "score": 1,
+          "evidence": "Can capture and alert on data pipeline failures (scraping errors, import failures, validation exceptions). Provides indirect data quality monitoring through error tracking. However, no purpose-built data quality features — focuses on application errors, not data completeness or accuracy.",
+          "risks": "Not designed for data quality monitoring. Cannot track data completeness, freshness, or accuracy metrics natively."
+        }
+      ],
+      "totalWeighted": 2.20,
+      "totalRaw": 17,
+      "maxPossible": 24
+    },
+    "uptimerobot": {
+      "displayName": "UptimeRobot",
+      "scoredDate": "2026-03-09T00:00:00Z",
+      "scoredBy": "Architecture Team",
+      "scores": [
+        {
+          "criterionId": "C-001",
+          "score": 2,
+          "evidence": "HTTP(S) uptime monitoring with 5-minute check intervals on free plan. Directly addresses NFR-A-001 (uptime monitoring). Supports keyword monitoring, ping, port, and heartbeat checks. Public status page for communicating dashboard availability. 50 monitors on free plan — far exceeds the 1-2 needed for this project.",
+          "risks": "Narrow scope — monitors uptime only, not application functionality or data quality. 5-minute interval means up to 5 minutes of undetected downtime."
+        },
+        {
+          "criterionId": "C-002",
+          "score": 3,
+          "evidence": "Free plan with 50 monitors — far more generous than competitors. No credit card required. No API key management. Zero cost contribution to the £100/month budget (BR-003).",
+          "risks": "Pro plan (~£6/month) needed for 60-second intervals or SSL/domain monitoring. Free plan limited to 5 integrations."
+        },
+        {
+          "criterionId": "C-003",
+          "score": 1,
+          "evidence": "Established since 2010 with long track record. Decent documentation. However, proprietary SaaS with no open-source codebase or community contribution model.",
+          "risks": "No open-source alternative from the same vendor. Single vendor dependency for monitoring. No community plugins or extensions."
+        },
+        {
+          "criterionId": "C-004",
+          "score": 2,
+          "evidence": "5-minute check intervals on free plan are adequate for dashboard monitoring. Multiple monitor types (HTTP, keyword, ping) cover different failure modes. Alert latency within minutes of detected downtime.",
+          "risks": "No real-time monitoring on free plan. No historical performance trending or analytics on free plan."
+        },
+        {
+          "criterionId": "C-005",
+          "score": 2,
+          "evidence": "Stores only the URL being monitored — no sensitive application data. GDPR data processing agreement available. US-hosted cloud service. No authentication credentials required from the monitored application.",
+          "risks": "US-hosted service. Limited to monitoring publicly accessible URLs (cannot monitor internal services)."
+        },
+        {
+          "criterionId": "C-006",
+          "score": 2,
+          "evidence": "15+ alert integrations: email, SMS, Slack, Discord, Telegram, webhooks. Public status page for sharing with stakeholders. API for programmatic access to monitor data.",
+          "risks": "Free plan limited to 5 integrations. No direct integration with application code — external monitoring only."
+        },
+        {
+          "criterionId": "C-007",
+          "score": 3,
+          "evidence": "2-minute setup: enter URL, select check type, configure alerts. No code changes required. No dependencies to install. Web-based dashboard for monitor management. Implementation time: 30 minutes total.",
+          "risks": "Limited to external HTTP monitoring. Cannot detect application-level errors (use Sentry for that). No self-hosted option."
+        },
+        {
+          "criterionId": "C-008",
+          "score": 0,
+          "evidence": "UptimeRobot monitors service availability, not data quality. No data validation, completeness monitoring, or lineage tracking capabilities.",
+          "risks": "Data quality monitoring must be handled by other tools in the stack."
+        }
+      ],
+      "totalWeighted": 2.05,
+      "totalRaw": 15,
+      "maxPossible": 24
     }
   }
 }
