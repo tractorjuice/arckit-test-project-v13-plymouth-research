@@ -56,7 +56,7 @@ Drop down to the fast food tier and the average falls to £3.96. Bakeries were t
 
 ### The extremes and their asterisks
 
-The most expensive meaningful item we found was the Honkytonk Full Board for 4, priced at £134.00. That is a sharing experience, not a single plate, and it represents the kind of edge case that any honest data analysis needs to flag.
+The most expensive meaningful item we found was the Àclèaf 4-Course Tasting Menu at £75.00 — from Àclèaf at Boringdon Hall, one of Plymouth's fine dining destinations. That represents the kind of considered, high-end offering that sits at the opposite end of the spectrum from a £3.53 bakery item.
 
 The raw maximum in our dataset was actually £153.00, attributed to a Pret A Manger "Classic Lunch Bundle." This is a multi-item meal deal, not a single dish, and it highlights how scraped data can mislead if you take it at face value. At the other end, the raw minimum was £0.03 — almost certainly a parsing error where our price extraction code misidentified a piece of text as a price. We present both raw and cleaned figures throughout this article because transparency about data quality matters more than tidy numbers.
 
@@ -98,15 +98,15 @@ Collecting data from eight sources is straightforward compared to what comes nex
 
 ### The name problem
 
-Consider this real example from our dataset. In our own restaurant database, the entry reads "Honky Tonk Wine Library." At Companies House, the same business is registered as "HONKYTONK WINE LIBRARY LIMITED." On Trustpilot, it appears as "HonkyTonk Wine Library."
+Consider this real example from our dataset. In our own restaurant database, the entry reads "Barbican Kitchen (Original)." On review sites, the same business appears as "Barbican Kitchen Brasserie." At Companies House, it is registered as "THE BARBICAN KITCHEN LTD."
 
-Same restaurant. Three names. A human spots the match instantly. A computer, however, sees three strings of characters that do not match. Spaces differ, capitalisation differs, and one version has "LIMITED" tacked on the end. Multiply this across 243 restaurants and eight data sources, and you begin to see the scale of the problem.
+Same restaurant. Three names. A human spots the match instantly. A computer, however, sees three strings of characters that do not match. One has a parenthetical qualifier, another adds "Brasserie," and the third has "THE" prepended and "LTD" appended. Multiply this across 243 restaurants and eight data sources, and you begin to see the scale of the problem.
 
 ### Teaching a computer to squint
 
 We built a scoring algorithm that mimics the way a human would eyeball two entries and decide whether they refer to the same place. It works on a 100-point scale, broken into three components.
 
-The first component is name similarity, worth up to 50 points. We strip away corporate suffixes — "LIMITED", "LTD", "PLC" — and location markers like "(PLYMOUTH)", then measure how alike the remaining names are. "Honky Tonk Wine Library" and "HonkyTonk Wine Library" score nearly perfectly here because the underlying characters are almost identical.
+The first component is name similarity, worth up to 50 points. We strip away corporate suffixes — "LIMITED", "LTD", "PLC" — and location markers like "(PLYMOUTH)", then measure how alike the remaining names are. "Barbican Kitchen" and "Barbican Kitchen Brasserie" score highly here because the core name is identical even though one version adds a descriptor.
 
 The second component is the postcode match, worth 30 points. If two entries share exactly the same postcode, that is strong evidence they refer to the same physical location. Plymouth postcodes follow the PL pattern, and an exact match on something like PL1 2HJ is hard to dismiss as coincidence.
 
@@ -174,7 +174,7 @@ We collected no personal data. Reviewer names on Trustpilot and Google are publi
 
 ### When the data disappears
 
-Honky Tonk Wine Library — a wine bar on Plymouth's Sutton Harbour — had a Trustpilot page when we began this project. Mid-way through collection, the page returned a 404. Gone. No warning, no redirect, no explanation.
+One of our restaurants had a Trustpilot page when we began this project. Mid-way through collection, the page returned a 404. Gone. No warning, no redirect, no explanation.
 
 This wasn't a failure. It was a lesson. Scraped data is borrowed, not owned. Platforms can remove pages, restructure their sites, or block access at any time, for any reason. This is precisely why audit logs matter. When a data source vanishes, you need to prove what you accessed and when you accessed it.
 
@@ -226,7 +226,7 @@ The data did not answer "which restaurant should I eat at?" It answered somethin
 
 No single data source tells the truth. FSA ratings tell you about the kitchen on inspection day. Trustpilot tells you what motivated customers thought. Google tells you what casual visitors felt. Companies House tells you whether the business is financially viable. None of them tells the whole story. Combining them gets closer. But gaps remain — and being honest about those gaps is the point.
 
-Every city has this data sitting in public databases, XML files, and review platforms. Most of it is never combined. The tools to do it are free. The methodology is replicable. The hardest part is not technology. It is matching "Honky Tonk Wine Library" to "HONKYTONK WINE LIBRARY LIMITED."
+Every city has this data sitting in public databases, XML files, and review platforms. Most of it is never combined. The tools to do it are free. The methodology is replicable. The hardest part is not technology. It is matching "Barbican Kitchen (Original)" to "THE BARBICAN KITCHEN LTD."
 
 ---
 

@@ -104,28 +104,10 @@ prior_year_contexts = date_groups[sorted_dates[1]]    # Second most recent
 2. **The Bottling Plant**: -£139k net liabilities (-£27k YoY, -23.8%)
 3. **Pier One**: -£173k net liabilities (-£2k YoY, -1.1%)
 4. **Bella Italia Plymouth**: -£86k net liabilities (-£97k YoY, -887.9%)
-5. **Honky Tonk Wine Library**: -£54k net liabilities (-£21k YoY, -65.3%)
-
 **Characteristics**:
 - Net liabilities (negative equity)
 - Year-over-year declines
 - Potential financial distress
-
----
-
-## Verified Example: Honky Tonk Wine Library
-
-**User-Provided PDF Data** (Period ending 2024-06-30):
-- 2024: Fixed Assets £50,241, Net Liabilities (£54,116)
-- 2023: Fixed Assets £53,468, Net Liabilities (£32,747)
-
-**Our Extracted Data**:
-- ✅ Current (2024): Net Assets -£54,116
-- ✅ Prior (2023): Net Assets -£32,747
-- ✅ Change: -£21,369 (-65.3%)
-- ✅ Rating: F (Poor), Score: 10/100
-
-**Result**: 100% accurate! Matches PDF exactly.
 
 ---
 
@@ -168,32 +150,6 @@ prior_year_contexts = date_groups[sorted_dates[1]]    # Second most recent
 3. **Performance Metrics**: Net assets change with percentage
 4. **Employee Change**: Workforce growth/decline indicator
 5. **Net Assets Trend Chart**: Visual bar chart of YoY change
-
-**Example Display** (Honky Tonk Wine Library):
-```
-💰 Financial Overview
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-🔴 Financial Rating: F (Poor) - Score: 10/100
-
-📊 Year-over-Year Comparison
-
-Metric          2024            2023
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Net Assets      -£54.1k         -£32.7k
-Employees       10 staff        N/A
-Total Assets    £27.0k          £62.3k
-
-📈 Performance Metrics
-
-Net Assets Change: -£21.4k (-65.3%)
-Employee Change: N/A
-
-📅 Accounts period ending June 2024
-💼 Data from Companies House
-```
-
----
 
 ## Database Schema (30 columns added)
 

@@ -1,6 +1,6 @@
 {
-  "total": 26,
-  "in_database": 11,
+  "total": 25,
+  "in_database": 10,
   "to_add": 15,
   "restaurants": [
     {
@@ -22,13 +22,6 @@
       "address": "The Barbican, Plymouth, PL1 2LS",
       "website_url": "https://www.pieroneplymouth.co.uk/",
       "cuisine_type": "British & International",
-      "status": "IN_DATABASE"
-    },
-    {
-      "name": "Honky Tonk Wine Library",
-      "address": "Exeter Street, Plymouth, PL4 0AQ",
-      "website_url": "https://www.honkytonkwinelibrary.com/",
-      "cuisine_type": "Wine Bar & Small Plates",
       "status": "IN_DATABASE"
     },
     {
@@ -205,7 +198,6 @@
     "Seafood & Fish": 1,
     "Modern British": 1,
     "British & International": 1,
-    "Wine Bar & Small Plates": 1,
     "Tapas & Craft Bar": 1,
     "Neapolitan Pizza": 1,
     "Fine Dining (Michelin Recommended)": 1,

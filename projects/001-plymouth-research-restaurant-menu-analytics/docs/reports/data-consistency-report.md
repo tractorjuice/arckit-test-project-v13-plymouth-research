@@ -72,10 +72,7 @@ These are **golden opportunities** - only 1 data source missing:
 1. **Rockfish Plymouth** (ID 4) - Postcode: PL4 0LB
    - Has: FSA (5★), Business Rates (£55k), Trustpilot (75 reviews), Google ✓
 
-2. **Honky Tonk Wine Library** (ID 7) - Postcode: PL4 0BJ
-   - Has: FSA (N/A), Business Rates (£19k), Trustpilot (4 reviews), Google ✓
-
-3. **Wagamama Plymouth** (ID 16) - Postcode: PL1 3QQ
+2. **Wagamama Plymouth** (ID 16) - Postcode: PL1 3QQ
    - Has: FSA (5★), Business Rates (£111k), Trustpilot (336 reviews), Google ✓
 
 4. **Pizza Express Plymouth** (ID 46) - Postcode: PL1 2SW
@@ -144,7 +141,6 @@ These are **golden opportunities** - only 1 data source missing:
 |--------------|----------|---------------------|
 | Rockfish Plymouth | Rockfish Plymouth | ROCKFISH (PLYMOUTH) LIMITED |
 | Barbican Kitchen (Original) | Barbican Kitchen Brasserie | THE BARBICAN KITCHEN LTD |
-| Honky Tonk Wine Library | HonkyTonk Wine Library | HONKYTONK WINE LIBRARY LIMITED |
 | Wagamama Plymouth | Wagamama | WAGAMAMA LIMITED |
 | Las Iguanas Plymouth | N/A | IGUANAS HOLDINGS LIMITED |
 | Zizzi Plymouth | N/A | AZZURRI CENTRAL LIMITED |

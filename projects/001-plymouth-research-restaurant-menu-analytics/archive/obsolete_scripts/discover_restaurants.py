@@ -61,13 +61,6 @@ PLYMOUTH_RESTAURANTS = [
         'status': 'IN_DATABASE'
     },
     {
-        'name': 'Honky Tonk Wine Library',
-        'address': 'Exeter Street, Plymouth, PL4 0AQ',
-        'website_url': 'https://www.honkytonkwinelibrary.com/',
-        'cuisine_type': 'Wine Bar & Small Plates',
-        'status': 'IN_DATABASE'
-    },
-    {
         'name': 'The VOT',
         'address': 'Whitehouse Farm, Plymouth, PL6 7LA',
         'website_url': 'https://thevot.uk/',

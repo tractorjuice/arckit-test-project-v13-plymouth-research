@@ -12,7 +12,6 @@
 | ID | Restaurant | FSA | Business Rates | Trustpilot | Google | Status |
 |----|------------|-----|----------------|------------|--------|--------|
 | 4 | Rockfish Plymouth | 5★ | £55,000 | ✓ | ✓ | ⏳ Scraper at 42% |
-| 7 | Honky Tonk Wine Library | 1★ | £19,250 | ✓ | ✓ | ⏳ Scraper at 42% |
 | 16 | Wagamama Plymouth | 5★ | £111,000 | ✓ | ✓ | ⏳ Scraper at 42% |
 | 46 | Pizza Express Plymouth | 5★ | £48,000 | ✓ | ✓ | ⏳ Scraper at 42% |
 | 69 | Nando's Barbican | 5★ | £80,000 | ✓ | ✓ | ⏳ Scraper at 42% |

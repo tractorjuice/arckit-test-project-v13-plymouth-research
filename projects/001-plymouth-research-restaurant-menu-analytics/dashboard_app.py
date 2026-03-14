@@ -1786,10 +1786,7 @@ def main():
             if not restaurants_with_data:
                 st.warning("⚠️ No restaurants with real data available for competitor analysis.")
             else:
-                # Set default to Honky Tonk Wine Library if it exists
                 default_index = 0
-                if 'Honky Tonk Wine Library' in restaurants_with_data:
-                    default_index = sorted(restaurants_with_data).index('Honky Tonk Wine Library')
 
                 selected_restaurant = st.selectbox(
                     "Select a restaurant:",
@@ -3637,8 +3634,7 @@ def main():
                 # Clear session state after using it
                 del st.session_state['selected_restaurant_profile']
             else:
-                # Default to Honky Tonk Wine Library if it exists
-                default_restaurant = "Honky Tonk Wine Library"
+                default_restaurant = None
 
             default_index = restaurant_names.index(default_restaurant) if default_restaurant in restaurant_names else 0
 

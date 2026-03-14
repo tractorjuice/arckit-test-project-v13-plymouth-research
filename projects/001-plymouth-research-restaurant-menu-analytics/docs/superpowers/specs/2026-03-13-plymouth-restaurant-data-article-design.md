@@ -129,7 +129,7 @@ General readers who are data-curious but not necessarily technical. The piece sh
 **Purpose:** Explain fuzzy matching, data reconciliation, and quality measures.
 
 **Key concepts to explain (in plain English):**
-- Why matching is hard: "Honky Tonk Wine Library" in our database is "HONKYTONK WINE LIBRARY LIMITED" at Companies House and "HonkyTonk Wine Library" on Trustpilot
+- Why matching is hard: "Barbican Kitchen (Original)" in our database is "THE BARBICAN KITCHEN LTD" at Companies House and "Barbican Kitchen Brasserie" on review sites
 - The scoring algorithm (from `collection/fetchers/hygiene_fetcher.py`, the code that produced the 202-match result via `run_collection.py`): name_similarity * 0.5 (max 50 points), postcode exact match bonus (30 points), address_similarity * 20 (max 20 points) — total possible score of 100, threshold of 60 for auto-match
 - Note: The project's CLAUDE.md documents a different algorithm from the standalone `scripts/fetchers/fetch_hygiene_ratings_v2.py` script (0-100 name + 50 postcode + 30 address, threshold 70). The article should use the `run_collection.py` pipeline algorithm, which is what produced the 202-match figure cited here.
 - Thresholds: 60% minimum to consider, 70% auto-match, 95% exact match
@@ -164,7 +164,7 @@ General readers who are data-curious but not necessarily technical. The piece sh
 - **GDPR:** No personal data collected; reviewer names are public pseudonyms; legal basis is legitimate interest; 12-month retention policy; DPIA documented
 
 **The Trustpilot 404 story:**
-- Honky Tonk Wine Library's Trustpilot page vanished mid-project
+- One of our restaurants had a Trustpilot page that vanished mid-project (don't name the specific restaurant)
 - Illustrates platform dependence — scraped data is borrowed, not owned
 - Why audit logs matter: you can prove what you accessed and when
 
@@ -208,7 +208,7 @@ General readers who are data-curious but not necessarily technical. The piece sh
 
 **Narrative beat:** Return to the opening paradox. The data didn't answer "which restaurant should I eat at?" — it answered "what can public data tell us, and what can't it?" The real finding is that no single data source tells the truth. Combining them gets closer, but gaps remain. That honesty is the point.
 
-**Final thought:** Every city has this data sitting in public databases, XML files, and review platforms. Most of it is never combined. The tools to do it are free. The hardest part isn't technology — it's matching "Honky Tonk Wine Library" to "HONKYTONK WINE LIBRARY LIMITED."
+**Final thought:** Every city has this data sitting in public databases, XML files, and review platforms. Most of it is never combined. The tools to do it are free. The hardest part isn't technology — it's matching "Barbican Kitchen (Original)" to "THE BARBICAN KITCHEN LTD."
 
 ## Visual Treatment
 

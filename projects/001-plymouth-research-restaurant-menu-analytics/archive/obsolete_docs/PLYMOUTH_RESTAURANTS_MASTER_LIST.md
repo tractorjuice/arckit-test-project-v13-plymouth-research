@@ -29,8 +29,7 @@
 2. **Barbican Kitchen** - Modern British - Southside Street
 3. **Fletcher's Restaurant** - Fine Dining (Michelin) - Princess Street
 4. **The Village Restaurant** - Greek Seafood - Southside Street (Barbican)
-5. **Honky Tonk Wine Library** - Wine Bar & Small Plates - Exeter Street
-6. **The VOT** - Tapas & Craft Bar - Whitehouse Farm
+5. **The VOT** - Tapas & Craft Bar - Whitehouse Farm
 7. **Armado Lounge** - All-Day Cafe Bar - Quay Road (Barbican)
 8. **Knead Pizza** - Neapolitan Pizza - Royal William Yard
 9. **Pier One** - British & International - The Barbican

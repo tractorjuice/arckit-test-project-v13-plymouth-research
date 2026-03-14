@@ -46,8 +46,7 @@ PROJECT ROOT (clean - only essential files)
 │   │   ├── data-model-erd.md                    # ERD diagram
 │   │   ├── gold-standard-progress-report.md     # Data quality progress
 │   │   ├── option-a-licensing-completion-report.md
-│   │   ├── option-b-results-summary.md
-│   │   └── honkytonks_accounts_2024.pdf         # Financial document
+│   │   └── option-b-results-summary.md
 │   │
 │   └── governance/                      # Architecture governance (7 files)
 │       ├── README.md

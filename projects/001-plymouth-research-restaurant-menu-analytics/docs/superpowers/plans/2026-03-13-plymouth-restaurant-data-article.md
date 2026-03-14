@@ -121,7 +121,7 @@ Append Section 2. Must include these verified data points:
   - Japanese: £9.53 avg (183 items)
   - Fast Food: £3.96 avg (24 items)
   - Bakery: £3.53 avg (24 items)
-- Most expensive single item: Honkytonk Full Board for 4 at £134.00 (a sharing experience, not a single plate). The raw data max of £153.00 is a "Classic Lunch Bundle" from Pret A Manger — a multi-item meal deal priced as a single entry, not a realistic menu item price.
+- Most expensive single item: Àclèaf 4-Course Tasting Menu at £75.00 (from Àclèaf at Boringdon Hall — a fine dining tasting menu). The raw data max of £153.00 is a "Classic Lunch Bundle" from Pret A Manger — a multi-item meal deal priced as a single entry, not a realistic menu item price.
 - 17+ cuisine categories, led by diverse independents alongside chains
 
 **Editorial note on price range:** The spec's verified data table shows the raw range as £0.03-£153.00. The article should use editorially cleaned values: £0.50 as the meaningful floor (£0.03 is a parsing error) and £134.00 as the meaningful ceiling (£153.00 is a bundle). State both the raw and cleaned ranges for transparency.
@@ -204,9 +204,9 @@ git commit -m "docs: write article Section 3 — the 8 data sources"
 Append Section 4. Cover:
 
 **The name problem (use this exact example):**
-- "Honky Tonk Wine Library" in our database
-- "HONKYTONK WINE LIBRARY LIMITED" at Companies House
-- "HonkyTonk Wine Library" on Trustpilot
+- "Barbican Kitchen (Original)" in our database
+- "THE BARBICAN KITCHEN LTD" at Companies House
+- "Barbican Kitchen Brasserie" on review sites
 - Explain in plain English: same restaurant, three different names
 
 **The scoring algorithm (simplified for general readers):**
@@ -282,7 +282,7 @@ Append Section 5. Cover these practices:
 - DPIA documented
 
 **The Trustpilot 404 story:**
-- Honky Tonk Wine Library's Trustpilot page vanished mid-project
+- One of our restaurants had a Trustpilot page that vanished mid-project (don't name the specific restaurant)
 - Illustrates platform dependence: scraped data is borrowed, not owned
 - Why audit logs matter
 
@@ -366,7 +366,7 @@ Append Section 7. Requirements:
 - Return to the opening paradox
 - The data didn't answer "which restaurant should I eat at?" — it answered "what can public data tell us, and what can't it?"
 - No single data source tells the truth; combining them gets closer, but gaps remain
-- Final line should echo the Honky Tonk matching example: "The hardest part isn't technology — it's matching 'Honky Tonk Wine Library' to 'HONKYTONK WINE LIBRARY LIMITED.'"
+- Final line should echo the Barbican Kitchen matching example: "The hardest part isn't technology — it's matching 'Barbican Kitchen (Original)' to 'THE BARBICAN KITCHEN LTD.'"
 
 Add article footer:
 
@@ -482,10 +482,10 @@ git commit -m "docs: complete Plymouth restaurant data article — verified and 
 | 2 | The Hook | ~400 | Hygiene/satisfaction paradox, gap table |
 | 3 | What Your Money Buys | ~500 | Prices by cuisine, menu stats |
 | 4 | The Data Sources | ~800 | 8 source cards (6 operational, 2 in progress) |
-| 5 | The Hard Part | ~700 | Fuzzy matching, Honky Tonk example, 49→202 story |
+| 5 | The Hard Part | ~700 | Fuzzy matching, Barbican Kitchen example, 49→202 story |
 | 6 | Scraping Ethically | ~600 | robots.txt, rate limiting, GDPR, Trustpilot 404 |
 | 7 | Build This For Your City | ~500 | Replication guide, effort estimates |
-| 8 | Closing | ~200 | Return to paradox, Honky Tonk callback |
+| 8 | Closing | ~200 | Return to paradox, Barbican Kitchen callback |
 | 9 | Verification & Polish | — | Data check script, full read-through, word count |
 
 **Total target: 3,700 words** (within the 3,500-4,500 range)

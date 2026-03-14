@@ -87,14 +87,6 @@ These restaurants achieved a score of 0 (perfect compliance) in all three catego
 
 ### Restaurants Requiring Attention (≤2★)
 
-#### 🔴 1★ - Honky Tonk Wine Library
-**Inspected:** 2024-11-19 (Recent!)
-- **Hygiene:** 15 (Satisfactory - issues present)
-- **Structural:** 10 (Good)
-- **Confidence in Management:** 20 (Improvement needed - significant issues)
-- **Total:** 45 points
-- **Analysis:** Management systems need major improvement. Score of 20 in Confidence triggers rating reduction.
-
 #### 🟠 2★ - The Dock
 **Inspected:** 2024-05-22
 - **Hygiene:** 15 (Satisfactory - issues present)
