@@ -1,6 +1,7 @@
 {
   "enabledPlugins": {
-    "arckit@arc-kit": true
+    "arckit@arc-kit": true,
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "arc-kit": {
