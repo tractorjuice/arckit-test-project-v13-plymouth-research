@@ -1831,7 +1831,13 @@
         }
 
         function getFallbackUrl(path) {
-            return CONFIG.contentBaseUrl ? `${CONFIG.contentBaseUrl}/${path}` : null;
+            if (!CONFIG.contentBaseUrl) return null;
+            // Use GitHub API (supports CORS) instead of raw.githubusercontent.com (no CORS)
+            const match = CONFIG.contentBaseUrl.match(/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)/);
+            if (match) {
+                return `https://api.github.com/repos/${match[1]}/${match[2]}/contents/${path}?ref=${match[3]}`;
+            }
+            return `${CONFIG.contentBaseUrl}/${path}`;
         }
 
         function getDocumentId(path) {
@@ -3903,11 +3909,17 @@
                     if (!response.ok) {
                         const fallback = getFallbackUrl(path);
                         if (fallback) {
-                            response = await fetch(fallback);
+                            try {
+                                response = await fetch(fallback, {
+                                    headers: fallback.includes('api.github.com') ? { 'Accept': 'application/vnd.github.v3.raw' } : {}
+                                });
+                            } catch (e) {
+                                // Network/CORS error on fallback
+                            }
                         }
                     }
-                    if (!response.ok) {
-                        throw new Error(response.status === 404 ? 'not_found' : `fetch_error_${response.status}`);
+                    if (!response || !response.ok) {
+                        throw new Error(!response ? 'not_found' : response.status === 404 ? 'not_found' : `fetch_error_${response.status}`);
                     }
                     markdown = await response.text();
                     documentCache.set(path, markdown);
