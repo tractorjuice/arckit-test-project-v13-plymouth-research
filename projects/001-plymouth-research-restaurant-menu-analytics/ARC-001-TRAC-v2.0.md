@@ -643,8 +643,8 @@ quadrantChart
     Business-BR: [0.75, 0.75]
     Functional-FR: [0.55, 0.55]
     Non-Functional-NFR: [0.36, 0.45]
-    Integration-INT: [0.50, 1.0]
-    Data-DR: [0.70, 1.0]
+    Integration-INT: [0.50, 0.95]
+    Data-DR: [0.70, 0.95]
 ```
 
 ### Appendix E: Vendor Profiles (Implementation Evidence)
