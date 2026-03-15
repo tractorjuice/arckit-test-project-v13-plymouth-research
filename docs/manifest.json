@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-15T11:49:11.689Z",
+  "generated": "2026-03-15T12:28:31.152Z",
   "repository": {
     "name": "arckit-test-project-v13-plymouth-research"
   },
@@ -734,6 +734,12 @@
           "documentId": "ARC-001-STKE-v1.0"
         },
         {
+          "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-STORY-v1.0.md",
+          "title": "Project Story",
+          "category": "Reporting",
+          "documentId": "ARC-001-STORY-v1.0"
+        },
+        {
           "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-TRAC-v1.0.md",
           "title": "Traceability Matrix",
           "category": "Governance",
@@ -1174,6 +1180,16 @@
         "createdDate": null,
         "lastModified": null
       },
+      "ARC-001-STORY-v1.0": {
+        "type": "STORY",
+        "project": "001-plymouth-research-restaurant-menu-analytics",
+        "path": "projects/001-plymouth-research-restaurant-menu-analytics/ARC-001-STORY-v1.0.md",
+        "title": "ARC-001-STORY-v1.0 — Project Story: Plymouth Research Restaurant Menu Analytics",
+        "status": "DRAFT",
+        "severity": "LOW",
+        "createdDate": "2026-03-15",
+        "lastModified": "2026-03-15"
+      },
       "ARC-001-TRAC-v1.0": {
         "type": "TRAC",
         "project": "001-plymouth-research-restaurant-menu-analytics",
@@ -1539,6 +1555,101 @@
       {
         "from": "ARC-001-RSCH-v2.0",
         "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-EVAL",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-ANAL",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-ADR-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-DSCT",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-ADR-002",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-GCRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-HLD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STORY-v1.0",
+        "to": "ARC-001-DLD",
         "type": "references"
       },
       {
