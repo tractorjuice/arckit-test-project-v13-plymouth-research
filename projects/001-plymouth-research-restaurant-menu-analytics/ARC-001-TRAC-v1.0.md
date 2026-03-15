@@ -396,8 +396,8 @@ quadrantChart
     quadrant-3 Ungoverned
     quadrant-4 Code Without Design
     Business (BR): [0.75, 0.25]
-    Integration (INT): [0.5, 0.0]
-    Data (DR): [0.7, 0.0]
+    Integration (INT): [0.5, 0.05]
+    Data (DR): [0.7, 0.05]
 ```
 
 ## External References

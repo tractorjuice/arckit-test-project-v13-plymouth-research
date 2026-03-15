@@ -462,8 +462,8 @@ quadrantChart
     quadrant-3 Ungoverned
     quadrant-4 Code Without Design
     Business-BR: [0.75, 0.63]
-    Integration-INT: [0.5, 1.0]
-    Data-DR: [0.7, 1.0]
+    Integration-INT: [0.5, 0.95]
+    Data-DR: [0.7, 0.95]
 ```
 
 ### Appendix E: Vendor Profiles (Implementation Evidence)
